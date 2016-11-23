@@ -1,0 +1,111 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+%opening
+\title{Calcolare le permutazioni di $S_{8}$, periodo e segno, inversa di una permutazione, Sottogruppo ciclico dell permutazioni}
+\author{baudo81[at]gmail.com}
+
+\begin{document}
+
+\maketitle
+
+
+\section{TESTO}
+Si considerino le seguenti permutazioni di $S_{8}$:
+\[
+ \alpha = \left( \begin{array}{cccccccc}
+                  1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+                  3 & 8 & 2 & 1 & 7 & 5 & 6 & 4 \\
+                 \end{array}
+ \right)
+\]
+
+\[
+  \beta = \left( \begin{array}{cccccccc}
+                  1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+                  7 & 3 & 6 & 4 & 2 & 5 & 1 & 8 \\
+                 \end{array}
+ \right)
+\]
+
+\[
+  \gamma = \left( \begin{array}{cccccccc}
+                  1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+                  1 & 7 & 2 & 8 & 4 & 6 & 3 & 5 \\
+                 \end{array}
+ \right)
+\]
+
+\begin{itemize}
+ \item Calcolare il periodo ed il segno delle tre permutazioni.
+ \item Calcolare l'inversa di ciascuna permutazione.
+ \item Determinare esplicitamente gli elementi del sottogruppo ciclico generato da $\beta$.
+\end{itemize}
+
+
+\section{TEORIA}
+  \begin{itemize}
+   \item \href{./Permutazione.html}{Permutazione}
+   \item \href{./PermutazioniCicli.html}{Ciclo di una permutazione}
+   \item \href{./OrderOfGroup.html}{Order of a group}
+   \item Segno di una permutazione
+   \item Inversa di una permutazione
+   \item Sottogruppo ciclico generato da una permutazione
+  \end{itemize}
+
+\section{SOLUZIONE}
+\begin{itemize}
+ \item $\alpha = (13284)(576)$, $\beta = (17)(2365)$, $\gamma = (273)(485)$  
+ Siccome il segno di un prodotto di cicli è il prodotto dei segni e siccome il segno di un ciclo di lunghezza $s$ è $(-1)^{s-1}$, 
+ abbiamo che il segno di $\alpha$, $\beta$ e $\gamma$ è sempre 1.
+ \item  
+ \[
+ \alpha^{-1} = \left( \begin{array}{cccccccc}
+                  1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+                  4 & 3 & 1 & 8 & 6 & 7 & 5 & 2 \\
+                 \end{array}
+ \right)
+\]
+
+\[
+  \beta^{-1} = \left( \begin{array}{cccccccc}
+                  1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+                  7 & 5 & 2 & 4 & 6 & 3 & 1 & 8 \\
+                 \end{array}
+ \right)
+\]
+
+\[
+  \gamma^{-1} = \left( \begin{array}{cccccccc}
+                  1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+                  1 & 3 & 7 & 5 & 8 & 6 & 2 & 4 \\
+                 \end{array}
+ \right)
+\]
+  
+  \item
+  Siccome il periodo di $\beta$ è 4 abbiamo che il sottogruppo generato da $\beta$ conterra $id$, $\beta$, $\beta^2$, $\beta^3$ e si avrà
+  
+  \[
+  \beta^{2} = \left( \begin{array}{cccccccc}
+                  1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+                  1 & 6 & 5 & 4 & 3 & 2 & 7 & 8 \\
+                 \end{array}
+ \right)
+ \]
+ 
+  \[
+  \beta^{3} = \left( \begin{array}{cccccccc}
+                  1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+                  7 & 5 & 2 & 4 & 6 & 3 & 1 & 8 \\
+                 \end{array}
+ \right)
+ \].
+ 
+ 
+\end{itemize}
+
+
+\end{document}

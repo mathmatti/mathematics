@@ -1,0 +1,58 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+%opening
+\title{Esercizio 3: Trovare il nucleo di un omomorfismo di gruppi}
+\author{baudo81[at]gmail.com}
+
+\begin{document}
+
+\maketitle
+
+\section{TESTO}
+Sia  
+\[
+  G = \left\{ \left[ {\begin{array}{cc}
+   a & b \\
+   0 & a \\    
+   \end{array} } 
+   \right] ; a, b \in R, a \ne 0 \right\} 
+\]
+
+\begin{itemize}
+ \item Dimostrare che $G$ è un sottogruppo di $GL_{2}(R)$.
+ \item Dimostrare che la funzione $f:G\longrightarrow R^{*}$ definita da \[
+  f \left( \left[ {\begin{array}{cc}
+   a & b \\
+   0 & a \\    
+   \end{array} } 
+   \right] \right) = a
+\]
+ 
+è un omomorfismo del gruppo $G$ nel gruppo moltiplicativo $R^{*}$.
+
+\item Determinare il nucleo $ker(f)$.
+
+\end{itemize}
+
+\section{TEORIA}
+\begin{itemize}
+ \item Teoria degli insiemi
+ \item Nucleo di un omomorfismo di gruppi
+\end{itemize}
+
+
+\section{SOLUZIONE}
+\[
+ ker(f) = \left\{ A \in G, tali che f(A) = 1 \right\} = \left\{ \left[ \begin{array}{cc}
+   1 & b \\
+   0 & 1 \\    
+   \end{array} \right]; b \in R \right\} 
+\]
+
+\section{IDEA A BASE DELLA SOLUZIONE}
+Ho individuato facilmente gli elementi neutri di $R^{*}$ e cioè 1!!! dopodichè ho cercato l'elemento di 
+$G$ che applicato tramite la $f$ mi dia come risultato 1. Lo si può fare a occhio.
+\end{document}

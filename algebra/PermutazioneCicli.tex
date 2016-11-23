@@ -1,0 +1,82 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+%opening
+\title{Ciclo di una permutazione}
+\author{www.baudo.hol.es}
+
+\begin{document}
+
+\maketitle
+
+\section{DEFINIZIONE (1)}
+Per ciclo di una permutazione si intende il nome della notazione utilizzata per rappresentare una permutazione.
+
+\section{DEFINIZIONE (2)}
+Sia $n$ un intero positivo. Si dice ciclo (o permutazione ciclica) ogni $\sigma \in S_n$ per cui esistono un intero
+positivo $l$ e $a_1, ..., a_l \in \{1, ..., n\}$ a due a due distinti tali che
+\begin{itemize}
+ \item $\sigma(a_1)=a_2, \sigma(a_2)=a_3, ..., \sigma(a_l)=a_1$;
+ \item $\sigma(k)=k$ per ogni $k \in \{1, ..., n\} \setminus \{a_1, ..., a_l\}$.
+\end{itemize}
+Il numero $l$ si dice lunghezza di $\sigma$. Una permutazione ciclica di lunghezza $l$ si dice anche l-ciclo.
+
+\section{DEFINIZIONE (3)}
+Sia $r$ un intero positivo, $2 \leq r \leq n $ e siano dati $r$ elementi distinti $i_1, i_2, ..., i_r \in X=\{1,2,...,n\}$.
+Col simbolo $\gamma = (i_1 i_2 ... i_r)$ si denoti la permutazione $\gamma \in S_n$ tale che:
+\begin{enumerate}
+ \item $\gamma (i_k) = i_k$ se $i_k \notin \{i_1, i_2, ..., i_r\}$
+ \item $\gamma(i_k)=i_{k+1}$ se $1 \leq k \leq r-1$
+ \item $\gamma (i_r)=i_1$
+\end{enumerate}
+Tale permutazione è detta ciclo di lunghezza $r$.
+Se il ciclo ha lunghezza 2 viene detto trasposizione o scambio.
+
+\subsection{NOTE}
+Il solo ciclo di lunghezza 1 è la permutazione identica.
+
+Il ciclo di lunghezza 2 è detto trasposizione o scambio.
+
+La scrittura ciclica di un l-ciclo non è unica. Se $l>1$, il ciclo ammette esattamente $l$ scritture cicliche distinte,
+ottenute tramite rotazioni successive degli indici verso sinistra.
+
+\section{NOTAZIONE}
+Un ciclio è una lista di indici fra parentesi, e conveniamo che rappresenti la permutazione che associa a ogni indice nel ciclo
+quello successivo.
+
+\section{ESEMPIO}
+Ad esempio, il ciclo
+\[
+ (12345)
+\]
+rappresenta la permutazione che manda 1 in 2, 2 in 3 e così via fino a 5 in 1. Due cicli sono disgiunti se non hanno lettere in comune.
+Per esempio, (123) e (45) sono disgiunti, ma (123) e (124) no. 
+
+\section{COMPOSIZIONE DI PERMUTAZIONI = PRODOTTO DI CICLI}
+Per scrivere la composizione di permutazioni rappresentate da cicli,
+basta scrivere i cicli di seguito.
+
+Non è difficile calcolare la permutazione risultante da una composizione di cicli: basta, per ogni lettera, "seguire il suo destino" lungo
+i vari cicli. Per esempio,
+\[
+ (123)(135)(24) = \left(\begin{array}{ccccc}
+                         1 & 2 & 3 & 4 & 5 \\
+                         4 & 5 & 3 & 2 & 1 \\
+                        \end{array} \right)
+\]
+Come abbiamo fatto il conto? Cominciamo da 1: il primo ciclo manda 1 in 2, il secondo non tocca il 2, il terzo manda 2 in 4: concludiamo
+che i tre cicli mandano 1 in 4. Il primo ciclo manda 2 in 3, il secondo 3 in 5, e il terzo non tocca 5: concludiamo che i tre cicli
+mandano 2 in 5, e così via. Notate che alla fine del conto c'è un controllo di coerenza molto semplice:  tutti i numeri
+nella seconda riga devono essere distinti.
+
+\section{APPRFONDIMENTI}
+\begin{itemize}
+ \item DISPENSA: Orbite e cicli di una permutazione \cite{permutazione4}
+ \item DISPENSA: Permutazioni \cite{permutazione2}
+\end{itemize}
+
+\bibliography{AlgebraIndex}
+\bibliographystyle{plain}
+\end{document}

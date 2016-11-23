@@ -1,0 +1,39 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+%opening
+\title{Decomposizione in cicli disgiunti}
+\author{www.baudo.hol.es}
+
+\begin{document}
+
+\maketitle
+
+\section{DEFINIZIONE}
+Decomporre una permutazione in cicli disgiunti vuol dire rappresentarla sotto forma di cicli.
+
+\section{ESEMPIO}
+Come fare a ottenere una rappresentazione in cicli di una permutazione? Basta "seguire" una lettera qualunque fino a trovare
+un ciclo: per esempio, in 
+\[
+\left( \begin{array}{cccc} 1 & 2 & 3 & 4 \\ 3 & 1 & 2 & 4 \\ \end{array} \right) 
+\]
+abbiamo che 1 va in 3, 3 va in 2 e 2 va in 1; quindi il primo ciclo che troviamo è (123). A questo punto non ci rimane che 4,
+che però va in sé, e formerebbe un ciclo di lunghezza 1. I cicli di lunghezza 1 per convenzione non si scrivono, e
+quindi la permutazione si scrive (123).
+
+NB: Secondo me se segui questo procedimento per forza di cose devi trovare cicli disgiunti.
+
+\section{APPROFONDIMENTI}
+\begin{itemize}
+ \item DISPENSA: Permutazioni \cite{permutazione2}
+ \item DISPENSA: Orbite e cicli di una permutazione \cite{permutazione4}
+ \item DISPENSA: Lezione 9 \href{http://www.science.unitn.it/~luminati/didattica/md/1998/diario/Lezione_9.htm}{http://www.science.unitn.it/~luminati/didattica/md/1998/diario/Lezione_9.htm}
+ \item ESERCIZI SVOLTI: Algebra 1 \href{http://www.mat.uniroma3.it/users/gabelli/AL1_06_07/soluzioni2esonero.pdf}{http://www.mat.uniroma3.it/users/gabelli/AL1_06_07/soluzioni2esonero.pdf}
+\end{itemize}
+
+\bibliography{AlgebraIndex}
+\bibliographystyle{plain}
+\end{document}

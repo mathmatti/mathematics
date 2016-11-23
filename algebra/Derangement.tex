@@ -1,0 +1,56 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+%opening
+\title{Derangement, Partial Derangement}
+\author{baudo81[at]gmail.com}
+
+\begin{document}
+
+\maketitle
+
+\section{DEFINITION}
+A derangement is a permutation of the elements of a set, such that no element appears in its original 
+position. \cite{derangement}
+
+\section{NOTATION}
+The number of derangement of a set of size $n$, usually written $D_{n}$, $d_{n}$, or $!n$, is called the "derangement number" or
+"de Montmort number". (These numbers are generalized to rencontres numbers). \cite{derangement}
+
+The number of derangements of an n-element set is called the nth derangement number or rencontres number, or the subfactorial
+of n and is sometimes denoted $!n$ or $D_{n}$
+
+\section{FORMULA DERANGEMENT}
+\[
+ d_{n} = n!\sum^{n}_{i=0} \frac{(-1)^i}{i!}
+\]
+
+\section{FORMULA PARTIAL DERANGEMENT}
+La formula precendente è utilizzata quando vogliamo il numero delle permutazioni (o casi favorevoli, a volte negli esercizi) che hanno fixed point uguale a 0.
+In generale per $k>0$ dove $k$ rappresenta il numero di fixed point, la formula diventa:
+
+\[
+ d_{n,k} = \frac{n!}{k!}\sum^{n}_{i=0} \frac{(-1)^i}{i!}
+\]
+
+\section{NOTE}
+In altre parole, il derangment è un sottoinsieme dell'insieme delle permutazioni formato dalle permutazioni che non hanno punti fissi, cioè 
+in cui nessun elemento è al suo posto.
+
+\section{HISTORY}
+The problem of counting derangements was first considered by Pierre Raymond de Montmort in 1708; he solved it in 1713, as did
+Nicholas Bernoulli at about the same time. \cite{derangement}
+
+\section{APPROFONDIMENTI}
+\begin{itemize}
+ \item \href{https://en.wikipedia.org/wiki/Derangement}{WIKIPEDIA: Derangement}
+ \item \href{./pdf/DERANGEMENT/derangementLucchini.pdf}{DISPENSA: Derangement.pdf}
+ \item \href{http://oeis.org/wiki/Number_of_derangements}{OEIS: Number of derangement}
+\end{itemize}
+
+
+\bibliographystyle{alpha}
+\bibliography{AlgebraIndex}
+\end{document}

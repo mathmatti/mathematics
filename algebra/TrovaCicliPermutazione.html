@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="iso-8859-1" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" 
+"http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd" > 
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Come trovare i cicli di una permutazione</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,mathml,html --> 
+<meta name="src" content="TrovaCicliPermutazione.tex" /> 
+<meta name="date" content="2016-11-23 12:24:00" /> 
+<link rel="stylesheet" type="text/css" href="TrovaCicliPermutazione.css" /> 
+</head><body 
+>
+   <div class="maketitle">
+                                                                  
+
+                                                                  
+                                                                  
+
+                                                                  
+
+<h2 class="titleHead">Come trovare i cicli di una permutazione</h2>
+<div class="author" ><span 
+class="cmr-12">www.baudo.hol.es</span></div><br />
+<div class="date" ><span 
+class="cmr-12">November 23, 2016</span></div>
+   </div>
+   <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
+ id="x1-10001"></a>ESEMPIO</h3>
+<!--l. 15--><p class="noindent" >Come fare a ottenere una rappresentazione in cicli di una permutazione?
+Basta &#x201D;seguire&#x201D; una lettera qualunque &#xFB01;no a trovare un ciclo: per esempio,
+in
+</p>
+   <div class="math-display"><!--l. 17--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+<mfenced separators="" 
+open="("  close=")" ><mrow> <mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>2</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>3</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>4</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center">  <mn>3</mn> </mtd> <mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd> <mtd 
+class="array"  columnalign="center"><mn>2</mn></mtd> <mtd 
+class="array"  columnalign="center"><mn>4</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center">  </mtd></mtr> <!--cccc--></mtable>                                                                                                </mrow></mfenced>
+</mrow></math></div>
+<!--l. 19--><p class="nopar" > abbiamo che 1 va in 3, 3 va in 2 e 2 va in 1; quindi il primo ciclo che troviamo &#x00E8;
+&#x0028;123&#x0029;. A questo punto non ci rimane che 4, che per&#x00F2; va in s&#x00E9;, e formerebbe un ciclo
+di lunghezza 1. I cicli di lunghezza 1 per convenzione non si scrivono, e quindi la
+permutazione si scrive &#x0028;123&#x0029;.
+</p><!--l. 25--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
+ id="x1-20002"></a>APPROFONDIMENTI</h3>
+     <ul class="itemize1">
+     <li class="itemize">DISPENSA: Permutazioni <span class="cite">&#x005B;<a 
+href="#Xpermutazione2">2</a>&#x005D;</span>
+                                                                  
+
+                                                                  
+     </li>
+     <li class="itemize">DISPENSA: Orbite e cicli di una permutazione <span class="cite">&#x005B;<a 
+href="#Xpermutazione4">1</a>&#x005D;</span>
+     </li>
+     <li class="itemize">DISPENSA: Lezione 9 <a 
+href="http://www.science.unitn.it/~luminati/didattica/md/1998/diario/Lezione_9.htm" >http://www.science.unitn.it/&#x00A0;luminati/didattica/md/1998/diario/Lezione&#x02D9;9.htm</a>
+     </li>
+     <li class="itemize">ESERCIZI SVOLTI: Algebra 1 <a 
+href="http://www.mat.uniroma3.it/users/gabelli/AL1_06_07/soluzioni2esonero.pdf" >http://www.mat.uniroma3.it/users/gabelli/AL1&#x02D9;06&#x02D9;07/soluzioni2esonero.pdf</a></li></ul>
+<!--l. 1--><p class="noindent" >
+</p>
+   <h3 class="likesectionHead"><a 
+ id="x1-30002"></a>References</h3>
+<!--l. 1--><p class="noindent" >
+   </p><div class="thebibliography">
+   <p class="bibitem" ><span class="biblabel">
+ &#x005B;1&#x005D;<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span><a 
+ id="Xpermutazione4"></a>Margherita    Barile.         Orbite    e    cicli    di    una    permutazione.
+   <a 
+href="http://www.dm.uniba.it/~barile/Rete4/algebra1_pdf/lezione18.pdf" class="url" ><span 
+class="cmtt-10">http://www.dm.uniba.it/</span><span 
+class="cmtt-10">~</span><span 
+class="cmtt-10">barile/Rete4/algebra1_pdf/lezione18.pdf</span></a>.
+   Inoltre su <a 
+href="http://www.dm.uniba.it/~barile/" class="url" ><span 
+class="cmtt-10">http://www.dm.uniba.it/</span><span 
+class="cmtt-10">~</span><span 
+class="cmtt-10">barile/</span></a> trovi una buona raccolta di
+   materiale didattico.
+   </p>
+   <p class="bibitem" ><span class="biblabel">
+ &#x005B;2&#x005D;<span class="bibsp">&#x00A0;&#x00A0;&#x00A0;</span></span><a 
+ id="Xpermutazione2"></a><a 
+href="http://ioi.di.unimi.it" class="url" ><span 
+class="cmtt-10">http://ioi.di.unimi.it</span></a>.                                        Permutazioni.
+   <a 
+href="http://ioi.di.unimi.it/permutazioni.pdf" class="url" ><span 
+class="cmtt-10">http://ioi.di.unimi.it/permutazioni.pdf</span></a>.
+</p>
+   </div>
+    
+</body></html> 
+
+                                                                  
+
+

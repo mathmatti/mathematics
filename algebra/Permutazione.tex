@@ -1,0 +1,67 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+%opening
+\title{Permutazione}
+\author{www.baudo.hol.es}
+
+\begin{document}
+
+\maketitle
+
+\section{DEFINIZIONE}
+Sia $X$ un insieme non vuoto. Si dice permutazione su $X$ ogni applicazione bigettiva di $X$ in se stesso. \cite{permutazione1}
+
+\section{NOTAZIONE - FORMA MATRICIALE}
+In generale, per indicare una permutazione si usano le lettere greche minuscole, es. $\sigma$, e la cosiddetta notazione matriciale,
+nella quale sono riportarte (nella seconda riga) le immagini secondo $\sigma$ degli elementi di $X$ (scritti nella prima riga):
+\[
+\left(
+ \begin{array}{cccc}
+  1 & 2 & ... & n \\
+  \sigma(1) & \sigma(2) & ... & \sigma(n)
+ \end{array}
+\right)
+\] \cite{permutazione1}
+
+\section{NOTAZIONE (2) - CICLI}
+see \href{./PermutazioneCicli.html}{Ciclo di una permutazione}
+
+\section{PERMUTAZIONE IDENTICA - ELEMENTO NEUTRO RISPETTO ALLA COMPOSIZIONE DI PERMUTAZIONI}
+In questa notazione, l'applicazione identica corrisponde ad una matrice con due righe uguali:
+\[
+\left(
+ \begin{array}{cccc}
+  1 & 2 & ... & n \\
+  1 & 2 & ... & n \\
+ \end{array}
+\right)
+\]
+
+Indicheremo tale applicazione (detta permutazione identica), più semplicemente, con il simbolo $id$. \cite{permutazione1}
+
+\section{INVERSA DI UNA PERMUTAZIONE}
+per ottenere l’inversa di una permutazione basta scambiare la prima e la seconda riga e riordinare la prima. \cite{permutazione2}
+
+\section{INSIEME DELLE PERMUTAZIONI}
+Denoteremo con $S(X)$ l'insieme delle permutazioni su $X$. \cite{permutazione1}
+
+Il numero di elementi di $S(X)$ è uguale a $n!$, dove $n$ è il numero di elementi dell'insieme $X$.
+
+\section{NOTE}
+Una permutazione è una funzione
+
+\section{APPROFONDIMENTI}
+\begin{itemize}
+ \item \href{./pdf/PERMUTAZIONE/lezione4.pdf}{DISPENSA: Gruppi di permutazioni} \cite{permutazione1}
+ \item \href{./pdf/PERMUTAZIONE/permutazioni.pdf}{DISPENSA: Permutazioni} \cite{permutazione2}
+ \item \href{http://www.dm.uniba.it/~barile/Rete4/algebra1_pdf/lezione18.pdf}{DISPENSA: Orbite e cicli di una permutazione.} \cite{permutazione4}
+ \item \href{http://progettomatematica.dm.unibo.it/Permutazioni/homepg.htm}{PROGETTO MATEMATICA: Permutazioni} \cite{permutazione3}
+\end{itemize}
+
+
+\bibliography{AlgebraIndex}
+\bibliographystyle{plain}
+\end{document}
