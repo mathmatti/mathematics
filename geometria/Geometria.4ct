@@ -1,6 +1,9 @@
 \expandafter\ifx\csname doTocEntry\endcsname\relax \expandafter\endinput\fi 
 \doTocEntry\tocsection{1}{\csname a:TocLink\endcsname{1}{x1-10001}{QQ2-1-1}{Introduzione}}{3}\relax 
-\doTocEntry\tocsection{2}{\csname a:TocLink\endcsname{1}{x1-20002}{QQ2-1-2}{Prerequisites}}{3}\relax 
-\doTocEntry\tocsection{3}{\csname a:TocLink\endcsname{1}{x1-30003}{QQ2-1-3}{Syllabus}}{3}\relax 
-\doTocEntry\tocsection{4}{\csname a:TocLink\endcsname{1}{x1-40004}{QQ2-1-4}{Temi d'esame}}{3}\relax 
+\doTocEntry\tocsubsection{1.1}{\csname a:TocLink\endcsname{1}{x1-20001.1}{QQ2-1-2}{I link}}{3}\relax 
+\doTocEntry\tocsubsection{1.2}{\csname a:TocLink\endcsname{1}{x1-30001.2}{QQ2-1-3}{Appunti delle lezioni}}{4}\relax 
+\doTocEntry\tocsection{2}{\csname a:TocLink\endcsname{1}{x1-40002}{QQ2-1-4}{Prerequisites}}{4}\relax 
+\doTocEntry\tocsection{3}{\csname a:TocLink\endcsname{1}{x1-50003}{QQ2-1-5}{Syllabus}}{4}\relax 
+\doTocEntry\tocsection{4}{\csname a:TocLink\endcsname{1}{x1-60004}{QQ2-1-6}{Libri}}{5}\relax 
+\doTocEntry\tocsection{5}{\csname a:TocLink\endcsname{1}{x1-70005}{QQ2-1-7}{Temi d'esame}}{5}\relax 
 \par 
