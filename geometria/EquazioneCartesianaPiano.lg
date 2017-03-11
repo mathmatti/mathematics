@@ -1,3 +1,4 @@
+htfcss: cmtt font-family: monospace;
 htfcss: cmbsy font-weight: bold;
 htfcss: cmbsy font-weight: bold;
 htfcss: cmbsy font-weight: bold;
@@ -143,3 +144,4 @@ Font("cmex","7","7","100")
 Font("cmex","7","7","71")
 Font("cmr","17","17","100")
 Font("cmr","12","12","100")
+Font("cmtt","10","10","100")
