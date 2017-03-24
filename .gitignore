@@ -175,6 +175,14 @@ TSWLatexianTemp*
 
 # Kile
 *.backup
+*.lg
+*.idv
+*.tmp
+*.xref
+*.4tc
+*.4ct
 
 # KBibTeX
 *~[0-9]*
+
+
