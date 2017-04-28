@@ -29,5 +29,3 @@ selezionate la definizione che più vi conviene.
  - run from command line: git push
  - https://baudo2048.github.io/mathematics/ 
 
-
-
