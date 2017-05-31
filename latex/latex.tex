@@ -11,11 +11,30 @@
 
 \maketitle
 
-\section{DEFINIZIONE}
+\section{Multicolumns}
 
-\section{NOTAZIONE}
+\begin{verbatim}
+\usepackage{multicol}
 
-\section{ESEMPIO}
+	\begin{multicols}{3}
+		[
+		\section{First Section}
+		All human things are subject to decay. And when fate summons, Monarchs must obey.
+		]
+		Hello, here is some text without a meaning.  
+		\vfill\null			
+		\columnbreak
+		
+		This text should show what 
+		a printed text will look like at this place.
+		\vfill\null
+		\columnbreak		
+		
+		If you read this text, you will get no information.  Really?  Is there 
+		no information?  Is there...
+	\end{multicols}
+\end{verbatim}
+
 
 \section{APPROFONDIMENTI}
 \begin{itemize}
