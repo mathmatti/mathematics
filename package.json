@@ -1,0 +1,24 @@
+{
+  "name": "mathematics",
+  "version": "1.0.0",
+  "description": "Mathematics and programming resources",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"compile": "echo ok"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baudo2048/mathematics.git"
+  },
+  "keywords": [
+    "math",
+    "programming"
+  ],
+  "author": "baudo2048",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baudo2048/mathematics/issues"
+  },
+  "homepage": "https://github.com/baudo2048/mathematics#readme"
+}
