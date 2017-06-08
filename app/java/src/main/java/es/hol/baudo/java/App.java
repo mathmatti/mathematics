@@ -13,8 +13,8 @@ import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 
 /**
- * Hello world!
- *
+ * 
+ *	
  */
 public class App 
 {
@@ -23,6 +23,7 @@ public class App
     	//String folder = args[0];
     	//System.out.println("Folder: " + folder);
     	
+		// INSERIRE UN CICLO PER MODIFICARE TUTTI GLI HTML CHE SI TROVANO NELLA CARTELLA X
     	File input = new File("C:/Users/baudo_g/git/mathematics/latex/latex.html");
     	
     	Document doc = Jsoup.parse(input, "UTF-8");    	
