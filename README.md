@@ -19,8 +19,8 @@ Quando svolgiamo gli esercizi, ci capita di dover rivedere velocemente una defin
  
   
 Per ogni concetto potrebbero esserci diverse definizione le quali a volte sono equivalenti
-mentre altre volte potrebbero essere più o meno diverse. Se vi trovate ad affrontare un esercizio,
-selezionate la definizione che più vi conviene.  
+mentre altre volte potrebbero essere piÃ¹ o meno diverse. Se vi trovate ad affrontare un esercizio,
+selezionate la definizione che piÃ¹ vi conviene.  
 
 # getting involved as Programmer
  - install git
@@ -38,7 +38,7 @@ selezionate la definizione che più vi conviene.
  - downloads the projects and modify latex files.
  - Do you want to get help on how to commit your changes? Feel free to contact me on github (@baudo2048) or mail (baudo81 [at] gmail.com) in order to get help.
  
-# Project's folder structure
+# Project's folder structure  
  - app - Contains applications, and their source code, used to build this project.
  - book - Contains pdf resources.
  - code - Contains source code examples.
