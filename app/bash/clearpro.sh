@@ -1,13 +1,13 @@
 #!/bin/bash          
-echo Hello Mathematicians
+LATEXDIR=/home/giuseppe/git/mathematics/latex
+SITEDIR=/home/giuseppe/git/mathematics/site
 
-rm $(pwd)/*.4tc
-rm $(pwd)/*.4ct
-rm $(pwd)/*.aux
-rm $(pwd)/*.dvi
-rm $(pwd)/*.idv
-rm $(pwd)/*.tmp
-rm $(pwd)/*.lg
-rm $(pwd)/*.log
-rm $(pwd)/*.xref
-rm $(pwd)/*.out
+rm $LATEXDIR/*.log
+rm $LATEXDIR/*.dvi
+rm $LATEXDIR/*.4tc
+rm $LATEXDIR/*.4ct
+rm $LATEXDIR/*.aux
+rm $LATEXDIR/*.idv
+rm $LATEXDIR/*.lg
+rm $LATEXDIR/*.tmp
+rm $LATEXDIR/*.xref
