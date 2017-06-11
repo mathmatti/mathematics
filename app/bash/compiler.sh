@@ -22,12 +22,14 @@ SITEDIR=/home/giuseppe/git/mathematics/site
 cd $LATEXDIR
 for f in $LATEXDIR/*.tex 
 do 	
-	htlatex $f 	
+	htlatex $f
+	pdflatex $f
 done
 
 # also use mv
 cp $LATEXDIR/*.html $SITEDIR/
 cp $LATEXDIR/*.css $SITEDIR/
+cp $LATEXDIR/*.pdf $SITEDIR/
 
 #rm $LATEXDIR\*.log
 #rm $LATEXDIR\*.dvi
