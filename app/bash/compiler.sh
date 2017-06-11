@@ -25,8 +25,9 @@ do
 	htlatex $f 	
 done
 
-mv $LATEXDIR/*.html $SITEDIR/
-mv $LATEXDIR/*.css $SITEDIR/
+# also use mv
+cp $LATEXDIR/*.html $SITEDIR/
+cp $LATEXDIR/*.css $SITEDIR/
 
 #rm $LATEXDIR\*.log
 #rm $LATEXDIR\*.dvi
