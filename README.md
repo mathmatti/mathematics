@@ -32,7 +32,7 @@ selezionate la definizione che più vi conviene.
  - run from command line: git add -A
  - run from command line: git commit -m 'message'
  - run from command line: git push
- - https://baudo2048.github.io/mathematics/ 
+ - visit https://baudo2048.github.io/mathematics/site for a demo 
 
  # getting involved as Mathematicians
  - downloads the projects and modify latex files.

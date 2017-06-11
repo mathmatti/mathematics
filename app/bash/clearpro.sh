@@ -11,3 +11,8 @@ rm $LATEXDIR/*.idv
 rm $LATEXDIR/*.lg
 rm $LATEXDIR/*.tmp
 rm $LATEXDIR/*.xref
+
+rm $LATEXDIR/*.css
+rm $LATEXDIR/*.html
+rm $LATEXDIR/*.pdf
+rm $LATEXDIR/*.tex.backup
