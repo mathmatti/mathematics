@@ -33,6 +33,7 @@ selezionate la definizione che più vi conviene.
  - run from command line: git commit -m 'message'
  - run from command line: git push
  - visit https://baudo2048.github.io/mathematics/site for a demo 
+ - visit https://baudo2048.github.io/mathematics/ for readme
 
  # getting involved as Mathematicians
  - downloads the projects and modify latex files.
@@ -45,3 +46,7 @@ selezionate la definizione che più vi conviene.
  - latex - Contains the real content of this project.
  - legacy - Contains Licence and other law-related matters.
  - site - Contains the html/css/js output app of this project.
+
+# Convert html pages to pdf
+Suppose you are visiting the following page: https://baudo2048.github.io/mathematics/site/IndagineLeggiPensiero.html  
+so you just change .html extension with .pdf like https://baudo2048.github.io/mathematics/site/IndagineLeggiPensiero.pdf and you get the page in pdf format.
