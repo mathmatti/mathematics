@@ -11,6 +11,7 @@ rm $LATEXDIR/*.idv
 rm $LATEXDIR/*.lg
 rm $LATEXDIR/*.tmp
 rm $LATEXDIR/*.xref
+rm $LATEXDIR/*.out
 
 rm $LATEXDIR/*.css
 rm $LATEXDIR/*.html

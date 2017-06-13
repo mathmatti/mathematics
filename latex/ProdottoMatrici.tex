@@ -1,0 +1,50 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{hyperref}
+
+%opening
+\title{Operazione di prodotto tra matrici}
+\author{\href{http://www.baudo.hol.es}{giuseppe baudo}}
+
+\begin{document}
+	
+	\theoremstyle{definition}
+	\newtheorem{definition}{Definition}[section]
+
+\maketitle
+
+\section{Introduzione}
+Sotto talune condizione riguardo ai tipi di matrice, cio\'{e} sul numero delle righe e delle colonne che le matrici che si intendono moltiplicare devono avere, definiamo un'operazione
+che chiamiamo \textit{operazione di prodotto tra matrici} o \textit{prodotto tra matrici} o \textit{prodotto riga per colonna}.
+Bene, diciamolo subito, tra tutte le matrici dell'insieme $M_{m,n}$ \'{e} possibile moltiplicare tra di loro quelle in cui il numero di colonne della prima matrice corrisponde al
+numero di righe della seconda matrice. Per questo motivo viene chiamato prodotto righe per colonne.
+
+Altra cosa da tenere presente \'{e} il fatto che la forma della matrice risultato pu\'{o} essere diversa da quella delle matrici che abbiamo moltiplicato. Ed infatti, la matrice risultato
+sar\'{a} composta da $m$ righe ed $n$ colonne, dove, $m$ \`{e} il numero di righe della prima matrice e $n$ \`{e} il numero di colonne della seconda matrice.
+
+\begin{definition}
+ Se $A$ \`{e} una matrice $m \times s$ e $B$ \`{e} una matrice $s \times n$, definiamo il prodotto $c_{ij}$ della riga $i$ di $A$ e della colonna $j$ di $B$ nel modo seguente:
+ \[
+  c_{ij} = \begin{pmatrix}
+	      a_{i1} & ... & a_{is}
+           \end{pmatrix}           
+         = \begin{pmatrix}
+	      b_{1j} \\
+	      ... \\
+	      b_{sj}
+           \end{pmatrix}
+         = a_{i1}b_{1j} + ... + a_{is}b_{sj}
+         = \sum_{h=1}^s a_{ih}b_{hj}
+ \]
+
+\end{definition}
+
+In altre parole, per ricavare l'elemento di posto $(i,j)$ bisogna eseguire il prodotto riga per colonna tra la riga $i$ e la colonna $j$.
+
+Analogamente all'operazione di somma tra matrici, quello che \`{e} importante capire \`{e} quale formula \`{e} utilizzata per ricavare l'elemento di posto $(i,j)$. Solo che,
+nel caso della somma tra matrici, l'operazione \`{e} banale ed immediata, qui invece l'operatore di sommatoria potrebbe dare qualche problema agli inizi, ma poi ci si fa l'abitudine.
+
+
+\end{document}
