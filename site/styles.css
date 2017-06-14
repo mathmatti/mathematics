@@ -3,6 +3,11 @@
 	body {
 		margin-left: 200px;
 		margin-right: 200px;
+	}
+
+}
+
+	body {
 		background-color: black;
 		color: white;
 		text-align: justify;
@@ -15,7 +20,10 @@
 	li {
 		color: #FF00FF;
 	}
-
+	
+	a {
+		color: #b5e853;
+	}
 	a:hover {
 		color: white;
 	}
@@ -27,4 +35,3 @@
 	.verbatim {
 		color: red;
 	}
-}
