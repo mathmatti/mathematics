@@ -1,0 +1,30 @@
+@media only screen and (min-width: 1024px) {
+
+	body {
+		margin-left: 200px;
+		margin-right: 200px;
+		background-color: black;
+		color: white;
+		text-align: justify;
+	}
+
+	h3 {
+		color: yellow;
+	}
+
+	li {
+		color: #FF00FF;
+	}
+
+	a:hover {
+		color: white;
+	}
+
+	a:visited {
+		color: blue;
+	}
+
+	.verbatim {
+		color: red;
+	}
+}

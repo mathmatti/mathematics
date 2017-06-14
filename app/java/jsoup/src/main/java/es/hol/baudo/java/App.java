@@ -18,17 +18,17 @@ import org.jsoup.select.Elements;
  */
 public class App 
 {
+	
     public static void main( String[] args ) throws IOException
     {
-    	//String folder = args[0];
-    	//System.out.println("Folder: " + folder);
+    	final String fileName = args[0];
     	
-		// INSERIRE UN CICLO PER MODIFICARE TUTTI GLI HTML CHE SI TROVANO NELLA CARTELLA X
-    	File input = new File("C:/Users/baudo_g/git/mathematics/latex/latex.html");
+    	File input = new File(fileName);
     	
     	Document doc = Jsoup.parse(input, "UTF-8");    	
-    	Element e = doc.body();     			
-    	e.append("<p1>test</p1>");
+    	Element e = doc.body();   
+    	e.select("head"); //selezione da sistemare
+    	e.append("<link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\">");
     	
     	System.out.println(doc.outerHtml());
     	    	

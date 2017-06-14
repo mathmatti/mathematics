@@ -31,6 +31,10 @@ cp $LATEXDIR/*.html $SITEDIR/
 cp $LATEXDIR/*.css $SITEDIR/
 cp $LATEXDIR/*.pdf $SITEDIR/
 
+for f in $LATEXDIR/*.html
+do
+	java -jar $f "$f"
+done
 #rm $LATEXDIR\*.log
 #rm $LATEXDIR\*.dvi
 #rm $LATEXDIR\*.4tc
