@@ -2,10 +2,10 @@ REM compile from latex to html
 @ECHO off 
 SETLOCAL enableDelayedExpansion 
 
-SET LATEXDIR=C:\Users\baudo_g\git\mathematics\latex
+SET LATEXDIR=C:\Users\baudo_g\git\mathematics
 SET SITEDIR=C:\Users\baudo_g\git\mathematics\site
 
-del %SITEDIR%\*.*
+REM del %SITEDIR%\*.*
 
 REM cd ..\..\latex
 cd %LATEXDIR%
