@@ -1,0 +1,167 @@
+<HTML>
+<HEAD>
+<TITLE>esercizi
+</TITLE>
+</HEAD>
+<BODY bgcolor="ccffcc"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+   esercizio
+   </font></center>
+<br>
+   <font size=4>
+Mostrare  la presenza della struttura ad anello per l'insieme  
+<b>P(x)</b> dei polinomi in <b>x</b> a coefficienti reali con le normali
+operazioni di addizione    (<b>+</b>) e
+moltiplicazione (<b>&#183;</b>) fra polinomi<br> <hr>
+
+<font size=3>Per insieme dei polinomi in <b>x</b> si intende l'insieme dei
+polinomi della forma<br>
+<b>a<sub>n</sub>x<sup>n</sup> + a<sub>n-1</sub>x<sup>n-1</sup> ....
+a<sub>2</sub>x<sup>2</sup> + a<sub>1</sub>x + a<sub>0</sub></b><br>
+con <b>n = 0,1,2,....n,n+1,....</b>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="hceaca.html" target="_blank"><font size=2>non ho capito</font></a>
+<br>
+L'operazione di addizione significa l'addizione fra polinomi per cui sommiamo
+algebricamente i coefficienti dei termini con x allo stesso grado: cioe', se n
+e maggiore di m avremo<br><font size=2>
+<b>(a<sub>n</sub>x<sup>n</sup> + a<sub>n-1</sub>x<sup>n-1</sup> ....
+a<sub>2</sub>x<sup>2</sup> + a<sub>1</sub>x + a<sub>0</sub>) +
+(b<sub>m</sub>x<sup>m</sup> + b<sub>m-1</sub>x<sup>m-1</sup> ....
+b<sub>2</sub>x<sup>2</sup> + b<sub>1</sub>x + b<sub>0</sub>) = <br>
+= a<sub>n</sub>x<sup>n</sup> + a<sub>n-1</sub>x<sup>n-1</sup> ....
++ (a<sub>m</sub>+b<sub>m</sub>)x<sup>m</sup> +
+(a<sub>m-1</sub>+b<sub>m-1</sub>)x<sup>m-1</sup> ....
++ (a<sub>2</sub>+b<sub>2</sub>)x<sup>2</sup> + (a<sub>1</sub>+b<sub>1</sub>)x +
+(a<sub>0</sub>+b<sub>0</sub>)
+</b><br></font><br>
+Il prodotto fra polinomi e' il normale <a href=" ../../a/ad/ad4b.html"
+target="_blank">prodotto fra polinomi gia' visto </a>
+
+
+<hr><br>
+Dimostrazione:<br>
+dovremo mostrare:<br>
+<ul><LI>la presenza di un gruppo commutativo con la prima operazione</LI>
+<li>la presenza di un semigruppo con la seconda operazione</li>
+<li>il fatto che la seconda operazione e' distributiva rispetto alla prima</li>
+</ul>
+<br>
+
+<ul>
+<LI> Mostriamo che  <b>( P, +)</b> e' un gruppo; devono valere le
+proprieta':<br><br>
+<ul>
+<LI> <b>+</b> e' interna infatti avremo sempre che  la somma di due polinomi in
+<b>x</b> e' sempre ancora un polinomio in <b>x</b>:
+facciamo un esempio
+pratico:<br>
+<b>(2x<sup>3</sup> + 5x<sup>2</sup> -4x + 3) + (3x<sup>2</sup> + 4) =
+2x<sup>3</sup> + 8x<sup>2</sup> -4x + 7</b>
+<hr><font size=2>
+In pratica la somma nei polinomi si riduce alla somma dei coefficienti numerici
+di stesso grado e quindi le proprieta' della somma sono le stesse che hanno i
+numeri reali</font><hr>
+<br></LI>
+<LI>  <b>+</b> e' associativa, infatti chiamati <b>A(x)</b>, <b>B(x)</b> e
+<b>C(x)</b>
+tre elementi di <b>P(x)</b> abbiamo:<br>
+ <b>[A(x) + B(x)] + C(x) = A(x) + [ B(x) + C(x)]</b><br>
+
+facciamo anche qui un esempio
+pratico:<br>
+<b>[(2x<sup>3</sup> + 5x<sup>2</sup> -4x + 3) + (3x<sup>2</sup> + 4)] +
+(2x<sup>2</sup> + 3x  -4) =<br>
+= (2x<sup>3</sup> + 5x<sup>2</sup> -4x + 3) + [(3x<sup>2</sup> + 4) +
+(2x<sup>2</sup> + 3x  -4)]
+ </b><br>
+per mostrarlo basta che fai i calcoli prima e dopo l'uguale e mostri che i
+risultati sono uguali: lo sono perche' la somma fra i coefficienti (essendo
+numeri reali) gode della proprieta' associativa 
+<br><br></LI>
+<li> <b>+</b> possiede l'elemento neutro: infatti esiste l'elemento <b>P(0)</b>,
+intendendo <b>P(0)</b> come il polinomio 
+<b>0x<sup>n</sup>+....+0x<sup>2</sup>+0x+0</b>
+tale che per ogni elemento <b>A(x)</b>  di <b>P(x)</b> abbiamo  <br>
+ <b>A(x) + P(0) = A(x)</b> <br>
+<b>P(0) + A(x) = A(x)</b> <br>
+cioe' sommando <b>P(0)</b> a qualunque elemento l'altro elemento non cambia
+</font><br><br>
+</li>
+<li>ogni elemento <b>A(x)</b>  di <b>P(x)</b> possiede in <b>+</b> l'elemento
+simmetrico: infatti preso <br>
+ <b>A(x) = a<sub>n</sub>x<sup>n</sup> + a<sub>n-1</sub>x<sup>n-1</sup> ....
+a<sub>2</sub>x<sup>2</sup> + a<sub>1</sub>x + a<sub>0</sub></b><br>
+il simmetrico e'<br>
+<b>A'(x)= -a<sub>n</sub>x<sup>n</sup> - a<sub>n-1</sub>x<sup>n-1</sup> ....
+-a<sub>2</sub>x<sup>2</sup> - a<sub>1</sub>x - a<sub>0</sub></b>  <br>
+infatti <b>A(x) + A'(x) = 0</b>
+
+</li>
+</ul><br>
+Quindi <b>( P, +)</b> e' un gruppo; inoltre il gruppo e' commutativo
+perche' commutativa e' la somma fra i coefficienti numerici (numeri
+reali)<br><br>
+</LI>
+</ul>
+ Mostriamo che <b>( P(x), &#183;)</b> e' un semigruppo<br> 
+
+<ul>
+<LI>Basta mostrare che <b>&#183;</b> e' associativa, cioe'  chiamati
+<b>A(x)</b>, <b>B(x)</b> e <b>C(x)</b>
+tre elementi di <b>P(x)</b> abbiamosempre:<br>
+ <b>[A(x) &#183; B(x)] &#183; C(x) = A(x) &#183; [B(x) &#183; C(x)]</b><br>  
+cioe' dati tre polinomi qualunque se moltiplichi il primo per il secondo e poi
+quello che viene per il terzo ottieni lo stesso risultato che moltiplicando
+prima il secondo col terzo e poi quello che viene per il primo.
+Se vuoi puoi costruirti un esempio da solo
+<br><br>
+</li> 
+</ul>
+</ul>
+<ul> 
+<li>Mostriamo infine che la seconda operazione e' distributiva
+rispetto alla prima, cioe' dati <b>A(x)</b>, <b>B(x)</b> e <b>C(x)</b>
+appartenenti a 
+<b>P(x)</b> avremo sempre <br>
+<b>A(x) &#183; [B(x) + C(x)] = A(x) &#183; B(x) + A(x) &#183; C(x)<br>
+[B(x) + C(x)] &#183; A(x) = B(x) &#183; A(x) + C(x) &#183; A(x) </b><br>
+<br>  
+Anche qui deriva dal fatto che per i coefficienti numerici, che sono numeri
+reali, vale la proprieta' distributiva della somma rispetto alla
+moltiplicazione<br>
+
+</li>
+</ul>
+<br>
+Quindi la struttura (<b> P(x), +, &#183;</b>)  e' un  anello<br><br>
+Siccome la moltiplicazione in <b>P(x)</b> e' commutativa avremo che l'anello e'
+commutativo<br><br>
+Poiche' la moltiplicazione in <b>A</b> deve avere come elemento neutro
+l'elemento<br>
+<b>....1x<sup>n</sup> + 1x<sup>n-1</sup> ....
+1x<sup>2</sup> + 1x + 1</b> <br> ma tale elemento non puo' essere definito in
+modo univoco perche' dovrebbe avere esattamente lo stesso numero di termini (
+e dello stesso grado) del polinomio con cui si moltiplica, allora non posso
+parlare di un elemento neutro e l'anello non e' unitario<br>
+ 
+
+
+
+</font>
+
+   </font>
+<hr>
+   </td>
+   </tr>
+   </table>
+   <p>
+
+  </center>
+  </BODY>
+</HTML>

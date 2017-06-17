@@ -1,0 +1,116 @@
+<HTML>
+<HEAD>
+<TITLE>permutazioni con ripetizione
+</TITLE>
+</HEAD>
+<BODY Background="../immagini/sfondol006.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+<td>
+    
+   <center><font color="#FF2200" size=6>
+Permutazioni con ripetizione<br>
+<font size=4>(o permutazioni con oggetti identici)</font>
+   </font>
+</center>
+<br><br>
+   <font size=4>
+  Vediamo cosa succede quando alcuni degli oggetti su cui dobbiamo fare le permutazioni sono uguali; come esempio prendiamo il problema:<br>
+ <i>Quanti anagrammi (anche senza significato) posso fare con le lettere della parola cannone? </i><br>
+Sono 7 oggetti ma tre fra questi sono uguali quindi prese tutte le possibili permutazioni su 7 oggetti dovro' togliere quelle dove le lettere n non sono distinguibili (come fai a dire se ad esempio la n che compare al primo posto e' la prima o la seconda o la terza?)<br>
+quindi per 7 oggetti avrei<br><br>
+<font size=5 color="ff0000"><b>
+P<sub>7</sub> =  7!</b><br>
+</font><br>
+Mentre per i tre oggetti uguali (le n) avrei)<br><br>
+<font size=5 color="ff0000"><b>
+P<sub>3</sub> =  3!</b><br>
+</font><br>
+quindi i possibili anagrammi saranno<br>
+<table>
+<TR>
+<TD><font size=5 color="ff0000"><b>P<sub>7;3</sub></b> </font></TD>
+
+<TD align="center"><font size=5 color="ff0000"><b>P<sub>7</sub><br>= ------ =<br>P<sub>3</sub></b></font></TD>
+<TD align="center"><font size=5 color="ff0000"><b>7!<br>-----<br>3!</b></font></TD>
+<TD align="center"><font size=5 color="ff0000"><b> = 840</b></font></TD>
+
+</TR></table>
+<font size=2>
+<a href="lbaca.html" target="_blank">Ho bisogno di una spiegazione piu' approfondita</a>
+<hr>
+Per fare i calcoli piu' velocemente osserva che vale
+<table>
+<TR>
+<TD align="center"><font size=2 color="ff0000"><b>P<sub>7;3</sub></b></font></TD>
+<TD align="center"><font size=2 color="ff0000"><b>7!<br>= ------ =<br> 3!</b></font></TD>
+<TD align="center"><font size=2 color="ff0000"><b>7&#183;6&#183;5&#183;4&#183;3&#183;2&#183;1<br>
+---------------------<br>
+3&#183;2&#183;1</b></font></TD>
+<TD align="center"><font size=2 color="ff0000"><b>7&#183;6&#183;5&#183;4&#183;3!<br>
+= --------------- =<br>
+3!</b></font></TD>
+<TD align="center"><font size=2 color="ff0000"><b> 7&#183;6&#183;5&#183;4 = 840</b></font></TD>
+
+</TR></table>
+cioe' nelle frazioni con fattoriali posso sempre considerare come nelle'espressione sopra e semplificare l'ultimo fattoriale (useremo spesso questa proprieta')
+ </font><hr>
+Per completare vediamo anche il caso in cui gli oggetti identici siano di tipi diversi, come ad esempio l'anagramma della parola 
+"matematica"<br>
+ci sono due m , due t e tre a
+quindi<br>
+<table>
+<TR>
+<TD align="center"><font size=5 color="ff0000"><b>P<sub><font size=3>10;2,2,3</sub> =</b> </font>
+</TD>
+<TD align="center"><font size=5 color="ff0000"><b> 10!<br>---------<br> 2! 2! 3!</b> </font>
+</TD>
+<TD align="center"><font size=5 color="ff0000"><b> = 151200</b> </font>
+</TD>
+</TR>
+</table>
+<hr>
+<font size=2>Notare nella P il <b>;</b> dopo il numero globale degli oggetti e la <b>, </b> fra i numeri di oggetti uguali</font>
+<hr>
+Quindi la formula generale per le permutazioni su n oggetti di cui k<sub>1</sub>,k<sub>2</sub>,.....,k<sub>h</sub> uguali sara'
+<br> 
+<table>
+<TR>
+<TD align="center"><font size=5 color="ff0000"><b>P<sub><font size=3>n;k<sub>1</sub>,k<sub>2</sub>,.....,k<sub>h</sub></sub> =</b> </font>
+</TD>
+<TD align="center"><font size=5 color="ff0000"><b> n!<br>-------------------<br> k<sub>1</sub>! k<sub>2</sub>!,....k<sub>h</sub>!</b> </font>
+</TD>
+</TR>
+</table>
+
+ 
+</font>
+<hr>
+   </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+   <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../l.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="lbb.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="lbab.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

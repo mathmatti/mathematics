@@ -1,0 +1,268 @@
+<HTML>
+<HEAD>
+<TITLE>  distribuzione di Poisson
+</TITLE>
+</HEAD>
+<BODY Background="../immagini/sfondol084.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+ Distribuzione di Poisson
+ 
+   </font></center>
+ 
+<br><br>
+ 
+<font size=4> 
+Se vuoi vedere la <a href="leafcba.html" target="_blank">dimostrazione per calcolare</a> la variabile aleatoria.<br>
+
+La distribuzione di Poisson e' una distribuzione che assume i valori <b>0,1,2,3,4,.....x</b> con probabilita'
+<table align="center">
+<TR>
+<TD align="center"><font color="ff0000" size="5"><b>P<sub><font size=3>x</font></sub> = </b></font></TD>
+<TD align="center"><font color="ff0000" size="5"><b>&mu;<sup><font size=2>x</font></sup> <br>
+<img src="../../immagini/rufo.jpg" width="30" height="2"><br>
+x!</b></font></TD>
+<TD align="center"><font color="ff0000" size="5"><b>e<sup><font size=3>-&mu;</font></sup> </b></font></TD>
+
+
+</TR>
+</table>
+essendo <b>&mu; = p n</b> con <b>p</b> probabilita' dell'evento
+ed <b>n</b> numero dei casi possibili per l'evento
+<br><br>
+scriviamola come variabile aleatoria
+
+
+<br><br> 
+<table  border=1>
+<TR>
+<TD><font color="ff000" size=4><b> Evento</b></font></TD>
+ <TD align="center"><font color="ff000"
+size=4><b>x = 0</b></font></TD>
+<TD align="center"><font color="ff000" size=4><b>x = 1</b></font></TD>
+<TD align="center"><font color="ff000" size=4><b>x = 2</b></font></TD>
+<TD align="center"><font color="ff000" size=4><b>x = 3</b></font></TD>
+<TD align="center"><font color="ff000" size=4><b>.....</b></font></TD>
+<TD align="center"><font color="ff000" size=4><b>x = x</b></font></TD>
+ </TR>
+ <TR>
+<TD><font color="ff000" size=4><b>probabilita'</b></font></TD>
+<TD align="center"><font color="ff000"
+size=4><b>&mu;<sup><font size=2>0</font></sup> <br>
+ &nbsp;&nbsp;&nbsp;  <img src="../../immagini/rufo.jpg" width="30" height="3"> e<sup><font size=3>-&mu;</font></sup>  <br>
+0!</b></font></TD>
+<TD align="center"><font color="ff000" size=4><b>&mu;<sup><font size=2>1</font></sup> <br>
+ &nbsp;&nbsp;&nbsp;  <img src="../../immagini/rufo.jpg" width="30" height="3"> e<sup><font size=3>-&mu;</font></sup>  <br>
+1!</b></font></TD>
+<TD align="center"><font color="ff000" size=4><b>&mu;<sup><font size=2>2</font></sup> <br>
+ &nbsp;&nbsp;&nbsp;  <img src="../../immagini/rufo.jpg" width="30" height="3"> e<sup><font size=3>-&mu;</font></sup>  <br>
+2!</b></font></TD>
+<TD align="center"><font color="ff000" size=4><b>&mu;<sup><font size=2>3</font></sup> <br>
+ &nbsp;&nbsp;&nbsp;  <img src="../../immagini/rufo.jpg" width="30" height="3"> e<sup><font size=3>-&mu;</font></sup>  <br>
+3!</b></font></TD>
+<TD align="center"><font color="ff000" size=4><b>  ............</b></font></TD>
+<TD align="center"><font color="ff000" size=4><b>&mu;<sup><font size=2>x</font></sup> <br>
+ &nbsp;&nbsp;&nbsp;  <img src="../../immagini/rufo.jpg" width="30" height="3"> e<sup><font size=3>-&mu;</font></sup>  <br>
+x!</b></font></TD>
+ </TR>
+</table> 
+ l'evento puo' accadere 0 volte, 1 volta, 2 volte, eccetera
+
+<hr>
+<font size=3>Come esercizio riprendiamo l'esempio della pagina precedente (anche se un po' macabro) e prendiamo le tabelle di soldati morti in 10 reggimenti prussiani in 20 anni, cioe' ci comportiamo come se fossero 200 reggimenti controllati per un anno: abbiamo le frequenze<br>
+
+<table  border=1>
+<TR>
+<TD><font color="ff000" size=4><b>Morti per un calcio di mulo</b></font></TD>
+ <TD align="center"><font color="ff000"
+size=4><b>nessuno</b></font></TD>
+<TD align="center"><font color="ff000" size=4><b>un  morto</b></font></TD>
+<TD align="center"><font color="ff000" size=4><b>due morti</b></font></TD>
+<TD align="center"><font color="ff000" size=4><b>tre morti</b></font></TD>
+<TD align="center"><font color="ff000" size=4><b>quattro morti</b></font></TD>
+<TD align="center"><font color="ff000" size=4><b>cinque morti</b></font></TD>
+ </TR>
+ <TR>
+<TD><font color="ff000" size=4><b>Numero reggimenti</b></font></TD>
+<TD align="center"><font color="ff000"
+size=4><b> 109</b></font></TD>
+<TD align="center"><font color="ff000" size=4><b> 65</b></font></TD>
+<TD align="center"><font color="ff000" size=4><b> 22</b></font></TD>
+<TD align="center"><font color="ff000" size=4><b> 3</b></font></TD>
+<TD align="center"><font color="ff000" size=4><b> 1</b></font></TD>
+<TD align="center"><font color="ff000" size=4><b> 0</b></font></TD>
+ </TR>
+
+</table> 
+<font size=2>cioe', per il calcio di un mulo, in un anno 109 reggimenti non hanno avuto nessun morto, 65 reggimenti hanno avuto un morto, 22 reggimenti hanno avuto due morti ciascuno, 3 reggimenti hanno avuto 3 morti ed uno ha avuto 4  morti; in totale i morti son stati 122</font><br><br>
+Siccome i morti sono stati 122 la frequenza  di morte sara' data dal rapporto fra il numero di morti ed il numero dei reggimenti, cioe' <b>122/200 = 0,61</b><br>
+Consideriamo allora tale frequenza come probabilita' <b>p = 0,61</b> ed avendo considerato una sola possibilita' (morte) <br><b>np = 1&middot;0,61 = 0,61</b><br>
+quindi abbiamo la distribuzione di Poisson sulla probabilita' che ogni reggimento abbia 0,1,2,3,4,5 morti in un anno
+
+
+<table  border=1>
+<TR>
+<TD><font color="ff000" size=3><b>Numero morti</b></font></TD>
+ <TD align="center"><font color="ff000"
+size=3><b>x = 0</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b>x = 1</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b>x = 2</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b>x = 3</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b>x = 4</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b>x = 5</b></font></TD>
+ </TR>
+ <TR>
+<TD><font color="ff000" size=3><b>Probabilita' per<br>ogni reggimento</b></font></TD>
+<TD align="center"><font color="ff000"
+size=3><b>0,61<sup><font size=2>0</font></sup> <br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="../../immagini/rufo.jpg" width="40" height="3"> e<sup><font size=2>-0,61</font></sup>  <br>
+0!</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b>0,61<sup><font size=2>1</font></sup> <br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="../../immagini/rufo.jpg" width="40" height="3"> e<sup><font size=2>-0,61</font></sup>  <br>
+1!</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b>0,61<sup><font size=2>2</font></sup> <br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="../../immagini/rufo.jpg" width="40" height="3"> e<sup><font size=2>-0,61</font></sup>  <br>
+2!</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b>0,61<sup><font size=2>3</font></sup> <br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="../../immagini/rufo.jpg" width="40" height="3"> e<sup><font size=2>-0,61</font></sup>  <br>
+3!</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b>0,61<sup><font size=2>4</font></sup> <br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="../../immagini/rufo.jpg" width="40" height="3"> e<sup><font size=2>-0,61</font></sup>  <br>
+4!</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b>0,61<sup><font size=2>5</font></sup> <br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img src="../../immagini/rufo.jpg" width="40" height="3"> e<sup><font size=2>-0,61</font></sup>  <br>
+5!</b></font></TD> 
+ </TR>
+</table><br> 
+ e, con una buona calcolatrice otteniamo
+
+<table  border=1>
+<TR>
+<TD><font color="ff000" size=3><b>Numero morti</b></font></TD>
+ <TD align="center"><font color="ff000"
+size=3><b>x = 0</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b>x = 1</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b>x = 2</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b>x = 3</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b>x = 4</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b>x = 5</b></font></TD>
+ </TR>
+ <TR>
+<TD><font color="ff000" size=3><b>Probabilita' per<br>ogni reggimento</b></font></TD>
+<TD align="center"><font color="ff000"
+size=3><b>0,54335</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b> 0,33144</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b> 0,10109</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b> 0,02056</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b> 0,00313</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b> 0,00038</b></font></TD> 
+ </TR>
+</table><br> 
+Per ottenere la probabilita' per i 200 reggimenti bastera' moltiplicare per 200<br><br>
+
+<table  border=1>
+<TR>
+<TD><font color="ff000" size=3><b>Numero morti</b></font></TD>
+ <TD align="center"><font color="ff000"
+size=3><b>x = 0</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b>x = 1</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b>x = 2</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b>x = 3</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b>x = 4</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b>x = 5</b></font></TD>
+ </TR>
+ <TR>
+<TD><font color="ff000" size=3><b>Probabilita' moltiplicata<br> per tutti i  reggimenti</b></font></TD>
+<TD align="center"><font color="ff000"
+size=3><b>108,71</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b> 66,288</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b> 20,218</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b> 4,112</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b> 0,626</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b> 0,076</b></font></TD> 
+ </TR>
+</table><br> 
+
+Se ora la confrontiamo con la frequenza effettiva vediamo che abbiamo un'ottima approssimazione
+<table  border=1>
+<TR>
+<TD><font color="ff000" size=3><b>Numero morti</b></font></TD>
+ <TD align="center"><font color="ff000"
+size=3><b>x = 0</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b>x = 1</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b>x = 2</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b>x = 3</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b>x = 4</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b>x = 5</b></font></TD>
+ </TR>
+ <TR>
+<TD><font color="ff000" size=3><b>Probabilita' per<br>tutti i  reggimenti</b></font></TD>
+<TD align="center"><font color="ff000"
+size=3><b>108,71</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b> 66,288</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b> 20,218</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b> 4,112</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b> 0,626</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b> 0,076</b></font></TD> 
+ </TR>
+ <TR>
+<TD><font color="ff000" size=3><b>Frequenza</b></font></TD>
+<TD align="center"><font color="ff000"
+size=3><b> 109</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b> 65</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b> 22</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b> 3</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b> 1</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b> 0</b></font></TD> 
+ </TR>
+<TR>
+<TD><font color="ff000" size=3><b>Morti effettivi</b></font></TD>
+<TD align="center"><font color="ff000"
+size=3><b> 0</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b> 65</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b> 44</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b> 9</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b> 4</b></font></TD>
+<TD align="center"><font color="ff000" size=3><b> 0</b></font></TD> 
+ </TR>
+</table><br> 
+<hr><font size=2>
+Intendiamoci: siamo partiti da una frequenza e quindi otteniamo dei valori logicamente compatibili con tale frequenza, pero' l'importante e' che la distribuzione di Poisson da' la "tendenza" di un fenomeno raro e di applicazioni se ne avranno tantissime: dal progettare il mercato per farmaci di malattie rare al vedere la distribuzione di auto con 0,1,2,3 incidenti per anno e quindi fissare le tariffe bonus/malus, al programmare il numero di pezzi da mettere in una spedizione presupponendo che una piccolissima percentuale sia difettosa, al numero di telefonate che arrivano ad un centralino, alle auto che si fermano ad una stazione di servizio, ai clienti di uno sportello bancario, eccetera, eccetera..............
+</font>
+
+ </font>
+  <hr>    </font>
+
+   </td>.
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+   <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70
+Width=70 alt="Pagina iniziale" border=0></a>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../l.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="leafcc.html"><IMG SRC="../../immagini/avanti.jpg" Height=70
+Width=70 alt="Pagina successiva" border=0></A>
+   </td> 
+
+   <td align="center" valign=middle>
+      <A HREF="leafca.html"><IMG SRC="../../immagini/indietro.jpg" Height=70
+Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

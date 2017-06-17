@@ -1,0 +1,188 @@
+<HTML>
+<HEAD>
+<TITLE>calcolo del determinante 3x3 con la regola di Sarrus
+</TITLE>
+<style>
+A:link, A:visited{text-decoration:none}
+A:hover{text-decoration:underline;color:black}
+  </style>
+
+</HEAD>
+<BODY Background="../immagini/sfondo0270.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+  Calcolo del determinante 3x3 con la regola di Sarrus
+   </font></center>
+
+   <font size=4>
+  <br>
+<hr>
+<font size=4>
+Quando ci limitiamo a sistemi di 3 equazioni in 3 incognite, e se il determinante non ha elementi nulli, conviene utilizzare la regola di Sarrus per calcolarne il valore;  la useremo nella forma piu' semplice
+</font><hr>
+consideriamo un determinante del terzo ordine
+<table><tr>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+<td><b><font color="ff0000" size=4>
+a<sub><font size=1>1,1</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>1,2</font></sub> &nbsp;&nbsp;
+a<sub><font size=1>1,3</font></sub> <br>
+    a<sub><font size=1>2,1</font></sub>&nbsp;&nbsp; 
+a<sub><font size=1>2,2</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>2,3</font></sub> <br>
+ a<sub><font size=1>3,1</font></sub>&nbsp;&nbsp; 
+a<sub><font size=1>3,2</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>3,3</font></sub> <br>
+	 </font>
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90> </td>
+</tr>
+</table>
+<br>
+riporto accanto al determinante le prime due colonne
+<br>
+<table><tr>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+<td><b><font color="ff0000" size=4>
+a<sub><font size=1>1,1</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>1,2</font></sub> &nbsp;&nbsp;
+a<sub><font size=1>1,3</font></sub> <br>
+    a<sub><font size=1>2,1</font></sub>&nbsp;&nbsp; 
+a<sub><font size=1>2,2</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>2,3</font></sub> <br>
+ a<sub><font size=1>3,1</font></sub>&nbsp;&nbsp; 
+a<sub><font size=1>3,2</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>3,3</font></sub> <br>
+	 </font>
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90> </td>
+<td><b><font color="ff0000" size=4>
+a<sub><font size=1>1,1</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>1,2</font></sub>  <br>
+    a<sub><font size=1>2,1</font></sub>&nbsp;&nbsp; 
+a<sub><font size=1>2,2</font></sub> <br>
+ a<sub><font size=1>3,1</font></sub>&nbsp;&nbsp; 
+a<sub><font size=1>3,2</font></sub>  <br>
+	 </font>
+</b></td>
+</tr>
+</table>
+La regola di Sarrus dice che il valore del determinante e' dato da<br>
+<b><font color="ff0000" size=4>D = a<sub><font size=1>1,1</font></sub>&#183;a<sub><font size=1>2,2</font></sub>&#183;a<sub><font size=1>3,3</font></sub>
++
+a<sub><font size=1>1,2</font></sub>&#183;a<sub><font size=1>2,3</font></sub>&#183;a<sub><font size=1>3,1</font></sub>
++
+a<sub><font size=1>1,3</font></sub>&#183;a<sub><font size=1>2,1</font></sub>&#183;a<sub><font size=1>3,2</font></sub>
+-
+a<sub><font size=1>1,3</font></sub>&#183;a<sub><font size=1>2,2</font></sub>&#183;a<sub><font size=1>3,1</font></sub>
+-
+a<sub><font size=1>1,1</font></sub>&#183;a<sub><font size=1>2,3</font></sub>&#183;a<sub><font size=1>3,2</font></sub>
+-
+a<sub><font size=1>1,2</font></sub>&#183;a<sub><font size=1>2,1</font></sub>&#183;a<sub><font size=1>3,3</font></sub>
++
+</font></b>
+
+<br>
+cioe' moltiplico tra loro gli elementi della 
+<a href="aibbbd0.html" target="_blank">diagonale principale</a> e tra
+ loro gli elementi delle due diagonali parallele che si sono formate e poi
+sottraggo il prodotto degli elementi della <a href="aibbbd1.html"
+target="_blank">diagonale secondaria</a> ed anche i prodotti degli elementi per
+le due diagonali parallele alla secondaria<br>
+Per memorizzarlo meglio si puo' esprimere graficamente in questo modo:<br>
+<center>
+<img src="../immagini/determinante00.jpg" align="middle"> <font color="0000ff" size=7>-</font> <img src="../immagini/determinante01.jpg" align="middle">
+</center>
+
+E ti va anche bene! A me, ai tempi in cui studiavo, l'hanno fatta ricordare in modo equivalente cos�!
+
+<center>
+<img src="../immagini/determinante05.jpg" align="middle"> <font color="0000ff" size=7>-</font> <img src="../immagini/determinante06.jpg" align="middle">
+</center>
+E' equivalente, ottengo gli stessi valori senza dover riportare le prime due colonne
+
+ <hr>
+ 
+ 
+ Vediamo come utilizzarla direttamente da un esempio: riprendiamo il determinante gia' calcolato col metodo normale<br>
+
+ 
+<table><tr>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+1 &nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp; 1 <br>
+2 &nbsp;&nbsp; -1 &nbsp;&nbsp; 1 <br>
+1 &nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp; 2<br>
+	 </font>
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90> </td>
+<td><b><font color="ff0000" size=4> = </font></b></td>
+</tr>
+</table>
+riporto accanto al determinante le prime due colonne
+ <br>
+<table><tr>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+1 &nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp; 1 <br>
+2 &nbsp;&nbsp; -1 &nbsp;&nbsp; 1 <br>
+1 &nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp; 2<br>
+	 </font>
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90> </td>
+<td><b><font color="ff0000" size=4>
+1 &nbsp;&nbsp;&nbsp; 1  <br>
+2 &nbsp;&nbsp; -1  <br>
+1 &nbsp;&nbsp;&nbsp; 1 <br>
+	 </font>
+</b></td>
+</tr>
+</table><br>
+Ora applico la regola di Sarrus<br>
+
+ 
+<img src="../immagini/determinante07.jpg" align="middle"> <font color="0000ff" size=7>-</font> <img src="../immagini/determinante08.jpg" align="middle">
+ 
+<br>
+<b><font color="ff0000" size=4>
+= 1&#183;(-1)&#183;2 + 1&#183;1&#183;1 + 1&#183;2&#183;1 - 1&#183;(-1)&#183;1 - 1&#183;1&#183;1 - 1&#183;2&#183;2 = <br>
+-2 + 1 + 2 + 1 - 1 - 4 = -3
+
+
+</font></b>
+
+ <hr>
+   </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+  
+ <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></a>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../a.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="aibbbe.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></a>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="aibbbc.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

@@ -1,0 +1,152 @@
+<HTML>
+<HEAD>
+<TITLE>la successione geometrica
+</TITLE>
+</HEAD>
+<BODY Background="../immagini/sfondoq052.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+La successione geometrica
+ </font></center> 
+<br><br>
+  <font size=4>
+In questa pagina studiamo una successione molto importante: la successione geometrica che abbiamo gia' utilizzato varie volte <br><br>
+La successione geometrica e' una progressione geometrica di ragione uguale al suo primo termine.<br>
+Se chiamo <b>a</b> il primo termine posso scriverla come<br><br>
+<b>a, &nbsp;a<sup>2</sup>,&nbsp;a<sup>3</sup>,&nbsp;a<sup>4</sup>,...&nbsp;a<sup>n</sup>, ....  </b><br>
+la ragione e' <b>q = a</b><br><hr>
+
+Se <b>a &gt; 1</b> la successione diverge, per mostrarlo trovo una minorante che diverga: considero, come minorante, la successione<br><br>
+<b>1, &nbsp; 2a-1, &nbsp;3a-2,.....   na-n+1, ....</b><br>
+o meglio <br>
+<b>1, &nbsp; 2a-1, &nbsp;3a-2,.....   1+ n(a-1), ....</b> 
+
+<br> 
+ <font size=2>
+Mostriamo che vale sempre, (per a&gt;1 ed n&gt;1)<br> 
+<b>a<sup>n</sup> &gt; 1+n(a-1) </b> <br>
+Partiamo dalla disuguaglianza<br>
+<b>(1+b)<sup>n</sup> &gt; 1+nb</b> sempre vera se b&gt;1 ed n&gt;1 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<font size=2> <a href="qcma.html" target="_blank"> dimostrazione</a></font><br>
+devo far comparire (1+b) anche al secondo termine, allora aggiungo +n e -n nel secondo termine <br>
+<b>(1+b)<sup>n</sup> &gt; 1+nb +n-n</b><br>
+<b>(1+b)<sup>n</sup> &gt; 1+n(b+1) - n</b><br> 
+pongo <b>(1+b) = a</b>, posso farlo perche' ho posto a&gt;1<br>
+ottengo<br>
+<b>a<sup>n</sup> &gt; 1+na-n</b><br>
+cioe', raccogliendo n<br>
+<b>a<sup>n</sup> &gt; 1+n(a-1)</b><br>
+come volevamo
+</font><br>
+Abbiamo, essendo a&gt;1<br>
+<b>
+lim<sub>n&rarr;&infin;</sub> 1+n(a-1) = +&infin;
+</b><br>
+quindi, essendo la successione geometrica una maggiorante, avremo<br>
+<b>
+lim<sub>n&rarr;&infin;</sub> a<sup>n</sup> = +&infin;
+</b><br>
+
+<br><hr>
+Se <b>a = 1</b> la mia successione diventa una successione costante<br>
+<b>1, &nbsp;1<sup>2</sup>, &nbsp;1<sup>3</sup>, 1<sup>4</sup> &nbsp;  .......1<sup>n</sup>, ....</b><br>
+o meglio<br>
+<b>1, &nbsp;&nbsp;1, &nbsp;&nbsp;1 &nbsp;&nbsp; 1 &nbsp; .......1,.... </b><br>
+e quindi<br>
+<b>
+lim<sub>n&rarr;&infin;</sub> 1<sup>n</sup> = 1
+</b><br>
+
+<hr>
+Se <b>-1 &lt; a &lt; +1</b> allora la successione inversa  
+
+<table>
+<TR>
+ <TD align="center"><b><font size="4">1<br><img src="../../immagini/rufonero.jpg" width="20" height="2"><br>a<sup>&nbsp;</sup></font></b></TD>
+<TD align="center"><b><font size="4"> ,  &nbsp;</font></b></TD>
+ <TD align="center"><b><font size="4">1<br><img src="../../immagini/rufonero.jpg" width="20" height="2"><br>a<sup>2</sup></font></b></TD>
+ <TD align="center"><b><font size="4"> ,  &nbsp;</font></b></TD>
+<TD align="center"><b><font size="4">1<br><img src="../../immagini/rufonero.jpg" width="20" height="2"><br>a<sup>3</sup> </font></b></TD>
+<TD align="center"><b><font size="4"> ,    &nbsp;........  </font></b></TD>
+<TD align="center"><b><font size="4">1<br><img src="../../immagini/rufonero.jpg" width="20" height="2"><br>a<sup>n</sup> </font></b></TD>
+<TD align="center"><b><font size="4"> ,  &nbsp;........</font></b></TD>
+
+</TR>
+</table>
+e' divergente come successione geometrica di base (1/a) maggiore di 1  
+
+<table><TR>
+<TD align="center"><b><font size=4>
+lim<sub>n&rarr;&infin;</sub>  
+</font></b><br></TD>
+<TD align="center"><b><font size=4>
+ 1<br><img src="../../immagini/rufonero.jpg" width="12" height="2"><br>a<sup>n</sup> 
+</font></b><br></TD>
+<TD align="center"><b><font size=4>
+  = +&infin;
+</font></b><br></TD>
+
+
+</TR></table>
+
+ quindi la  mia successione
+essendo inversa di una successione divergente e' infinitesima<br>
+<b>
+lim<sub>n&rarr;&infin;</sub> a<sup>n</sup> = 0
+</b><br>
+<hr>
+Se <b>a = -1</b> la mia successione diventa una successione oscillante di modulo costante 1<br>
+<b>(-1)<sup>1</sup>, &nbsp;(-1)<sup>2</sup>, &nbsp;(-1)<sup>3</sup>, (-1)<sup>4</sup> &nbsp;  .......(-1)<sup>n</sup>, ....</b><br>
+o meglio<br>
+<b>-1, &nbsp;&nbsp;+1, &nbsp;&nbsp;-1 &nbsp;&nbsp; +1 &nbsp; .......(-1)<sup>n</sup>,.... </b><br>
+
+e non ammette limite
+<hr> 
+
+Se <b>a &lt; -1</b> la mia successione diventa oscillante ed avra' in modulo gli stessi termini della successione considerata sopra per a&gt;1 <br>
+
+
+
+<b>(-1)<sup>1</sup>a<sup>1</sup>, &nbsp;(-1)<sup>2</sup>a<sup>2</sup>,&nbsp;(-1)<sup>3</sup>a<sup>3</sup>,&nbsp; (-1)<sup>4</sup>a<sup>4</sup>,...&nbsp;(-1)<sup>n</sup>a<sup>n</sup>, ....  </b><br>
+o meglio <br>
+<b>-a, &nbsp; +a<sup>2</sup>,&nbsp; -a<sup>3</sup>,&nbsp; + a<sup>4</sup>,...&nbsp;(-1)<sup>n</sup>a<sup>n</sup>, ....  </b><br>
+ e divergera' ad infinito<br>
+<b>
+lim<sub>n&rarr;&infin;</sub> (-1)<sup>n</sup>&middot;a<sup>n</sup> = &infin;
+</b><br>
+
+
+</font>
+ <hr>
+    </b>
+   </td>
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12> 
+<tr bgcolor="ffffaa">
+   <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></b>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../q.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></b>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="qcn.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></a>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="qcl.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

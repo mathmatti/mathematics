@@ -1,0 +1,164 @@
+<HTML>
+<HEAD>
+<TITLE> il gioco organizzato
+</TITLE>
+</HEAD>
+<BODY Background="../immagini/sfondol062.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+Il gioco organizzato
+   </font></center>
+ 
+<br><br>
+ 
+<font size=4>
+Quando si organizza un gioco occorre partire dall'impostare il gioco equo e,
+successivamente, variare le probabilita' di vincita per ritagliare una
+percentuale di guadagno per l'organizzatore, ricordando che, per avere una
+vincita molto probabile, bisogna aumentare il numero di partite giocate<hr>
+<font size=2>Vediamo un esempio classico<br>
+Nel gioco della Roulette puoi puntare i numeri da 1 a 36, e, se esce il numero
+puntato, ritiri la tua puntata e 35 volte la posta giocata. Messo cosi' il
+gioco e' equo: vinco una volta ogni 36 e ricevo 36 volte la posta giocata (35
+volte piu' la mia puntata); Allora per introdurre un guadagno per la casa da
+gioco viene introdotto il numero zero; in questo modo vinco una volta ogni 37 e
+ricevo 36 volte la posta giocata; in media la casa da gioco ha un guadagno pari
+ad 1/37 delle somme giocate.<br>
+Alcune case da gioco giudicano insufficiente una tale vincita e quindi
+introducono anche il doppio zero, in tal caso il guadagno della casa
+da gioco e' di 2/38 = 1/19 delle somme giocate</font><hr>
+ 
+Un esempio di gioco costruito a tavolino e' appunto il Superenalotto: gioco in
+cui le probabilita' di vincere sono <a href="ldda.html" target="_blank">talmente
+minuscole</a>  da far lievitare il premio fino a <a href="lddb.html"
+target="_blank">somme superiori</a> ai 100.000.000
+(cento milioni) di euro.<br>
+Una volta c'era una legge per cui lo stato, gestendo un gioco, poteva ritirare
+al massimo il 65% della somma giocata restituendo con le vincite il restante
+35%  (la mia memoria non mi permette di giurare su tali percentuali).<br> Spero
+che tale legge sia ancora valida, ma non ci giurerei, viste le probabilita'
+del superenalotto<br> C'e' anche da dire che nel superenalotto le possibilita'
+di vincita sono talmente esigue che, facendo un 5+1, lo stato restituirebbe
+solamente il 20% allora, forse, le somme restanti vengono restituite ponendo
+una vincita anche per quaterne e cinquine ed introducendo numeri jolly
+
+ </font><hr>
+Proviamo come esercizio a costruire un semplice gioco organizzato  <br>
+Prendiamo il gioco:<br>
+estrarre una carta da un mazzo di 40<br>
+partiamo dal gioco equo<br>
+supponiamo di pagare una somma per l'evento "uscita di un asso" ed un'altra
+somma per l'evento "uscita di una carta di denari"<br>
+Siccome esiste l'asso di denari consideriamo allora tre eventi<br>
+E<sub>1</sub> uscita dell'asso di denari<br>
+E<sub>2</sub> uscita di un asso diverso dall'asso di denari<br>
+E<sub>3</sub> uscita di una carta di denari diversa dall'asso<br>
+la somma da giocare sia sempre 1 euro e la posta non venga restituita in caso
+di vincita<br>
+le probabilita' sono<br><b>
+p<sub>1</sub> = probabilita' di uscita dell'asso di denari = 1/40<br>
+p<sub>2</sub> = probabilita' di uscita di asso non di denari = 3/40<br>
+p<sub>3</sub> = probabilita' di uscita di carta di denari non asso = 9/40<br>
+</b>
+Per invogliare al gioco poniamo un premio piu' grosso sull'evento piu'
+difficile: ad esempio<br>
+<b>S<sub>1</sub> = 22 &#8364; se esce l'asso di denari<br>
+S<sub>2</sub> = 3 &#8364; se esce l'asso non di denari<br>
+S<sub>3</sub> = 1 &#8364; restituisco la posta se esce un denari diverso
+dall'asso<br></b><br>
+In queste condizioni il gioco e' equo, infatti la speranza matematica di chi
+tiene il banco e'<br>
+<b>S<sub>4</sub> = 1 &#8364; la puntata<br>
+p<sub>4</sub> = probabilita' di riscuotere la puntata (evento certo) =
+1<br>
+S<sub>4</sub> p<sub>4</sub> = 1&#8364; 
+</b><br>
+e facendo la somma di tutte le speranze matematiche (considerandole
+relativamente al banco)<br>
+<b> <font color="ff0000">S<sub>1</sub> p<sub>1</sub> + S<sub>2</sub>
+p<sub>2</sub> + S<sub>3</sub> p<sub>3</sub> + S<sub>4</sub> p<sub>4</sub> = <br>
+=  - 22&#8364; &#183; 1/40 -  3&#8364; &#183; 3/40 -  1&#8364; &#183; 9/40 
++ 1&#8364; &#183; 40/40  = -22/40&#8364; -9/40&#8364; - 9/40&#8364; + 1&#8364;
+=<br> = -40/40&#8364; +1&#8364; = -1&#8364; + 1&#8364; = 0</font>
+</b><br>
+Ora devo decidere quanto voglio guadagnare in media ogni 40 giocate:<br>
+<ul type="disc"> Cosi'
+com'e' il gioco ogni 40 giocate<br>
+<LI>esce una volta l'asso di denari</li>
+<LI>escono tre volte gli altri assi</li>
+<LI>escono 9 volte carte non di denari diverse dall'asso</li>
+<LI>27 volte  escono altre carte 
+</LI></ul>
+<ul type="square"> 
+Posso intervenire in vari modi:
+<LI> Potrei intervenire sulla vincita principale, ma forse non mi conviene
+perche' e' quella che attira i giocatori, anche se una vincita di 20 euro,
+invece di 22, e'
+sempre buona e la cifra tonda fa piu' impressione</LI>
+<LI>Nemmeno mi conviene intervenire nella vincita minore perche' e' quella che,
+visto il maggior numero di uscite, da' l'impressione di <a
+href="lddc.html" target="_blank">vincere facilmente</a></LI>
+<LI>mi conviene intervenire sulla vincita per "uscita di un asso non di denari"
+portandola da 3&#8364; a 2&#8364; <br>
+in questo modo la mia speranza matematica non e' piu' nulla ma sale a 3/40,
+cioe' ogni 40 partite io guadagnero' in media 3 euro</LI></ul><br>
+<b> <font color="ff0000">S<sub>1</sub> p<sub>1</sub> + S<sub>2</sub>
+p<sub>2</sub> + S<sub>3</sub> p<sub>3</sub> + S<sub>4</sub> p<sub>4</sub> = <br>
+=  - 22&#8364; &#183; 1/40 -  2&#8364; &#183; 3/40 -  1&#8364; &#183; 9/40 
++ 1&#8364; &#183; 40/40  = -22/40&#8364; -6/40&#8364; - 9/40&#8364; + 1&#8364;
+=<br> = -37/40&#8364; +1&#8364; = + 3/40&#8364; </font>
+</b><br>
+ <hr>
+Per uso didattico trasformiamo il gioco in questo modo:
+<br>Estraggo una carta da un mazzo di 40, e la pongo coperta sul tavolo:<br>
+Pongo 1 euro sulla carta:<br>
+Se la carta e' l'asso di denari ricevo 21 euro piu' la mia posta<br>
+Se la carta e' un asso diverso da quello di denari ricevo 1 euro piu' la mia
+posta<br>
+Se la carta e' una figura di denari posso ritirare la mia posta<br>
+Se la carta e' diversa dalle precedenti perdo 1 euro<br>
+Evidentemente e' lo stesso gioco, solo che la posta non viene pagata prima del
+gioco, ma messa sulla carta in gioco.<br> Infatti la speranza matematica,
+riferita al giocatore, e':<br>
+<b>Sp = 21 &#183; 1/40 + 1 &#183; 3/40 + 0 &#183; 9/40 - 1 &#183; 27/40 =
+-3/40 &#8364;</b><br>
+
+Faremo riferimento, in futuro, a questa forma del gioco
+
+</font>
+<hr>
+ </font>
+
+   </td>.
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+   <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70
+Width=70 alt="Pagina iniziale" border=0></a>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../l.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="lde.html"><IMG SRC="../../immagini/avanti.jpg" Height=70
+Width=70 alt="Pagina successiva" border=0></A>
+   </td> 
+
+   <td align="center" valign=middle>
+      <A HREF="ldcb.html"><IMG SRC="../../immagini/indietro.jpg" Height=70
+Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

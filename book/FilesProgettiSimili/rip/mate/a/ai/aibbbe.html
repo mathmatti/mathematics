@@ -1,0 +1,280 @@
+<HTML>
+<HEAD>
+<TITLE>soluzione del sistema col metodo di Cramer
+</TITLE>
+<style>
+A:link, A:visited{text-decoration:none}
+A:hover{text-decoration:underline;color:black}
+  </style>
+
+</HEAD>
+<BODY Background="../immagini/sfondo0271.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+  Soluzione del sistema col metodo di Cramer
+   </font></center>
+
+   <font size=4>
+  <br>
+<hr>
+<font size=4>
+Ora possiamo procedere a risolvere il sistema:<br>
+Prendiamo lo stesso sistema gia' risolto con il metodo di sostituzione<br>
+
+ <img src="../../immagini/graffablu.jpg" width=12 height=80 align="left">
+<font color="0000ff" size=4>
+x + y + z = 6<br>
+2x + y - z = 1<br>
+2x - 3y + z = -1 </font><br>
+ considero la matrice incompleta e completa del sistema
+
+<table>
+<TR>
+<TD align="center">
+<!-- matrice annidata--><table><tr>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+1 &nbsp;&nbsp;  1 &nbsp;&nbsp;&nbsp; 1<br>
+2 &nbsp;&nbsp; 1 &nbsp;&nbsp; -1
+ <br>
+ 2 &nbsp;&nbsp;  -3 &nbsp;&nbsp; 1
+  
+	 </font>
+</b></td>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=90></td>
+
+</tr></table>
+<!-- fine matrice annidata--> 
+</TD>
+<td rowspan="2"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+<td>
+<!-- matrice annidata-->
+<table><tr>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+1 &nbsp;&nbsp;  1 &nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp; 6<br>
+2 &nbsp;&nbsp; 1 &nbsp;&nbsp; -1 &nbsp;&nbsp;&nbsp; 1
+ <br>
+ 2 &nbsp;&nbsp;  -3 &nbsp;&nbsp; 1 &nbsp;&nbsp; -1
+  	 </font>
+</b></td>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=90> </td>
+
+</tr>
+</table>
+<!-- fine matrice annidata -->
+</td>
+</TR>
+<TR>
+<TD align="center"><font color="0000ff" size=4><b>Matrice incompleta</b></font></TD>
+<TD align="center"><font color="0000ff" size=4><b>Matrice completa</b></font></TD>
+</TR>
+</table>
+ <font size=2>La quarta colonna della matrice completa e' la colonna dei termini noti</font><br>
+Applichiamo la stessa regola gia' applicata per risolvere i 
+ <a href="aibaad.html" target="_blank"> sistemi di  due equazioni in due incognite</a></font>:<br><br>
+
+Per calcolare il valore della x devo scrivere al denominatore il
+determinante ottenuto dalla matrice incompleta  ed al numeratore
+cancello la colonna delle x ed al suo posto metto la colonna dei termini noti<br>
+
+<table><tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+&nbsp;6 &nbsp;&nbsp;  1 &nbsp;&nbsp;&nbsp; 1<br>
+&nbsp;1 &nbsp;&nbsp; 1 &nbsp;&nbsp; -1
+ <br>
+ -1 &nbsp;  -3 &nbsp;&nbsp;&nbsp; 1
+  
+	 </font>
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+</tr></table>
+<b><font color="ff0000" size=4>x = ----------------------- =</font></b>
+<table><tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+1 &nbsp;&nbsp;  1 &nbsp;&nbsp;&nbsp; 1<br>
+2 &nbsp;&nbsp; 1 &nbsp;&nbsp; -1
+ <br>
+ 2 &nbsp;  -3 &nbsp;&nbsp;&nbsp; 1
+  
+	 </font>
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+</tr></table>
+
+
+
+ 
+<a title="calcoli" href="aibbbea.html" target="_blank">Calcoliamo </a> i determinanti
+<table>
+<TR>
+<TD align="center"><b><font color="ff0000" size=4>
+- 14<br>
+= -------- = <br>
+- 14
+</font></font></TD>
+<TD align="center"><b><font color="ff0000" size=4>1</font></b>
+</TR>
+</table>
+
+
+<br><br>
+Per calcolare il valore della y devo scrivere al denominatore il
+determinante ottenuto dalla matrice incompleta  ed al numeratore
+cancello la colonna delle y ed al suo posto metto la colonna dei termini noti<br>
+
+<table><tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+&nbsp;1 &nbsp;&nbsp;  6 &nbsp;&nbsp;&nbsp; 1<br>
+&nbsp;2 &nbsp;&nbsp; 1 &nbsp;&nbsp; -1
+ <br>
+ &nbsp;2 &nbsp;  -1 &nbsp;&nbsp;&nbsp; 1
+  
+	 </font>
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+</tr></table>
+<b><font color="ff0000" size=4>y = ----------------------- =</font></b>
+<table><tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+1 &nbsp;&nbsp;  1 &nbsp;&nbsp;&nbsp; 1<br>
+2 &nbsp;&nbsp; 1 &nbsp;&nbsp; -1
+ <br>
+ 2 &nbsp;  -3 &nbsp;&nbsp;&nbsp; 1
+  
+	 </font>
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+</tr></table>
+
+
+
+ 
+<a title="calcoli" href="aibbbeb.html" target="_blank">Calcoliamo </a> 
+<table>
+<TR>
+<TD align="center"><b><font color="ff0000" size=4>
+- 28<br>
+= -------- = <br>
+- 14
+</font></font></TD>
+<TD align="center"><b><font color="ff0000" size=4>2</font></b>
+</TR>
+</table>
+
+<br><br>
+Per calcolare il valore della z devo scrivere al denominatore il
+determinante ottenuto dalla matrice incompleta  ed al numeratore
+cancello la colonna delle z ed al suo posto metto la colonna dei termini noti<br>
+
+<table><tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+&nbsp;1 &nbsp;&nbsp;&nbsp;  1 &nbsp;&nbsp;&nbsp; &nbsp;6<br>
+&nbsp;2 &nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp; &nbsp; 1
+ <br>
+ &nbsp;2 &nbsp;&nbsp;  -3 &nbsp;&nbsp;&nbsp; -1
+  
+	 </font>
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+</tr></table>
+<b><font color="ff0000" size=4>z = ----------------------- =</font></b>
+<table><tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+1 &nbsp;&nbsp;  1 &nbsp;&nbsp;&nbsp; 1<br>
+2 &nbsp;&nbsp; 1 &nbsp;&nbsp; -1
+ <br>
+ 2 &nbsp;  -3 &nbsp;&nbsp;&nbsp; 1
+  
+	 </font>
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+</tr></table>
+
+
+
+ 
+<a title="calcoli" href="aibbbec.html" target="_blank">Calcoliamo </a> 
+<table>
+<TR>
+<TD align="center"><b><font color="ff0000" size=4>
+- 42<br>
+= -------- = <br>
+- 14
+</font></font></TD>
+<TD align="center"><b><font color="ff0000" size=4>3</font></b>
+</TR>
+</table>
+
+<br>
+Ottengo quindi come soluzione<br><br>
+<img src="../../immagini/graffablu.jpg" width=12 height=82 align="left">
+<font color="0000ff" size=4><b>
+x = 1<br>
+y = 2<br>
+z = 3 </b></font><br>
+
+
+ <br>
+
+ <hr>
+   </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+  
+ <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></a>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../a.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="aibbc.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></a>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="aibbbd.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

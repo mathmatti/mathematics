@@ -1,0 +1,329 @@
+<HTML>
+<HEAD>
+<TITLE>passaggio dal numero al logaritmo
+</TITLE>
+</HEAD>
+<BODY Background="../immagini/sfondon002.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+  Passaggio dal numero al logaritmo
+   </font></center>
+<br><br>
+   <font size=4>
+Vediamo alcuni esempi diversi<br>
+<ul>
+<li> <a href="#1">Il numero e' compreso fra 1 e 10.000</a></li>
+<li><a href="#2">Il numero e' compreso fra 10.001 e 11.500</a></li>
+<li><a href="#3">Il numero e' compreso fra 0 ed 1</a></li>
+<li><a href="#4">Mi servono piu' cifre "decimali" </a></li>
+
+</ul>  
+<font size=2>Il secondo caso e' con logaritmi a 7 decimali </font><hr>
+<a name=1> </a>
+Cerchiamo<br>
+<b>Log 3256,4 = </b><br>
+prima fisso la caratteristica: essendo il valore del logaritmo compreso fra 1000 e 10.000 il suo valore sara' compreso fra 3 e 4 e quindi la sua caratteristica sara' 3<br>
+Calcolo la mantissa<br>
+leggo sulle tavole<br>
+<b>3256 &rarr; 51268<br>
+3257 &rarr; 51282</b><br>
+Quindi per trovare il mio valore dovrei fare <a href="naab.html" target="_blank">l'interpolazione</a><br>
+<center>
+<table>
+<TR>
+<TD align="center"><font size=4><b> 3256 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=4><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=4><b>&nbsp;&nbsp; 51268 &nbsp;&nbsp;</b></font></TD>
+</TR>
+<TR>
+<TD align="center"><font size=4><b> 3256,4 </b></font></TD>
+<TD align="center"><font size=4><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=4><b>&nbsp;&nbsp; 51268+x </b></font></TD>
+</TR>
+<TR>
+<TD align="center"><font size=4><b> 3257 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=4><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=4><b>&nbsp;&nbsp; 51282 &nbsp;&nbsp;</b></font></TD>
+</TR>
+</table>
+</center>
+<b>1 : 14 = 0,4 : x</b><br>
+<font size=2>Ad un incremento 1  del numero corrisponde un incremento 14 della mantissa; ad un incremento di 0,4 del numero corrisponde un incremento della mantissa che devo trovare e chiamo x </font><br>
+<b> x = 14&middot;0,4 = 5,6</b><br>
+ <b>51268+5,6 = 512736</b> <font size=2>la virgola e' virtuale e ti indica solamente dove fare la somma</font>  <br>
+quindi<br>
+<b>Log 3256,4 = 3,512736</b> <br><br>
+Le tavole pero' sono predisposte per farti calcolare il risultato nel piu' breve tenpo possibile e quindi l'interpolazione e' gia' risolta: osserva le tavole<br>
+
+<center>
+<table>
+<TR>
+<TD align="center"><font size=4><b> 3256 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=4><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=4><b>&nbsp;&nbsp; 51268 &nbsp;&nbsp;</b></font></TD>
+<td></td></TR>
+<TR>
+<TD align="center"><font size=4><b>  </b></font></TD>
+<TD align="center"><font size=4><b>  </b></font></TD>
+<TD align="center"><font size=4><b>  </b></font></TD>
+<td><font size=2><b>14</b></font></td>
+</TR>
+<TR>
+<TD align="center"><font size=4><b> 3257 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=4><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=4><b>&nbsp;&nbsp; 51282 &nbsp;&nbsp;</b></font></TD>
+<td></td></TR>
+</table>
+</center>
+
+
+
+<table align="right">
+<TR>
+<TD></TD>
+<TD></TD>
+<TD><font size=3><b>14</b></font></TD>
+</TR>
+<TR>
+<TD><font size=2><b>1</b></font></TD>
+<TD rowspan="9"><img src="../../immagini/rufonero.jpg" width="2" height="150"></TD>
+<TD><font size=2><b>1,4</b></font></TD>
+</TR>
+<TR>
+<TD><font size=2><b>2</b></font></TD>
+<TD><font size=2><b>2,8</b></font></TD>
+</TR>
+<TR>
+<TD><font size=2><b>3</b></font></TD>
+<TD><font size=2><b>4,2</b></font></TD>
+</TR>
+<TR>
+<TD><font size=2><b>4</b></font></TD>
+<TD><font size=2><b>5,6</b></font></TD>
+</TR>
+<TR>
+<TD><font size=2><b>5</b></font></TD>
+<TD><font size=2><b>7,0</b></font></TD>
+</TR>
+<TR>
+<TD><font size=2><b>6</b></font></TD>
+<TD><font size=2><b>8,4</b></font></TD>
+</TR>
+<TR>
+<TD><font size=2><b>7</b></font></TD>
+<TD><font size=2><b>9,8</b></font></TD>
+</TR>
+<TR>
+<TD><font size=2><b>8</b></font></TD>
+<TD><font size=2><b>11,2</b></font></TD>
+</TR>
+<TR>
+<TD><font size=2><b>9</b></font></TD>
+<TD><font size=2><b>12,6</b></font></TD>
+</TR>
+</table>
+
+<br>
+<br>
+Di fianco ai due risultati trovi il numero <b>14</b> che corrisponde alla differenza fra i due valori della mantissa<br><br>
+se poi guardi la pagina dei logaritmi trovi una tabellina con intestazione 14 come riprodotto qui sulla destra: questi sono i risultati della proporzione con i vari decimali che basta leggere ed aggiungere alla mantissa: a 4 corrisponde 5,6<br><br>
+<b>51268+5,6 = 512736</b><br><br>
+e, come gia' visto<br>
+<b>Log 3256,4 = 3,512736</b> <br>
+<font size=2>Naturalmente nessuno mi impedisce di calcolare logartmi superiori a quelli indicati, ad esempio il logartmo di 32.564 sara' 4,512736 cioe' caratteristica 4 e mantissa uguale al logaritmo trovato prima, pero' essendo logaritmi a 5 decimali l'errore e' piuttosto elevato per parecchie applicazioni </font>
+<hr>
+
+<a name=2> </a>
+Cerchiamo<br>
+<b>Log 10256,4 = </b><br>
+ Vedremo poi che corrisponde ad un tasso del 2,2564%<br>
+Qui ci servono i logaritmi a 7 decimali in modo da avere un errore di circa 1 su un milione (cioe' dell'ordine di un centesimo su diecimila euro)<br>
+
+
+prima fisso la caratteristica: essendo il valore del logaritmo compreso fra 10000 e 100.000 il suo valore sara' compreso fra 4 e 5 e quindi la sua caratteristica sara' 4<br>
+Calcolo la mantissa<br>
+leggo sulle tavole<br>
+<b>10256 &rarr; 0109780<br>
+10257 &rarr; 0110204</b><br>
+Senza fare l'interpolazione utilizziamo le tavole<br>
+  
+<center>
+<table>
+<TR>
+<TD align="center"><font size=4><b> 10256 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=4><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=4><b>&nbsp;&nbsp; 0109780 &nbsp;&nbsp;</b></font></TD>
+<td></td></TR>
+<TR>
+<TD align="center"><font size=4><b>  </b></font></TD>
+<TD align="center"><font size=4><b>  </b></font></TD>
+<TD align="center"><font size=4><b>  </b></font></TD>
+<td><font size=2><b>424</b></font></td>
+</TR>
+<TR>
+<TD align="center"><font size=4><b> 10257 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=4><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=4><b>&nbsp;&nbsp; 0110204 &nbsp;&nbsp;</b></font></TD>
+<td></td></TR>
+</table>
+</center>
+Cerco la tabellina con intestazione 424 e vedo che al decimale 4 corrisponde 169,6 e quindi
+<br>
+<b>0109780+169,6 = 01099496</b> <font size=2>la virgola e' virtuale e ti indica solamente dove fare la somma</font> <br> 
+e quindi<br>
+<b>Log 10256,4 = 4,01099496</b> <br>
+od anche<br>
+<b>10256,4 = 10<sup>4,01099496</sup></b><br><br>
+<font size=2>
+se lo facevo con la calcolatrice ottenevo
+<b>Log 10256,4 = 4,01099495</b> quindi con un margine di errore molto piccolo </font>
+<hr>
+<a name=3> </a>
+Vediamo su un esempio cosa succede con numeri inferiori ad 1<br>
+<b>Log 0,000034256</b><br>
+  
+
+prima fisso la caratteristica: essendo il valore del logaritmo compreso fra 1/10.000 (10<sup>-4</sup>) e 1/100.000 (10<sup>-5</sup>) il suo valore sara' compreso fra -4 e -5, pero' abbiamo un problema: la mantissa non puo' mai essere negativa, quindi, dovendo aggiungere una quantita' positiva considereremo il valore piu' basso (10<sup>-5</sup>), e, per ricordare che caratteristica e mantissa hanno segno diverso, metteremo una barra sopra il valore della caratteristica cosi' 
+5<span style="position:relative;bottom:22;right:12px"><font color="000000" size=5><b>_</b></font></span> <br>
+Come regola mnemonica devi scrivere come caratteristica il numero di zeri che vedi scritti prima della prima cifra significativa del numero (nel nostro caso 5 zeri) e metterci sopra la barra<br>
+Calcolo la mantissa per 3425,6<br>
+ 
+<center>
+<table>
+<TR>
+<TD align="center"><font size=4><b> 3425 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=4><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=4><b>&nbsp;&nbsp; 53466 &nbsp;&nbsp;</b></font></TD>
+<td></td></TR>
+<TR>
+<TD align="center"><font size=4><b>  </b></font></TD>
+<TD align="center"><font size=4><b>  </b></font></TD>
+<TD align="center"><font size=4><b>  </b></font></TD>
+<td><font size=2><b>13</b></font></td>
+</TR>
+<TR>
+<TD align="center"><font size=4><b> 3426 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=4><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=4><b>&nbsp;&nbsp; 53479 &nbsp;&nbsp;</b></font></TD>
+<td></td></TR>
+</table>
+</center>
+Cerco la tabellina con intestazione 13 e vedo che al decimale 6 corrisponde 7,8 e quindi
+<br>
+<b>53466+6,8 = 534728</b> <font size=2>la virgola e' virtuale e ti indica solamente dove fare la somma</font> <br> 
+e quindi<br>
+<b>Log 0,000034256 = 5,534728</b><span style="position:relative;bottom:22;right:95px"><font color="000000" size=5><b>_</b></font></span> <br>
+ <font size=2>
+Per fare le somme ricordati che il numero trovato e' formato da <b>-5</b> negativo e <b>0,534728</b>positivo<br><br>
+Purtroppo ho notato che, a seconda del provider, il trattino sopra il numero tende a spostarsi: tenetene conto nel leggere le pagine</font>
+<hr>
+
+
+
+
+
+<a name=4> </a>
+Se voglio piu' cifre oltre quelle che trovo sulle tavole<br>
+<b>Log 35,67825</b><br>
+  
+
+prima fisso la caratteristica: essendo il valore del logaritmo compreso fra 10 (10<sup>1</sup>) e 100 (10<sup>2</sup>) il suo valore sara' compreso fra 1 e 2,  quindi prendo 1 <br>
+ 
+Calcolo la mantissa per 3567,827<br>
+ 
+<center>
+<table>
+<TR>
+<TD align="center"><font size=4><b> 3567 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=4><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=4><b>&nbsp;&nbsp; 55230 &nbsp;&nbsp;</b></font></TD>
+<td></td></TR>
+<TR>
+<TD align="center"><font size=4><b>  </b></font></TD>
+<TD align="center"><font size=4><b>  </b></font></TD>
+<TD align="center"><font size=4><b>  </b></font></TD>
+<td><font size=2><b>12</b></font></td>
+</TR>
+<TR>
+<TD align="center"><font size=4><b> 3568 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=4><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=4><b>&nbsp;&nbsp; 55242 &nbsp;&nbsp;</b></font></TD>
+<td></td></TR>
+</table>
+</center>
+Cerco la tabellina con intestazione 12 e vedo che<br>
+al decimale 8 corrisponde 9,6 <br>
+al decimale 2 corrisponde 2,4 <br>
+al decimale 7 corrisponde 8,4 <br>
+e quindi, ricordandomi che ogni decimale successivo va spostato di un posto,essendo il primo un decimale, il secondo un centesimale, il terzo un millesimale,...
+<center>
+<table>
+<TR>
+<TD align="left"><font size=4><b>5&nbsp;5&nbsp;2&nbsp;3&nbsp;0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</b></font></TD>
+<TD align="center"><font size=4><b>+</b></font></TD>
+</TR>
+<TR>
+<TD align="right"><font size=4><b>9,6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=4><b>+</b></font></TD>
+</TR>
+<TR>
+<TD align="right"><font size=4><b>2,4 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=4><b>+</b></font></TD>
+</TR>
+<TR>
+<TD align="right"><font size=4><b>8,4 </b></font></TD>
+<TD align="center"><font size=4><b>=</b></font></TD>
+</TR>
+<tr><TD align="left" colspan="2"><img src="../../immagini/rufonero.jpg" width="160" height="2"></TD></tr>
+<TR>
+<TR>
+<TD align="right"><font size=4><b>5&nbsp;5&nbsp;2&nbsp;3&nbsp;9&nbsp;9&nbsp;2&nbsp;4 </b></font></TD>
+<TD align="center"><font size=4><b>&nbsp;&nbsp;&nbsp;</b></font></TD>
+</TR>
+
+</table>
+</center>
+<br>
+ 
+e quindi<br>
+<b>Log 35,67825= 1,55239924</b> <br>
+ od anche<br>
+<b>35,67825 = 10<sup>1,55239924</sup></b><br>
+<font size=2>Fai attenzione pero': per l'errore dovuto all'interpolazione di solito si considerano al piu' due cifre oltre quelle presenti sulle tavole </font>
+
+<hr>
+
+
+
+
+   </font>
+   </TR> <br>
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+   <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../n.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="nabdb.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="nabd.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

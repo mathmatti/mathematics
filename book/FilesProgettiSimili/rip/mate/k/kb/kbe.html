@@ -1,0 +1,120 @@
+<HTML>
+<HEAD>
+<TITLE>disgiunzione esclusiva
+</TITLE>
+</HEAD>
+<BODY Background="../immagini/sfondok013.jpg"> 
+ 
+<P>
+
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+Disgiunzione esclusiva
+   </font></center>
+<br> <br>
+  <font size=4>
+ Anche la disgiunzione esclusiva (<b>o l'uno, oppure l'altro ma non tutti e due</b>) e' un'operazione <b>binaria</b> perche' si applica su due proposizioni ed e' definita come l'operazione che applicata a <b>p</b> e <b>q</b> restituisce i seguenti valori di verita' (si usa il simbolo <b>aut</b>)<br>
+ 
+<br>
+ <center>
+<table border=1 cellpadding=10>
+<TR>
+<TD><font color="000000" size=4><b>p</b>  </font></TD>
+<TD><font color="000000" size=4><b>q</b>  </font></TD>
+<TD><font color="000000" size=4><b>p  aut q</b>  </font></TD>
+ 
+</TR>
+<TR>
+<TD><font color="ff0000" size=4><b> v <br><br>   v <br><br>   f <br><br>   f  </b></font></TD>
+<TD><font color="ff0000" size=4><b>   v <br><br> f <br><br>   v <br><br>   f  </b></font></TD>
+<TD align="center"><font color="ff0000" size=4><b>   f <br><br> v <br><br>   v <br><br>   f  </b></font></TD>
+
+ </TR>
+</table>
+
+</center>
+<font size=2>
+Cioe'<br>la proposizione composta e' vera solamente se una sola delle proposizioni componenti e' vera
+<br>
+Cioe' per la verita' della proposizione composta puo' essere vera la prima <b>o</b> puo' essere  vera la seconda ma non possono essere vere entrambe
+  
+
+</font>
+
+<hr>
+<font size=2>Si chiama disgiunzione <b>esclusiva</b> perche' <b>esclude</b> dal valore di verita' il caso in cui entrambe le proposizioni componenti siano vere</font>
+<hr>
+<font size=3>
+ 
+Vediamo un esempio:<br>
+"Avendo due ore a disposizione <br>  <font color="ff0000"><b>
+ vado al cinema o (oppure) a mangiare una pizza cogli amici"
+</b></font><br>
+in questo caso la frase considerata in rosso e' da intendere:<br>
+o vado al cinema o vado a mangiare una pizza ma non ho tempo per fare tutte e due le cose, quindi l'una esclude l'altra
+
+
+<ul>
+<LI>Se vado al cinema ed anche vado a mangiare la pizza <br>
+<font size=2>E' la prima riga della tabella <b>v aut v = f</b><br>
+la frase non puo' essere vera non avendo il tempo di fare entrambe le cose</font></li>
+
+<LI>Se vado al cinema e non vado a mangiare la pizza <br>
+<font size=2>E' la seconda riga della tabella <b>v aut f = v</b></font></li>
+
+<LI>Se non  vado al cinema ma vado a mangiare la pizza <br>
+<font size=2>E' la terza riga della tabella <b>f aut v = v</b></font></li>
+
+<LI>Se non vado al cinema e non vado a mangiare la pizza <br>
+<font size=2>E' la quarta riga della tabella <b>f aut f = f</b></font></li>
+
+</ul>
+</font>
+<hr>
+<font size=2>
+In informatica, per indicarlo, si usa <b>eor</b> <br>
+In teoria degli insiemi il concetto corrispondente e' la <a href="../../j/jb/jbfg.html" target="_blank">differenza simmetrica</a></font>
+ <hr>  
+Per finire mostriamo che possiamo ottenere la disgiunzione esclusiva utilizzando gli operatori logici fondamentali: <br>
+
+<b>p aut q <img src="../../immagini/identico.jpg" width="12"> non &#091;(p and q) vel ((non p) and (non q))&#093;</b>
+<br>o meglio in formule<br><br>
+<b>p aut q <img src="../../immagini/identico.jpg" width="12"> &#091;( p <img src="../../immagini/and.jpg"> q ) <img src="../../immagini/vel.jpg"> (p<span style="position:relative;bottom:22;right:12px"><font color="000000" size=5><b>_</b></font></span><img src="../../immagini/and.jpg">  q<span style="position:relative;bottom:22;right:12px"><font color="000000" size=5><b>_</b></font></span>  )&#093;<span style="position:relative;bottom:28;right:210px"><font color="000000" size=5><b>_____________________</b></font></span> </b>
+<font size=3>
+<br><br>
+Per dimostrarlo basta calcolare le tavole di verita' per l'espressione prima dell'uguale e per l'espressione dopo l'uguale: se le due tavole sono uguali allora le espressioni sono equivalenti: <br>
+Prova a farlo per esercizio poi controlla la <a href="kbea.html" target="_blank">soluzione</a>
+</font>
+
+<hr>
+</font>
+   </td>
+   </tr>
+   </center>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+   <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></a>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../k.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di logica" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="kbf.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="kbd.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

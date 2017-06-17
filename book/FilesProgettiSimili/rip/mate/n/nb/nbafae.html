@@ -1,0 +1,189 @@
+<HTML>
+<HEAD>
+<TITLE>calcolo del montante ad interesse composto per tempi interi 
+</TITLE>
+</HEAD>
+<BODY bgcolor="ccffcc"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+   Esercizio sul calcolo del montante ad interesse composto per tempi interi con tassi non sulle tavole
+   </font></center>
+<br>
+ <LI size=3>
+ <br>
+Si impiega il capitale di &#8364; 10000 per 6 anni e 6 mesi  al 2,55% annuo <br>
+Calcolarne il montante   nei modi possibili e confrontare i risultati<br><br>
+in questo esercizio il tasso e' fuori delle tavole
+Dati<br>
+<b>C = 10000,00 &#8364;<br>
+t = 6 anni e 6 mesi = 6 + &frac12; = 13/2<br>
+i = 2,55% = 0,0255 </b><br>
+<ul type="1">Eseguo l'esercizio con i due metodi possibili:<br>
+
+ <a href="#lineare"><font size=4>formula lineare</font></a><br> 
+<a href="#esponenziale"><font size=4>formula esponenziale</font></a><br><br>
+
+<a name="lineare"> </a>
+<ul><font size=4>formula lineare<br><br></font>
+ 
+<li> Utilizzo la calcolatrice<br>
+
+Imposto, sullo schermo il calcolo<br>
+<b><font size=3>M<sub> 6 + &frac12;</sub>= 10000(1+0,0255)<sup>6</sup>(1+0,0255&middot;&frac12;)</font></b>
+
+ <br>
+ottengo <b>11779,212050999</b> che approssimo a <b>11779,21</b><br><br>
+il montante e' di  <b>&#8364; 11779,21</b><br><br>
+</li>
+
+
+<li>
+Prima calcolo il montante per 6 anni, poi applico a tale montante l'interesse semplice per 6 mesi<br>
+utilizzo le tavole finanziarie per (1+i)<sup>n</sup> <br>
+Essendo il tasso fuori delle tavole lo calcolo per interpolazione
+
+<center>
+<table>
+<TR>
+<TD align="center"><font size=3><b>0,0250 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=3><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=3><b>&nbsp;&nbsp; 1,15969342 &nbsp;&nbsp;</b></font></TD>
+<td></td></TR>
+<TR>
+<TD align="center"><font size=3><b>0,0255 &nbsp;&nbsp;  </b></font></TD>
+<TD align="center"><font size=3><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=3><b>&nbsp;&nbsp; &nbsp; 1,15969342+x  </b></font></TD>
+<td><font size=2><b>&nbsp;&nbsp;&nbsp;  </b></font></td>
+</TR>
+<TR>
+<TD align="center"><font size=3><b> 0,02750 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=3><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=3><b>&nbsp;&nbsp; 1,17676836  &nbsp;&nbsp;</b></font></TD>
+<td></td></TR>
+</table>
+</center>
+faccio la proporzione<br>
+<b> (1,17676836 -1,15969342):(0.0275-0,0250 = x : (0,0255-0,0250) </b><br>
+
+<b> 0,01707494 : 0,0025 = x : 0,0005 </b><br>
+
+ <table>
+<TR>
+<TD align="center"><b>x = </b></TD>
+<TD align="center"><b>0,01707494 &middot; 0,0005<br> <img src="../../immagini/rufonero.jpg" width="200" height="2"><br> 0,0025</b></TD>
+<TD align="center"><b> = 0,003414988</b></TD> 
+</TR>
+</table>
+
+
+quindi ottengo<br>
+<b>(1.0255)<sup>6</sup>= (1,15969342 + 0,003414988) = 1,163108408</b>
+
+ <br>e quindi<br>
+<b> M   = 10000&middot;1,163108408 = 116310,8408   </b>che approssimo a
+<b> &#8364; 116310,84 </b><br>
+il montante per 6 anni e' di  <b>&#8364; 116310,84 </b><br><br>
+Ora calcolo il montante ad interesse semplice per 6 mesi<br>
+<b>M<sub>6</sub>=11631,08408   (1+ 0.0255&middot;&frac12;)= 11779,38040202<br></b>
+
+che approssimo a
+<b> &#8364; 11779,38 </b><br>
+La lieve differenza rispetto al valore precedente e' dovuto all'interpolazione
+<br><br> 
+</li>
+ </ul>
+
+
+
+
+
+
+<a name="esponenziale"> </a>
+<ul><font size=4>formula esponenziale<br><br></font>
+<li> Utilizzo la calcolatrice<br>
+
+Imposto, sullo schermo il calcolo<br>
+<b> 10000&middot;(1+0,0255)<sup>13/2</sup> </b><br>
+ottengo <b>11778,278540257</b> che approssimo a <b>11778,28</b><br><br>
+il montante e' di  <b>&#8364; 11778,28</b><br><br>
+</li>
+
+
+<li>utilizzo le tavole logaritmiche a 7 decimali 
+<font size=2>  calcolo solamente (1+0,0255)<sup>13/2</sup> e poi moltiplico il risultato per il capitale iniziale </font><br>
+<b>M  = 10000(1+0,0255)<sup>13/2</sup>  </b> <br>
+Calcolo il fattore (1+0,0255)<sup>13/2</sup> coi logaritmi; per la <a href="../../a/al/algc.html" target="_blank">proprieta' dei logaritmi</a> ho<br>
+<b>Log (1+0,0255)<sup>13/2</sup> = 13/2 &middot;Log 1,0255 = </b><br>
+
+trasformo il numero in Logaritmo<br>
+leggo sulle tavole logaritmiche a 7 decimali &nbsp;&nbsp;
+<b>Log 1,0255 = 0,0109357 </b><br>
+Quindi<br> 
+<b>=  13/2&middot;0,0109357 = 0,07108205</b><br>
+
+
+ Questo e' il logaritmo, ora trovo l'antilogaritmo (lo trasformo in valore normale)<br>
+
+<b>AntiLog 0,07108205 = </b><br>
+Essendo la caratteristica 0 il valore dell'antilogaritmo sara' compreso fra 1 e 10, quindi avremo una cifra significativa prima della virgola<br>
+Siccome la mia mantissa  non si trova sulle tavole a 7 decimali cerco l'antilogaritmo nelle tavole a 5 decimali
+la mia mantissa a 5 decimali (07108,205) e' compreso fra i numeri (Leggo le tavole cercando nelle mantisse a 5 decimali)<br>
+ <center>
+<table>
+<TR>
+<TD align="center"><font size=4><b>07078 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=4><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=4><b>&nbsp;&nbsp; 1177 &nbsp;&nbsp;</b></font></TD>
+<td></td></TR>
+<TR>
+<TD align="center"><font size=4><b>  </b></font></TD>
+<TD align="center"><font size=4><b>  </b></font></TD>
+<TD align="center"><font size=4><b>  </b></font></TD>
+<td><font size=2><b>37</b></font></td>
+</TR>
+<TR>
+<TD align="center"><font size=4><b> 07115 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=4><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=4><b>&nbsp;&nbsp; 1178  &nbsp;&nbsp;</b></font></TD>
+<td></td></TR>
+</table>
+</center>
+ 
+Di fianco ai due risultati trovi il numero <b>37</b> che corrisponde alla differenza fra i due valori della mantissa mentre la differenza fra il mio valore e quello minore e'<br>
+<b>07108,205-07078   =  30,205</b><br>
+Nella tabella del 37 cerco 30,205; <br>
+il numero minore piu' vicino e' 29,6 cui corrisponde la sesta cifra del nostro numero, cioe' 8<br>
+mi resta 30,205-29,6 = 0,605; sposto la virgola di un posto  
+6,05  <br>
+Nella tabella del 37 cerco 6,05; il numero piu' vicino e' 3,7 che corrisponde a 1, quindi la settima cifra e' 1<br>
+mi resta 6,05-3,7 = 2,35; sposto la virgola di un posto  
+23,5  <br>
+Nella tabella del 37 cerco il numero piu' vicino a 23,5; il numero piu' vicino e' 22,2 che corrisponde a 6, quindi l'ottava cifra e' 6<br>
+
+
+ quindi scrivo<br>
+<b>Antilog  0,07108205  = 1,177816</b><br>
+ 
+e, calcolando il montante<br>
+<b>M   = 10000&middot;1,177816 = 11778,16   &#8364;</b>  <br>
+<br>
+
+il montante e' di  <b>&#8364; 11778,16</b><br><br>
+
+ 
+</ul>
+
+Da notare che con la formula lineare abbiamo un montante leggermente superiore come avevamo <a href="nbae.html" target="_blank">gia' detto</a>
+    </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+
+  </center>
+  </BODY>
+</HTML>

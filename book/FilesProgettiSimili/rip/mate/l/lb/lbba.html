@@ -1,0 +1,168 @@
+<HTML>
+<HEAD>
+<TITLE>disposizioni semplici
+</TITLE>
+</HEAD>
+<BODY Background="../immagini/sfondol008.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+<td>
+    
+   <center><font color="#FF2200" size=6>
+Disposizioni semplici
+   </font>
+</center>
+<br><br>
+   <font size=4>
+   Le disposizioni semplici su n oggetti sono i numeri delle coppie ordinate <font color="ff0000" size=5>D<sub>n;2</sub></font>, terne ordinate <font color="ff0000" size=5>D<sub>n;3</sub></font>, quaterne ordinate <font color="ff0000" size=5>D<sub>n;4</sub></font>,...,k-uple ordinate <font color="ff0000" size=5>D<sub>n;k</sub></font> che posso formare con n oggetti; <br>
+Per trovare la formula procediamo con ordine, ad esempio su 5 oggetti<br>
+
+<font color="ff0000" size=5><b>a<sub>1</sub></b></font>, <font color="ff0000" size=5><b>a<sub>2</sub></b></font>, <font color="ff0000" size=5><b>a<sub>3</sub></b></font>, <font color="ff0000" size=5><b>a<sub>4</sub></b></font>, <font color="ff0000" size=5><b>a<sub>5</sub></b></font><br>
+ 
+se considero gli elementi uno ad uno allora ho 5 possibilita'<br>
+<table><TR>
+<TD><font color="ff0000" size=5><b>a<sub>1</sub> &nbsp;&nbsp;a<sub>2</sub> &nbsp;&nbsp;a<sub>3</sub> &nbsp;&nbsp;a<sub>4</sub> &nbsp;&nbsp;a<sub>5</sub> &nbsp;&nbsp;</b></font> </TD>
+</TR></table>
+<font color="ff0000" size=5><b>D<sub>5;1</sub> = 5</b></font><br>
+se considero le coppie ordinate , allora ad ogni elemento precedente ne devo aggiungere 4 (uno alla volta)
+ <table>
+<TR>
+<TD align="center">
+<font color="ff0000" size=5>
+<b>a<sub>1</sub> a<sub>2</sub>    &nbsp;&nbsp;&nbsp;
+   a<sub>1</sub> a<sub>3</sub>   &nbsp;&nbsp;
+   a<sub>1</sub> a<sub>4</sub>   &nbsp;&nbsp;
+   a<sub>1</sub> a<sub>5</sub>
+</b>
+</font>
+</TD>
+</tr>
+<TR>
+<TD align="center">
+<font color="ff0000" size=5>
+<b>a<sub>2</sub> a<sub>1</sub>    &nbsp;&nbsp;&nbsp;
+   a<sub>2</sub> a<sub>3</sub>   &nbsp;&nbsp;
+   a<sub>2</sub> a<sub>4</sub>   &nbsp;&nbsp;
+   a<sub>2</sub> a<sub>5</sub>
+</b>
+</font>
+</TD>
+</tr>
+<TR>
+<TD align="center">
+<font color="ff0000" size=5>
+<b>a<sub>3</sub> a<sub>1</sub>    &nbsp;&nbsp;&nbsp;
+   a<sub>3</sub> a<sub>2</sub>   &nbsp;&nbsp;
+   a<sub>3</sub> a<sub>4</sub>   &nbsp;&nbsp;
+   a<sub>3</sub> a<sub>5</sub>
+</b>
+</font>
+</TD>
+</tr>
+
+<TR>
+<TD align="center">
+<font color="ff0000" size=5>
+<b>a<sub>4</sub> a<sub>1</sub>    &nbsp;&nbsp;&nbsp;
+   a<sub>4</sub> a<sub>2</sub>   &nbsp;&nbsp;
+   a<sub>4</sub> a<sub>3</sub>   &nbsp;&nbsp;
+   a<sub>4</sub> a<sub>5</sub>
+</b>
+</font>
+</TD>
+</tr>
+
+<TR>
+<TD align="center">
+<font color="ff0000" size=5>
+<b>a<sub>5</sub> a<sub>1</sub>    &nbsp;&nbsp;&nbsp;
+   a<sub>5</sub> a<sub>2</sub>   &nbsp;&nbsp;
+   a<sub>5</sub> a<sub>3</sub>   &nbsp;&nbsp;
+   a<sub>5</sub> a<sub>4</sub>
+</b>
+</font>
+</TD>
+</tr>
+
+
+</table>
+cioe'<br>
+<font color="ff0000" size=5><b>D<sub>5;2</sub> = 5&#183;4</b></font><br>
+
+Se poi voglio le terne ordinate ogni coppia mi generera' tre possibili terne (mi restano tre numeri perche' due sono gia' nella coppia)<br>
+<font color="ff0000" size=5><b>D<sub>5;3</sub> = 5&#183;4&#183;3</b></font><br>
+cosi' se voglio le quaterne ordinate
+ad ogni terna potro' aggiungere 2 oggetti diversi perche' 3 sono gia' nelle terne<br>
+<font color="ff0000" size=5><b>D<sub>5;4</sub> = 5&#183;4&#183;3&#183;2</b></font><br>
+
+concludendo se voglio le cinquine ordinate
+ad ogni quaterna potro' aggiungere solo 1 oggetto  perche' 4 sono gia' nelle quaterne<br>
+<font color="ff0000" size=5><b>D<sub>5;5</sub> = 5&#183;4&#183;3&#183;2&#183;1</b></font><hr>
+<font size=2>Da notare che le disposizioni semplici di 5 oggetti presi 5 a 5 corrispondono alle permutazioni su 5 oggetti<br>
+<b>D<sub>5;5</sub> = P<sub>5</sub> = 5! = 5&#183;4&#183;3&#183;2&#183;1 </b><br>
+Le permutazioni sono le disposizioni che posso fare considerando di prendere tutti gli oggetti</font><hr>
+
+Facciamo ora un riepilogo cercando la formula <br>
+<font color="ff0000" size=5><b>
+D<sub>5;1</sub> = 5<br>
+D<sub>5;2</sub> = 5&#183;4<br>
+D<sub>5;3</sub> = 5&#183;4&#183;3<br>
+D<sub>5;4</sub> = 5&#183;4&#183;3&#183;2<br>
+D<sub>5;5</sub> = 5&#183;4&#183;3&#183;2&#183;1<br>
+
+</b></font><br>
+Il primo numero della <font color="ff0000" size=5><b>D</b></font> corrisponde al primo numero del prodotto dopo l'uguale, dobbiamo trovare la corrispondenza fra il secondo numero prima dell'uguale ed un numero dopo l'uguale<br>
+osserviamo che<br>
+<font color="ff0000" size=5><b>
+5 - 1 + 1= 5<br>
+5 - 2 + 1 = 4<br>
+5 - 3 + 1 = 3<br>
+5 - 4 + 1 = 2<br>
+5 - 5 + 1 = 1<br>
+</b></font>
+Quindi per ottenere l'ultimo numero del prodotto dopo l'uguale basta fare la differenza   dei due numeri prima dell'uguale ed aumentarla di 1<br>
+Questo ci porta alla formula<br>
+
+<font color="ff0000" size=5><b>D<sub>n;k</sub> =
+n&#183;(n-1)&#183;.......&#183;(n-k+1)</b></font><br>
+cioe'<br>
+<b>Il numero delle disposizioni semplici di n oggetti presi k a k e' uguale al prodotto di tutti i numeri naturali compresi fra n ed (n-k+1)</b>
+<hr>
+<font size=3>
+Chiamiamo "terna ordinata" un insieme di 3 numeri in cui conta l'ordine, cioe' 60,30,90 e' una terna diverso da 90,60,30
+<br>
+Per esercizio troviamo tutte le terne ordinate che possono uscire in un'estrazione su una ruota del lotto: <br>sono le terne che possiamo formare con 90 oggetti, cioe' le diposizioni semplici di 90 oggetti presi tre a tre<br>
+<font color="ff0000" size=3><b>D<sub>90;3</sub> =
+90&#183;89&#183;.......&#183;(90-3+1) = 90&#183;89&#183;88 = 704880</b></font><br>
+Prova ora a calcolare il numero delle cinquine ordinate che possono uscire in una estrazione del lotto
+</font>
+</font>
+<hr>
+   </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+   <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../l.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="lbbb.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="lbb.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

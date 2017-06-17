@@ -1,0 +1,362 @@
+<HTML>
+<HEAD>
+<TITLE>numeri con la virgola nel sistema binario
+</TITLE>
+</HEAD>
+<BODY Background="../immagini/sfondop018.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+  Numeri con la virgola nel sistema binario
+   </font></center>
+<br><br>
+<font size=3> Anche nel sistema binario, come nel sistema decimale, e' possibile, quando otteniamo un resto nell'operazione di divisione, procedere ancora trovando le cifre decimali del numero; vediamo qui un esempio di come si procede</font>
+ <br><hr>  <font size=4>
+Prima consideriamo il caso di un numero decimale finito, ad esempio partiamo dalla divisione decimale <br>&nbsp;&nbsp;&nbsp;
+<b>50 : 8 = 6,25</b>  e vediamo come comportarci<br><br>
+<b> 110010 : 1000 =</b>
+<br><br>
+<table align="center" border=0>
+
+<TR>
+ <TD><font size=5><b>110010,00</b></font></TD>
+<TD valign="top" width="4"><img src="../../immagini/rufo.jpg" width="2" height="40"></TD>
+<TD><font size=5><b>1000</b></font></TD>
+ </TR>
+
+
+<TR>
+<td></td>
+ 
+<TD colspan="2"><img src="../../immagini/rufo.jpg" width="100" height="2"></TD>
+ 
+ 
+</TR>
+<tr>
+ <TD><font size=5><b>1000</b></font></TD>
+<td rowspan="9"></td>
+<TD rowspan="9" valign="top"><font size=5><b>110,01</b></font></TD>
+
+</tr>
+<tr>
+<TD align="left"><img src="../../immagini/rufo.jpg" width="80" height="2"></TD>
+</tr>
+ 
+<tr>
+<TD><font size=5><b>-&nbsp;1001</b></font></TD>
+</tr>
+<tr>
+<TD><font size=5><b>&nbsp;&nbsp;1000</b></font></TD>
+</tr>
+<tr>
+<TD align="left">&nbsp;&nbsp;&nbsp;
+<img src="../../immagini/rufo.jpg" width="70" height="2"> </TD>
+</tr>
+<tr>
+<TD align="left"><font size=5><b>&nbsp;&nbsp;&nbsp;-&nbsp;-&nbsp;-10,00</b></font></TD>
+</tr>
+ <tr>
+<TD align="right"><font size=5><b>&nbsp;&nbsp;10 00</b></font></TD>
+</tr>
+<tr>
+<TD align="right">&nbsp;&nbsp;&nbsp;
+<img src="../../immagini/rufo.jpg" width="70" height="2"> </TD>
+</tr>
+<tr>
+<TD align="right"><font size=5><b>&nbsp;&nbsp;&nbsp;-&nbsp;-&nbsp; -&nbsp;- </b></font></TD>
+</tr>
+
+
+</table><br>
+
+<font size=2> 
+Ti spiego passo passo come si procede:<br>
+le cifre del divisore (1000) sono 4 quindi considero 4 cifre del dividendo (1100)  <br> 
+ 1000 in 1100 ci sta,   quindi scrivo 1 nel quoziente e scrivo 1000 sotto le cifre considerate del dividendo,  ed eseguo la sottrazione: ottengo 100<br><br>
+Abbasso un altra cifra del dividendo ed ottengo 1001<br>
+1000 in 1001   ci sta,  quindi scrivo 1 nel quoziente e scrivo 1000 sotto le cifre considerate del dividendo (partendo da destra),  ed eseguo la sottrazione: 
+ottengo 1 
+ <br><br>
+ Abbasso l'ultima cifra del dividendo ed ottengo 10 <br>
+1000 in 10  non ci sta, scrivo 0 nel quoziente e  considero un primo 0 dopo la virgola, ottengo 100<br><br>
+
+1000 in 100  non ci sta, scrivo la virgola e lo zero (.0) nel quoziente e  considero un secondo 0 dopo la virgola, ottengo 1000<br><br>
+1000 in 1000   ci sta,  quindi scrivo 1 nel quoziente e scrivo 1000 sotto le cifre considerate del dividendo  ,  ed eseguo la sottrazione: 
+ottengo 0 <br><br>
+</font>
+ ho ottenuto<br>
+<b> 110010 : 1000 = 110,01</b><br><hr width="200">
+<font size=2>Nota: per ritrasformare da binario a decimale le cifre dopo la virgola dobbiamo far riferimento alle potenze di &frac12;, o meglio alle potenze negative di 2<br>
+<b>2<sup>-1</sup> = (&frac12;)<sup>1</sup> = 1/2 = 0,5  &nbsp;&nbsp;
+2<sup>-2</sup> = (&frac12;)<sup>2</sup> = 1/4 = 0,25    &nbsp;&nbsp;
+2<sup>-3</sup> = (&frac12;)<sup>3</sup> = 1/8 = 0,125
+ ......</b> 
+<br>
+ 
+
+ 
+
+<table border="1">
+<TR>
+<TD align="center"><font color="aa0000" size="2"><b>cifra<br>binaria</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>......</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>terza</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>seconda</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>prima</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>virgola</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>prima</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>seconda</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>terza</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>quarta</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>quinta</b></font></TD>
+ 
+</TR>
+<TR>
+<TD align="center"><font color="aa0000" size="2"><b>potenza<br> del 2</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>......</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>2<sup><font size=2>2</font></sup> </b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>2<sup><font size=2>1</font></sup> </b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>2<sup><font size=2>0</font></sup> </b></font></TD>
+<TD align="center"><font color="aa0000" size="6"><b> , </b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>2<sup><font size=2>-1</font></sup> </b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>2<sup><font size=2>-2</font></sup> </b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>2<sup><font size=2>-3</font></sup> </b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>2<sup><font size=2>-4</font></sup> </b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>2<sup><font size=2>-5</font></sup> </b></font></TD>
+ 
+</TR>
+<TR>
+<TD align="center"><font color="aa0000" size="2"><b>valore<br>potenza</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>......</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>4</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>2</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>1</b></font></TD>
+<TD align="center"><font color="aa0000" size="6"><b>,</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>0,5</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>0,25</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>0,125</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>0,0625</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>0,03125</b></font></TD>
+ 
+</TR>
+
+</table>
+
+ <br><br>
+ad esempio, se hai il numero <b>101,101</b>   mettilo metalmente in tabella ed avrai  <br><br>
+
+<table border="1">
+<TR>
+<TD align="center"><font color="aa0000" size="2"><b>cifra<br>binaria</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>......</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>terza</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>seconda</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>prima</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>virgola</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>prima</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>seconda</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>terza</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>quarta</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>quinta</b></font></TD>
+ 
+</TR>
+<TR>
+<TD align="center"><font color="aa0000" size="2"><b>potenza<br> del 2</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>......</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>2<sup><font size=2>2</font></sup> </b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>2<sup><font size=2>1</font></sup> </b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>2<sup><font size=2>0</font></sup> </b></font></TD>
+<TD align="center"><font color="aa0000" size="6"><b> , </b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>2<sup><font size=2>-1</font></sup> </b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>2<sup><font size=2>-2</font></sup> </b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>2<sup><font size=2>-3</font></sup> </b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>2<sup><font size=2>-4</font></sup> </b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>2<sup><font size=2>-5</font></sup> </b></font></TD>
+ 
+</TR>
+<TR>
+<TD align="center"><font color="aa0000" size="2"><b>valore<br>potenza</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>......</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>4</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>2</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>1</b></font></TD>
+<TD align="center"><font color="aa0000" size="6"><b>,</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>0,5</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>0,25</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>0,125</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>0,0625</b></font></TD>
+<TD align="center"><font color="aa0000" size="4"><b>0,03125</b></font></TD>
+ 
+</TR>
+<TR>
+<TD align="center"><font color="aa0000" size="2"><b>numero  <br>dato</b></font></TD>
+<TD align="center"><font color="000000" size="4"><b>......</b></font></TD>
+<TD align="center"><font color="000000" size="5"><b> 1</b></font></TD>
+<TD align="center"><font color="000000" size="5"><b> 0</b></font></TD>
+<TD align="center"><font color="000000" size="5"><b>1</b></font></TD>
+<TD align="center"><font color="000000" size="6"><b>,</b></font></TD>
+<TD align="center"><font color="000000" size="5"><b>1</b></font></TD>
+<TD align="center"><font color="000000" size="5"><b>0</b></font></TD>
+<TD align="center"><font color="000000" size="5"><b>1</b></font></TD>
+<TD align="center"><font color="000000" size="5"><b></b></font></TD>
+<TD align="center"><font color="000000" size="5"><b></b></font></TD>
+ 
+</TR>
+
+
+</table>
+
+
+
+
+ quindi il  numero preso ad esempio, in decimali vale<br>
+<b>4 + 0 + 1 + 0,5 + 0 + 0,125 = 5,625</b>
+<br><font size=1>In pratica significa che ogni numero decimale inferiore ad 1 puo' essere rappresentato come somma di termini della successione geometrica di ragione 1/2. Sarebbe a dire che esiste una corrispondenza biunivoca fra i numeri razionali inferiori ad 1 e le ridotte della serie geometrica di ragione 1/2. E' anche una verifica del fatto che la serie geometrica di ragione 1/2 converge ad 1<br>Non so a voi, ma a me sembra questo fatto sembra interessante  e credo che meriterebbe un approfondimento.</font>
+
+
+
+</font><hr width="200"><br>
+
+Il nostro risultato 110,01 trasformato in decimali vale<br>
+<b> 4 + 2 + 0 + 0 + 0,25 = 6,25</b>
+
+
+
+<hr>
+Consideriamo ora il caso di un numero decimale illimitato periodico, ad esempio partiamo dalla divisione decimale <br>&nbsp;&nbsp;&nbsp;
+<b>20 : 6 = 3,3333....</b>  e vediamo come comportarci<br><br>
+<b> 10100 : 110 =</b>
+<br><br>
+<table align="center" border=0>
+
+<TR>
+ <TD><font size=5><b>10100, 0000</b></font></TD>
+<TD valign="top" width="4"><img src="../../immagini/rufo.jpg" width="2" height="40"></TD>
+<TD><font size=5><b>110</b></font></TD>
+ </TR>
+
+
+<TR>
+<td></td>
+ 
+<TD colspan="2"><img src="../../immagini/rufo.jpg" width="100" height="2"></TD>
+ 
+ 
+</TR>
+<tr>
+ <TD><font size=5><b>&nbsp; 110</b></font></TD>
+<td rowspan="9"></td>
+<TD rowspan="9" valign="top"><font size=5><b>11, 0101.....</b></font></TD>
+
+</tr>
+<tr>
+<TD align="left"><img src="../../immagini/rufo.jpg" width="60" height="2"></TD>
+</tr>
+ 
+<tr>
+<TD><font size=5><b>- 1000</b></font></TD>
+</tr>
+<tr>
+<TD><font size=5><b>&nbsp;&nbsp;&nbsp; 110</b></font></TD>
+</tr>
+<tr>
+<TD align="left">&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="../../immagini/rufo.jpg" width="50" height="2"> </TD>
+</tr>
+<tr>
+<TD align="left"><font size=5><b>&nbsp;&nbsp;&nbsp;&nbsp; 10, 00</b></font></TD>
+</tr>
+ <tr>
+<TD align="left"><font size=5><b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;1 &nbsp;10 </b></font></TD>
+</tr>
+<tr>
+<TD align="right">&nbsp;&nbsp;&nbsp;
+<img src="../../immagini/rufo.jpg" width="50" height="2"> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</TD>
+</tr>
+<tr>
+<TD align="right"><font size=5><b>&nbsp;&nbsp;&nbsp;-&nbsp; 1000</b></font></TD>
+</tr>
+ <tr>
+<TD align="right"><font size=5><b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;110 </b></font></TD>
+</tr>
+<tr>
+<TD align="right">&nbsp;&nbsp;&nbsp;
+<img src="../../immagini/rufo.jpg" width="70" height="2"> </TD>
+</tr>
+
+
+
+
+
+<tr>
+<TD align="right"><font size=5><b>&nbsp;&nbsp;&nbsp;-&nbsp;-&nbsp; 10</b></font></TD>
+</tr>
+<tr>
+<TD align="right"><font size=5><b>   eccetera...</b></font></TD>
+</tr>
+
+
+</table><br>
+<font size=2> 
+Ti spiego passo passo come si procede:<br>
+le cifre del divisore (110) sono 3 quindi considero 3 cifre del dividendo (101)  <br> 
+ 110 in 101 non ci sta,   quindi considero 4 cifre del dividendo: 1010<br>
+
+Ora 110 in 1010 ci sta quindi
+
+scrivo 1 nel quoziente e scrivo 110 sotto le cifre considerate del dividendo (partendo da destra),  ed eseguo la sottrazione: ottengo 100<br><br>
+Abbasso un altra cifra del dividendo ed ottengo 1000<br>
+110 in 1000   ci sta,  quindi scrivo 1 nel quoziente e scrivo 110 sotto le cifre considerate del dividendo (partendo da destra),  ed eseguo la sottrazione: 
+ottengo 10
+  <br><br>
+
+considero un primo 0 dopo la virgola, ottengo 100<br><br>
+
+110 in 100  non ci sta, scrivo la virgola e lo zero (.0) nel quoziente e  considero un secondo 0 dopo la virgola, ottengo 1000<br><br>
+110 in 1000   ci sta,  quindi scrivo 1 nel quoziente e scrivo 110 sotto le cifre considerate del dividendo,  ed eseguo la sottrazione: 
+ottengo 10 <br><br>
+considero un terzo 0 dopo la virgola, ottengo 100<br><br>
+
+110 in 100  non ci sta, scrivo 0 nel quoziente e  considero un quarto 0 dopo la virgola, ottengo 1000<br><br>
+110 in 1000   ci sta,  quindi scrivo 1 nel quoziente e scrivo 110 sotto le cifre considerate del dividendo,  ed eseguo la sottrazione: 
+ottengo 10 <br><br>
+siccome ogni volta, eseguendo la sottrazione ottengo 10 avro' che le cifre dopo la virgola 01, si ripeteranno infinitamente e sono il periodo, cioe' il numero e' binario periodico di periodo 01
+<br><br>
+
+</font>
+ ho ottenuto<br>
+<b> 10100 : 110 = 11,0101010101........</b><br> 
+
+
+
+  <hr>
+   </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+   <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../p.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="pbg.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="pbffe.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

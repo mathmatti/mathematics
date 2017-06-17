@@ -1,0 +1,145 @@
+<HTML>
+<HEAD>
+<TITLE>calcolo del capitale ad interesse composto per tempi non interi 
+</TITLE>
+</HEAD>
+<BODY bgcolor="ccffcc"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+   Esercizio sul calcolo del capitale ad interesse composto per tempi non interi 
+   </font></center>
+<br>
+ <font size=3>
+ <br>
+ Ho ottenuto &#8364; 1156,25 da un capitale impiegato  per 8 anni e 6 mesi e 15 giorni al 2,55% annuo  <br>
+Calcolare tale capitale  <br>
+ <br>Dati<br>
+<b>M  = 1156,25 &#8364;<br></b>
+<table>
+<TR>
+<TD align="center"><b><font size=3>t = 8 anni + 6 mesi + 15 giorni = 8 +  </font></TD>
+<TD align="center"><b><font size=3>6<br><img src="../../immagini/rufonero.jpg" width="20" height="2"><br> 12 </font></TD>
+<TD align="center"><b><font size=3>  +  </font></TD>
+<TD align="center"><b><font size=3>15<br><img src="../../immagini/rufonero.jpg" width="35" height="2"><br> 360 </font></TD>
+
+<TD align="center"><b><font size=3> =  </font></TD>
+<TD align="center"><b><font size=3>2880+180+15<br><img src="../../immagini/rufonero.jpg" width="120" height="2"><br> 360 </font></TD>
+<TD align="center"><b><font size=3> =  </font></TD>
+<TD align="center"><b><font size=3>3075<br><img src="../../immagini/rufonero.jpg" width="40" height="2"><br> 360 </font></TD>
+<TD align="center"><b><font size=3> =  </font></TD>
+<TD align="center"><b><font size=3>205<br><img src="../../immagini/rufonero.jpg" width="35" height="2"><br> 24 </font></TD>
+
+
+</TR>
+</table>
+<b> i = 2,55% = 0,0255 </b><br>
+se usiamo la formula esponenziale possiamo fare tranquillamente  riferimento alla formula
+
+<table><TR>
+<TD><b><font size=3>   C =</font></b></TD>
+<TD align="center"><b><font size=3>M <br> <img src="../../immagini/rufonero.jpg" width="40" height="1"><br>
+(1+i)<sup>t</sup> </font></b></TD>
+</TR></table>
+
+<ul type="1">  
+ <li>Utilizzo la calcolatrice<br>
+Imposto, sullo schermo il calcolo<br>
+<b> 1156,25:(1+0,0255)<sup>(205/24)</sup> </b><br>
+ottengo <b>932,487337385</b><br>
+ 
+  che approssimo a <b>932,49 &#8364;</b><br>
+ il capitale e' di  <b>932,49 &#8364;</b><br>
+ <br>
+</li>
+
+<li> <hr>
+<font size=2>Una divisione fra numeri con molte cifre e' piuttosto laboriosa, ma abbiamo visto nel primo esercizio che trasformando tutto in logaritmo l'approssimazione e' troppo elevata; quindi  al solito trasformiamo  in logaritmo solamente l'espressione (1,0255)<sup>205/24</sup>, calcoliamola poi eseguiamo la divisione con la calcolatrice</font><hr>
+ 
+<b> Log(1,0255)<sup>205/24</sup> = 205/24 Log 1,0255 = </b> <br>
+
+ la caratteristica, essendo il mio numero compreso fra 1 e 10, vale 0<br>
+ cerco la mantissa<br>
+leggo sulle tavole logaritmiche a 7 decimali<br>
+
+la mantissa del mio logaritmo e' 0109357<br>
+
+ <b>205/24 Log 1,0255 =  205/24 &middot;0,0109357 = 0,093409104</b><br><br>
+
+ 
+
+ Questo e' il logaritmo, ora trovo l'antilogaritmo (lo trasformo in valore normale)<br>
+
+<b>AntiLog 0,093409104</b><br>
+Essendo la caratteristica 0 il valore dell'antilogaritmo sara' compreso fra 1 e 10, quindi avremo una cifra significativa prima della virgola<br>
+In questo caso, visto il valore della mantissa, devo cercare nelle tavole a 5 decimali<br>
+la mia mantissa a 5 decimali (09340,9104) e' compreso fra i numeri:<br>
+ <center>
+<table>
+<TR>
+<TD align="center"><font size=4><b>093342 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=4><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=4><b>&nbsp;&nbsp; 1240 &nbsp;&nbsp;</b></font></TD>
+<td></td></TR>
+<TR>
+<TD align="center"><font size=4><b>  </b></font></TD>
+<TD align="center"><font size=4><b>  </b></font></TD>
+<TD align="center"><font size=4><b>  </b></font></TD>
+<td><font size=2><b>35</b></font></td>
+</TR>
+<TR>
+<TD align="center"><font size=4><b> 09377 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=4><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=4><b>&nbsp;&nbsp; 1241 &nbsp;&nbsp;</b></font></TD>
+<td></td></TR>
+</table>
+</center>
+ 
+Di fianco ai due risultati trovi il numero <b>35</b> che corrisponde alla differenza fra i due valori della mantissa mentre la differenza fra il mio valore e quello minore e'<br>
+<b>09340,9104-093342  =  7,9104</b><br><br>
+
+Nella tabella del 35 cerco 7,9104 <br>
+
+
+
+il numero minore piu' vicino e' 7,0 cui corrisponde la quinta cifra del nostro numero, cioe' 2<br>
+mi resta 7,9104-7,0 = 0,9104; sposto di un posto la virgola e cerco la sesta cifra decimale<br>
+Nella tabella del 35  cerco 9,104; <br>
+il numero minore piu' vicino e' ancora 7,0 cui corrisponde la sesta cifra del nostro numero, cioe' 2<br>
+mi resta 9,104-7,0 = 2,104; sposto di un posto la virgola e cerco la settima ed ultima cifra decimale<br>
+
+
+il numero piu' vicino a 21,04 nella tabella del 35 e' 21,0 cui corrisponde 6 quindi considero 7 come settima cifra decimale <br>
+ ottengo <b>1240226</b>
+ quindi scrivo<br><br>
+<b>AntiLog AntiLog 0,093409104  = 1,240226</b><br>
+
+ora eseguiamo la divisione<br>
+<b>1156,25 : 1,240226 =932,28976009</b>
+<br>
+ 
+
+  
+approssimiamo a <b>&#8364; 932,29</b>
+<br>
+
+<br>
+ 
+ 
+il capitale  e' di  <b>&#8364; 932,29</b><br><br>
+</li>
+ 
+</ul>
+
+    </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+
+  </center>
+  </BODY>
+</HTML>

@@ -1,0 +1,226 @@
+<HTML>
+<HEAD>
+<TITLE>metodo di Cramer
+</TITLE>
+</HEAD>
+<BODY Background="../immagini/sfondo0159.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+ Metodo di Cramer
+   </font></center>
+<br>
+<hr><font size=4>Se hai bisogno della
+<a href="aibaad1.html" target="_blank">dimostrazione</a> del metodo,
+altrimenti in questa pagina ti verra' spiegato solo il come fare
+</font>
+<hr>
+    <font size=3>
+
+ Dobbiamo risolvere
+<br>
+<img src="../../immagini/graffa.jpg" width=20 height=42 align="left">
+<font color="ff0000" size=4>
+2x + 3y = 12<br>
+3x - y = 7<br>
+</font>
+ Nel metodo di Cramer scrivo i coefficienti del sistema in una tabella
+ (matrice)
+
+<table><tr>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=60></td>
+
+<td><font color="ff0000" size=4>
+2 &nbsp;&nbsp; 3 &nbsp;&nbsp; 12<br>
+     3 &nbsp;&nbsp; -1 &nbsp;&nbsp; 7
+	 </font>
+</td>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=60></td>
+
+</tr></table>
+La prima colonna contiene i coefficienti della x, la seconda i
+coefficienti della y e la terza i termini noti<br>
+In entrambe le soluzioni considerero' al denominatore il seguente
+numero detto
+determinante (ho preso le prime due colonne)
+<table><tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=50></td>
+
+<td><font color="ff0000" size=4>
+2 &nbsp;&nbsp; 3 <br>
+     3 &nbsp;&nbsp; -1
+	 </font>
+</td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=50></td>
+
+</tr></table>
+E' un numero e per
+<a href="aibaad0.html" target="_blank">calcolarlo</a>
+ devo fare il prodotto fra il primo e
+l'ultimo termine meno il prodotto fra il secondo ed il terzo
+<table><tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=50></td>
+
+<td><font color="ff0000" size=4>
+2 &nbsp;&nbsp; 3 <br>
+     3 &nbsp;&nbsp; -1
+	 </font>
+</td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=50></td>
+<td> <font color="ff0000" size=4>
+= 2&#183;(-1) - 3&#183;3 = -2 - 9 = -11</font></td>
+</tr></table>
+Per trovare la x devo prendere il determinante considerato, cancellare
+la colonna delle x e al suo posto mettere i termini noti
+<table><tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=50></td>
+
+<td><font color="ff0000" size=4>
+12 &nbsp;&nbsp; 3 <br>
+     7 &nbsp;&nbsp; -1
+	 </font>
+</td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=50></td>
+<td> <font color="ff0000" size=4>
+= 12&#183;(-1) - 3&#183;7 = -12 - 21 = -33</font></td>
+</tr></table>
+
+
+
+
+
+Per calcolare il valore della x devo scrivere al denominatore il
+determinante ottenuto dalle prime due colonne ed al numeratore
+cancello la colonna delle x ed al suo posto metto i termini noti
+<font color="ff0000" size=4>
+<table><tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=50></td>
+
+<td><font color="ff0000" size=4>
+12 &nbsp;&nbsp; 3 <br>
+     7 &nbsp;&nbsp; -1
+	 </font>
+</td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=50></td>
+<td valign=bottom> <font color="ff0000" size=4>
+&nbsp;&nbsp;&nbsp; 12&#183;(-1) - 3&#183;7 &nbsp;&nbsp;&nbsp;
+ -12 - 21 &nbsp;&nbsp;&nbsp; -33</font></td>
+</tr></table>
+x = --------------- = -------------- = ---------- = ------ = 3
+<table><tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=50></td>
+
+<td><font color="ff0000" size=4>
+2 &nbsp;&nbsp;&nbsp; 3 <br>
+     3 &nbsp;&nbsp; -1
+	 </font>
+</td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=50></td>
+<td valign=top> <font color="ff0000" size=4>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&#183;(-1) - 3&#183;3 &nbsp;&nbsp;&nbsp;&nbsp;
+ -2 - 9 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -11</font></td>
+</tr></table>
+</font>
+Per calcolare la y metto al denominatore le prime due colonne mentre
+al numeratore cancello la colonna delle y e ci metto i termini noti
+
+<font color="ff0000" size=4>
+<table><tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=50></td>
+
+<td><font color="ff0000" size=4>
+2 &nbsp;&nbsp; 12 <br>
+     3 &nbsp;&nbsp; 7
+	 </font>
+</td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=50></td>
+<td valign=bottom> <font color="ff0000" size=4>
+&nbsp;&nbsp;&nbsp;&nbsp; 2&#183;(7) - 12&#183;3 &nbsp;&nbsp;&nbsp;
+ 14 - 36 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -22</font></td>
+</tr></table>
+y = --------------- = --------------- = ---------- = ------ = 2
+<table><tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=50></td>
+
+<td><font color="ff0000" size=4>
+2 &nbsp;&nbsp;&nbsp; 3 <br>
+     3 &nbsp;&nbsp; -1
+	 </font>
+</td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=50></td>
+<td valign=top> <font color="ff0000" size=4>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&#183;(-1) - 3&#183;3 &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; -2 - 9 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -11</font></td>
+</tr></table>
+</font>
+
+Quindi ottengo<br>
+<img src="../../immagini/graffa.jpg" width=20 height=42 align="left">
+<font color="ff0000" size=4>
+x = 3<br>
+y = 2<br>
+</font>
+
+
+
+
+
+<hr>
+  <center><table border=5 bgcolor="cccccc" width=80%
+  cellpadding=12><tr><td>
+  <font size=4>
+Per risolvere un sistema col metodo di Cramer
+<ul><li>
+Scrivo la matrice del sistema</li>
+<li>Calcolo il determinante delle prime due colonne</li> <li>
+per la x scrivo al denominatore il determinante trovato ed al
+numeratore riscrivo il determinante mettendo al posto della
+colonna delle x i termini noti</li>
+<li>per la y scrivo al denominatore il determinante trovato ed al
+numeratore riscrivo il determinante mettendo al posto della
+colonna delle y i termini noti</li>
+<li>Scrivo la parentesi graffa con la x al primo posto e la
+y al secondo posto</li>
+</ul>
+</td></tr></table></center>
+  </font><hr>
+E' uno dei metodi piu' utilizzati soprattutto per i sistemi letterali
+
+   </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+
+   <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../a.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="aibab.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="aibaac.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

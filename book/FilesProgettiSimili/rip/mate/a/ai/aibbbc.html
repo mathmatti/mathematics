@@ -1,0 +1,241 @@
+<HTML>
+<HEAD>
+<TITLE>calcolo del determinante 3x3 col metodo normale
+</TITLE>
+<style>
+A:link, A:visited{text-decoration:none}
+A:hover{text-decoration:underline;color:black}
+  </style>
+
+</HEAD>
+<BODY Background="../immagini/sfondo0269.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+  Calcolo del determinante 3x3 col metodo normale
+   </font></center>
+
+   <font size=4>
+  
+<hr>
+Il determinante di ordine 1 corrisponde al numero stesso<br>
+<table><tr>
+ <td><img src="../immagini/determinanterosso.jpg" width=10 height=25> </td>
+<td><b> <font color="ff0000" size=4>a<sub><font size=1>1,1</font></sub></font></b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=25> </td>
+<td><b> <font color="ff0000" size=4> = a<sub><font size=1>1,1</font></sub></font></b></td>
+</tr></table>
+<br>
+Se ora vado a rivedere come <a href="aibaad0.html" target="_blank">calcolavo</a> il determinante nel caso di un sistema di due equazioni in due incognite posso dire:
+
+<table><tr>
+ <td><img src="../immagini/determinanterosso.jpg" width=10 height=60> </td>
+<td><b> <font color="ff0000" size=4>
+a<sub><font size=1>1,1</font></sub> &nbsp;&nbsp;
+a<sub><font size=1>1,2</font></sub><br>
+a<sub><font size=1>2,1</font></sub> &nbsp;&nbsp;
+a<sub><font size=1>2,2</font></sub></font><br>
+
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=60> </td>
+<td><b><font color="ff0000"> = a<sub><font size=1>1,1</font></sub>&#183;a<sub><font size=1>2,2</font></sub>  -  a<sub><font size=1>1,2</font></sub>&#183;a<sub><font size=1>2,1</font></sub> = a<sub><font size=1>1,1</font></sub>&#183;C<sub><font size=1>1,1</font></sub> - a<sub><font size=1>1,2</font></sub>&#183;C<sub><font size=1>1,2</font></sub>  </font></b></td>
+</tr>
+</table><br>
+Cioe' moltiplico il primo elemento della prima riga per il suo <a href="aibbbc3.html" target="_blank">complemento </a> e moltiplico il secondo elemento della prima riga per il suo <a href="aibbbc4.html" target="_blank">complemento </a> e faccio la differenza
+<br>
+Dobbiamo estendere questo metodo ad un determinante 3x3
+<br><br>
+<table><tr>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+a<sub><font size=1>1,1</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>1,2</font></sub> &nbsp;&nbsp;
+a<sub><font size=1>1,3</font></sub> <br>
+    a<sub><font size=1>2,1</font></sub>&nbsp;&nbsp; 
+a<sub><font size=1>2,2</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>2,3</font></sub> <br>
+ a<sub><font size=1>3,1</font></sub>&nbsp;&nbsp; 
+a<sub><font size=1>3,2</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>3,3</font></sub> <br>
+	 </font>
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90> </td>
+
+</tr>
+</table>
+<br>
+Sviluppo secondo la prima riga (vedremo successivamente che e' indifferente sviluppare secondo una qualsiasi riga o colonna) mettendo il segno positivo se la somma degli indici dell'elemento e' pari ed il segno negativo se la somma degli indici dell'elemento e' dispari.<br>
+ Posso anche dire che moltiplico ogni termine della riga per il suo complemento algebrico
+<br>
+<table><tr>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+a<sub><font size=1>1,1</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>1,2</font></sub> &nbsp;&nbsp;
+a<sub><font size=1>1,3</font></sub> <br>
+    a<sub><font size=1>2,1</font></sub>&nbsp;&nbsp; 
+a<sub><font size=1>2,2</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>2,3</font></sub> <br>
+ a<sub><font size=1>3,1</font></sub>&nbsp;&nbsp; 
+a<sub><font size=1>3,2</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>3,3</font></sub> <br>
+	 </font>
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90> </td>
+<td><b><font color="ff0000" size=4> 
+= <a title="calcolo del segno" href="aibbbc0.html" target="_blank"><font size=5>+</font></a> a<sub><font size=1>1,1</font></sub>&#183;C<sub><font size=1>1,1</font></sub>
+<a title="calcolo del segno" href="aibbbc1.html" target="_blank"><font size=6>-</font></a> a<sub><font size=1>1,2</font></sub>&#183;C<sub><font size=1>1,2</font></sub>
+<a title="calcolo del segno" href="aibbbc2.html" target="_blank"><font size=5>+</font></a> a<sub><font size=1>1,3</font></sub>&#183;C<sub><font size=1>1,3</font></sub>
+
+</font></b></td>
+
+</tr>
+</table><br>
+e quindi abbiamo<br>
+<table><tr>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+a<sub><font size=1>1,1</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>1,2</font></sub> &nbsp;&nbsp;
+a<sub><font size=1>1,3</font></sub> <br>
+    a<sub><font size=1>2,1</font></sub>&nbsp;&nbsp; 
+a<sub><font size=1>2,2</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>2,3</font></sub> <br>
+ a<sub><font size=1>3,1</font></sub>&nbsp;&nbsp; 
+a<sub><font size=1>3,2</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>3,3</font></sub> <br>
+	 </font>
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90> </td>
+
+<td><b><font color="ff0000" size=4> = a<sub><font size=1>1,1</font></sub> &#183; </font></b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=60> </td>
+<td><b><font color="ff0000" size=4>
+a<sub><font size=1>2,2</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>2,3</font></sub> <br> 
+a<sub><font size=1>3,2</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>3,3</font></sub> <br>
+</font></b></td>
+ <td><img src="../immagini/determinanterosso.jpg" width=10 height=60> </td> 
+
+<td><b><font color="ff0000" size=4> - a<sub><font size=1>1,2</font></sub> &#183; </font></b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=60> </td>
+<td><b><font color="ff0000" size=4>
+a<sub><font size=1>2,1</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>2,3</font></sub> <br> 
+a<sub><font size=1>3,1</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>3,3</font></sub> <br>
+</font></b></td>
+ <td><img src="../immagini/determinanterosso.jpg" width=10 height=60> </td> 
+
+<td><b><font color="ff0000" size=4> + a<sub><font size=1>1,3</font></sub> &#183; </font></b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=60> </td>
+<td><b><font color="ff0000" size=4>
+a<sub><font size=1>2,1</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>2,2</font></sub> <br> 
+a<sub><font size=1>3,1</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>3,2</font></sub> <br>
+</font></b></td>
+ <td><img src="../immagini/determinanterosso.jpg" width=10 height=60> </td> 
+
+</tr>
+</table>
+<hr>
+Facciamo un esempio di calcolo di un determinante<br>
+calcolare il valore di<br>
+<table><tr>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+1 &nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp; 1 <br>
+2 &nbsp;&nbsp; -1 &nbsp;&nbsp; 1 <br>
+1 &nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp; 2<br>
+	 </font>
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90> </td>
+
+</tr>
+</table>
+Sviluppo secondo la prima riga<br>
+<table><tr>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+1 &nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp; 1 <br>
+2 &nbsp;&nbsp; -1 &nbsp;&nbsp; 1 <br>
+1 &nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp; 2<br>
+	 </font>
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90> </td>
+
+<td><b><font color="ff0000" size=4> = 1 &#183; </font></b></font></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=60> </td>
+<td><b><font color="ff0000" size=4>
+ 
+  -1 &nbsp;&nbsp; 1 <br>
+  &nbsp;1 &nbsp;&nbsp; 2
+	 </font></b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=60> </td>
+
+<td><b><font color="ff0000" size=4> - 1 &#183; </font></b></font></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=60> </td>
+<td><b><font color="ff0000" size=4>
+ 
+  2 &nbsp;&nbsp; 1 <br>
+  1 &nbsp;&nbsp; 2 
+	 </font></b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=60> </td>
+
+<td><b><font color="ff0000" size=4> + 1 &#183; </font></b></font></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=60> </td>
+<td><b><font color="ff0000" size=4>
+ 
+  2 &nbsp;&nbsp; -1 <br>
+  1 &nbsp;&nbsp; &nbsp;1
+ </font></b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=60> </td>
+<td><b><font color="ff0000" size=4> = </font></b></td>
+</tr>
+</table><br>
+
+<b><font color="ff0000" size=4> = 1 &#183; [(-1)&#183;2 - 1&#183;1] - 1&#183;(2&#183;2 - 1&#183;1) + 1&#183;[2&#183;1 -(-1)&#183;1] = 1&#183;(-3) - 1&#183;3 + 1&#183;3 = -3 - 3 + 3 = -3</font></b>
+
+<hr>
+Questo metodo sara' applicabile per ricorrenza anche a sistemi di 4,5,.... equazioni in 4,5,... incognite<br>
+Inoltro posso scegliere una qualunque riga o colonna per sviluppare; quindi, per rendere i calcoli piu' semplici, se possibile, scegliero' una riga o una colonna dove vi sono termini uguali a zero
+<hr>
+   </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+   
+<td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></a>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../a.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="aibbbd.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></a>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="aibbbb.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

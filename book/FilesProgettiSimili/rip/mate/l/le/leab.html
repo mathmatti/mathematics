@@ -1,0 +1,198 @@
+<HTML>
+<HEAD>
+<TITLE>  funzione di ripartizione
+</TITLE>
+</HEAD>
+<BODY Background="../immagini/sfondol067.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+ Funzione di ripartizione
+   </font></center>
+ 
+<br><br>
+ 
+<font size=4>
+<hr><font size=3>La funzione di ripartizione viene introdotta per aiutarci a
+studiare le distribuzioni di probabilita' </font><hr>
+Definizione:<br>
+ <font size=4><b> 
+Sia f(X) una variabile aleatoria, allora si dice funzione di ripartizione F
+della variabile aleatoria f(X)  la funzione
+<br>
+F: R->R <br>definita come la somma dei valori precedenti od uguali un dato
+valore associato ad un blocco della partizione<br>
+F(x) = <img src="../../immagini/ssmnera.jpg"><sub>k<img
+src="../../immagini/minoreuguale.jpg" width="9">1,2,..n</sub> f(X<sub>k</sub>)
+ <br>
+</b></font><br>
+ 
+In pratica devi prendere la probabilita' del primo blocco, poi la probabilita'
+del primo e del secondo e sommarle, poi la probabilita' del primo,<img
+src="../immagini/aleatoria05.jpg" align="right" width="300"> del secondo e del
+terzo e sommarle,... e cosi' via<br>
+Quindi la funzione di ripartizione diventa una funzione "a scalini"<br>
+Esempio: Nel caso visto del lancio di un dado avremo che la funzione di
+ripartizione assume i valori<b><br>
+F(X<sub>1</sub>) = 1/6<br>
+F(X<sub>2</sub>) = 1/6 + 1/6 = 2/6<br>
+F(X<sub>3</sub>) = 1/6 + 1/6 + 1/6 = 3/6<br>
+F(X<sub>4</sub>) = 1/6 + 1/6 + 1/6 + 1/6 = 4/6<br>
+F(X<sub>5</sub>) = 1/6 + 1/6 + 1/6 + 1/6 + 1/6 = 5/6<br>
+F(X<sub>6</sub>) = 1/6 + 1/6 + 1/6 + 1/6 + 1/6 + 1/6 = 6/6<br>
+ </b>
+come tabella avremo
+<table  cellpadding="0" cellspacing="0">
+<TR>
+<TD><font color="ff000" size=2><b> X</b></font></TD>
+<td><img src="../../immagini/rufv.jpg" width="2" height="20"></td>
+<TD align="center"><font color="ff000"
+size=2><b> 1</b></font></TD>
+<TD align="center"><font color="ff000" size=2><b>2</b></font></TD>
+<TD align="center"><font color="ff000" size=2><b>3</b></font></TD>
+<TD align="center"><font color="ff000" size=2><b>4</b></font></TD>
+<TD align="center"><font color="ff000" size=2><b>5</b></font></TD>
+<TD align="center"><font color="ff000" size=2><b>6</b></font></TD>
+</TR>
+<tr><TD colspan="8" align="center">
+<img src="../../immagini/rufo.jpg" width="250" height="2"></TD>
+</tr>
+<TR>
+<TD><font color="ff000" size=2><b>Pr</b></font></TD>
+<td><img src="../../immagini/rufv.jpg" width="2" height="30"></td>
+<TD align="center"><font color="ff000"
+size=2><b>&nbsp;&nbsp;1/6</b></font></TD>
+<TD align="center"><font color="ff000" size=2><b>1/6</b></font></TD>
+<TD align="center"><font color="ff000" size=2><b>1/6</b></font></TD>
+<TD align="center"><font color="ff000" size=2><b>1/6</b></font></TD>
+<TD align="center"><font color="ff000" size=2><b>1/6</b></font></TD>
+<TD align="center"><font color="ff000" size=2><b>1/6</b></font></TD>
+</TR>
+<tr>
+<TD colspan="8" align="center">
+<img src="../../immagini/rufo.jpg" width="250" height="2"></TD>
+</tr>
+
+<TR>
+<TD><font color="ff000" size=2><b>F(X<sub>i</sub>)</b></font></TD>
+<td><img src="../../immagini/rufv.jpg" width="2" height="30"></td>
+<TD align="center"><font color="ff000"
+size=2><b>&nbsp;&nbsp;1/6</b></font></TD>
+<TD align="center"><font color="ff000" size=2><b>2/6</b></font></TD>
+<TD align="center"><font color="ff000" size=2><b>3/6</b></font></TD>
+<TD align="center"><font color="ff000" size=2><b>4/6</b></font></TD>
+<TD align="center"><font color="ff000" size=2><b>5/6</b></font></TD>
+<TD align="center"><font color="ff000" size=2><b>6/6</b></font></TD>
+</TR>
+
+</table>
+
+
+
+
+
+
+<hr><font size=2>
+Vediamo su un altro esempio gia' sviluppato:<br>
+ estrarre una carta da un mazzo di 40<br>
+ eventi (ordiniamo secondo la vincita)<br><br>
+<b>
+X<sub>1</sub> uscita di una diversa dalle seguenti perdita di 1 euro (27
+carte)<br>
+X<sub>2</sub> uscita di una carta di denari diversa dall'asso vincita di 0
+euro (9 carte)<br>
+X<sub>3</sub> uscita di un asso diverso dall'asso di denari vincita di 1 euro (3
+carte)<br>
+X<sub>4</sub> uscita dell'asso di denari, vincita di 21 euro (1 carta)<br>
+</b>
+ <img src="../immagini/aleatoria06.jpg" align="right">
+<br>
+
+probabilita' <br><b>
+p<sub>1</sub> = probabilita' di uscita di una carta diversa</a> dalle seguenti
+= 27/40<br>
+p<sub>2</sub> = probabilita' di uscita di carta di denari non asso = 9/40<br>
+p<sub>3</sub> = probabilita' di uscita di asso non di denari = 3/40<br>
+p<sub>4</sub> = probabilita' di uscita dell'asso di denari = 1/40<br>
+</b><br><br>
+
+la funzione di ripartizione sara':<br><br>
+
+<table  cellpadding="0" cellspacing="0">
+<TR>
+<TD align="center"><font color="ff000" size=3><b> X</b></font></TD>
+<td><img src="../../immagini/rufv.jpg" width="2" height="30"></td>
+<TD align="center"><font color="ff000"
+size=2><b> -1</b></font></TD>
+<TD align="center"><font color="ff000" size=2><b>0</b></font></TD>
+<TD align="center"><font color="ff000" size=2><b>1</b></font></TD>
+ <TD align="center"><font color="ff000" size=2><b>21</b></font></TD>
+</TR>
+<tr><TD colspan="6" align="center">
+<img src="../../immagini/rufo.jpg" width="250" height="2"></TD>
+</tr>
+<TR>
+<TD align="center"><font color="ff000" size=3><b>Pr</b></font></TD>
+<td><img src="../../immagini/rufv.jpg" width="2" height="30"></td>
+<TD align="center"><font color="ff000"
+size=2><b>&nbsp;&nbsp;&nbsp;27/40</b></font></TD>
+<TD align="center"><font color="ff000" size=2><b>9/40</b></font></TD>
+<TD align="center"><font color="ff000" size=2><b>3/40</b></font></TD>
+ <TD align="center"><font color="ff000" size=2><b>1/40</b></font></TD>
+</TR>
+
+<tr><TD colspan="6" align="center">
+<img src="../../immagini/rufo.jpg" width="250" height="2"></TD>
+</tr>
+<TR>
+<TD align="center"><font color="ff000" size=3><b>F(X<sub>i</sub>)</b></font></TD>
+<td><img src="../../immagini/rufv.jpg" width="2" height="30"></td>
+<TD align="center"><font color="ff000"
+size=2><b>&nbsp;&nbsp;&nbsp;27/40</b></font></TD>
+<TD align="center"><font color="ff000" size=2><b>36/40</b></font></TD>
+<TD align="center"><font color="ff000" size=2><b>39/40</b></font></TD>
+ <TD align="center"><font color="ff000" size=2><b>40/40</b></font></TD>
+</TR>
+
+</table>
+</font> 
+<hr>
+La funzione di ripartizione verra' usata in quei problemi in cui si chiede di
+calcolare valori inferiori o superiori ad un valore prefissato 
+
+ 
+<hr>
+ </font>
+
+   </td>.
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+   <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70
+Width=70 alt="Pagina iniziale" border=0></a>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../l.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="leac.html"><IMG SRC="../../immagini/avanti.jpg" Height=70
+Width=70 alt="Pagina successiva" border=0></A>
+   </td> 
+
+   <td align="center" valign=middle>
+      <A HREF="leaa.html"><IMG SRC="../../immagini/indietro.jpg" Height=70
+Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

@@ -1,0 +1,155 @@
+<HTML>
+<HEAD>
+<TITLE>il problema delle prove ripetute
+</TITLE>
+</HEAD>
+<BODY Background="../immagini/sfondol073.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+ Il problema delle prove ripetute
+   </font></center>
+ 
+<br><br>
+ 
+<font size=4>
+ Uno dei problemi che capitano frequentemente nel calcolo di probabilita' e'
+quello di calcolare la probabilita' che un dato evento capiti k volte su n
+prove effettuate.<br>
+Esempio: <b>Lanciando 5 volte un dado che probabilita' ho di ottenere 3
+volte il valore 3?</b><br><hr>
+<font size=3>
+Supponiamo, per iniziare, che mi interessi l'ordine di uscita e quindi il mio
+problema diventi, ad esempio:<br>
+<b>Lanciando 5 volte un dado che probabilita' ho di ottenere prima due
+volte 3, poi due numeri diversi ed infine ancora il valore 3?</b><br>
+<br>
+in questo caso il problema e' elementare:<br> deve uscire tre e poi deve
+uscire tre e poi deve uscire un numero diverso da 3 e poi deve uscire un numero
+diverso da 3 e poi deve uscire 3<br>
+
+<font size=3 color="ff0000"><b> 3 3 a a 3</b></font><br>
+con a che indica un altro valore (diverso da 3)<br>
+ 
+Abbiamo quindi le probabilita'<br>
+ 1/6 probabilita' di uscita del valore 3<br>
+5/6 = 1-1/6 probabilita' di uscita di un numero diverso da 3 (probabilita'
+contraria dell'uscita del numero 3)<br>
+Applico il teorema della probabilita' composta ed ottengo
+<br>
+<b>Probabilita' = 1/6 &#183; 1/6 &#183; 5/6 &#183; 5/6 &#183; 1/6 &#183; =
+(1/6)<sup><font size=2>3</font></sup> &#183; (5/6)<sup><font
+size=2>2</font></sup> = (1/6)<sup><font size=2>3</font></sup> &#183;
+(5/6)<sup><font
+size=2>5-3</font></sup></b><br>
+Piu' in generale potremo scrivere<br>
+<font size=3 color="ff0000"><b> Probabilita' =  p<sup><font
+size=2>k</font></sup> &#183;
+(1-p)<sup><font
+size=2>n-k</font></sup></b></font>
+</font> <hr>
+Ora torniamo la nostro problema<br>
+<b>Lanciando 5 volte un dado che probabilita' ho di ottenere 3
+volte il valore 3?</b><br>
+se non mi interessa l'ordine di uscita allora ho le <a href="leafaaa.html"
+target="_blank">10 possibilita'</a> 
+
+<center>
+<font size=4 color="ff0000"><b>
+&nbsp;333aa &nbsp;&nbsp; 33a3a &nbsp;&nbsp; 3a33a &nbsp;&nbsp; a333a
+&nbsp;&nbsp;
+33aa3
+<br> 3a3a3 &nbsp;&nbsp; a33a3 &nbsp;&nbsp; aa333 &nbsp;&nbsp;
+a3a33 &nbsp;&nbsp; 3aa33  
+</b></font>
+</center>
+quindi avremo che le nostre probabilita' sono:<br>
+<table border=0>
+<TR>
+  
+<TD align="center">
+<font color="ff0000" size=3><b>Probabilita' = </b></font></TD>
+<TD align="center">
+<font color="ff0000" size=5><b>(</b></font></TD>
+ 
+<TD align="center">
+<font color="ff0000" size=3><b>5<br>3</b></font></TD>
+<TD align="center">
+<font color="ff0000" size=5><b>)</b></font></TD>
+
+<td align="center"><font color="ff0000" size=3><b> &#183; (1/6)<sup><font
+size=2>3</font></sup> &#183;
+(5/6)<sup><font
+size=2>5-3</font></sup> </b></font></td>
+
+ 
+</TR>
+</table>
+<hr>
+Passando al caso generale potremo dire che la probabilita' che un dato evento
+capiti k volte su n prove effettuate sara'<br>
+
+<table border=0>
+<TR>
+  
+<TD align="center">
+<font color="ff0000" size=3><b>Probabilita' = </b></font></TD>
+<TD align="center">
+<font color="ff0000" size=5><b>(</b></font></TD>
+ 
+<TD align="center">
+<font color="ff0000" size=3><b>n<br>k</b></font></TD>
+<TD align="center">
+<font color="ff0000" size=5><b>)</b></font></TD>
+
+<td align="center"><font color="ff0000" size=3><b> &#183; p<sup><font
+size=2>k</font></sup> &#183;
+(1-p)<sup><font
+size=2>n-k</font></sup> </b></font></td>
+
+ 
+</TR>
+</table>
+<hr>
+<font size=4>
+Se ora consideriamo il problema per i vari valori di k = 1, 2, 3, ..., n allora
+avremo una variabile aleatoria (chiamiamola col nuovo
+termine <b>S<sub>n</sub></b> di possibili valori <b>X<sub>1</sub></b>,
+<b>X<sub>2</sub></b>, <b>X<sub>3</sub></b>, .....<b>X<sub>n</sub></b> ) la cui
+rappresentazione sara' la distribuzione
+cercata
+ 
+ <hr>    </font>
+
+   </td>.
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+   <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70
+Width=70 alt="Pagina iniziale" border=0></a>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../l.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="leafab.html"><IMG SRC="../../immagini/avanti.jpg" Height=70
+Width=70 alt="Pagina successiva" border=0></A>
+   </td> 
+
+   <td align="center" valign=middle>
+      <A HREF="leafa.html"><IMG SRC="../../immagini/indietro.jpg" Height=70
+Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

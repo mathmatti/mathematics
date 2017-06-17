@@ -1,0 +1,168 @@
+<HTML>
+<HEAD>
+<TITLE> dimostrazione dellla derivata del prodotto di due funzioni
+</TITLE>
+</HEAD>
+<BODY Bgcolor="ccffcc"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td> <CENTER>
+     <font color="FF0000" size=6>
+ Dimostrazione della regola della derivata del prodotto di due funzioni
+
+     </FONT> </CENTER>
+     <font size=3>
+   Avvertenza: per una migliore visualizzazione metti la pagina a tutto schermo<br>
+</font><font size=5>     Voglio dimostrare che se ho <br>
+<font color="ff0000" size=6>
+y = f(x)&#183; g(x)</font><br> allora ne segue<br>
+<font color="ff0000" size=6>y' = f'(x) &#183; g(x) + f(x) &#183; g'(x) </font><br>
+Parto dal rapporto incrementale per la funzione
+<font color="ff0000" size=6>
+y = f(x)&#183;g(x)</font><br>
+il rapporto incrementale vale:<br>
+<br> <font color="ff0000" size=5>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;
+  f(x + h)&#183;g(x + h) - f(x)&#183;g(x)<br>
+lim<sub><font size=3>h->0</font></sub>&nbsp;&nbsp; -------------------------- =   <br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  h<br></font>
+  Pero' io so fare la derivata solo quando il rapporto incrementale  mi
+  coinvolge una sola funzione, quindi aggiungo e tolgo un termine
+   in modo
+  da spezzare quel rapporto incrementale in due rapporti incrementali:
+  <font size=3>(se aggiungo e contemporaneamente tolgo la stessa quantita' l' espressione
+  non mi canbia di valore)</font><br>
+ <font color="ff0000" size=5>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;
+  f(x + h)&#183;g(x + h) - f(x)&#183;g(x + h) +f(x)&#183;g(x + h) - f(x)&#183;g(x)<br>
+lim<sub><font size=3>h->0</font></sub>&nbsp;&nbsp; ----------------------------------------------------- =   <br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  h<br></font>
+  ora spezzo il limite in due limiti:<br>
+  <font color="ff0000" size=5>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;
+  f(x + h)&#183;g(x + h) - f(x)&#183;g(x + h)
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f(x)&#183g(x + h) - f(x)&#183;g(x)<br>
+lim<sub><font size=3>h->0</font></sub>&nbsp;&nbsp; ---------------------------  +
+  lim<sub><font size=3>h->0</font></sub>&nbsp;&nbsp;------------------------- = <br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;h<br></font>
+  Per problemi di visualizzazione sullo schermo facciamo un limite per volta:
+ <hr> nel primo limite <br>
+ <font color="ff0000" size=5>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;
+  f(x + h)&#183;g(x + h) - f(x)&#183;g(x + h)  <br>
+lim<sub><font size=3>h->0</font></sub>&nbsp;&nbsp; ------------------------------- =   <br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  h<br></font>
+  posso mettere in evidenza <font color="ff0000" size=5>g(x+h)</font>
+  ed ottengo il limite di un prodotto<br><br>
+ <font color="ff0000" size=5>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  f(x + h) - f(x)  <br>
+lim<sub><font size=3>h->0</font></sub>&nbsp;g(x + h)&#183; -------------------- =   <br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  h<br></font>
+  e posso fare il prodotto dei limiti:<br>
+  <font color="ff0000" size=5>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  f(x + h) - f(x)  <br>
+lim<sub><font size=3>h->0</font></sub>&nbsp;g(x + h)&#183;
+lim<sub><font size=3>h->0</font></sub>&nbsp; -------------------- =   <br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  h<br></font>
+
+  il primo limite quando h tende a zero vale <font color="ff0000" size=5>g(x)</font>
+  ed il secondo e' <font color="ff0000" size=5>f'(x) </font>
+  quindi <br>
+  <font color="ff0000" size=5>= g(x)&#183;f'(x) = f'(x)&#183;g(x)</font><hr>
+
+ nel secondo limite <br>
+ <font color="ff0000" size=5>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;
+  f(x)&#183;g(x + h) - f(x)&#183;g(x)  <br>
+lim<sub><font size=3>h->0</font></sub>&nbsp;&nbsp; ------------------------ =   <br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  h<br></font>
+  posso mettere in evidenza <font color="ff0000" size=5>f(x)</font> ed ottengo il limite di un prodotto<br><br>
+ <font color="ff0000" size=5>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;
+  g(x + h) - g(x)  <br>
+lim<sub><font size=3>h->0</font></sub>&nbsp;f(x)&#183; -------------------- =   <br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  h<br></font>
+  e posso fare il prodotto dei limiti:<br>
+  <font color="ff0000" size=5>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;
+
+  g(x + h) - g(x)  <br>
+lim<sub><font size=3>h->0</font></sub>&nbsp;f(x)&#183;
+lim<sub><font size=3>h->0</font></sub>&nbsp; -------------------- =   <br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  
+
+  h<br></font>
+
+  il primo limite non dipende da h  e vale <font color="ff0000" size=5>f(x)</font>
+  ed il secondo e' <font color="ff0000" size=5>g'(x) </font>
+  quindi <br>
+  <font color="ff0000" size=5>=  f(x)&#183;g'(x)</font><br><hr>
+  Raccogliendo i risultati l'espressione iniziale vale<br>
+ <font color="ff0000" size=5> = f'(x)&#183;g(x) +  f(x)&#183;g'(x) </font><br>
+  come volevamo
+
+
+      </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+
+  </center>
+
+
+</BODY>
+</HTML>

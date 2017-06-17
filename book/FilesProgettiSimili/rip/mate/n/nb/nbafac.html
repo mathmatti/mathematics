@@ -1,0 +1,111 @@
+<HTML>
+<HEAD>
+<TITLE>calcolo del montante ad interesse composto per tempi interi eccedenti i valori delle tavole e tassi non sulle tavole
+</TITLE>
+</HEAD>
+<BODY bgcolor="ccffcc"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+   Esercizio sul calcolo del montante ad interesse composto per tempi interi eccedenti i valori delle tavole e tassi non sulle tavole
+   </font></center>
+<br>
+ <font size=3>
+ <br>
+Si impiega il capitale di &#8364; 2600 per 125 anni ad interesse composto al 2,90%.<br>
+Calcolarne il montante  <br>
+ Dati<br>
+<b>C = 2600,00 &#8364;<br>
+t = 125<br>
+i = 2,90% = 0,0290</b><hr>
+<font size=2>
+In questo caso abbiamo un numero di anni che eccede il tempo che troviamo sulle tavole, inoltre il tasso non e' sulla tavole: possiamo utilizzare 3 metodi<br>
+<ol type="I">
+<LI>Calcolo il montante direttamente con la calcolatrice</LI>
+<li>utilizzo i logaritmi</li>
+<li>Con le tavole calcolo prima il montante per i primi 100 anni poi, considerato tale montante come capitale  ricalcolo il montante per i residui 25 anni; diventa un esercizio doppio, inoltre, non essendo il tasso sulle tavole devo fare due interpolazioni il che mi rende l'esercizio lungo e complicato come calcoli.<br> per queste ragioni non eseguiremo questo esercizio con le tavole</li>
+</ol>
+</font><hr><br>
+
+<ul type="1">A scopo didattico eseguo l'esercizio nei due modi indicati: <br><br>
+ 
+<li>Utilizzo la calcolatrice<br>
+Imposto, sullo schermo il calcolo<br>
+<b> 2600&middot;(1+0,029)<sup>125</sup> </b><br>
+ottengo <b>92660,618185847</b> che approssimo a <b>92660,62</b><br><br>
+il montante e' di  <b>&#8364; 92660,62</b><br><br>
+</li>
+
+
+<li>utilizzo le tavole logaritmiche a 7 decimali<hr>
+<font size=2>  calcoliamo solamente (1+0,029)<sup>125</sup> e poi moltiplichiamo il risultato per il capitale  </font><hr>
+<b>M  = 2600(1+0,029)<sup>125</sup>  </b> <br>
+Calcolo il fattore (1+0,029)<sup>3</sup> coi logaritmi; per la <a href="../../a/al/algc.html" target="_blank">proprieta' dei logaritmi</a> ho<br>
+<b>Log (1+0,029)<sup>125</sup> = 125&middot;Log 1,0290 = </b><br>
+
+trasformo il numero in Logaritmo<br>
+leggo sulle tavole logaritmiche a 7 decimali &nbsp;&nbsp;
+<b>Log 1,0290 = 0,0124154 </b><br>
+Quindi<br> 
+<b>=  125&middot;0,0124154  = 1,551925</b><br>
+
+
+ Questo e' il logaritmo, ora trovo l'antilogaritmo (lo trasformo in valore normale)<br>
+
+<b>AntiLog 1,551925 = </b><br>
+Essendo la caratteristica 1 il valore dell'antilogaritmo sara' compreso fra 10 e 100, quindi avremo due cifre significative prima della virgola<br>
+la mia mantissa nella tavola a 7 decimali (20628936) non c'e'(il tempo 125 anni e' troppo elevato) e quindi approssimo a 55192,5 e cerco fra i logaritmi normali <br>
+leggo sulle tavole a 5 decimali e trovo<br>
+ <center>
+<table>
+<TR>
+<TD align="center"><font size=4><b>55182 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=4><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=4><b>&nbsp;&nbsp; 55194 &nbsp;&nbsp;</b></font></TD>
+<td></td></TR>
+<TR>
+<TD align="center"><font size=4><b>  </b></font></TD>
+<TD align="center"><font size=4><b>  </b></font></TD>
+<TD align="center"><font size=4><b>  </b></font></TD>
+<td><font size=2><b>12</b></font></td>
+</TR>
+<TR>
+<TD align="center"><font size=4><b> 3563 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=4><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=4><b>&nbsp;&nbsp; 3564  &nbsp;&nbsp;</b></font></TD>
+<td></td></TR>
+</table>
+</center>
+ 
+Di fianco ai due risultati trovi il numero <b>12</b> che corrisponde alla differenza fra i due valori della mantissa mentre la differenza fra il mio valore e quello minore e'<br>
+<b>55192,5-55182  =  10,5</b><br>
+Nella tabella del 12 cerco 10,5; <br>
+il numero minore piu' vicino e' 9,6 cui corrisponde la sesta cifra del nostro numero, cioe' 8<br>
+mi resta 10,5-9,6=0,9  sposto di un posto la virgola per trovare la settima cifra decimale <br>
+Nella tabella del 12 cerco 9; <br>
+il numero minore piu' vicino e' 8,4 cui corrisponde la settima cifra del nostro numero, cioe' 7<br>
+Non porocedo oltre perche' l'errore sarebbe maggiore del risultato trovato
+ottengo 356387
+quindi scrivo<br>
+<b>Antilog 1,551925 = 35,6387</b><br>
+ 
+e, calcolando il montante<br>
+<b>M   = 2600&middot;35,6387 = 92660,62    &#8364;</b>  
+<br>
+
+il montante e' di  <b>&#8364; 92660,62</b><br><br>
+</li>
+ </ul>
+<hr>
+    </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+
+  </center>
+  </BODY>
+</HTML>

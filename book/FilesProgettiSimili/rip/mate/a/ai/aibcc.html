@@ -1,0 +1,282 @@
+<HTML>
+<HEAD>
+<TITLE>sistema lineare con parametro
+</TITLE>
+<style>
+A:link, A:visited{text-decoration:none}
+A:hover{text-decoration:underline;color:black}
+  </style>
+
+</HEAD>
+<BODY Background="../immagini/sfondo0285.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+ Sistema lineare con parametro
+   </font></center>
+
+   <font size=4>
+   <br>
+Quando all'interno di un sistema hai un parametro <a href="aibcc0.html" target="_blank">e' interessante vedere</a> come, al variare del parametro il sistema puo' ammettere una , nessuna o infinite soluzioni: siccome qui e' possibile racchiudere un po' tutta la teoria sin qui sviluppata questi esecizi sono piuttosto comuni, soprattutto negli esami di maturita' scientifica
+<hr>
+Vediamo ad esempio questo esercizio, parte di un esercizio di esame<br>
+<font size=2>Maturita' scientifica sperimentale 1993 sessione supplettiva (prima parte del secondo esercizio)</font>
+<br>
+<i><b>Si stabiliscano le relazioni cui debbono soddisfare a e b affinche' il sistema di equazioni<br>
+<img src="../../immagini/graffa.jpg" width=12 height=80 align="left">
+<font color="ff0000" size=4>
+
+ax + 2y + bz = 1<br>
+ x + y + az  = 1<br>
+x + ay + bz  = 1<br>
+ </font>     
+ammetta un'unica soluzione o infinite soluzioni o nessuna soluzione   
+</b>    
+</i>
+<br>
+<table>
+<TR>
+<TD align="center">
+<!-- matrice annidata--><table><tr>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+a&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp; b <br>
+1&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp; a <br>
+1&nbsp;&nbsp;&nbsp; a&nbsp;&nbsp;&nbsp; b
+  
+	 </font>
+</b></td>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=90></td>
+
+</tr></table>
+<!-- fine matrice annidata--> 
+</TD>
+<td rowspan="2"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+<td>
+<!-- matrice annidata-->
+<table><tr>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+a&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp; b&nbsp;&nbsp;&nbsp; 1
+<br>
+1&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp; a&nbsp;&nbsp;&nbsp; 1
+<br>
+ 1&nbsp;&nbsp;&nbsp; a&nbsp;&nbsp;&nbsp; b&nbsp;&nbsp;&nbsp; 1
+  	 </font>
+</b></td>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=90> </td>
+
+</tr>
+</table>
+<!-- fine matrice annidata -->
+</td>
+</TR>
+<TR>
+<TD align="center"><font color="0000ff" size=4><b>Matrice incompleta</b></font></TD>
+<TD align="center"><font color="0000ff" size=4><b>Matrice completa</b></font></TD>
+</TR>
+</table>
+
+
+Per avere una sola soluzione la matrice completa ed incompleta dovranno avere rango 3, quindi bastera' che il <a  href="aibcca.html" target="_blank">determinante della matrice incompleta </a> sia diverso da zero<br>
+Lo calcolo<br>
+
+<table><tr>
+<td>&nbsp;&nbsp; </td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+a&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp; b <br>
+1&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp; a <br>
+1&nbsp;&nbsp;&nbsp; a&nbsp;&nbsp;&nbsp; b
+  
+	 </font>
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+<td><b><font color="ff0000" size=4> = 2ab - a<sup><font size=2>3</font></sup> + 2a - 3b</font></b></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="aibccb.html" target="_blank"><font size=2>Calcoli</font></a></td>
+</tr></table><br>
+Siccome ho due parametri a e b mi conviene esplicitare rispetto ad un solo parametro <br>
+Se il determinante e' diverso da zero<br>
+<font color="ff0000" size=4><b> 2ab - a<sup><font size=2>3</font></sup> + 2a - 3b <img src="../../immagini/diversorosso.jpg" width="14" align="middle"> 0</b></font><br>
+allora esplicitando b ottengo (esplicito b perche' e' piu' semplice)<br>
+<font color="ff0000" size=4><b> b(2a- 3) - a<sup><font size=2>3</font></sup> + 2a <img src="../../immagini/diversorosso.jpg" width="14" align="middle"> 0</b></font><br>
+Anche se c'e' diverso ci si comporta come in un'equazione<br>
+<font color="ff0000" size=4><b> b(2a- 3) <img src="../../immagini/diversorosso.jpg" width="14" align="middle"> a<sup><font size=2>3</font></sup> - 2a  </b></font><br>
+e quindi
+
+<table>
+<TR>
+<TD align="center"><font color="ff0000" size=4><b>b <img src="../../immagini/diversorosso.jpg" width="14" align="middle"></b></font></TD>
+<TD align="center"><font color="ff0000" size=4><b>a<sup><font size=2>3</font></sup> - 2a<br>
+---------------<br> (2a-3)</b>  </font></TD>
+
+</TR>
+</table>
+
+in questo caso il sistema ammette una sola soluzione
+
+se invece abbiamo
+<table>
+<TR>
+<TD align="center"><font color="ff0000" size=4><b>b  =</b></font></TD>
+<TD align="center"><font color="ff0000" size=4><b>a<sup><font size=2>3</font></sup> - 2a<br>
+---------------<br> (2a-3)  </b></font></TD>
+
+</TR>
+</table>
+allora la matrice incompleta ha rango 2 mentre i tre minori di ordine 3 della matrice completa  diversi da quello calcolato valgono<br>
+<!-- primo -->
+
+<table><tr>
+<td>&nbsp;&nbsp; </td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+a&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp; 1 <br>
+1&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp; 1 <br>
+1&nbsp;&nbsp;&nbsp; a&nbsp;&nbsp;&nbsp; 1
+  
+	 </font>
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+<td><b><font color="ff0000" size=4> = -(a-1)<sup><font size=2>2</font></sup></font></b></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="aibccc.html" target="_blank"><font size=2>Calcoli</font></a></td>
+</tr></table><br>
+
+<!--    secondo -->
+<table><tr>
+<td>&nbsp;&nbsp; </td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+a&nbsp;&nbsp;&nbsp; b&nbsp;&nbsp;&nbsp; 1 <br>
+1&nbsp;&nbsp;&nbsp; a&nbsp;&nbsp;&nbsp; 1 <br>
+1&nbsp;&nbsp;&nbsp; b&nbsp;&nbsp;&nbsp; 1
+  
+	 </font>
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+<td><b><font color="ff0000" size=4> = (a-1)(a-b)</font></b></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="aibccd.html" target="_blank"><font size=2>Calcoli</font></a></td>
+</tr></table><br>
+
+
+<!-- terzo -->
+
+<table><tr>
+<td>&nbsp;&nbsp; </td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+2&nbsp;&nbsp;&nbsp; b&nbsp;&nbsp;&nbsp; 1 <br>
+1&nbsp;&nbsp;&nbsp; a&nbsp;&nbsp;&nbsp; 1 <br>
+a&nbsp;&nbsp;&nbsp; b&nbsp;&nbsp;&nbsp; 1
+  
+	 </font>
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+<td><b><font color="ff0000" size=4> = (a-b)(2-a)</font></b></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="aibcce.html" target="_blank"><font size=2>Calcoli</font></a></td>
+</tr></table><br>
+
+e se cerco la soluzione comune<br>
+<img src="../../immagini/graffa.jpg" width=12 height=90 align="left">
+<font color="ff0000" size=4><b>
+
+-(a-1)<sup><font size=2>2</font></sup> = 0<br>
+(a-1)(a-b) = 0<br>
+(a-b)(2-a) = 0   </b></font>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="aibccf.html" target="_blank"><font size=2>Calcoli</font></a><br><br>
+     avro' che le prime due equazioni si annullano se<br>
+ 
+<font color="ff0000" size=4><b>
+ a = 1<br></b></font>
+Mentre la seconda e la terza si annullano  se<br>
+<font color="ff0000" size=4><b>
+ b = a<br></b></font>
+e la terza si annulla anche  se<br>
+<font color="ff0000" size=4><b>
+ a = 2<br></b></font>
+
+
+ </b></font>   <hr>
+Quindi raccogliendo potremo dire:
+<ul>
+<LI> Se 
+<table>
+<TR>
+<TD align="center"><font color="0000ff" size=4><b>b <img src="../../immagini/diversoblu.jpg" width="14" align="middle"></b></font></TD>
+<TD align="center"><font color="0000ff" size=4><b>a<sup><font size=2>3</font></sup> - 2a<br>
+---------------<br> (2a-3)</b>  </font></TD>
+
+</TR>
+</table>
+Allora avremo una sola soluzione</LI>
+<li> 
+Se
+<table>
+<TR>
+<TD align="center"><font color="0000ff" size=4><b>b = </b></font></TD>
+<TD align="center"><font color="0000ff" size=4><b>a<sup><font size=2>3</font></sup> - 2a<br>
+---------------<br> (2a-3)</b>  </font></TD>
+
+</TR>
+</table>
+allora distinguiamo i casi
+ 
+ <ul>
+<LI>se  <font color="0000ff" size=4><b>a <img src="../../immagini/diversoblu.jpg" width="14" align="middle"> 1</b>   </font> <font color="0000ff" size=4><b>a <img src="../../immagini/diversoblu.jpg" width="14" align="middle"> 2</b>   </font>  od anche <font color="0000ff" size=4><b>a <img src="../../immagini/diversoblu.jpg" width="14" align="middle"> b</b>   </font>allora il sistema non  ammette soluzioni  
+ </LI>
+<li>
+se  <font color="0000ff" size=4><b>a = 1</b></font> 
+oppure <font color="0000ff" size=4><b>a = 2</b></font> 
+od anche <font color="0000ff" size=4><b>a = b</b></font> 
+il sistema ammette <font color="0000ff" size=4><b>oo<sup>1</sup></b></font> soluzioni <br>
+<font size=2>(approfondire)</font>
+</li>
+</ul>
+
+</li>
+</ul>
+ 
+<hr>
+<font size=2>In futuro aggiungere altri esercizi</font>
+<hr>
+
+ 
+   </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+  
+ <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></a>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../a.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="aibd.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></a>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="aibcb.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

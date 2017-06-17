@@ -1,0 +1,116 @@
+<HTML>
+<HEAD>
+<TITLE>ordinamento
+</TITLE>
+</HEAD>
+<BODY Background="../immagini/sfondop033.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+Ordinamento
+ 
+   </font></center>
+<br><br>
+   <font size=4> 
+<hr> <font size=2>
+E' fondamentale in informatica considerare l'ordine in cui vengono date le informazioni: ho gia' detto che, semplificando, e' come un lungo nastro di dati che scorre davanti ad un lettore, di conseguenza i dati dovranno essere ordinati per poter essere utilizzati </font> <hr>
+  Ripartiamo dal concetto di <a href="../../j/jc/jch.html" target="_blank">relazione d'ordine</a> e vediamo il concetto di <b>ordine parziale</b><br>
+Diremo che una relazione <b>R</b> su un insieme <b>A</b> e' una relazione di <b>ordine</b> se e'<br>
+<ul>
+<LI>riflessiva</LI>
+<li>antisimmetrica</li>
+<li>transitiva</li>
+</ul>
+
+<hr><font size=2> E qui sarebbe meglio ripassare tutto il capitolo sulle <a href="../../j/jc/jc.html" target="_blank">relazioni</a></font><hr><br>
+Diremo che una relazione e' di <a><a href="../../j/jc/jchb.html" target="_blank">ordine totale</a></b> su un insieme <b>B</b> se dati comunque due elementi <b>a</b> e <b>b</b> appartenenti a <b>B</b> vale sempre <br>
+<b>o aRb oppure bRa</b><br>
+Cioe' tutti gli elementi sono confrontabili fra loro secondo la relazione<hr>
+<font size=2>esempio: l'insieme dei numeri naturali <b>N</b> con la relazione <b>&lt;</b> e' un insieme totalmente ordinato perche' per due qualunque numeri naturali <B>a</B> e <b>b</b> posso sempre dire se vale <b>a&lt;b</b> oppure <b>b&lt;a</b></font> 
+<hr>
+se pero' esistono elementi di <b>B</b> fra loro non confrontabili secondo la relazione allora la relazione si dice di <b>ordine parziale</b> e l'insieme <b>B</b> si dice <b>parzialmente ordinato</b>
+ <hr><font size=2><font size=2>L'insieme degli esseri umani con la relazione <b>"e' antenato o identico di"</b> e' solo di ordine parziale perche' due che siano fratelli non appartengono alla relazione</font><hr>
+</font>
+<!--
+<font size=2> Se considero insiemi diversi da quelli che supportano  Algebre di Boole esistono anche relazioni d'ordine parziale non <a href ="pcha.html" target="_blank">antisimmetriche</a></font><hr>
+
+</-->
+ripassiamo le relazioni  nei particolari<br>
+<ol type="I">
+<LI>riflessiva: <br><b><font size=4> a &le; a  &nbsp;&nbsp; &forall; a &isin; B</font></B><br>
+<font size=2>Si legge <b>a</b> e' minore od uguale ad <b>a</b> per ogni elemento <b>a</b> appartenente a <b>B</b><br>cioe', in <b>B</b> ogni elemento e' minore od uguale a se' stesso (oppure, che e' la stessa cosa,  non e' superiore a se' stesso) </font></LI>
+
+<LI>antisimmetrica:<br><b><font size=4>  se a&le;b e b&le;a  &rArr; a=b &nbsp;&nbsp; &forall; a,b &isin; B</font></b><br>
+<font size=2>Si legge: se <b>a</b> e' minore od uguale a <b>b</b> e <b>b</b>   e' minore od uguale ad <b>a</b>,  allora <b>a</b> e' uguale a <b>b</b>  per ogni coppia di  elementi <b>a,b</b> appartenenti a <b>B</b><br> cioe' se <b>a</b> non e' maggiore di <b>b</b> e <b>b</b> non e' maggiore di <b>a</b> allora <b>a</b> e <b>b</b> sono uguali</font></LI>
+
+<LI>transitiva:<br><b><font size=4> a&le;b, b&le;c  &rArr; a&le;c &nbsp;&nbsp; &forall; a,b,c &isin; B</font></b><br>
+<font size=2>Si legge se <b>a</b> e' minore od uguale a <b>b</b> e <b>b</b>   e' minore od uguale a <b>c</b>  allora <b>a</b>  e' minore od uguale a <b>c</b> per ogni terna di  elementi <b>a,b,c</b> appartenenti a <b>B</b>  </font></LI>
+
+</ol>
+ <br><hr>
+Le algebre di Boole sono parzialmente ordinate a causa del 
+teorema:<br><br>
+<b> Sia B un' algebra di Boole, allora B e' un insieme parzialmente ordinato con a&le;b se e solo se a+b=b
+</b><br><hr>
+<font size=2>
+Dimostriamolo "alla buona" con una dimostrazione non rigorosa, ma efficace, valida solo per l'algebra binaria di Boole (abbiamo solo gli elementi <b>0</b> ed <b>1</b>)<br> 
+La condizione e' necessaria e sufficiente  (corrisponde a <b>se e solo se</b>) prima consideriamo la dimostrazione diretta <br><br>
+Ipotesi: supponiamo che nell'algebra binaria  valga 
+<b>a + b = b</b>  <br>
+tesi:  devo dimostrare che vale <b>a &le; b</b><br><br>
+l'ipotesi significa: <b>0 + 0 = 0</b>;  &nbsp;&nbsp;<b>0 + 1 = 1</b>;     &nbsp;&nbsp;<b>1 + 1 = 1</b><br>
+cioe' la somma equivale al secondo addendo se sono contemporaneamente nulli entrambe gli addendi oppure se il secondo addendo vale 1  <br>
+ di conseguenza segue per ogni elemento <b>a</b> (che puo' essere <b>0</b> od <b>1</b><br>
+se <b>a=0 e se b=0 &nbsp;&nbsp; 0 &le; 0 </b>  cioe' <b>a &le; b </b>   <br>
+se <b>a=0 e se b=1    &nbsp;&nbsp; 0 &le; 1 </b>  cioe' <b>a &le; b </b>    <br>
+se <b>a=1 e se b=1   &nbsp; &nbsp;   1 &le; 1 </b> cioe' <b>a &le; b </b> <br>
+
+quindi<br>
+<b>a &le; b</b><br><br>
+Dimostrazione inversa<br><br>
+Ipotesi: supponiamo che in <b> B</b> valga 
+<b>a &le; b</b> <br>tesi: devo dimostrare che vale <b>a + b = b</b> <br> <br>
+gli unici elementi dell'insieme <b>B</b> sono <b>0</b> ed <b>1</b>
+<br> Vale: 
+<b>0 &le; 0</b>, &nbsp;&nbsp;<b>0 &le; 1</b>, &nbsp;&nbsp;<b>1 &le; 1</b>,  
+<br> quindi si ha, considerando   i casi possibili  <br>  
+se <b>a=0 e se b=0  0+0=0=a+b=b </b>   <br>
+se <b>a=0 e se b=1  0+1=1=a+b=b </b>    <br>
+se <b>a=1 e se b=1  1+1=1=a+b=b </b> <br>
+(a=1 e b=0 non lo posso considerare perche' contrario all'ipotesi)<br>
+il che equivale a dire<br>
+<b>a + b = b</b><br>
+come volevamo
+</font>
+ 
+<hr>
+   </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+   <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 title="Pagina iniziale" border=0></a>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../p.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 title="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="pci.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 title="Pagina successiva" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="pcg.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 title="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

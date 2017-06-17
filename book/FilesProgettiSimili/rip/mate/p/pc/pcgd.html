@@ -1,0 +1,108 @@
+<HTML>
+<HEAD>
+<TITLE> dimostrazione
+</TITLE>
+</HEAD>
+<BODY bgcolor="ccffcc"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+   dimostrazione
+   </font></center>
+<br>
+   <font size=5>
+Devo dimostrare la legge associativa<br>
+<font size=2>
+Faccio riferimento alle leggi di definizione dell'algebra di Boole; a destra ti indico la legge applicata per ottenere il risultato</font><br>
+Questa dimostrazione e' abbastanza complicata<br><br>
+Voglio dimostrare che 
+<b>(a + b) + c = a + (b + c)</b><br><br>
+<ol>
+<LI>aggiungiamo <b>a</b> ad entrambe i termini dell'uguaglianza e  dimostriamo prima che vale <br>  <b>a + (a + b) + c = a </b><br></li>
+
+<LI> poi che vale <br>  <b>a + a + (b + c)= a </b><br></li>
+<li>
+ poi aggiungeremo <b>a'</b> ad entrambe i termini dell'uguaglianze e mostreremo che vale  <br>  <b>a' + (a + b) + c = a' + (b&middot;c) </b> <br></li> 
+
+<li>  e vale anche <br><b>a' + a + (b + c) = a' + (b&middot;c) </b><br></li> 
+<li>per la proprieta' transitiva delle uguaglianze<br></LI>
+</ol> seguira' la tesi<br><br>
+<b>a + (a&middot;b) = (a&middot;1) + (a&middot;b)</b> &nbsp;&nbsp; (seconda legge dell'identita')<br>
+<b> (a&middot;1) + (a&middot;b)= a &middot;(1 + b)  </b> &nbsp;&nbsp; (seconda legge distributiva letta a rovescio)<br>
+ <b>  a &middot;(1+b)  = a &middot;(b+1)</b> &nbsp;&nbsp; (proprieta' commutativa della somma)<br>
+ <b>  a &middot;(b+1) = a &middot;1 </b> &nbsp;&nbsp; (legge dei confini dimostrata prima)<br>
+<b> a &middot;1=  a </b> &nbsp;&nbsp; (seonda legge dell'identita')<br><br>
+quindi, per la proprieta' transitiva delle uguaglianze,  leggendo    il primo e  l'ultimo termine delle uguaglianze otteniamo<br>
+<b>a + (a&middot;b) = a</b><br>
+come volevamo<br>
+<hr>
+<font size=2>
+Dimostriamo anche la formula complementare: nota che la dimostrazione e' la stessa cambiando il prodotto in somma, cambiando lo 0 in 1 e considerando la stessa legge ma con numero diverso: seconda al posto della prima e prima al posto della seconda<br> tenendo presente cio', puoi fare tu la dimostrazione complementare e controllare poi i passaggi cosi' ti serve di esercizio anche per ripassare le regole</font><hr> 
+Voglio dimostrare che <br>
+
+
+<b>(a&middot;b)&middot;c = a&middot;(b&middot;c) </b><br><br>
+<ol>
+<LI>aggiungiamo <b>a</b> ad entrambe i termini dell'uguaglianza e  dimostriamo prima che vale <br>  <b>a + (a&middot;b)&middot;c = a </b><br></li>
+
+<LI> poi che vale <br>  <b>a + a&middot;(b&middot;c) = a </b><br></li>
+<li>
+ poi aggiungeremo <b>a'</b> ad entrambe i termini dell'uguaglianze e mostreremo che vale  <br>  <b>a' + (a&middot;b)&middot;c  = a' + (b&middot;c) </b> <br></li> 
+
+<li>  e vale anche <br><b>a' + a&middot;(b&middot;c) = a' + (b&middot;c) </b><br></li> 
+<li>per la proprieta' transitiva delle uguaglianze<br></LI>
+</ol> seguira' la tesi<br><br>
+Eseguiamo i calcoli
+
+
+<ol>
+<LI>aggiungo <b>a</b> al primo  termine  <br> 
+ <b>a + (a&middot;b)&middot;c = a </b> <br>
+voglio dimostrare che vale <br>
+<b>a + (a&middot;b)&middot;c = a </b><br>
+Parto da <b>a + (a&middot;b)&middot;c  </b><br><br>
+
+<b>a + (a&middot;b)&middot;c = a +  ((a&middot;b)&middot;c)  </b><br>
+<b>a +  ((a&middot;b)&middot;c) =  (a +  (a&middot;b)) + (a&middot;c) </b> (prima legge distributiva)<br>
+<b> (a +  (a&middot;b)) + (a&middot;c) = a + (a&middot;c) </b> (seconda legge dell'assorbimento dimostrata prima)<br>
+<b>   a + (a&middot;c) = a </b> (prima legge dell'assorbimento dimostrata prima)<br>
+</li>
+
+<LI> ora dimostro che vale <br>  <b>a + a&middot;(b&middot;c) = a </b><br>
+Parto da <b>a + a&middot;(b&middot;c) = </b><br><br>
+
+<b>a + a&middot;(b&middot;c)  =  (a +  a) &middot; (a + (b&middot;c)) </b> (prima legge distributiva)<br>
+<b>  (a +  a) &middot; (a + (b&middot;c)) =  a &middot; (a + (b&middot;c))  = </b> (idempotenza; dimostrata prima)<br>
+<b>   =  a &middot; (a + (b&middot;c))  = a &middot; (a + b)(&middot;(a+c))</b> (prima legge distributiva)<br>
+
+
+ <b> a &middot; (a + b)(&middot;(a+c)) = (a &middot; (a + b))&middot;(a+c)   </b> (considero la prima operazione)<br>
+<b>  (a &middot; (a + b))&middot;(a+c) = a&middot;(a+c)   </b> ( seconda legge dell'assorbimento dimostrata prima)<br>
+<b>  a&middot;(a+c)  = a </b> ( seconda legge dell'assorbimento dimostrata prima)<br>
+</li>
+
+
+
+
+
+
+<li> <br><br><br><br><br><br><br><br>
+ poi aggiungeremo <b>a'</b> ad entrambe i termini dell'uguaglianze e mostreremo che vale  <br>  <b>a' + (a&middot;b)&middot;c  = a' + (b&middot;c) </b> <br></li> 
+
+<li>  e vale anche <br><b>a' + a&middot;(b&middot;c) = a' + (b&middot;c) </b><br></li> 
+<li>per la proprieta' transitiva delle uguaglianze<br></LI>
+</ol> seguira' la tesi<br><br>
+
+
+   </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+
+  </center>
+  </BODY>
+</HTML>

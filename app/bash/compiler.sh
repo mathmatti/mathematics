@@ -1,24 +1,9 @@
-#!/bin/sh
-#for f in ../.. ; do
-	#echo "$f"
-#	if [[ -d $f ]]; then 
-#		echo 'ok'
-#	else
-#		#htlatex ../../"$f"
-#		echo 'no'		
-#	fi
-#done
-
-
-#REM compile from latex to html
-#@ECHO off 
-#SETLOCAL enableDelayedExpansion 
-
 LATEXDIR=/home/giuseppe/git/mathematics/latex
 SITEDIR=/home/giuseppe/git/mathematics/site
 
 #del $SITEDIR/*.*
 
+# Mi posizione nella directory $LATEXDIR e per ogni file .tex lancio i comandi htlatex e pdflatex
 cd $LATEXDIR
 for f in $LATEXDIR/*.tex 
 do 	
@@ -31,10 +16,6 @@ cp $LATEXDIR/*.html $SITEDIR/
 cp $LATEXDIR/*.css $SITEDIR/
 cp $LATEXDIR/*.pdf $SITEDIR/
 
-for f in $LATEXDIR/*.html
-do
-	java -jar $f "$f"
-done
 #rm $LATEXDIR\*.log
 #rm $LATEXDIR\*.dvi
 #rm $LATEXDIR\*.4tc

@@ -1,0 +1,237 @@
+<HTML>
+<HEAD>
+<TITLE>tre equazioni equivalenti
+</TITLE>
+<style>
+A:link, A:visited{text-decoration:none}
+A:hover{text-decoration:underline;color:black}
+  </style>
+
+</HEAD>
+<BODY Background="../immagini/sfondo0276.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+  Tre equazioni equivalenti
+   </font></center>
+
+   <font size=4>
+  <br>
+ 
+<font size=4>
+Anche qui facciamo un semplice esempio e poi raccogliamo i risultati
+<hr>
+  Risolvere il sistema:<br>
+ <img src="../../immagini/graffablu.jpg" width=12 height=80 align="left">
+<font color="0000ff" size=4>
+x + y + z = 6<br>
+x + y + z = 6<br>
+2x + 2y + 2z = 12 </font><br><hr>
+<center><b><font size=5>Metodo di sostituzione</font></b></center>
+
+In questo caso le tre equazioni sono equivalenti (le prime due sono addirittura uguali e la terza e' ottenuta dalla prima moltiplicandone i termini per 2), e se andassi a sostituire normalmente otterrei alla fine 0=0; quindi, per poter risolvere devo eliminare due delle tre equazioni equivalenti ed il mio sistema si riduce al'equazione<br>
+  
+<font color="0000ff" size=4>
+x + y + z = 6<br>
+ </font>
+
+Risolvo: ricavo la x  come se y e z fossero numeri dati<br>
+ 
+<font color="0000ff" size=4>
+x = 6 - y - z<br>
+ </font>
+ora posso attribuire ad y infiniti valori, ma non solo: per ogni valore che do' ad y posso dare infiniti valori a z  
+ <br><font size=2><a href="aibbcbb0.html" target="_blank">Se non ti e' chiaro</a></font><br>
+e quindi il mio sistema ammette infinite al quadrato (<font color="ff0000"><b>oo<sup>2</sup></b></font>) soluzioni  che posso anche indicare come<br>
+<img src="../../immagini/graffablu.jpg" width=12 height=82 align="left">
+<font color="0000ff" size=4><b>
+x = 6-h-k<br>
+y = h<br>
+z = k     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; con h e k numeri reali</b></font><br>
+<hr>
+<center><b><font size=5>Metodo di Cramer</font></b></center>
+
+Considero le matrici incompleta e completa<br>
+
+<table>
+<TR>
+<TD align="center">
+<!-- matrice annidata--><table><tr>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+1 &nbsp;&nbsp;  1 &nbsp;&nbsp;&nbsp; 1<br>
+1 &nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp; 1
+ <br>
+ 2 &nbsp;&nbsp;  2 &nbsp;&nbsp;&nbsp; 2
+  
+	 </font>
+</b></td>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=90></td>
+
+</tr></table>
+<!-- fine matrice annidata--> 
+</TD>
+<td rowspan="2"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+<td>
+<!-- matrice annidata-->
+<table><tr>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+1 &nbsp;&nbsp;  1 &nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp; 6<br>
+1 &nbsp;&nbsp; 1 &nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp; 6
+ <br>
+ 1 &nbsp;&nbsp;  1 &nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp; 6
+  	 </font>
+</b></td>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=90> </td>
+
+</tr>
+</table>
+<!-- fine matrice annidata -->
+</td>
+</TR>
+<TR>
+<TD align="center"><font color="0000ff" size=4><b>Matrice incompleta</b></font></TD>
+<TD align="center"><font color="0000ff" size=4><b>Matrice completa</b></font></TD>
+</TR>
+</table>
+
+Vediamo che ci sono due righe  uguali ed una proporzionale: se procedessi normalmente otterrei che i determinanti 3x3 sarebbero tutti nulli (ed anche tutti quelli 2x2) ed otterrei come soluzioni 0/0 (valore indeterminato); quindi per procedere a trovare le soluzioni devo eliminare due equazione delle tre uguali ed  il mio sistema diventa<br>
+ 
+<font color="0000ff" size=4>
+x + y + z = 6<br>
+</font>
+Devo spostare dopo l'uguale due incognite, trattandola come  numeri dati, per avere tante incognite quante equazioni<br>
+sposto dopo l'uguale la y e la z per ottenere gli stessi risultati trovati sopra: ottengo <br>
+ 
+<font color="0000ff" size=4>
+x = 6 - y - z<br>
+</font>
+
+con matrice incompleta e completa<br>
+<table>
+<TR>
+<TD align="center">
+<!-- matrice annidata--><table><tr>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=25></td>
+
+<td><b><font color="ff0000" size=4>
+ 
+1 
+ <br>
+  
+	 </font>
+</b></td>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=25></td>
+
+</tr></table>
+<!-- fine matrice annidata--> 
+</TD>
+<td rowspan="2"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+<td>
+<!-- matrice annidata-->
+<table><tr>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=25></td>
+
+<td><b><font color="ff0000" size=4>
+ 
+ 1 &nbsp;&nbsp;&nbsp; 6-y-z
+ 
+  	 </font>
+</b></td>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=25> </td>
+
+</tr>
+</table>
+<!-- fine matrice annidata -->
+</td>
+</TR>
+<TR>
+<TD align="center"><font color="0000ff" size=4><b>Matrice incompleta</b></font></TD>
+<TD align="center"><font color="0000ff" size=4><b>Matrice completa</b></font></TD>
+</TR>
+</table>
+
+Trovo x con la regola di Cramer<br>
+<table><tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=25></td>
+
+<td><font color="ff0000" size=4><b>6-y-z</b></font></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=25></td>
+<td valign=bottom> <font color="ff0000" size=4>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>6-y-z</b> </font></td>
+</tr></table>
+<font color="ff0000"><b>
+x = --------------- = ----------- = 6-y-z
+</b></font>
+<table><tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=25></td>
+
+<td><font color="ff0000" size=4>&nbsp;<b>1</b>&nbsp;</font></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=25></td>
+<td valign=top> <font color="ff0000" size=4>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>1</b> </font></td>
+</tr></table><br>
+
+
+
+
+  
+e quindi, siccome posso dare ad y e z  un valore qualunque:<br>
+<img src="../../immagini/graffablu.jpg" width=12 height=82 align="left">
+<font color="0000ff" size=4><b>
+x = 6-h-k<br>
+y = h<br>
+z = k    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; con h e k numeri reali</b></font><br>
+
+
+<hr>
+Possiamo quindi dire:<br><b>
+Se tre equazioni sono equivalenti allora il sistema ammette  <font color="000000"><b>oo<sup>2</sup></b></font> soluzioni</b>
+<hr>
+<font size=2>E' ormai ora di parlare di:<br>
+dipendenza ed indipendenza lineare<br>
+matrici, determinanti e rango di una matrice</font>
+ <hr>
+   </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+  
+ <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></a>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../a.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="aibbcc.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></a>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="aibbcba.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

@@ -1,0 +1,266 @@
+<HTML>
+<HEAD>
+<TITLE>equazioni differenziali omogenee
+</TITLE>
+</HEAD>
+<BODY Background="../immagini/sc0201.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+Equazioni differenziali ordinarie del primo ordine omogenee  </font></center>
+
+    <font size=4><br><br>
+ Diremo che un'equazione differenziale e' omogenea del primo ordine se e' del tipo
+<table>
+<TR>
+<TD align="center"><font color="0000ff" size=5>y' = </font></TD>
+<TD align="center"><font color="0000ff" size=5>P(x,y)<br>-----------<br>Q(x,y)</font></TD>
+</TR>
+</table>
+Con P(x,y) e Q(x,y) polinomi omogenei dello stesso grado<br>
+<font size=2>Un polinomio e' omogeneo se tutti i suoi monomi hanno lo <a href="../../a/ac/ac2.html" target="_blank">stesso grado</a>;<br>
+se un'equazione e' omogenea le sue soluzioni oltre le nulle sono del tipo y = kx con k costante </font><br>
+Per risolvere un'equazione di questo tipo consideriamo la variabile ausiliaria 
+<table>
+<TR>
+<TD align="center"><font color="0000ff" size=5>u = </font></TD>
+<TD align="center"><font color="0000ff" size=5>y<br>----<br>x</font></TD>
+</TR>
+</table>
+e quindi lasceremo le x ed al posto delle y avremo:<br>
+<font color="0000ff" size=5>y = ux  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+dy = xdu+udx </font><br>
+In questo modo l'equazione diventa a variabili separabili, separeremo le x dalle u ed integreremo; dopo risostituiremo alla u il valore y/x
+
+
+<hr>
+
+Vediamolo su un esempio: risolvere l'equazione differenziale<br>
+<font color="0000ff" size=5>
+y'(x<sup><font size=3>2</font></sup> - y<sup><font size=3>2</font></sup>) = xy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+con  x<sup><font size=3>2</font></sup> - y<sup><font size=3>2</font></sup><img src="../../immagini/diversoblu.jpg" align="middle" width="15">0
+</font><br>
+scriviamola nella forma tipica<br>
+<table>
+<TR>
+<TD align="center"><font color="0000ff" size=5>y' = </font></TD>
+<TD align="center"><font color="0000ff" size=5>xy<br>------------<br>x<sup><font size=3>2</font></sup> - y<sup><font size=3>2</font></sup> </font></TD>
+</TR>
+</table>
+cioe'
+<table>
+<TR>
+<TD align="center"><font color="0000ff" size=5>dy<br>-----<br>dx </font></TD>
+<TD align="center"><font color="0000ff" size=5> = </font></TD>
+<TD align="center"><font color="0000ff" size=5>xy<br>------------<br>x<sup><font size=3>2</font></sup> - y<sup><font size=3>2</font></sup> </font></TD>
+</TR>
+</table>
+Ora sostituisco a y e dy la nuova variabile
+<table>
+<TR>
+<TD align="center"><font color="0000ff" size=5>xdu + udx<br>---------------<br>dx </font></TD>
+<TD align="center"><font color="0000ff" size=5> = </font></TD>
+<TD align="center"><font color="0000ff" size=5>x &#183;ux<br>--------------<br>x<sup><font size=3>2</font></sup> - u<sup><font size=3>2</font></sup>x<sup><font size=3>2</font></sup> </font></TD>
+</TR>
+</table>
+<br><br>
+<table>
+<TR>
+<TD align="center"><font color="0000ff" size=5>xdu + udx<br>---------------<br>dx </font></TD>
+<TD align="center"><font color="0000ff" size=5> = </font></TD>
+<TD align="center"><font color="0000ff" size=5>ux<sup><font size=3>2</font></sup><br>--------------<br>x<sup><font size=3>2</font></sup>(1 - u<sup><font size=3>2</font></sup>) </font></TD>
+</TR>
+</table>
+semplifico gli x<sup>2</sup> dopo l'uguale<br>
+<table>
+<TR>
+<TD align="center"><font color="0000ff" size=5>xdu + udx<br>---------------<br>dx </font></TD>
+<TD align="center"><font color="0000ff" size=5> = </font></TD>
+<TD align="center"><font color="0000ff" size=5>u <br>--------------<br>1 - u<sup><font size=3>2</font></sup> </font></TD>
+</TR>
+</table>
+Facciamo il minimo comune multiplo<br>
+<font color="0000ff" size=5>
+(1 - u<sup><font size=3>2</font></sup>)(xdu+udx) = u dx</font>
+<br>calcolo<br>
+<font color="0000ff" size=5>
+xdu + udx - u<sup><font size=3>2</font></sup>xdu - u<sup><font size=3>3</font></sup>dx = udx
+</font><br>
+elimino udx<br>
+<font color="0000ff" size=5>
+xdu - u<sup><font size=3>2</font></sup>xdu - u<sup><font size=3>3</font></sup>dx = 0
+</font><br>
+Sposto il termine con dx dopo l'uguale<br>
+<font color="0000ff" size=5>
+xdu - u<sup><font size=3>2</font></sup>xdu - u<sup><font size=3>3</font></sup>dx = 0
+</font><br>
+<font color="0000ff" size=5>
+xdu - u<sup><font size=3>2</font></sup>xdu = u<sup><font size=3>3</font></sup>dx 
+</font><br>
+raccolgo la xdu prima dell'uguale<br>
+<font color="0000ff" size=5>
+xdu(1 - u<sup><font size=3>2</font></sup>) = u<sup><font size=3>3</font></sup>dx 
+</font><br>
+
+
+<br>
+
+separiamo le variabili: otteniamo<br>
+
+
+<table>
+<TR>
+<TD align="center"><font color="0000ff" size=5> (1 - u<sup><font size=3>2</font></sup>)du<br>-----------<br>u<sup><font size=3>3</font></sup> </font></TD>
+<TD align="center"><font color="0000ff" size=5> = </font></TD> 
+<TD align="center"><font color="0000ff" size=5> dx<br>------<br>x </font></TD>
+
+</TR>
+</table>
+
+
+
+
+
+ora integriamo da entrambe le parti; prima dell'uguale separo i termini della somma
+<br>
+
+<table>
+<TR>
+<TD align="center"><font color="0000ff" size=5><img src="../../immagini/integraleiblu.jpg" width=20 height=50 align=middle> 
+</font></TD>
+<TD align="center"><font color="0000ff" size=5>
+du<br>-----<br>u<sup><font size=3>3</font></sup>
+</font></TD>
+<TD align="center"><font color="0000ff" size=6> - </font></TD>
+<TD align="center"><font color="0000ff" size=5><img src="../../immagini/integraleiblu.jpg" width=20 height=50 align=middle> 
+</font></TD>
+<TD align="center"><font color="0000ff" size=5>
+du<br>-----<br>u
+</font></TD>
+<TD align="center"><font color="0000ff" size=5> = </font></TD>
+<TD align="center"><font color="0000ff" size=5><img src="../../immagini/integraleiblu.jpg" width=20 height=50 align=middle> 
+</font></TD>
+<TD align="center"><font color="0000ff" size=5>
+dx<br>-----<br>x
+</font></TD>
+
+</TR>
+</table>
+sono tutti integrali immediati ed otteniamo<br>
+
+<table>
+<TR>
+ 
+<TD align="center"><font color="0000ff" size=5>
+-1<br>-----<br>2u<sup><font size=3>2</font></sup>
+</font></TD>
+<TD align="center"><font color="0000ff" size=5> - log u</font></TD> 
+ <TD align="center"><font color="0000ff" size=5> = </font></TD>
+ <TD align="center"><font color="0000ff" size=5>
+log x + c
+</font></TD>
+
+</TR>
+</table>
+Mettiamo la costante come logaritmo c=log k<br>
+
+
+<table>
+<TR>
+<TD align="center"><font color="0000ff" size=5>
+-1<br>-----<br>2u<sup><font size=3>2</font></sup>
+</font></TD>
+<TD align="center"><font color="0000ff" size=5>
+- log u = log x + log k
+</font></TD>
+</TR>
+</table>
+
+<table>
+<TR>
+<TD align="center"><font color="0000ff" size=5>
+-1<br>-----<br>2u<sup><font size=3>2</font></sup>
+</font></TD>
+
+ <TD align="center"><font color="0000ff" size=5>
+= log u +log x + log k
+</font></TD>
+</TR>
+</table>
+usando la proprieta' del logaritmo di un prodotto
+<table>
+<TR>
+<TD align="center"><font color="0000ff" size=5>
+-1<br>-----<br>2u<sup><font size=3>2</font></sup>
+</font></TD>
+
+ <TD align="center"><font color="0000ff" size=5>
+= log (kux)
+</font></TD>
+</TR>
+</table>
+
+Ora metto y/x al posto di u <br>
+<table>
+<TR>
+<TD align="center"><font color="0000ff" size=5>
+-x<sup><font size=3>2</font></sup><br>-----<br>2y<sup><font size=3>2</font></sup>
+</font></TD>
+
+ <TD align="center"><font color="0000ff" size=5>
+= log (ky)
+</font></TD>
+</TR>
+</table>
+
+
+ 
+Quindi l'integrale generale e'<br>
+<table>
+<TR>
+<TD align="center"><font color="ff0000" size=5>
+-x<sup><font size=3>2</font></sup><br>-----<br>2y<sup><font size=3>2</font></sup>
+</font></TD>
+
+ <TD align="center"><font color="ff0000" size=5>
+= log (ky)
+</font></TD>
+</TR>
+</table>
+
+
+ 
+</font>
+<hr>
+
+
+   </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+   <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></a>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../c.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="clcc.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="clca.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

@@ -1,0 +1,179 @@
+<HTML>
+<HEAD>
+<TITLE>permutazioni semplici
+</TITLE>
+</HEAD>
+<BODY Background="../immagini/sfondol004.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+<td>
+    
+   <center><font color="#FF2200" size=6>
+Permutazioni semplici
+   </font>
+</center>
+<br><br>
+   <font size=3>
+ Procediamo su un esempio:
+<br>Domani sei a rischio di essere interrogato in tre materie: italiano,
+matematica e inglese: essendo la fine del quadrimestre ed avendo tre ore di
+tempo decidi di  studiare ogni materia per 1 ora; in quanti modi puoi
+"permutare" le materie?
+<br>
+in pratica puoi fare:
+<center>
+<table border=1 cellpadding="10" cellspacing="10">
+<TR>
+<TD><font color="ff0000" size=5>prima ora</font></TD>
+<td><font color="ff0000" size=5>seconda ora</font></td>
+<td><font color="ff0000" size=5>terza ora</font></td>
+</TR>
+<TR>
+<TD>Italiano</TD>
+<td>Inglese</td>
+<td>Matematica</td>
+</TR>
+<TR>
+<TD>Italiano</TD>
+<td>Matematica</td>
+<td>Inglese</td>
+</TR>
+<TR>
+<td>Inglese</td>
+<TD>Italiano</TD>
+<td>Matematica</td>
+</TR>
+<TR>
+<td>Matematica</td>
+<TD>Italiano</TD>
+<td>Inglese</td>
+
+</TR>
+
+<TR>
+
+<td>Inglese</td>
+<td>Matematica</td>
+<TD>Italiano</TD>
+</TR>
+<TR>
+<td>Matematica</td>
+<td>Inglese</td>
+<TD>Italiano</TD>
+
+
+</TR>
+
+</table>
+</center>
+Come vedi hai 6 possibilita';<br>
+Noi vogliamo trovare il numero di permutazioni possibili senza dover fare tutta
+una tabella, anche perche' finche' si tratta di 3 oggeti e' abbastanza semplice,
+ma se volessi sapere in quanti modi diversi posso permutare i 90 numeri della
+tombola mi troverei nei pasticci<hr>
+<font size=4> Proviamo a risolvere questo problema senza fare la tabella:<br>
+<i><font color="ff000" size=5>Quanti numeri diversi di 5 cifre posso formare con
+le cifre 1,2,3,4,5 ?</font></i><br><br>
+Allora nel numero che potro' fare la cifra 1 potra' essere al primo posto,
+oppure al secondo posto, oppure al terzo posto, oppure al quarto posto, oppure
+al quinto posto; cioe' per la cifra 1 ho 5 possibilita'<br>
+Per la cifra 2 (avendo gia' messo la cifra 1) invece ho solo 4 possibilita'
+perche' un posto e' gia' occupato dalla cifra 1<br>
+Per la cifra 3 mi restano tre possibilita' perche' due posti sono gia' occupati
+dalla cifra 1 e dalla cifra 2<br>
+Per la cifra 4 mi restano due possibilita' perche' tre posti sono gia'
+occupati dalla cifra 1, dalla cifra 2 e dalla cifra 3<br>
+Per la cifra 5 ho solo una possibilita' perche' quattro posti sono gia' occupati
+dalle cifre 1, 2, 3 e 4 e il 5 va nel posto che resta vuoto<br>
+quindi<br>
+per la cifra  1 &nbsp;&nbsp;   5 possibilita'<br>
+per la cifra  2 &nbsp;&nbsp;   4 possibilita'<br>
+per la cifra  3 &nbsp;&nbsp;   3 possibilita'<br>
+per la cifra  4 &nbsp;&nbsp;   2 possibilita'<br>
+per la cifra  5 &nbsp;&nbsp;   1 possibilita'<br>
+cioe'<br>
+<font size=5 color="ff0000">
+possibilita' = 5&#183;4&#183;3&#183;2&#183;1 = 120<br>
+
+<i> Con le 5 cifre posso scrivere 120 numeri diversi </i>
+</font>
+</font>
+<hr>
+Riprendiamo l'esercizio delle materie da studiare visto prima: <br>
+Comincio da italiano<br>
+Italiano posso studiarlo la prima ora , oppure la seconda ora oppure la
+terza<br>
+inglese posso studiarlo in una delle due ore in cui non studio italiano<br>
+Matematica posso studiarla nell'ora in cui non studio ne' italiano ne' inglese <br>
+quindi<br>
+italiano &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3 possibilita'<br>
+inglese &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 possibilita' <br>
+matematica &nbsp;&nbsp; 1 possibilita'<br>
+<font size=5 color="ff0000">
+possibilita' =  3&#183;2&#183;1 = 6<br>
+</font>
+<hr>
+<font size=4>
+In generale:<br><br>
+<b>Il numero di permutazioni semplici su n oggetti P<sub>n</sub> e' dato dal
+prodotto del numero n per tutti i suoi antecedenti<br><br>
+<font size=5 color="ff0000">
+P<sub>n</sub> = n&#183;(n-1)&#183;(n-2)&#183; ..... &#183;3&#183;2&#183;1<br> 
+</font></b>
+</font><hr>
+<font size=2>Per <b>antecedenti</b> di un numero si intendono i numeri che lo precedono nella successione naturale:<br>
+<b>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,........</b><br>
+ad esempio gli antecedenti di 6 sono i numeri 1,2,3,4,5
+</font>
+<hr>
+Problema:<i>Quanti anagrammi (anche senza significato) posso fare con le
+lettere della parola cane? </i><br>
+Sono 4 oggetti quindi<br>
+<font size=5 color="ff0000">
+P<sub>4</sub> =  4&#183;3&#183;2&#183;1 = 24<br>
+
+</font>
+<i> Con le 4 lettere posso scrivere 24 gruppi diversi </i><hr>
+Adesso posso risolvere anche il problema:<br>
+<i>Trovare in quanti modi diversi possono uscire i 90 numeri della
+tombola</i><br>
+Basta applicare la formula<br>
+<b>
+P<sub>90</sub> = 90&#183;89&#183;88&#183;87&#183;86&#183;85&#183;84&#183;83&#183;82&#183;81&#183;80&#183;79&#183;78&#183;77&#183; ..... &#183;3&#183;2&#183;1<br></b>
+
+<br>
+A parte il fatto che non   calcolo  il risultato perche' e' un numero troppo
+elevato, devo trovare un modo di scriverlo in maniera piu' compatta perche' non
+posso scrivere centinaia di numeri in fila oppure mettere i puntini per indicare
+il numero di permutazioni;<br> introduciamo quindi, nella prossima pagina, il
+<b>fattoriale di un numero</b>
+
+<hr>
+   </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+   <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../l.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="lbab.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></A>
+   </td>
+ 
+   <td align="center" valign=middle>
+      <A HREF="lba.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

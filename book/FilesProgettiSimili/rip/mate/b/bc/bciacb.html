@@ -1,0 +1,105 @@
+<HTML>
+<HEAD>
+<TITLE> criterio di scomposizione per 3
+</TITLE>
+</HEAD>
+<BODY Background="../immagini/sfb065.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+
+  <center><font color="ff0000" size=6>
+Criterio di scomposizione per 3
+  </font></center><br>
+
+
+<font size=4>
+<center>
+<table border="1" cellpadding="15" cellspacing="15"  bgcolor="bbbbbb">
+<TR>
+<TD><font size=4><b>Un numero e' divisibile per 3 se sommando le sue cifre si ottiene un multiplo di 3</b></font></TD>
+</TR>
+</table>
+ </center><br>
+Esempio: <b>27</b> e' multiplo di 3 perche' <b>2+7=9</b> e <b>9</b> e' multiplo di <b>3</b><br>
+<font size=2>il procedimento e' iterativo (posso ripeterlo), cioe' se ottengo un numero troppo grande per capire se e' un numero multiplo di 3 posso ripetere il procedimento su quello che ho ottenuto<br><br>
+esempio: <b>432.198.732</b> e' multiplo di 3 perche' <b>4+3+2+1+9+8+7+3+2 = 39</b>
+e <b>39</b> e' multiplo di <b>3</b> perche' <b>3+9=12</b> e <b>12</b> e' multiplo di <b>3</b> perche' <b>1+2 = 3</b><br><br>
+esempio: <b>434.198.732</b> non e' multiplo di 3 perche' <b>4+3+4+1+9+8+7+3+2 =  41</b>
+e <b>41</b> non e' multiplo di <b>3</b> perche' <b>4+1=5</b> e <b>5</b> non e' multiplo di <b>3</b> <br>
+
+ </font>
+
+<hr>
+ Come procedere:<br> una volta individuato che un numero e' divisibile per 3 per estrarne il fattore si procede da sinistra a destra dividendo ogni cifra (o gruppo di cifre) per 3 fino ad arrivare all'ultima<br>
+<font size=2>Esempio
+ho il numero
+<font color="ff0000" size=3><b>135</b></font><br>
+E' divisibile per <b>3</b> perche' sommando le sue cifre ottengo <b>1+3+5=9</b> e <b>9</b> e' multiplo di <b>3</b><br>
+comincio da sinistra: ho <font color="ff0000" size=3><b>1</b></font>, siccome <b>1</b> non e' divisibile per <b>3</b> considero due cifre cioe' <font color="ff0000" size=3><b>13</b></font>; siccome <font color="ff0000" size=3><b>13:3 da' 4 con resto di 1</b></font>  scrivo <b>4</b>, poi metto mentalmente <b>1</b>  davanti all'altra cifra: ottengo <font color="ff0000" size=3><b>15</b></font>; siccome <font color="ff0000" size=3><b>15:3=5</b></font> allora scrivo <b>5</b> ed ho ottenuto
+
+<br>
+<table align="right" border=0>
+<TR>
+<TD align="right"><font color="990000" size=5><b> 135 </b></font></TD>
+<td rowspan="4"><img src="../../immagini/rufo.jpg" width="3" height="110"></td>
+<TD align="left"><font color="990000" size=5><b> 3</b></font></TD>
+</TR>
+<TR>
+<TD align="right"><font color="990000" size=5><b> 45 </b></font></TD>
+<TD align="left"><font color="990000" size=5><b> 3</b></font></TD>
+</TR>
+<TR>
+<TD align="right"><font color="990000" size=5><b> 15 </b></font></TD>
+<TD align="left"><font color="990000" size=5><b> 3</b></font></TD>
+</TR>
+<TR>
+<TD align="right"><font color="990000" size=5><b> 5 </b></font></TD>
+<TD align="left"><font color="990000" size=5><b> </b></font></TD>
+</TR>
+</table>
+<font color="ff0000" size=3><b>135 = 3x45 =</b></font><br>
+ripeto il procedimento sul <font color="ff0000" size=3><b>45</b></font> perche', essendo <b>4+5=9</b>, e' ancora divisibile per <b>3</b><br>
+comincio da sinistra: ho <font color="ff0000" size=3><b>4</b></font>,  siccome <font color="ff0000" size=3><b>4:3 da'1 con  resto 1</b></font>, scrivo <b>3</b> e metto  mentalmente <b>1</b>  davanti all'altra cifra:  ottengo <font color="ff0000" size=3><b>15</b></font>; siccome <font color="ff0000" size=3><b>15:3=5</b></font> allora scrivo <b>5</b> ed ho ottenuto<br>
+<font color="ff0000" size=3><b>135 = 3x45 = 3x3x15 =</b></font><br>
+
+ripeto il procedimento sul <font color="ff0000" size=3><b>15</b></font> perche' essendo <font color="ff0000" size=3><b>1+5=6</b></font>  e' ancora divisibile per <b>3</b><br>
+comincio da sinistra: ho <font color="ff0000" size=3><b>1</b></font>, siccome 1 non e' divisibile per <b>3</b> considero <b>15</b>; siccome <font color="ff0000" size=3><b>15:3=5</b></font> allora scrivo <b>5</b> ed ho ottenuto<br>
+<font color="ff0000" size=3><b>135 = 3x45 = 3x3x15 = 3x3x3x5</b></font><br>
+<font color="ff0000" size=3><b>5</b></font> non e' divisibile per <b>3</b> quindi mi fermo<br>
+</font><hr>
+ Di solito queste operazioni, senza svilupparle come sopra, si fanno a parte su un pezzetto del foglio come vedi qui sopra a destra 
+<hr>
+
+
+
+
+</font>
+   </td>
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+   <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../b.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="bciacc.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="bciaca.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

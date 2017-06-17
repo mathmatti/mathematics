@@ -1,0 +1,196 @@
+<HTML>
+<HEAD>
+<TITLE>rango di una matrice
+</TITLE>
+<style>
+A:link, A:visited{text-decoration:none}
+A:hover{text-decoration:underline;color:black}
+  </style>
+
+</HEAD>
+<BODY Background="../immagini/sfondo0279.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+ Rango di una matrice
+   </font></center>
+
+   <font size=4>
+  <br>
+Dobbiamo introdurre il fatto che se prendiamo dei determinanti di un certo ordine estraendoli da una matrice essi potranno essere tutti nulli oppure potra' esistere qualche determinante diverso da zero
+<br>
+Partiamo dalla matrice incompleta e completa della pagina precedente<br>
+ 
+
+<table>
+<TR>
+<TD align="center">
+<!-- matrice annidata--><table><tr>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+1 &nbsp;&nbsp;&nbsp;  1 &nbsp;&nbsp;&nbsp; 1<br>
+1 &nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp; 1
+ <br>
+ 1 &nbsp;&nbsp;  -1 &nbsp;&nbsp; 1
+  
+	 </font>
+</b></td>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=90></td>
+
+</tr></table>
+<!-- fine matrice annidata--> 
+</TD>
+<td rowspan="2"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+<td>
+<!-- matrice annidata-->
+<table><tr>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+1 &nbsp;&nbsp;&nbsp;  1 &nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp; 6<br>
+1 &nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp; 5
+ <br>
+ 1 &nbsp;&nbsp;  -1 &nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp; 2
+  	 </font>
+</b></td>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=90> </td>
+
+</tr>
+</table>
+<!-- fine matrice annidata -->
+</td>
+</TR>
+<TR>
+<TD align="center"><font color="0000ff" size=4><b>Matrice incompleta</b></font></TD>
+<TD align="center"><font color="0000ff" size=4><b>Matrice completa</b></font></TD>
+</TR>
+</table>
+Quanti determinanti posso estrarre da quelle matrici?
+<ul>
+<LI>Determinanti 3x3 (rango 3)<br>
+1 dalla matrice incompleta<br>
+4 dalla matrice completa &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a title="Vedere i determinanti" href="aibbceb.html" target="_blank"><font size=2>vedere</font></a><br></LI>
+<li>determinanti 2x2 (rango 2)<br>
+9 dalla matrice incompleta &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a title="Vedere i determinanti" href="aibbcec.html" target="_blank"><font size=2>vedere</font></a><br>
+18 dalla matrice completa &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a title="Vedere i determinanti" href="aibbced.html" target="_blank"><font size=2>vedere</font></a></li>
+<li>Determinanti 1x1 (corrispondono agli elementi) (rango 1)<br>
+9 dalla matrice incompleta<br>
+12 dalla matrice completa</li>
+</ul>
+
+Definizione:<br>
+Definiamo <b>Rango o Caratteristica di una matrice</b> l'ordine del determinante piu' alto estraibile che sia diverso da zero<br>
+
+
+Se ora consideriamo la matrice incompleta vediamo che il determinante di ordine 3 e' uguale a zero, perche' ha due righe uguali, mentre esiste un determinante di ordine 2 diverso da zero: prendo il minore indicato in blu
+<table><tr>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+1 &nbsp;&nbsp;&nbsp;  1 &nbsp;&nbsp;&nbsp; 1<br>
+<blink><font color="0000ff" size=4>1</font></blink> &nbsp;&nbsp;&nbsp; <blink><font color="0000ff" size=4>1</font></blink> &nbsp;&nbsp;&nbsp; 1
+ <br>
+ <blink><font color="0000ff" size=4>1</font></blink> &nbsp;&nbsp; <blink><font color="0000ff" size=4>-1</font></blink> &nbsp;&nbsp; 1
+  
+	 </font>
+</b></td>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=90></td>
+
+</tr></table>
+Cioe'<br>
+<table><tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=50></td>
+
+<td><font color="0000ff" size=4><b> 
+1 &nbsp;&nbsp;&nbsp; 1 <br>
+1 &nbsp;&nbsp; -1</b>
+	 </font>
+</td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=50></td>
+<td valign="center"> <font color="0000ff" size=4><b>
+&nbsp;=   1&#183;(-1) - 1&#183;1 = -1 - 1 = -2</b></font></td>
+</tr></table>
+
+quindi il rango della matrice incompleta e' <b>2</b> perche' il determinante piu' grosso diverso da zero e' <b>2x2</b><br><br>
+Nella matrice completa, invece, abbiamo che la colonna dei termini noti non rispetta la proporzione e, se vado a prendere uno dei minori considerandolo avente come colonna l'ultima colonna della matrice, vedo che il valore del suo determinante e' diverso da zero
+
+<table border=0><tr>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+<blink><font color="0000ff" size=4>1</font></blink> &nbsp;&nbsp;&nbsp;  <blink><font color="0000ff" size=4>1</font></blink> &nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp; <blink><font color="0000ff" size=4>6</font></blink><br>
+<blink><font color="0000ff" size=4>1</font></blink> &nbsp;&nbsp;&nbsp; <blink><font color="0000ff" size=4>1</font></blink> &nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp; <blink><font color="0000ff" size=4>5</font></blink>
+ <br>
+ <blink><font color="0000ff" size=4>1</font></blink> &nbsp;&nbsp;  <blink><font color="0000ff" size=4>-1</font></blink> &nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp; <blink><font color="0000ff" size=4>2</font></blink>
+  	 </font>
+</b></td>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=90> </td>
+
+</tr>
+</table>
+ <br>  
+
+
+<table><tr>
+ 
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+&nbsp;1 &nbsp;&nbsp;  1 &nbsp;&nbsp;&nbsp; 6<br>
+&nbsp;1 &nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp; 5
+ <br>
+ &nbsp;1 &nbsp;  -1 &nbsp;&nbsp;&nbsp; 2
+  
+	 </font>
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+<td align="center"><b><font color="ff0000" size=4>
+= -2 &nbsp;&nbsp;&nbsp;&nbsp;<a href="aibbcea.html" target="_blank"><font size=2>Calcoli</font></a>
+</font></b></td>
+
+</tr></table><br>
+
+quindi il rango della matrice completa e' <b>3</b> perche' il determinante piu' grosso diverso da zero e' <b>3x3</b><br>
+Questo fatto di avere le caratteristiche della matrice completa e della matrice incompleta diverse e' tipico dei sitemi impossibili e deriva dal fatto che l'informazione dopo l'uguale, essendo errata, non rispetta la proporzione come i coefficienti delle incognite, quindi
+<br>
+<b>Un sistema e' impossibile se il rango della matrice completa e' diverso dal rango della matrice incompleta</b>
+
+<hr>
+
+ 
+   </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+  
+ <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></a>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../a.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="aibbcf.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></a>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="aibbcd.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

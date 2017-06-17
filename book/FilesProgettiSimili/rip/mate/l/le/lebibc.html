@@ -1,0 +1,112 @@
+<HTML>
+<HEAD>
+<TITLE>calcoli
+</TITLE>
+</HEAD>
+<BODY bgcolor="ccffcc"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+   calcoli
+   </font></center>
+<br>
+   <font size=4>
+Risolvere l'integrale<br>
+
+<table>
+<TR>
+<TD align="center"><font size=4><b> M(X) = </b></font></TD>
+<TD align="center"><font size=4><b> <font size=7>&int;</font><sub><sub><font size=3>0</font></sub></sub><sup><sup><font size=3>+&infin;</font></sup></sup>  &nbsp;</b></font></TD>
+<TD align="center"><font size=4><b> x&alpha;e<sup><font size=2>-&alpha;x</font></sup> </b></font>
+</TD>
+<TD align="center"><font size=4><b>dx =  </b></font></TD>
+</tr></table><br>
+<font size=2>
+risolviamolo intanto come integrale indefinito, poi, sul risultato faremo le differenze da +&infin; a 0 </font><br><br>
+ 
+E' un integrale da risolvere <a href="../../c/ck/ckdg.html" target="_blank"> per parti</a> considerando <b>x</b> come il termine di cui conosciamo la derivata  ed &alpha;<b>e<sup>-&alpha;x</sup></b> come il termine di cui conosciamo l'integrale:  la formula mnemonica e':<br>
+<b><font size=6>&int;</font>f g = f<font size=6>&int;</font>g -<font size=6>&int;</font> [f'<font size=6>&int;</font>g]</b><br>
+abbiamo<br><b>
+f = x<br>
+g = &alpha;e<sup>-&alpha;x</sup><br>
+f' = 1<br>
+<font size=6>&int;</font> g = <font size=6>&int;</font>&alpha;e<sup>-&alpha;x</sup> = - e<sup>-&alpha;x</sup> </b> &nbsp;&nbsp;&nbsp;<font size=2><a href="lebibb.html" target="_blank">vedi lo sviluppo nella nota precedente </a> </font> 
+<br>
+applico la formula<br>
+<b><font size=6>&int;</font>x&alpha;e<sup>-&alpha;x</sup> dx = 
+x<font size=6>&int;</font> &alpha;e<sup>-&alpha;x</sup> dx- [<font size=6>&int;</font> 1 <font size=6>&int;</font>&alpha;e<sup>-&alpha;x</sup> dx] dx =</b>
+<br> 
+<b>  = 
+x(- e<sup>-&alpha;x</sup>)- [<font size=6>&int;</font> 1  (-e<sup>-&alpha;x</sup>) dx =</b><br>
+eseguo i calcoli<br>
+<b>  = 
+ -x e<sup>-&alpha;x</sup>  + <font size=6>&int;</font>    e<sup>-&alpha;x</sup> dx =</b>    &nbsp;&nbsp;&nbsp;<font size=2><a href="lebiba.html" target="_blank"> anche questo ultimo integrale lo abbiamo gia' sviluppato </a> </font> <br>
+<table><TR>
+<TD align="center"><font size=4><b>  = 
+ -x e<sup>-&alpha;x</sup> -  </b></font>  </TD>
+<TD align="center"><font size=4><b> e<sup>-&alpha;x</sup><br>
+<img src="../../immagini/rufonero.jpg" width="40" height="2"><br>&alpha;
+ </font> </b>  </TD>
+</TR></table>
+<font size=2>Ora torniamo all'integrale definito </font>
+
+<table>
+<TR>
+ <TD align="center"><font size=4><b> <font size=7>&int;</font><sub><sub><font size=3>0</font></sub></sub><sup><sup><font size=3>+&infin;</font></sup></sup>  &nbsp;</b></font></TD>
+<TD align="center"><font size=4><b> x&alpha;e<sup><font size=2>-&alpha;x</font></sup> </b></font>
+</TD>
+<TD align="center"><font size=4><b>dx =  </b></font></TD>
+
+ <TD align="center"><b><img src="../../immagini/rufonero.jpg" width="2" height="40"></b></TD>
+<TD align="center"><font size=4><b>    
+ -x e<sup>-&alpha;x</sup> - </b></font>  </TD>
+<TD align="center"><font size=4><b> e<sup>-&alpha;x</sup><br>
+<img src="../../immagini/rufonero.jpg" width="40" height="2"><br>&alpha;
+ </font> </b>  </TD>
+ <TD align="center"><b><img src="../../immagini/rufonero.jpg" width="2" height="40"></b></TD>
+ <TD align="center"><font size=2><b>+&infin;<br>
+&nbsp;<br> 0</b></font></TD>
+<TD align="center"><font size=4><b> = </b></font></TD>
+</tr></table>
+<br>
+sostituendo +&infin; al primo termine -x&middot;e<sup>-&alpha;x</sup> ottengo la forma indeterminata  0&middot;&infin; che posso risolvere applicando la <a href="../../c/cf/cfdg.html" target="_blank">regola di De l'H&ocirc;pital</a>
+<br>Basta fare le derivate dei fattori e sostituire ad x +&infin;<br>
+<b>-1 &middot;(-&alpha;e<sup>-&alpha;x</sup>)= &alpha;e<sup>-&alpha;x</sup> = &alpha;e<sup>-&alpha;(+&infin;)</sup> = &alpha;e<sup>-&infin;</sup> = 0</b><br>
+sostituendo ad x il simbolo +&infin; ottengo 0, quindi ho:<br>
+<table><TR>
+<TD align="center"><font size=4><b>    
+= 0 + 0e<sup>0</sup> -  </b></font>  </TD>
+<TD align="center"><font size=4><b>    
+ e<sup>-&infin;</sup><br> <img src="../../immagini/rufonero.jpg" width="40" height="2"><br> &alpha; </b></font>  </TD>
+
+
+ <TD align="center"><b><font size=4> e<sup>0</sup><br> + <img src="../../immagini/rufonero.jpg" width="40" height="2">  &nbsp; <br>&alpha;</font></b></TD>
+<TD align="center"><font size=4><b>    
+= 0 + 0  - 0 + </b></font>  </TD>
+<TD align="center"><font size=4><b>    
+ 1<br> <img src="../../immagini/rufonero.jpg" width="20" height="2"><br> &alpha; </b></font>  </TD>
+
+
+</TR></table>
+quindi
+<table><TR>
+<TD align="center"><font size=4><b> M(X) = </b></font></TD>
+<TD align="center"><font size=4><b> 1<br> <img src="../../immagini/rufonero.jpg" width="20" height="2"><br>&alpha;</b></font></TD>
+</TR></table>
+
+ 
+
+</font>
+<hr>
+   </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+
+  </center>
+  </BODY>
+</HTML>

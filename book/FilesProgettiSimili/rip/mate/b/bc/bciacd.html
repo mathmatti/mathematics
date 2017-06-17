@@ -1,0 +1,145 @@
+<HTML>
+<HEAD>
+<TITLE> criterio di scomposizione per 11
+</TITLE>
+</HEAD>
+<BODY Background="../immagini/sfb067.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+
+  <center><font color="ff0000" size=6>
+Criterio di scomposizione per 11
+  </font></center><br>
+
+
+<font size=4>
+Qui cominciamo ad avere un criterio un po' complicato, ma serve spesso, quindi.....<br><br>
+<center>
+<table border="1" cellpadding="15" cellspacing="15"  bgcolor="bbbbbb">
+<TR>
+<TD><font size=4><b>Un numero e' divisibile per 11 se, sommando fra loro le cifre di posto pari e fra loro le cifre di posto dispari, la differenza fra le due somme e' 0 oppure 11 od un multiplo di 11</b></font></TD>
+</TR>
+</table>
+ </center><br>
+Esempio: prendo il numero  <b>2354781</b><br> 
+per contare il posto io comincio da destra (per abitudine perche' puoi iniziare sia da destra che da sinistra e non cambia niente)
+<table border="1">
+<TR>
+<TD><font size=4>cifra</font></TD>
+<TD align="center"><font size=4><b>2</b></font></TD>
+<TD align="center"><font size=4><b>3</b></font></TD>
+<TD align="center"><font size=4><b>5</b></font></TD>
+<TD align="center"><font size=4><b>4</b></font></TD>
+<TD align="center"><font size=4><b>7</b></font></TD>
+<TD align="center"><font size=4><b>8</b></font></TD>
+<TD align="center"><font size=4><b>1</b></font></TD>
+</TR>
+<TR>
+<TD><font size=4>posto</font></TD>
+<TD><font size=4><b>settimo</b></font></TD>
+<TD><font size=4><b>sesto</b></font></TD>
+<TD><font size=4><b>quinto</b></font></TD>
+<TD><font size=4><b>quarto</b></font></TD>
+<TD><font size=4><b>terzo</b></font></TD>
+<TD><font size=4><b>secondo</b></font></TD>
+<TD><font size=4><b>primo</b></font></TD>
+</TR>
+
+</table><br>
+i posti pari sono il secondo, il quarto, il sesto<br>
+i posti dispari sono il primo, il terzo, il quinto, il settimo<br>
+sommo le cifre di posto pari <b>8+4+3 = 15</b><br>
+sommo le cifre di posto dispari <b>1+7+5+2 = 15</b><br>
+Faccio la differenza: <b>15-15=0</b> quindi il numero <b>2354781</b> e' divisibile per <b>11</b><br><br>
+secondo esempio: considero il numero <b>418</b><br>
+prima cifra <b>8</b>, &nbsp; seconda cifra <b>1</b>, &nbsp; terza cifra <b>4</b>.<br>  
+sommo le cifre di posto dispari <b>8+4 = 12</b><br>
+di posto pari c'e' solo <b>1</b><br>
+Faccio la differenza: <b>12-1 = 11</b> quindi il numero <b>418</b> e' divisibile per <b>11</b><br><br>
+terzo esempio: considero il numero <b>3418</b><br>
+prima cifra <b>8</b>, &nbsp; seconda cifra <b>1</b>, &nbsp; terza cifra <b>4</b>, &nbsp; quarta cifra  <b>3</b>.<br>  
+sommo le cifre di posto dispari <b>8+4 = 12</b><br>
+sommo le cifre di posto dispari <b>1+3 = 4</b><br>
+Faccio la differenza: <b>12-4 = 8</b> quindi il numero <b>3418</b> non e' divisibile per <b>11</b><br><br>
+
+ </font>
+
+<hr>
+ Come procedere:<br> una volta individuato che un numero e' divisibile per <b>11</b> per estrarne il fattore si procede da sinistra a destra dividendo ogni cifra (o gruppo di cifre) per <b>11</b> fino ad arrivare all'ultima cifra<br>
+<font size=2>Esempio
+ho il numero
+<font color="ff0000" size=3><b>2299</b></font><br>
+E' divisibile per <b>11</b> perche' la somma delle cifre di posto pari (<b>9+2=11</b>) e' uguale alla somma delle cifre di posto dispari (<b>9+2=11</b>)  e quindi la differenza delle due somme e' <b>0</b><br>
+comincio da sinistra: ho <font color="ff0000" size=3><b>22</b></font>;<br> siccome <font color="ff0000" size=3><b>22:11=2</b></font>  scrivo <b>2</b>, poi passp all'altra cifra   
+ ho <font color="ff0000" size=3><b>9</b></font>;<br> siccome <font color="ff0000" size=3><b>9:11 da' 0 con resto di 9</b></font> allora scrivo   <b>0</b>, poi metto mentalmente <b>9</b>  davanti all'altra cifra   
+ ottengo <font color="ff0000" size=3><b>99</b></font>;<br> siccome <font color="ff0000" size=3><b>99:11=9</b></font> allora scrivo <b>9</b> ed ho ottenuto<br> 
+<font color="ff0000" size=3><b>2299 = 11x209 =</b></font><br>
+
+<table align="right" border=0>
+<TR>
+<TD align="right"><font color="990000" size=5><b> 2299 </b></font></TD>
+<td rowspan="4"><img src="../../immagini/rufo.jpg" width="3" height="110"></td>
+<TD align="left"><font color="990000" size=5><b> 11</b></font></TD>
+</TR>
+<TR>
+<TD align="right"><font color="990000" size=5><b> 209 </b></font></TD>
+<TD align="left"><font color="990000" size=5><b> 11</b></font></TD>
+</TR>
+<TR>
+<TD align="right"><font color="990000" size=5><b> 19 </b></font></TD>
+<TD align="left"><font color="990000" size=5><b> </b></font></TD>
+</TR>
+<TR>
+<TD align="right"><font color="990000" size=5><b>  </b></font></TD>
+<TD align="left"><font color="990000" size=5><b> </b></font></TD>
+</TR>
+</table>
+
+
+ripeto il procedimento sul <font color="ff0000" size=3><b>209</b></font> perche' la somma delle cifre di posto dispari e' <font color="ff0000" size=3><b>11</b></font> mentre la cifra di posto dispari e' <font color="ff0000" size=3><b>0</b></font> e la differenza vale  <b>11</b><br>
+comincio da sinistra: ho   <font color="ff0000" size=3><b>20:11 da' 1 con resto di 9</b></font> allora scrivo <b>1</b>
+e metto mentalmente <b>9</b>  davanti all'altra cifra   
+ ottengo <font color="ff0000" size=3><b>99</b></font>;<br> siccome <font color="ff0000" size=3><b>99:11=9</b></font> allora scrivo <b>9</b> ed ho ottenuto<br>  
+<font color="ff0000" size=3><b>2299 = 11x209 = 11x11x19</b></font><br>
+ 
+
+ 
+ 
+ <font color="ff0000" size=3><b>19</b></font> non e' divisibile per <b>11</b> senza resto, quindi mi fermo<br>
+</font><hr>
+ Di solito queste operazioni, senza svilupparle come sopra, si fanno a parte su un pezzetto del foglio come vedi qui sopra a destra 
+<hr>
+
+
+
+
+</font>
+   </td>
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+   <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../b.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="bciace.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="bciacc.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

@@ -1,0 +1,87 @@
+<HTML>
+<HEAD>
+<TITLE>aritmetica come esempio di sistema formale
+</TITLE>
+</HEAD>
+<BODY bgcolor="aaaaaa"> <!-- Background="../immagini/sfb001.jpg"--> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+
+  <center><font color="ff0000" size=6>
+Aritmetica come esempio di sistema formale
+  </font></center><br>
+<font size=3><hr>
+Costruiamo un sistema formale per l'aritmetica, cioe' un sistema di oggetti ed assiomi da cui si possa ricavare tutta l'aritmetica: aggiungiamo ai postulati di Peano alcuni assiomi che ci permettano di fare le operazioni.<br>
+Chiameremo questa teoria formale <b>Aritmetica</b> e per indicarla utilizzeremo il simbolo <b>A</b>. <br>
+
+
+Utlizziamo i simboli del linguaggio dei predicati <a href="../../k/kb/kbd.html" target="_blank">(ripassa i simboli  nella logica)</a> cioe' con l'aggiunta dei simboli <b>1</b>, <b>+</b>(addizione), <b>&#183;</b>(prodotto), <b>'</b>(successivo). <br>
+Vediamo gli assiomi di <b>A</b>
+<ul type="circle">
+<LI><font color="ff0000"><b>A<sub>1</sub></b></font><br>  <img src="../../immagini/perogni.jpg" width="10"><b>x</b> <img src="../../immagini/perogni.jpg" width="10"><b>y</b> <img src="../../immagini/perogni.jpg" width="10"><b>z</b> <b>(x = y) =&#062; ((x = z) =&#062;(y = z))</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="bfbfa.html" target="_blank"><font size=2>come si legge</font></a><br>
+
+
+<font size=2>Cioe' se due oggetti (chiamiamoli numeri) sono uguali fra loro ed il primo e' uguale ad un terzo allora anche il secondo e'uguale al terzo<br> </font> </LI>
+
+
+<LI><font color="ff0000"><b>A<sub>2</sub></b></font><br>  <img src="../../immagini/perogni.jpg" width="10"><b>x</b> <img src="../../immagini/perogni.jpg" width="10"><b>y</b>  <b>(x = y) =&#062; (x' = y')</b><br>
+<font size=2>Se due  numeri sono uguali fra loro  allora anche i successivi sono uguali fra loro<br> </font> </LI>
+
+<LI><font color="ff0000"><b>A<sub>3</sub></b></font><br>  <img src="../../immagini/perogni.jpg" width="10"><b>x</b> <img src="../../immagini/perogni.jpg" width="10"><b>y</b>  <b>(x' = y') =&#062; (x = y)</b><br>
+<font size=2>Se due successivi sono uguali fra loro  allora anche i numeri sono uguali<br> </font> </LI>
+
+<LI><font color="ff0000"><b>A<sub>4</sub></b></font><br>  <img src="../../immagini/perogni.jpg" width="10"><b>x</b> <b>not (1 = x')</b><br>
+<font size=2>1 non e' il successivo di nessun numero<br> </font> </LI>
+
+<LI><font color="ff0000"><b>A<sub>5</sub></b></font><br>  <img src="../../immagini/perogni.jpg" width="10"><b>x</b> <b>(x+1 = x')</b><br>
+<font size=2>Il successivo di un numero si ottiene aggiungendo 1 al numero<br> </font> </LI>
+
+<LI><font color="ff0000"><b>A<sub>6</sub></b></font><br>  <img src="../../immagini/perogni.jpg" width="10"><b>x</b> <img src="../../immagini/perogni.jpg" width="10"><b>y</b>  <b>(x+y' = (x+y)') </b><br>
+<font size=2> La somma fra un primo numero ed il successivo di un secondo e' uguale al successivo della somma fra il primo ed il secondo<br> </font> </LI>
+
+<LI><font color="ff0000"><b>A<sub>7</sub></b></font><br>  <img src="../../immagini/perogni.jpg" width="10"><b>x</b> <b>(x&#183;1 =  x)</b><br>
+<font size=2>Moltiplicando un numero per 1 otteniamo sempre lo stesso numero (1 e' l'elemento neutro nella moltiplicazione)<br> </font> </LI>
+
+<LI><font color="ff0000"><b>A<sub>8</sub></b></font><br>  <img src="../../immagini/perogni.jpg" width="10"><b>x</b> <img src="../../immagini/perogni.jpg" width="10"><b>y</b>  <b>(x&#183;y' = (x&#183;y)+x) </b><br>
+<font size=2>  Il prodotto fra un numero ed il successivo di un secondo numero e' uguale al prodotto fra i due numeri sommato al primo numero<br> </font> </LI>
+
+<LI><font color="ff0000"><b>A<sub>9</sub></b></font><br>  <img src="../../immagini/perogni.jpg" width="10"><b>A(x)</b>&nbsp; <b>A(1) =&#062; (<img src="../../immagini/perogni.jpg" width="10">A(x)=&#062;A(x'))=&#062; <img src="../../immagini/perogni.jpg" width="10">x A(x)</b><br>
+<font size=2>E' il principio di induzione: data la proprieta' A(x) se essa e' vera per 1 e se essendo vera per x e' vera anche per il suo successivo allora essa e' vera per tutti i numeri<br> </font> </LI>
+</ul>
+
+Considerando i normali assiomi della logica, i postulati esposti sopra e le regole  <a href="../../k/kb/kbm.html" target="_blank" title="vedi le regole">di deduzione</a> possiamo dimostrare tutti i possibili problemi dell'Aritmetica<hr><font size=2>
+Da notare che utilizzando i numeri di G&#246;del posso trovare un sottoinsieme di <b>N</b> che sia isomorfo ad <b>A</b>, quindi l'insieme <b>N</b> contiene tutta l'aritmetica come suo sottoinsieme</font>
+ </font>
+<hr>
+   </td>
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+   <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../b.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="bfc.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70
+alt="Pagina successiva" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="bfbe.html"><IMG SRC="../../immagini/indietro.jpg" Height=70
+Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

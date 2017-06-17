@@ -1,0 +1,146 @@
+<HTML>
+<HEAD>
+<TITLE>passaggio dal tasso annuo effettivo al tasso frazionato
+</TITLE>
+</HEAD>
+<BODY Background="../immagini/sfondon015.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+ Passaggio dal tasso annuo effettivo al tasso frazionato
+   </font></center>
+<br><br>
+<font size=4> 
+  
+Piu' complicato e' ricavare il tasso frazionato conoscendo il tasso annuo effettivo: partiamo dalla formula<br> 
+<font size=4><b>(1+i) = (1+i<sub><font size="2">k</font></sub>)<sup><font size="2">k</font></sup></b> 
+</font><br>
+per eliminare la potenza estraggo la radice k-esima a destra ed a sinistra dell'uguale<br>
+<font size=4><b><sup><sup>k</sup></sup><font size="6">&radic;</font>(1+i) = <sup><sup>k</sup></sup><font size="6">&radic;</font>(1+i<sub><font size="2">k</font></sub>)<sup><font size="2">k</font></sup></b> 
+</font><br>
+elimino tra loro l'esponente k ed il radicale<br>
+<font size=4><b><sup><sup>k</sup></sup><font size="6">&radic;</font>(1+i) =  1+i<sub><font size="2">k</font></sub></b> 
+</font><br>
+leggo alla rovescia<br>
+<font size=4><b>   1+i<sub><font size="2">k</font></sub> = <sup><sup>k</sup></sup><font size="6">&radic;</font>(1+i)</b> 
+</font>
+ed infine porto 1 dopo l'uguale ed ottengo<br>
+<center>
+<font size=5><b>  i<sub><font size="2">k</font></sub> = <sup><sup>k</sup></sup><font size="6">&radic;</font>(1+i) - 1</b> 
+</font>
+</center><br>
+che si puo' anche scrivere (<a href="../../a/ak/akg.html" target="_blank">proprieta' degli esponenti frazionari</a>)<br>
+<center>
+<font size=5><b>  i<sub><font size="2">k</font></sub> = (1+i)<sup><sup>1/k</sup></sup> - 1</b> 
+</font>
+</center>
+Per calcolare questa formula (oltre, naturalmente, la calcolatrice che non potremmo usare) possiamo utilizzare i logaritmi, oppure anche le tavole finaziarie.
+<hr>
+<font size="2">Esempio: calcolare il tasso quadrimestrale corrispondente ad un tasso annuo effettivo del 6%<br>
+dati: <b>i = 0,06</b> &nbsp;&nbsp; k = 3<br>
+<ul>Al solito eseguiamo l'esercizio prima con la calcolatrice (cosi' vediamo anche il risultato e sapremo se negli altri procedimenti commettiamo degli errori), poi con i logaritmi ed infine con le tavole
+
+<LI>Con la calcolatrice
+<br> Imposto sullo schermo<br>
+(1+0,06)<sup>1/3</sup> -1<br>
+ed ottengo <br>
+<b>i<sub>4</sub> = 0,019612822</b><br>
+approssimando otteniamo l' 1,96% quadrimestrale
+</LI>
+<li>Con i Logaritmi<br>
+<b>(1,06)<sup>1/3</sup> - 1 = </b><br>
+calcolo prima l'espressione <br>
+<b>(1,06)<sup>1/3</sup>= </b><br>
+Trasformo in Logaritmo<br>
+<b>Log(1,06)<sup>1/3</sup>= 1/3 Log(1,06)=</b>
+la caratteristica, essendo il mio numero compreso fra 1 e 10, vale 0<br>
+ cerco la mantissa<br>
+cerco sulle tavole logaritmiche a 7 decimali 10600<br>
+
+la mantissa del mio logaritmo e' 0253059<br>
+<b>1/3 Log(1,06)= 1/3 &middot; 0,0253059 = 0,0084353</b><br>
+Cerco l'antilogaritmo<br>
+<b>Antilog 0,0084353 =</b><br>
+Essendo la caratteristica 0 il valore dell'antilogaritmo sara' compreso fra 1 e 10, quindi avremo una cifra significativa prima della virgola<br>
+In questo caso, visto il valore della mantissa, posso cercare nelle tavole a 7 decimali<br>
+la mia mantissa a 7 decimali (0084353) e' compresa fra i numeri:<br>
+ <center>
+<table>
+<TR>
+<TD align="center"><font size=2><b>0084298 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=2><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=2><b>&nbsp;&nbsp; 10196 &nbsp;&nbsp;</b></font></TD>
+<td></td></TR>
+<TR>
+<TD align="center"><font size=2><b>  </b></font></TD>
+<TD align="center"><font size=2><b>  </b></font></TD>
+<TD align="center"><font size=2><b>  </b></font></TD>
+<td><font size=2><b>426</b></font></td>
+</TR>
+<TR>
+<TD align="center"><font size=2><b> 0084724 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=2><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=2><b>&nbsp;&nbsp; 10197 &nbsp;&nbsp;</b></font></TD>
+<td></td></TR>
+</table>
+</center>
+ 
+Di fianco ai due risultati trovi il numero <b>426</b> che corrisponde alla differenza fra i due valori della mantissa mentre la differenza fra il mio valore e quello minore e'<br>
+<b>0084353-0084298  = 55</b><br><br>
+
+Nella tabella del 426 cerco 55 <br>
+
+
+Essendo un tasso e quindi non avendo bisogno di un'approssimazione elevatissima mi accontento di trovare
+il numero piu' vicino che e' 42 cui corrisponde la sesta cifra del nostro numero, cioe' 1<br>
+ Quindi ottengo<br>
+<b>Antilog 0,0084353 = 1,01961</b><br>
+e quindi<br>
+<b>(1,06)<sup>1/3</sup>= 1,01961</b><br>
+ora tolgo 1 ed ottengo<br>
+<b>(1,06)<sup>1/3</sup> - 1 = 0,01961</b><br>
+cioe' un tasso dell' 1,96 % quadrimestrale
+</li>
+<li>Utilizzo le tavole finanziarie<br>
+Cerco nella sezione <b>Tassi equivalenti</b> la tavola
+<b>valori di i<sub>k</sub> dato i</b> e trovo, per il tasso annuo i=0,06<br>
+<b>i<sub>3</sub> = 1,9612825% = 0,019612825</b>
+</li>
+</ul> </font>
+
+
+
+
+</font>
+<hr>
+
+   </TR>
+   </td>
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+   <td align="center" valign=middle> 
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></a>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../n.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="nbbe.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="nbbc.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

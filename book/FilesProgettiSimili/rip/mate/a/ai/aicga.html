@@ -1,0 +1,223 @@
+<HTML>
+<HEAD>
+<TITLE>sostituire un valore od un gruppo di valori con variabili ausiliarie
+</TITLE>
+</HEAD>
+<BODY bgcolor="999999"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+   Sostituire un valore od un gruppo di valori con variabili ausiliarie
+   </font></center>
+
+   <font size=3>
+<br>
+Devi controllare se un termine o un gruppo di termini compare piu' volte e sostituirlo con altre variabili in modo da rendere il sistema piu' semplice
+<hr>Esempio 1; risolvere il sistema:<br><br>
+<table cellpadding="0" cellspacing="0" border=0>
+<TR>
+<td rowspan="3"> <img src="../../immagini/graffa.jpg" width=16 height=60>
+</td>
+<TD rowspan="2"><img src="../../immagini/radicearossa.jpg" width=22></TD>
+<TD align="center"><img src="../../immagini/rufo.jpg" width=35 height="3"></TD>
+<td></td>
+<TD rowspan="2"><img src="../../immagini/radicearossa.jpg" width=22></TD>
+<TD align="center"><img src="../../immagini/rufo.jpg" width=35 height="3"></TD>
+<td></td>
+<TD rowspan="2"> </TD>
+ 
+</TR>
+<tr>
+<TD align="center"><font color="ff0000" size=3>x+1</font></TD>
+<TD align="center"><font color="ff0000" size=3>&nbsp; + &nbsp;</font></TD>
+<TD align="center"><font color="ff0000" size=3>y-1</font></TD>
+<TD align="center"><font color="ff0000" size=3>&nbsp; = 5 &nbsp;</font></TD>
+ 
+</tr>
+<tr>
+<td></td>
+<TD align="center"><font color="ff0000" size=3>x+y</font></TD>
+<TD align="center"><font color="ff0000" size=3>&nbsp; = 13  &nbsp;</font></TD>
+<TD></TD>
+
+ 
+</tr>
+
+</table>
+
+ Osserviamo la seconda equazione:<br>
+<font color="ff0000" size=3>x + y = 13</font><br>
+per avere gli stessi gruppi di variabili presenti nell'equazione sopra basta aggiungere e togliere 1 (cosa che non cambia di valore l'espressione)<br>
+<font color="ff0000" size=3>x + 1 + y - 1 = 13</font><br>
+ora pongo<br><br>
+<table cellpadding="0" cellspacing="0" border=0>
+<TR>
+ 
+<TD rowspan="2"><img src="../../immagini/radiceablu.jpg" width=22></TD>
+<TD align="center" valign="top"><img src="../../immagini/rufoblu.jpg" width=35 height="3"></TD>
+<td></td>
+<td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; </td>
+<TD rowspan="2"><img src="../../immagini/radiceablu.jpg" width=22></TD>
+<TD align="center" valign="top"><img src="../../immagini/rufoblu.jpg" width=35 height="3"></TD>
+<td></td>
+<TD rowspan="2"> </TD>
+ 
+</TR>
+<tr>
+<TD align="center"><font color="0000ff" size=3>x+1</font></TD>
+<TD align="center"><font color="0000ff" size=3>&nbsp; = t &nbsp;</font></TD>
+<TD></TD>
+
+<TD align="center"><font color="0000ff" size=3>y-1</font></TD>
+<TD align="center"><font color="0000ff" size=3>&nbsp; = u &nbsp;</font></TD>
+ 
+</tr>
+ 
+</table>
+quindi il sistema diventa<br>
+ <img src="../../immagini/graffablu.jpg" width=12 height=46 align="left">
+
+ <font color="0000ff" size=3><b>
+t  + u = 5<br>
+t<sup><font size=2>2</font></sup> + u<sup><font size=2>2</font></sup>  = 13<br>
+
+ </b></font>  
+Che e' un normalissimo <a href="aicec.html" target="_blank">sistema simmetrico</a>; 
+applico la  <a href="aiceb.html" target="_blank">prima formula di Waring</a> alla seconda equazione<br>
+ <img src="../../immagini/graffablu.jpg" width=12 height=46 align="left">
+ <font color="0000ff" size=3><b>
+t  + u = 5<br>
+(t+u)<sup><font size=2>2</font></sup> -2tu  = 17<br>
+</b></font>  
+Sostituisco 5 al posto di (t+u)<br>
+ <img src="../../immagini/graffablu.jpg" width=12 height=46 align="left">
+<font color="0000ff" size=3><b>
+t  + u = 5<br>
+25 -2tu  = 13<br>
+</b></font>  
+eseguo i calcoli ed ottengo<br>
+ <img src="../../immagini/graffablu.jpg" width=12 height=46 align="left">
+<font color="0000ff" size=3><b>
+t  + u = 5<br>
+tu  = 6<br>
+</b></font>  
+considero l'equazione associata<br>
+
+<font color="0000ff" size="3"><b>z<sup><font size=2>2</font></sup> - 5z + 6 = 0</b></font><br>
+risolvo ed ottengo 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="aicecda.html" target="_blank"><font size=2 color="ff0000">Calcoli</font></a><br>
+
+ <font color="0000ff" size="3"><b>z<sub><font size=2>1</font></sub> = 2
+ </b></font><br>
+<font color="0000ff" size="3"><b>z<sub><font size=2>2</font></sub> =  3
+ </b></font><br>
+
+
+<table border="0">
+<TR>
+
+<TD><img src="../../immagini/graffablu.jpg" width=12 height=40 align="left">
+</TD>
+<td><font color="0000ff" size=3><b>t<sub><font size=2>1</font></sub>   = 2<br>
+u<sub><font size=2>1</font></sub>   = 3 <br>
+ </b></font> </td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+<TD><img src="../../immagini/graffablu.jpg" width=12 height=40 align="left">
+</TD>
+<td><font color="0000ff" size=3><b>t<sub><font size=2>2</font></sub>   = 3<br>
+u<sub><font size=2>2</font></sub>   = 2<br>
+ </b></font> </td>
+  
+</TR>
+</table>
+devo quindi risolvere i due sistemi<br>
+
+<table cellpadding="0" cellspacing="0" border=0>
+<TR>
+<td rowspan="5"> <img src="../../immagini/graffa.jpg" width=16 height=110>
+</td>
+<TD rowspan="2"><img src="../../immagini/radicearossa.jpg" width=30></TD>
+<TD valign="top"><img src="../../immagini/rufo.jpg" width=35 height="3"></TD>
+<td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td rowspan="5"> <img src="../../immagini/graffa.jpg" width=16 height=110></td>
+
+<TD rowspan="2"><img src="../../immagini/radicearossa.jpg" width=30></TD>
+<TD valign="top"><img src="../../immagini/rufo.jpg" width=35 height="3"></TD>
+<td></td>
+<TD> </TD>
+ 
+</TR>
+
+<tr>
+<TD align="center"><font color="ff0000" size=3><b>x+1</b></font></TD>
+<TD align="center"><font color="ff0000" size=3><b>&nbsp;=  2 &nbsp;</b></font></TD>
+<TD align="center"><font color="ff0000" size=3><b>x+1</b></font></TD>
+<TD align="center"><font color="ff0000" size=3><b>&nbsp; = 3 &nbsp;</b></font></TD>
+ 
+</tr>
+ <tr><TD>&nbsp;</TD></tr>
+<TR>
+ 
+<TD rowspan="2"><img src="../../immagini/radicearossa.jpg" width=30></TD>
+<TD valign="top"><img src="../../immagini/rufo.jpg" width=35 height="3"></TD>
+<td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+ 
+<TD rowspan="2"><img src="../../immagini/radicearossa.jpg" width=30></TD>
+<TD valign="top"><img src="../../immagini/rufo.jpg" width=35 height="3"></TD>
+<td></td>
+<TD rowspan="2"> </TD>
+ 
+</TR>
+<tr>
+<TD align="center"><font color="ff0000" size=3><b>y-1</b></font></TD>
+<TD align="center"><font color="ff0000" size=3><b>&nbsp;=  3 &nbsp;</b></font></TD>
+<TD align="center"><font color="ff0000" size=3><b>y-1</b></font></TD>
+<TD align="center"><font color="ff0000" size=3><b>&nbsp; = 2 &nbsp;</b></font></TD>
+ 
+</tr>
+
+
+
+</table>
+Ed ottengo come risultato &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="aicgaa.html" target="_blank"><font size=2 color="ff0000">Calcoli</font></a><br>
+<table border="0">
+<TR>
+
+<TD><img src="../../immagini/graffablu.jpg" width=12 height=40 align="left">
+</TD>
+<td><font color="0000ff" size=3><b>x<sub><font size=2>1</font></sub>   = 3<br>
+y<sub><font size=2>1</font></sub>   = 10 <br>
+ </b></font> </td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+<TD><img src="../../immagini/graffablu.jpg" width=12 height=40 align="left">
+</TD>
+<td><font color="0000ff" size=3><b>x<sub><font size=2>2</font></sub>   = 8<br>
+y<sub><font size=2>2</font></sub>   = 5<br>
+ </b></font> </td>
+  
+</TR>
+</table>
+<hr>
+Particolarmente importante e' il caso che si presenta nei <a href="../../d/de/ded01.html" target="_blank">problemi con l'ellisse </a> e l'iperbole
+
+
+
+   </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+
+  </center>
+  </BODY>
+</HTML>

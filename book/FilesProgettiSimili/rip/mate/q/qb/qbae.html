@@ -1,0 +1,187 @@
+<HTML>
+<HEAD>
+<TITLE>somma di n termini di una progressione aritmetica
+</TITLE>
+</HEAD>
+<BODY Background="../immagini/sfondoq016.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+  Somma di n termini di una progressione aritmetica
+ </font></center> 
+<br><br>
+
+  <font size=4><hr>
+<font size=2>Prima di procedere al calcolo vi racconto un aneddoto che spero vi fara' meglio capire l'aspetto del problema:<br>
+ Gauss, uno dei piu' grandi matematici mai vissuti, aveva un maestro che, per poter avere un po' di pace, dava talvolta agli allievi come esercizio il sommare un centinaio di numeri di 4 o 5 cifre ciascuno, tutti tali che la differenza fra due numeri consecutivi fosse costante (quindi una progressione aritmetica): semplificando molto l'esercizio e' come sommare i numeri da 1 a 100.<br> Ebbene Gauss (a 10 anni!) si limito' a scrivere sulla lavagnetta il risultato senza eseguire tanti calcoli, restando poi seduto al suo banco a braccia conserte mentre i suoi compagni sudavano per una buona ora<br>Quale fu il metodo seguito da Gauss?<br><b>
+se sommo 1 con 100 ottengo 101<br>
+se sommo 2 con 99 ottengo 101<br>
+se sommo 3 con 98 ottengo 101<br>
+...............................................<br>
+...............................................<br>
+se sommo 49 con 52 ottengo 101<br>
+se sommo 50 con 51 ottengo 101<br></b>
+in pratica ottengo 101 per 50 volte cioe' 5050<br>
+Qui si vede la grandezza matematica di Gauss: quando si affronta un problema non si deve correre a fare i calcoli ma bisogna cercare di vedere tutte le possibili relazioni che possono esistere fra gli elementi del problema stesso: forse c'e' una scorciatoia che ci permette di risolvere senza troppe operazioni<hr>
+
+
+</font>
+ <br> 
+Vogliamo sommare n termini di una progressione aritmetica data, la somma sara' data da<br>
+<b>S<sub>n</sub> = a<sub><font size=2>1</font></sub> + 
+a<sub><font size=2>2</font></sub> + 
+a<sub><font size=2>3</font></sub> + 
+
+ 
+........... +
+a<sub><font size=2>n-2</font></sub> + 
+a<sub><font size=2>n-1</font></sub> +
+a<sub><font size=2>n</font></sub>  
+ </b><br><br>
+Per la proprieta' commutativa della somma posso anche scrivere<br>
+<b>S<sub>n</sub> = a<sub><font size=2>n</font></sub> + 
+a<sub><font size=2>n-1</font></sub> + 
+a<sub><font size=2>n-2</font></sub> + 
+........... +
+
+a<sub><font size=2>3</font></sub> + 
+ 
+
+a<sub><font size=2>2</font></sub> +
+a<sub><font size=2>1</font></sub> 
+ </b><br><br>
+ sommo termine a termine le due uguaglianze<br>
+<b>S<sub>n</sub>+S<sub>n</sub> = 2S<sub>n</sub> = (a<sub><font size=2>1</font></sub>+a<sub><font size=2>n</font></sub>) + (a<sub><font size=2>2</font></sub>+a<sub><font size=2>n-1</font></sub>) + (a<sub><font size=2>3</font></sub>+a<sub><font size=2>n-2</font></sub>) .......... + (a<sub><font size=2>n-2</font></sub>+a<sub><font size=2>3</font></sub>) + (a<sub><font size=2>n-1</font></sub>+a<sub><font size=2>2</font></sub>) + (a<sub><font size=2>n</font></sub>+a<sub><font size=2>1</font></sub>)</b><br><br>
+ essendo la differenza fra i termini costante (progressione aritmetica) avremo che le somme dei termini dentro parentesi sono uguali<br>
+<b>(a<sub><font size=2>1</font></sub>+a<sub><font size=2>n</font></sub>) = (a<sub><font size=2>2</font></sub>+a<sub><font size=2>n-1</font></sub>) = (a<sub><font size=2>3</font></sub>+a<sub><font size=2>n-2</font></sub>)=  .... = (a<sub><font size=2>n-2</font></sub>+a<sub><font size=2>3</font></sub>) = (a<sub><font size=2>n-1</font></sub>+a<sub><font size=2>2</font></sub>) = (a<sub><font size=2>n</font></sub>+a<sub><font size=2>1</font></sub>)</b><br><br>
+quindi, essendo n le parentesi, posso scrivere<br> 
+<b>2S = (a<sub><font size=2>1</font></sub>+a<sub><font size=2>n</font></sub>)&middot;n</b><br><br>
+da cui dividendo per 2, otteniamo la formula finale<br><br>
+
+<center>
+<table>
+<TR>
+<TD align="center"><font color="ff0000" size=5><b>S<sub>n</sub> = </b></font></TD>
+<TD align="center"><font color="ff0000" size=5><b>  a<sub><font size=3>1</font></sub>+a<sub><font size=3>n</font></sub>   <br>
+<img src="../../immagini/rufo.jpg" width="90" height="2"><br> 2
+</b></font></TD>
+<TD align="center"><font color="ff0000" size=5><b>n</b></font></TD>
+
+
+</TR></table>
+
+
+</center><br>
+<hr>
+<font size=2>esempio 1: facciamo un esempio tipo quello di Gauss limitandoci a 20 termini <br><br>
+  Eseguire la seguente somma<br> 
+<b> 7291+7489+7687+7885+8083+8281+8479+8677+8875+9073+9271+9469+9667+9865+10063+10261+10463+10661+10859+11057= </b> <br><br>
+ La differenza fra due termini consecutivi  e' costante; si tratta di una progressione aritmetica e la ragione e' <b>d = 198</b> <br>(ho scelto 198 perche', scritto il primo numero a caso, e' molto facile scrivere gli altri: basta aumentare ogni  numero di 200 e poi togliere 2: cioe' 7291+200 =7491 e poi 7491-2=7489 eccetera...)<br>
+I termini sono <b>n = 20</b><br>
+Applico la formula<br><br>
+  
+<table>
+<TR>
+<TD align="center"><font size=2><b>S<sub>20</sub> = </b></font></TD>
+ <TD align="center"><font size=2><b>7291+11057<br><img src="../../immagini/rufonero.jpg" width="80" height="1"><br>2</b></font></TD>
+<TD align="center"><font size=2><b>&middot;20 = </b></font></TD>
+ <TD align="center"><font size=2><b>18348&middot;10 = 183480</b></font></TD>
+</TR>
+</table><br> 
+ 
+quindi <b>S<sub>20</sub>= 183480</b>
+
+<hr>
+
+<font size=2>esempio 2:  <br><br>
+  Sommare i primi quaranta termini della progressione aritmetica<br>
+<b>7, 17/2, 10,......</b> <br><br>
+Devo trovare il quarantesimo temine, ma
+prima devo trovare la ragione:  basta fare la differenza fra due termini consecutivi;<br>
+ <table>
+<TR>
+<TD align="center"><font size=2><b>d = </b></font></TD>
+<TD align="center"><font size=2><b>17<br><img src="../../immagini/rufonero.jpg" width="20" height="1"><br>2</b></font></TD>
+<TD align="center"><font size=2><b> - 7  =</b></font></TD>
+<TD align="center"><font size=2><b>17-14<br><img src="../../immagini/rufonero.jpg" width="40" height="1"><br>2</b></font></TD>
+<TD align="center"><font size=2><b> = </b></font></TD>
+<TD align="center"><font size=2><b>3<br><img src="../../immagini/rufonero.jpg" width="10" height="1"><br>2</b></font></TD>
+
+</TR>
+</table>
+Ora posso trovare il quarantesimo termine
+  
+  <table>
+<TR>
+<TD align="center"><font size=2><b>a<sub>40</sub> = a<sub>1</sub> +</b></font></TD>
+<TD align="center"><font size=2><b>3<br><img src="../../immagini/rufonero.jpg" width="10" height="1"><br>2</b></font></TD>
+<TD align="center"><font size=2><b>&middot;(40-1) = 7 +</b></font></TD>
+<TD align="center"><font size=2><b>3<br><img src="../../immagini/rufonero.jpg" width="10" height="1"><br>2</b></font></TD>
+<TD align="center"><font size=2><b>&middot;39 = 7 +</b></font></TD>
+<TD align="center"><font size=2><b>117<br><img src="../../immagini/rufonero.jpg" width="30" height="1"><br>2</b></font></TD>
+<TD align="center"><font size=2><b> = </b></font></TD>
+<TD align="center"><font size=2><b>14+117<br><img src="../../immagini/rufonero.jpg" width="50" height="1"><br>2</b></font></TD>
+
+<TD align="center"><font size=2><b> = </b></font></TD>
+
+
+<TD align="center"><font size=2><b>131<br><img src="../../immagini/rufonero.jpg" width="20" height="1"><br>2</b></font></TD>
+
+</TR>
+</table><br><br>
+adesso applico la formula<br>
+
+  
+  <table>
+<TR>
+<TD align="center"><font size=2><b>S<sub>40</sub> = </b></font></TD>
+<TD align="center"><font size=2><b>1<br><img src="../../immagini/rufonero.jpg" width="10" height="1"><br>2</b></font></TD>
+<TD align="center"><font size=2><b>&middot;(7 +</b></font></TD>
+<TD align="center"><font size=2><b>131<br><img src="../../immagini/rufonero.jpg" width="30" height="1"><br>2</b></font></TD>
+<TD align="center"><font size=2><b>)&middot;40 = </b></font></TD>
+<TD align="center"><font size=2><b>1<br><img src="../../immagini/rufonero.jpg" width="10" height="1"><br>2</b></font></TD>
+<TD align="center"><font size=2><b>( </b></font></TD>
+
+
+<TD align="center"><font size=2><b>14+131<br><img src="../../immagini/rufonero.jpg" width="50" height="1"><br>2</b></font></TD>
+<TD align="center"><font size=2><b>)&middot;40 = 145&middot;10 = 1450</b></font></TD>
+
+ 
+</TR>
+</table><br><br>
+ 
+quindi <b>S<sub>40</sub>= 1450</b>
+ 
+
+</font> 
+  <hr>
+   </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12> 
+<tr bgcolor="ffffaa">
+   <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../q.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="qbb.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="qbad.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

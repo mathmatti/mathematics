@@ -1,0 +1,89 @@
+<HTML>
+<HEAD>
+<TITLE>serie a termini a segno alterno
+</TITLE>
+</HEAD>
+<BODY Background="../immagini/sfondoq066.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+ Serie a termini a segno alterno
+ </font></center> 
+<br><br>
+
+<font size=4> 
+ Una serie si dice <b>serie di termini a segno alterno</b> se i suoi termini di posto dispari (primo, terzo, quinto..) sono tutti positivi mentre i suoi termini di posto pari (secondo, quarto, sesto,...) sono tutti negativi o viceversa
+<br><br>
+ Considerando i termini <b>a<sub>i</sub></b> tutti positivi possiamo scrivere<br>
+<b>s = a<sub>1</sub> - a<sub>2</sub> + a<sub>3</sub> - a<sub>4</sub> + a<sub>5</sub> - a<sub>6</sub> + ....</b><br>
+o, viceversa<br>
+<b>s = - a<sub>1</sub> + a<sub>2</sub> - a<sub>3</sub> + a<sub>4</sub> - a<sub>5</sub> + a<sub>6</sub> - ....</b><br><br>
+
+Per la convergenza della serie a termini di segno alterno vale il <b>teorema di Leibniz</b>:<br>
+Un serie a termini di segno alterno<br>
+<b>s = a<sub>1</sub> - a<sub>2</sub> + a<sub>3</sub> - a<sub>4</sub> + a<sub>5</sub> - a<sub>6</sub> + ....</b><br>
+e' convergente se la successione<br>
+<b> a<sub>1</sub>, &nbsp; a<sub>2</sub>, &nbsp; a<sub>3</sub>, &nbsp; a<sub>4</sub>, &nbsp; a<sub>5</sub>, &nbsp; a<sub>6</sub>, ....</b><br>
+e'  <a href="../qc/qck.html" target="_blank">monotona</a> ed infinitesima<hr> 
+<font size=2>dimostriamolo come esercizio:
+<br>
+  Supponiamo sia crescente,  e che siano positivi i termini di posto dispari <br>
+Per ipotesi sappiamo che la successione e' infinitesima, inoltre e' monotona, mostriamo che e' convergente<br>Se e' monotona  vale<br>
+<b> a<sub>1</sub> &ge; a<sub>2</sub> &ge; a<sub>3</sub> &ge; a<sub>4</sub> &ge; a<sub>5</sub> &ge; a<sub>6</sub> &ge;  ....</b><br><br>
+sia <b>s<sub>k</sub></b> e' la ridotta k-esima; risulta<br> 
+per la ridotta 2k+2 (posto pari) vale<br> <b>s<sub>2k+2</sub> = s<sub>2k</sub> + a<sub>2k+1</sub> - a<sub>2k-2</sub> &ge; s<sub>2k</sub></b> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (infatti siccome sommo a<sub>2k+1</sub> che e' piu' grande e tolgo a<sub>2k+2</sub> che e' piu' piccolo il risultato e' maggiore) <b></b><br> 
+per la ridotta 2k+1 (posto dispari) vale<br> <b>s<sub>2k+1</sub> = s<sub>2k-1</sub> - a<sub>2k</sub> + a<sub>2k+1</sub> &le; s<sub>2k-1</sub> </b>  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (infatti siccome tolgo a<sub>2k</sub> che e' piu' grande e sommo a<sub>2k+1</sub> che e' piu' piccolo il risultato e' minore)<br>
+inoltre ho <br>
+<b>s<sub>2k+2</sub> = s<sub>2k+1</sub>  +  a<sub>2k+2</sub>  &le; s<sub>2k+1</sub></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (infatti siccome sommo a<sub>2k+2</sub> che e' positivo il risultato e' minore)<br><br>
+
+ 
+Da queste relazioni abbiamo che 
+<ul>
+<LI>la successione delle ridotte pari<br>
+<b>s<sub>2</sub>, &nbsp; s<sub>4</sub>, &nbsp; s<sub>6</sub>, &nbsp; s<sub>8</sub>, &nbsp;.... </b><br>
+e' crescente e limitata superiormente, quindi convergente
+</LI>
+<LI>la successione delle ridotte dispari<br>
+<b>s<sub>1</sub>, &nbsp; s<sub>3</sub>, &nbsp; s<sub>5</sub>, &nbsp; s<sub>7</sub>, &nbsp;.... </b><br>
+e' decrescente e limitata inferiormente, quindi convergente
+</LI>
+</ul>
+Se adesso consideriamo le differenze <br>
+<b>s<sub>2k+1</sub> - s<sub>2k</sub> = 
++ a<sub>2k+1</sub></b> <br>
+<b>s<sub>2k</sub> - s<sub>2k-1</sub> = - a<sub>2k</sub></b> <br>
+esse per ipotesi sono infinitesime al crescere di k, e la loro differenza puo' essere resa picola a piacere, quindi la serie e' convergente ed il teorema e' valido, come volevamo<br> 
+</font>
+  <hr>
+   </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12> 
+<tr bgcolor="ffffaa">
+   <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></a>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../q.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="qdgbb.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="qdgb.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

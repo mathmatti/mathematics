@@ -1,0 +1,123 @@
+<HTML>
+<HEAD>
+<TITLE>permutazioni con oggeti ripetuti
+</TITLE>
+</HEAD>
+<BODY bgcolor="ccffcc"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+   Permutazioni con oggetti ripetuti
+   </font></center>
+<br>
+   <font size=3>
+Facciamo un esempio con 4 oggetti di cui 3 uguali<br>
+<font color="ff0000" size=4><b>a &nbsp; b &nbsp; b &nbsp; b</b>
+</font>
+<br>
+se fossero oggetti diversi le permutazioni sarebbero <font color="ff0000" size=4><b>P<sub>4</sub>= 4! = 24</b></font> e precisamente <br>
+(per fartelo vedere bene coloro diversamente le lettere b)
+<table border=0>
+<!--1 --><TR><TD>
+<font size=4>a</font> <font color="ff0000" size=4><b>b</b></font> <font color="008800" size=4><b>b</b></font> <font color="0000ff" size=4><b>b</b></font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+ <font color="ff0000" size=4><b>b</b></font> <font size=4>a</font> <font color="008800" size=4><b>b</b></font> <font color="0000ff" size=4><b>b</b></font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<font color="ff0000" size=4><b>b</b></font> <font color="008800" size=4><b>b</b></font> <font size=4>a</font> <font color="0000ff" size=4><b>b</b></font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<font color="ff0000" size=4><b>b</b></font> <font color="008800" size=4><b>b</b></font> <font color="0000ff" size=4><b>b</b></font>  <font size=4>a</font>
+</TD></TR>
+
+<!-- 2 --><TR><TD>
+<font size=4>a</font> <font color="ff0000" size=4><b>b</b></font>  <font color="0000ff" size=4><b>b</b></font> <font color="008800" size=4><b>b</b></font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+ <font color="ff0000" size=4><b>b</b></font> <font size=4>a</font> <font color="0000ff" size=4><b>b</b></font> <font color="008800" size=4><b>b</b></font>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<font color="ff0000" size=4><b>b</b></font> <font color="0000ff" size=4><b>b</b></font> <font size=4>a</font> <font color="008800" size=4><b>b</b></font>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<font color="ff0000" size=4><b>b</b></font>  <font color="0000ff" size=4><b>b</b></font> <font color="008800" size=4><b>b</b></font> <font size=4>a</font>
+</TD></TR>
+
+<!-- 3 --><TR><TD>
+<font size=4>a</font>  <font color="008800" size=4><b>b</b></font> <font color="ff0000" size=4><b>b</b></font> <font color="0000ff" size=4><b>b</b></font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+ <font color="0000ff" size=4><b>b</b></font> <font size=4>a</font> <font color="ff0000" size=4><b>b</b></font>  <font color="008800" size=4><b>b</b></font>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+ <font color="008800" size=4><b>b</b></font> <font color="ff0000" size=4><b>b</b></font> <font size=4>a</font> <font color="0000ff" size=4><b>b</b></font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+ <font color="008800" size=4><b>b</b></font> <font color="ff0000" size=4><b>b</b></font> <font color="0000ff" size=4><b>b</b></font>  <font size=4>a</font>
+</TD></TR>
+
+<!-- 4 --><TR><TD>
+<font size=4>a</font>  <font color="0000ff" size=4><b>b</b></font>  <font color="ff0000" size=4><b>b</b></font> <font color="008800" size=4><b>b</b></font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+ <font color="008800" size=4><b>b</b></font> <font size=4>a</font> <font color="ff0000" size=4><b>b</b></font>  <font color="0000ff" size=4><b>b</b></font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+ <font color="0000ff" size=4><b>b</b></font> <font color="ff0000" size=4><b>b</b></font> <font size=4>a</font>  <font color="008800" size=4><b>b</b></font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  <font color="0000ff" size=4><b>b</b></font> <font color="ff0000" size=4><b>b</b></font> <font color="008800" size=4><b>b</b></font> <font size=4>a</font>
+</TD></TR>
+
+<!-- 5 --><TR><TD>
+<font size=4>a</font>  <font color="008800" size=4><b>b</b></font> <font color="0000ff" size=4><b>b</b></font>  <font color="ff0000" size=4><b>b</b></font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<font color="008800" size=4><b>b</b></font>  <font size=4>a</font>  <font color="0000ff" size=4><b>b</b></font> <font color="ff0000" size=4><b>b</b></font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<font color="0000ff" size=4><b>b</b></font> <font color="008800" size=4><b>b</b></font> <font size=4>a</font> <font color="ff0000" size=4><b>b</b></font>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<font color="008800" size=4><b>b</b></font> <font color="0000ff" size=4><b>b</b></font> <font color="ff0000" size=4><b>b</b></font>  <font size=4>a</font>
+</TD></TR>
+
+<!-- 6 --><TR><TD>
+<font size=4>a</font>  <font color="0000ff" size=4><b>b</b></font> <font color="008800" size=4><b>b</b></font>  <font color="ff0000" size=4><b>b</b></font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+ <font color="0000ff" size=4><b>b</b></font>  <font size=4>a</font> <font color="008800" size=4><b>b</b></font>  <font color="ff0000" size=4><b>b</b></font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+ <font color="0000ff" size=4><b>b</b></font> <font color="008800" size=4><b>b</b></font> <font size=4>a</font> <font color="ff0000" size=4><b>b</b></font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<font color="0000ff" size=4><b>b</b></font> <font color="008800" size=4><b>b</b></font>  <font color="ff0000" size=4><b>b</b></font> <font size=4>a</font>
+</TD></TR>
+</table>
+Osserva che in ogni colonna ci sono le 6  permutazioni per i tre colori della lettera b (P<sub>3</sub>= 3! = 6)
+<hr>
+Nella prima colonna la <b>a</b> e' al primo posto e permutiamo le tre <b>b</b><br>
+Nella seconda colonna la <b>a</b> e' al secondo posto e permutiamo le tre <b>b</b><br>
+Nella terza colonna la <b>a</b> e' al terzo posto e permutiamo le tre <b>b</b><br>
+Nella quarta colonna la <b>a</b> e' al quarto posto e permutiamo le tre <b>b</b><hr>
+ Ma se non ho i colori le lettere b sono indistinguibili tra loro e pertanto ogni colonna diventa un termine singolo<br>
+<table>
+<TR>
+<TD><font size=4><b>
+a b b b &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+b a b b &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+b b a b &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+b b b a &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+</b></font></TD>
+</TR></table>
+
+
+Allora per avere le permutazioni su 4 oggetti di cui 3 identici dovro' fare le permutazioni su 4 oggetti e dividerle per le permutazioni su tre oggetti<br>
+<table>
+<TR>
+<TD><font size=4 color="ff0000"><b>P<sub>4;3</sub></b> </font></TD>
+
+<TD align="center"><font size=4 color="ff0000"><b>P<sub>4</sub><br>= ------ =<br>P<sub>3</sub></b></font></TD>
+ <TD align="center"><font size=4 color="ff0000"><b>4!<br>-----<br>3!</b></font></TD>
+<TD align="center"><font size=4 color="ff0000"><b>24<br>= ----- =<br>6</b></font></TD>
+
+<TD align="center"><font size=4 color="ff0000"><b>  4</b></font></TD>
+
+</TR></table>
+   </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+
+  </center>
+  </BODY>
+</HTML>

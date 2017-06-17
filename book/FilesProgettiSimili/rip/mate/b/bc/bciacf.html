@@ -1,0 +1,173 @@
+<HTML>
+<HEAD>
+<TITLE> alcuni utili criteri di scomposizione
+</TITLE>
+</HEAD>
+<BODY Background="../immagini/sfb068.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+
+  
+   <center><font color="#FF2200" size=6>
+ Alcuni utili criteri di scomposizione
+   </font></center>
+<br>
+   <font size=5><hr>
+Spesso quando si scompone durante un compito in classe il tempo e' prezioso, quindi diventano molto utili alcuni criteri che, se anche non si riferiscono a numeri primi, ci permettono di risparmiare tempo: vediamoli qui di seguito:<br>
+<ul>
+<LI>Criterio di scomposizione per 4:<br>
+Un numero e' divisibile per <b>4</b> se le sue ultime due cifre sono divisibili per 4<br>
+<font size=2> Esempio:<br>
+<b>34532</b> e' divisibile per <b>4</b> perche' il numero formato dalle ultime due cifre <b>32</b> e' divisibile per <b>4</b><br>
+<b>34522</b> invece non e' divisibile per <b>4</b> perche' il numero formato dalle ultime due cifre <b>22</b> non e' divisibile per 4<br>
+</font><br><hr>
+</LI>
+
+<LI>Criterio di scomposizione per 9<br>
+Un numero e' divisibile per <b>9</b> se la somma delle sue cifre e' <b>9</b> (ricordo che la somma puo' essere fatta ricorsivamente sulla somma stessa<br>
+<font size=2> Esempio:<br>
+<b>34533</b> e' divisibile per <b>9</b> perche'  la somma delle sue cifre <b>3+4+5+3+3=18 &rArr; 1+8=9</b> e'  <b>9</b><br>
+<b>34536</b> invece non e' divisibile per <b>9</b> perche'  la somma delle sue cifre <b>3+4+5+3+6=21 &rArr; 2+1=3</b>  non e'  <b>9</b><br>
+</font><br><hr>
+</LI>
+
+<LI>Criterio di scomposizione per 10<br>
+Un numero e' divisibile per <b>10 =5&middot;2</b> se la  sua ultima cifra e'  <b>0</b>  <br>
+<font size=2> Esempio:<br>
+<b>340</b> e' divisibile per <b>10</b> perche' termina per <b>0</b> : <b>340=2&middot;5&middot;34</b> <br>
+<b>34000</b>  e' addirittura divisibile per <b>1000</b>  perche' termina con tre zeri:   <b>34000= 2<sup>3</sup>&middot;5<sup>3</sup>&middot;34</b>  <br>
+</font>
+<br><hr>
+</LI>
+
+
+<LI>Criterio di scomposizione per 25<br>
+Un numero e' divisibile per <b>25 =5<sup>2</sup></b> se le  sue ultime due cifre sono o <b>0</b> oppure un multiplo di 25  <br>
+<font size=2> Esempio:<br>
+<b>425</b> e' divisibile per <b>25</b> perche' termina per <b>25</b> : <b>625= 5<sup>2</sup>&middot;17</b> <br>
+<b>340</b> non e'   divisibile per <b>25</b>  perche'    <b>40</b> non e' multiplo di <b>25</b> <br>
+</font>
+<br><hr>
+</LI>
+
+
+</ul>
+  <font size=3> 
+ Vediamo un paio di esempi per vedere come si puo' velocizzare il calcolo utilizzando questi criteri:
+
+
+<br><br>
+
+<font color="990000" size=3><b>210 = </b></font> 
+<table align="right" border=0 cellpadding="3">
+<TR>
+<TD align="right"><font color="990000" size=4><b> 210 </b></font></TD>
+<td rowspan="4"><img src="../../immagini/rufo.jpg" width="3" height="100"></td>
+<TD align="left"><font color="990000" size=4><b> 2&middot;5</b></font></TD>
+</TR>
+<TR>
+<TD align="right"><font color="990000" size=4><b> 21 </b></font></TD>
+<TD align="left"><font color="990000" size=4><b> 3</b></font></TD>
+</TR>
+ <TR>
+<TD align="right"><font color="990000" size=4><b> 7 </b></font></TD>
+<TD align="left"><font color="990000" size=4><b> 7</b></font></TD>
+</TR>
+<TR>
+<TD align="right"><font color="990000" size=4><b> 1 </b></font></TD>
+<TD align="left"><font color="990000" size=4><b> </b></font></TD>
+</TR>
+</table>
+
+<br>
+finisce per <b>0</b> quindi scompongo per <b>10=2&middot;5</b><br>
+<font color="990000" size=3><b>210 = 2&middot;5&middot;21</b></font><br>
+<b>21</b> e' divisibile per <b>3</b>: <b>21=3&middot;7</b> quindi ottengo<br>
+<font color="990000" size=3><b>210 = 2&middot;5&middot;3&middot;7</b></font><br>
+o meglio, ordinando secondo fattori crescenti<br>
+<font color="990000" size=3><b>210 = 2&middot;3&middot;5&middot;7</b></font><br>
+<br><br>
+
+
+<font color="990000" size=3><b>7425 = </b></font> 
+
+
+ 
+<br>
+la somma delle cifre e' <b>7+4+2+5=18 &rArr; 1+8=9</b> quindi scompongo per <b>3<sup>2</sup></b><br>
+
+<table align="right" border=0 cellpadding="3">
+<TR>
+<TD align="right"><font color="990000" size=4><b> 7425 </b></font></TD>
+<td rowspan="5"><img src="../../immagini/rufo.jpg" width="3" height="150"></td>
+<TD align="left"><font color="990000" size=4><b> 3<sup>2</sup></b></font></TD>
+</TR>
+<TR>
+<TD align="right"><font color="990000" size=4><b> 825 </b></font></TD>
+<TD align="left"><font color="990000" size=4><b> 5<sup>2</sup></b></font></TD>
+</TR>
+ <TR>
+<TD align="right"><font color="990000" size=4><b> 33 </b></font></TD>
+<TD align="left"><font color="990000" size=4><b> 3</b></font></TD>
+</TR>
+ <TR>
+<TD align="right"><font color="990000" size=4><b> 11 </b></font></TD>
+<TD align="left"><font color="990000" size=4><b> 11</b></font></TD>
+</TR>
+<TR>
+<TD align="right"><font color="990000" size=4><b> 1 </b></font></TD>
+<TD align="left"><font color="990000" size=4><b> </b></font></TD>
+</TR>
+</table>
+
+<b>74:9 da' 8 con resto di 2</b> riporto mentalmente <b>2</b> davanti all'altra cifra;<br> <b>22:9 da' 2 con resto di 4</b>
+riporto mentalmente <b>4</b> davanti all'altra cifra;<br> <b>45:9=5</b><br>
+<font color="990000" size=3><b>7425 = 3<sup>2</sup>&middot;825</b></font>
+
+
+
+<br>
+<b>825</b> e' divisibile per <b>25=5<sup>2</sup></b><br>
+<b>82:25 da' 3 con resto di 7</b> riporto mentalmente <b>7</b> davanti all'altra cifra;<br> <b>75:25=3</b><br>
+<font color="990000" size=3><b>7425 = 3<sup>2</sup>&middot;825 = 3<sup>2</sup>&middot;5<sup>2</sup>&middot;33</b></font><br>
+<b>33</b> e' divisibile per <b>3</b>;  <b>33:3=11</b> ed 11 e' primo; quindi:
+ <br>
+<font color="990000" size=3><b>7425 =   3<sup>2</sup>&middot;5<sup>2</sup>&middot;3&middot;11</b></font><br>
+o meglio raggruppando ed ordinando<br>
+<font color="990000" size=3><b>7425 =   3<sup>3</sup>&middot;5<sup>2</sup>&middot;11</b></font><br>
+
+
+
+
+
+</font>
+</font>
+   </td>
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+   <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></a>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../b.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="bcib.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="bciace.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

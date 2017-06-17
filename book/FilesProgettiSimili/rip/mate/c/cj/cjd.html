@@ -1,0 +1,233 @@
+<HTML>
+<HEAD>
+<TITLE>introduzione alla formula di taylor
+</TITLE>
+</HEAD>
+<BODY Background="../immagini/sc0179.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+  Introduzione alla formula di Taylor
+   </font></center>
+<br><br>
+   <font size=4>
+   
+   La formula di Taylor si propone di trasformare una funzione continua e derivabile (almeno di ordine n) in una somma di funzioni polinomiali<hr>
+   Partiamo dal teorema di <a href="../cf/cfeb.html" target="_blaqnk">Lagrange</a>
+   applicato alla funzione continua e derivabile f(x) all'interno dell'intervallo [a,x]<br><br>
+   
+   <table>
+   
+   <TR>
+   <TD align="center"><font color="ff0000" size=5>f(x) - f(a)</font></TD>
+   <td></td>
+   </TR>
+   
+   <TR>
+   <TD align="center"><font color="ff0000" size=5>---------------</font></TD>
+   
+    <TD align="center"><font color="ff0000" size=5> = f'(c)</font></TD>
+  </TR>
+   
+   <TR>
+   <TD align="center"><font color="ff0000" size=5>x - a</font></TD>
+   </TR>
+   <td></td>
+   </table>
+   <br>
+   Che posso anche scrivere come<br>
+   <font color="ff0000" size=5>f(x) = f(a) + (x-a)f'(c)</font><hr>
+   <br> c'e' da dire che quando x tende ad a il termine (x-a)f'(c) diventa
+infinitesimo (e, intuitivamente, posso <a href="../ca/cac.html"
+target="_blank" title="se l'intervallo e' infinitesimo c ed x, essendo interni, 
+si confondono">scambiare c con x </a>cioe' <font color="ff0000"
+size=4><b>f'(x)=f'(c)</b> </font>).
+    
+   Se la funzione f'(x) nell'intervallo [a,x] e' continua e derivabile
+all'interno dell'intervallo posso ancora applicare il teorema di Lagrange ed
+ottengo
+<table>
+   
+   <TR>
+   <TD align="center"><font color="ff0000" size=5>f'(x) - f'(a)</font></TD>
+   <td></td>
+   </TR>
+   
+   <TR>
+   <TD align="center"><font color="ff0000" size=5>---------------</font></TD>
+   
+    <TD align="center"><font color="ff0000" size=5> = f''(c)</font></TD>
+  </TR>
+   
+   <TR>
+   <TD align="center"><font color="ff0000" size=5>x - a</font></TD>
+   </TR>
+   <td></td>
+   </table>
+   e siccome posso scambiare c ed x
+   <table>
+   
+   <TR>
+   <TD align="center"><font color="ff0000" size=5>f'(c) - f'(a)</font></TD>
+   <td></td>
+   </TR>
+   
+   <TR>
+   <TD align="center"><font color="ff0000" size=5>---------------</font></TD>
+   
+    <TD align="center"><font color="ff0000" size=5> = f''(c)</font></TD>
+  </TR>
+   
+   <TR>
+   <TD align="center"><font color="ff0000" size=5>x - a</font></TD>
+   </TR>
+   <td></td>
+   </table>
+   <br>
+   Che posso anche scrivere come<br>
+   <font color="0000ff" size=5>f'(c) = f'(a) + (x-a)f''(c)</font> 
+   Andando a sostituire nella prima formula ottengo:<br>
+   <font color="ff0000" size=5>f(x) = f(a) + (x-a)[<font color="0000ff" size=5>f'(a) + (x-a)f''(c)</font>]</font><br>
+   cioe' eseguendo i calcoli<br>
+   <font color="ff0000" size=5>f(x) = f(a) + (x-a)f'(a) + (x-a)<sup><font size=3>2</font></sup>f''(c)</font><hr><br>
+   Posso ripetere il procedimento se f''(x) e' continua e derivabile ed ottengo<br>
+   
+   <table>
+   
+   <TR>
+   <TD align="center"><font color="ff0000" size=5>f''(c) - f''(a)</font></TD>
+   <td></td>
+   </TR>
+   
+   <TR>
+   <TD align="center"><font color="ff0000" size=5>---------------</font></TD>
+   
+    <TD align="center"><font color="ff0000" size=5> = f'''(c)</font></TD>
+  </TR>
+   
+   <TR>
+   <TD align="center"><font color="ff0000" size=5>x - a</font></TD>
+   </TR>
+   <td></td>
+   </table>
+   <br>
+   Che posso anche scrivere come<br>
+   <font color="0000ff" size=5>f''(c) = f''(a) + (x-a)f'''(c)</font> 
+   Andando a sostituire nella prima formula ottengo:<br>
+    <font color="ff0000" size=5>f(x) = f(a) + (x-a)f'(a) + (x-a)<sup><font size=3>2</font></sup>[<font color="0000ff" size=5>f''(a) + (x-a)f'''(c)</font>]</font>
+    
+    <br>
+   cioe' eseguendo i calcoli<br>
+   <font color="ff0000" size=5>f(x) = f(a) + (x-a)f'(a) + (x-a)<sup><font size=3>2</font></sup>f''(a) +  (x-a)<sup><font size=3>3</font></sup>f'''(c)</font><hr><br>
+   Posso procedere ancora finche' la funzione e' continua e derivabile
+   <br>
+   <font color="ff0000" size=4>f(x) = f(a) + (x-a)f'(a) + (x-a)<sup><font size=3>2</font></sup>f''(a) +  (x-a)<sup><font size=3>3</font></sup>f'''(a) +   (x-a)<sup><font size=3>4</font></sup>f<sup><font size=2> IV</font></sup>(c)</font>
+   <br>
+   <font color="ff0000" size=4>..................................................</font> <br>
+   il termine con f<sup><font size=2> IV</font></sup>(c) si chiama resto nella forma di Lagrange
+   
+   <hr>
+   <font size=3>
+   Nel nostro procedimento pero' non abbiamo tenuto conto delle costanti: derivando una costante si ottiene il valore zero.<br>
+   Per capire quali costanti sono necessarie consideriamo l'espressione trovata: essa deve sempre essere un'uguaglianza<br>
+   se considero x=a ottengo dovro' avere
+  i valori
+  <ul><LI>f(a) per la funzione</LI>
+  <li>f'(a) per la derivata prima</li>
+  <li>f''(a) per la derivata seconda</li>
+  <li>f'''(a) per la derivata terza</li>
+  <li>.................</li>
+  </ul>
+  
+  cioe' se eseguo questo procedimento per l'ultima espressione considerata ho che per avere l'uguaglianza il termine con (x-a)<sup><font size=2>2</font></sup>f''(a) dovra' essere fratto 2 perche' altrimenti facendo la derivata seconda non otterrei f(a) ma 2f(a)<br>
+  similmente il termine con (x-a)<sup><font size=2>3</font></sup>f''(a) dovra' essere fratto 3&#183;2=6 
+  </font><hr><font size=2>
+  <a href="cjda.html" target="_blank">se hai bisogno di vedere questi calcoli piu' in particolare</a></font><hr>
+  Ottengo quindi la formula (fino alla derivata quarta)
+  
+ <table>
+   
+   <TR>
+   <td></td>
+   <TD align="center"><font color="ff0000" size=4>(x-a)</font></TD>
+   <td></td>
+   
+   <TD align="center"><font color="ff0000" size=4>(x-a)<sup><font size=3>2</font></sup></font></TD>
+   <td></td>
+    <TD align="center"><font color="ff0000" size=4>(x-a)<sup><font size=3>3</font></sup></font></TD>
+   <td></td>
+   <TD align="center"><font color="ff0000" size=4>(x-a)<sup><font size=3>4</font></sup></font></TD>
+   <td></td>
+   
+   </TR>
+   
+   <TR>
+   <TD align="center"><font color="ff0000" size=4> f(x) = f(a) +   </font></TD>
+    <TD align="center"><font color="ff0000" size=4>-------</font></TD>
+   <TD align="center"><font color="ff0000" size=4>f'(a) + </font></TD>
+  
+   <TD align="center"><font color="ff0000" size=4>-------</font></TD>
+   <TD align="center"><font color="ff0000" size=4>f''(a) + </font></TD>
+   <TD align="center"><font color="ff0000" size=4>-------</font></TD>
+   <TD align="center"><font color="ff0000" size=4>f'''(a) + </font></TD>
+   <TD align="center"><font color="ff0000" size=4>---------</font></TD>
+   <TD align="center"><font color="ff0000" size=4>f<sup><font size=3>IV</font></sup>(c) </font></TD>
+    
+  </TR>
+   
+   <TR>
+   <td></td>
+   <TD align="center"><font color="ff0000" size=4> 1 </font></TD>
+   <td></td>
+   <TD align="center"><font color="ff0000" size=4> 1&#183;2 </font></TD>
+   <td></td>
+   <TD align="center"><font color="ff0000" size=4> 1&#183;2&#183;3 </font></TD>
+   <td></td>
+   <TD align="center"><font color="ff0000" size=4> 1&#183;2&#183;3&#183;4 </font></TD>
+   <td></td>
+   
+   </TR>
+    
+   </table> 
+  
+   
+  
+  
+  
+ <hr>
+ 
+      
+</font>
+
+ 
+    
+   </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+   <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></a>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../c.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="cje.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="cjc.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

@@ -1,0 +1,116 @@
+<HTML>
+<HEAD>
+<TITLE>prodotto di n termini di una progressione geometrica
+</TITLE>
+</HEAD>
+<BODY Background="../immagini/sfondoq023.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+ Prodotto di n termini di una progressione geometrica
+ </font></center> 
+<br><br>
+
+  <font size=4><hr>
+ 
+E' possibile calcolare il prodotto di n  termini di una progressione geometrica con tutti i termini positivi  <hr>
+Consideriamo la progressione<br>
+<b>a<sub>1</sub>, a<sub>2</sub>, a<sub>3</sub>, a<sub>4</sub>,.... a<sub>n-2</sub>, a<sub>n-1</sub>, a<sub>n</sub>, ..... </b><br>
+Vediamo come trovare una formula per calcolare, ad esempio, il prodotto dei primi n termini<br>
+<b>P<sub>n</sub> = a<sub>1</sub>&middot;a<sub>2</sub>&middot;a<sub>3</sub>&middot; ........ &middot;a<sub>n-2</sub>&middot;a<sub>n-1</sub>&middot;a<sub>n</sub>&middot; </b>
+<br><hr> <font size=3>
+Prima osserviamo che vale la proprieta':<br>
+<b>Data una progressione geometrica limitata il prodotto di due termini equistanti dagli estremi equivale al prodotto degli estremi</b><br><br>
+vediamolo su un esempio: considero la progressione geometrica limitata a 7 termini<br>
+<b>3, 6, 12, 24, 48, 96, 192</b><br>
+se io moltiplico gli estremi  3&middot;192 ottengo 576<br>
+se prendo 6 e 96 (secondo e sesto termine) che sono equidistanti dai due estremi anche il loro prodotto e' 6&middot;96=576<br>
+infatti il secondo termine della progressione si ottiene dal primo moltiplicandolo per la ragione, mentre il penultimo termine si ottiene dall'ultimo dividendolo per la ragione, quindi il risultato e' identico:<br><br>
+quindi se i termini che considero sono equidistanti dagli estremi il primo e' moltiplicato ed il secondo e' diviso per la ragione lo stesso numero di volte, di conseguenza, moltiplicandoli, ottengo sempre un risultato uguale al prodotto degli estremi<br>
+<b>3&middot;192 = 576<br>
+6&middot;96 = 576<br>
+12&middot;48 = 576<br>
+24&middot;24 = 576<br>
+48&middot;12 = 576<br>
+96&middot;6 = 576<br>
+192&middot;3 = 576<br>
+</b>
+</font><hr>
+Considero il prodotto dei primi n termini<br>
+<b>P<sub>n</sub> = a<sub>1</sub>&middot;a<sub>2</sub>&middot;a<sub>3</sub>&middot; ........ &middot;a<sub>n-2</sub>&middot;a<sub>n-1</sub>&middot;a<sub>n</sub>&middot; </b>
+<br>
+Per la proprieta' commutativa del prodotto posso scrivere<br>
+<b>P<sub>n</sub> = a<sub>n</sub>&middot;a<sub>n-1</sub>&middot;a<sub>n-2</sub>&middot; ........ &middot;a<sub>3</sub>&middot;a<sub>2</sub>&middot;a<sub>1</sub>&middot; </b>
+<br>
+Moltiplichiamo fra loro le due uguaglianze, usando al proprieta' associativa posso associare i termini in ordine
+<br>
+<b>P<sub>n</sub><sup>2</sup> = (a<sub>1</sub>&middot;a<sub>n</sub>) &middot; (a<sub>2</sub>&middot;a<sub>n-1</sub>) &middot; (a<sub>3</sub>&middot;a<sub>n-2</sub>) .... &middot;(a<sub>n-2</sub>&middot;a<sub>3</sub>) &middot; (a<sub>n-1</sub>&middot;a<sub>2</sub>) &middot; (a<sub>n</sub>&middot;a<sub>1</sub>) </b>
+
+<br>
+per la proprieta' vista sopra ognuno dei prodotti entro parentesi vale a<sub>1</sub>&middot;a<sub>n</sub>, quindi, essendo n tali prodotti,  posso scrivere 
+<br>
+<b>P<sub>n</sub><sup>2</sup> = (a<sub>1</sub>&middot;a<sub>n</sub>)<sup>n</sup>  </b>
+
+
+<br>
+e quindi, estraendo al radice quadrata, ottengo il risultato finale 
+ 
+ 
+<br><br>
+<center>
+<table>
+<TR>
+<TD align="center"><b><font color="ff0000" size=4>P<sub>n</sub> = 
+<font size=6>&radic;</font></font></b></TD>
+<TD align="center"><b><font color="ff0000" size=4>
+ (a<sub>1</sub>&middot;a<sub>n</sub>)<sup>n</sup></font></b></TD>
+
+</TR>
+</table>
+</center>
+
+<hr>
+ 
+<font size=2>esempio  : calcoliamo il prodotto dei 7 termini della progressione geometrica precedente <br>
+<b>3, 6, 12, 24, 48, 96, 192</b><br>
+
+<b>P<sub>7</sub> = <font size=5>&radic;</font>576<sup>7</sup> = 4.586.471.424 </b><br>
+(per fare i calcoli e' ottima la calcolatrice del computer)<br>
+
+cioe' 
+<b>3&middot;6&middot;12&middot;24&middot;48&middot;96&middot;192 = 4.586.471.424</b>
+
+</font> 
+ 
+</font> 
+  <hr>
+   </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12> 
+<tr bgcolor="ffffaa">
+   <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../q.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../qc/qc.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="qbbf.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

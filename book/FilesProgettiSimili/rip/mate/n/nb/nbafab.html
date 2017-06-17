@@ -1,0 +1,197 @@
+<HTML>
+<HEAD>
+<TITLE>calcolo del montante ad interesse composto per tempi interi con tasso non sulle tavole
+</TITLE>
+</HEAD>
+<BODY bgcolor="ccffcc"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+   Calcolo del montante ad interesse composto per tempi interi con tasso non sulle tavole
+   </font></center>
+<br>
+ <font size=3>
+ <br>
+Si impiega il capitale di &#8364; 20000 per 18 anni ad interesse composto al 2,673%.<br>
+Calcolarne il montante nei vari modi possibili e confrontare i risultati<hr>
+<font size=2>
+In questo caso abbiamo un numero di anni tale da farci scartare a priori il calcolo diretto, inoltre il tasso non e' sulla tavole</font><hr><br>
+Dati<br>
+<b>C = 20000,00 &#8364;<br>
+t = 18<br>
+i = 2,60% = 0,02673 </b><br>
+
+<ul type="1">Eseguo l'esercizio nei vari modi possibili: <br><br>
+<LI>  Come gia' accennato scarto il metodo del calcolo del montante come prodotto di capitalizzazioni semplici perche' 18 anni renderebbero il calcolo troppo lungo<br><br>
+</LI>
+<li>Utilizzo la calcolatrice<br>
+Imposto, sullo schermo il calcolo<br>
+<b> 20000&middot;(1+0,02673)<sup>18</sup> </b><br>
+ottengo <b>32154,55687637</b> che approssimo a <b>32154,56</b><br><br>
+il montante e' di  <b>&#8364; 32154,56</b><br><br>
+</li>
+
+
+<li>utilizzo le tavole logaritmiche a 7 decimali<hr>
+<font size=2>Anche in questo esercizio calcolo solamente il  fattore (1,02673)<sup>18</sup> e poi moltiplichero' il risultato per il capitale  </font><hr>
+<b>M  = 20000(1+0,02673)<sup>18</sup>  </b> <br>
+Calcolo il fattore (1+0,02673)<sup>18</sup> coi logaritmi; per la <a href="../../a/al/algc.html" target="_blank">proprieta' dei logaritmi</a> ho<br>
+<b>Log (1,02673)<sup>18</sup> = 18&middot;Log 1,02673 = </b><br>
+
+trasformo il numero in Logaritmo<br>
+leggo sulle tavole logaritmiche a 7 decimali &nbsp;&nbsp;
+<b>10267,3</b> e' compreso fra <b>10267</b> e <b>10268</b> quindi devo fare l'interpolazione
+<center>
+<table>
+<TR>
+<TD align="center"><font size=4><b>10267,0 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=4><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=4><b>&nbsp;&nbsp; 0114436 &nbsp;&nbsp;</b></font></TD>
+<td></td></TR>
+<TR>
+<TD align="center"><font size=4><b>10267,3 &nbsp;&nbsp;  </b></font></TD>
+<TD align="center"><font size=4><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=4><b>&nbsp;&nbsp; 0114436+x  </b></font></TD>
+<td><font size=2><b>&nbsp;&nbsp;&nbsp; 423</b></font></td>
+</TR>
+<TR>
+<TD align="center"><font size=4><b> 10268,0 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=4><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=4><b>&nbsp;&nbsp; 0114859  &nbsp;&nbsp;</b></font></TD>
+<td></td></TR>
+</table>
+</center>
+
+Di fianco ai due risultati trovi il numero <b>428</b> che corrisponde alla differenza fra i due valori trovati mentre la differenza fra il mio valore e quello minore e'<br>
+<b>102673-102670  =  3</b><br>
+Nella tabella del 423 a 3 corrisponde 126,9 e questo e' il mio x <br>
+ quindi scrivo<br>
+<b>0114436 +  126,9 = 0114562,9 = 01145629</b> <font size=2>la virgola ti indica solo come eseguire la somma</font><br>
+
+<b>Log 1,02673 = 0,01145629 </b><br>
+Quindi<br> 
+<b>Log (1+0,2673)<sup>18</sup> = 18&middot;Log(1,02673) = 18&middot;0,01145629 = 0,20621322</b><br>
+
+
+ Questo e' il logaritmo, ora trovo l'antilogaritmo (lo trasformo in valore normale)<br>
+
+<b>AntiLog 0,20621322 = </b><br>
+Essendo la caratteristica 0 il valore dell'antilogaritmo sara' compreso fra 1 e 10, quindi avremo una cifra significativa<br> prima della virgola<br>
+
+la mia mantissa nella tavola a 7 decimali (20621322) non c'e'(il tempo 18 anni e' troppo elevato) e quindi  considero  5 cifre 20621,322 e cerco fra i logaritmi normali <br>
+leggo sulle tavole a 5 decimali e trovo  <br>
+
+<center>
+<table>
+<TR>
+<TD align="center"><font size=4><b>20602 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=4><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=4><b>&nbsp;&nbsp; 20629 &nbsp;&nbsp;</b></font></TD>
+<td></td></TR>
+<TR>
+<TD align="center"><font size=4><b>  </b></font></TD>
+<TD align="center"><font size=4><b>  </b></font></TD>
+<TD align="center"><font size=4><b>  </b></font></TD>
+<td><font size=2><b>27</b></font></td>
+</TR>
+<TR>
+<TD align="center"><font size=4><b> 1607 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=4><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=4><b>&nbsp;&nbsp; 1608  &nbsp;&nbsp;</b></font></TD>
+<td></td></TR>
+</table>
+</center>
+
+
+
+
+
+ 
+Di fianco ai due risultati trovi il numero <b>27</b> che corrisponde alla differenza fra i due valori della mantissa mentre la differenza fra il mio valore e quello minore e'<br>
+<b>20621,322-20608  =  15,322</b><br>
+Nella tabella del 27 cerco 15,322; <br>
+il numero minore piu' vicino e' 13,5 cui corrisponde la sesta cifra del nostro numero, cioe' 5<br>
+mi resta 15,322-13,5 = 1,822; sposto di un posto la virgola e cerco la settima cifra decimale<br>
+Nella tabella del 27 cerco 18,22; <br>
+siccome non prendero' altre cifre perche' l'errore supererebbe il valore della cifra trovata stavolta prendo la cifra piu' vicina<br>
+il numero piu' vicino e' 18,9 cui corrisponde la settima cifra del nostro numero, cioe' 7<br>
+ottengo <b>160757</b>
+
+
+
+ quindi scrivo<br>
+<b>Antilog 0,20621322 = 1,60757</b><br>
+ 
+e, calcolando il montante<br>
+<b>M   = 20000&middot;1,60757 = 32151,4 &#8364;</b>  
+<br>
+
+il montante e' di  <b>&#8364; 32151,4</b><br><br>
+</li>
+<li>utilizzo le tavole del prontuario per il fattore (1+i)<sup>n</sup><br>
+
+stavolta il valore e' compreso fra due valori:<br>
+tasso del 2,50% per 18 anni &rarr; 1,55965872<br>
+tasso del 2,75% per 18 anni &rarr; 1,62956973<br>
+per trovare il mio valore faccio l'interpolazione<br>
+
+<center>
+<table>
+<TR>
+<TD align="center"><font size=3><b>0,02500 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=3><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=3><b>&nbsp;&nbsp; 1,55965872 &nbsp;&nbsp;</b></font></TD>
+<td></td></TR>
+<TR>
+<TD align="center"><font size=3><b>0,02673 &nbsp;&nbsp;  </b></font></TD>
+<TD align="center"><font size=3><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=3><b>&nbsp;&nbsp; &nbsp; 1,55965872+x  </b></font></TD>
+<td><font size=2><b>&nbsp;&nbsp;&nbsp;  </b></font></td>
+</TR>
+<TR>
+<TD align="center"><font size=3><b> 0,02750 &nbsp;&nbsp;</b></font></TD>
+<TD align="center"><font size=3><b>&nbsp; &rarr; </b></font></TD>
+<TD align="center"><font size=3><b>&nbsp;&nbsp; 1,62956973  &nbsp;&nbsp;</b></font></TD>
+<td></td></TR>
+</table>
+</center>
+faccio la proporzione<br>
+<b> (1,62956973-1,55965872):0,00250 = x : (0,02673-0,02500) </b><br>
+
+<b> 0,06991101 : 0,00250 = x : 0,00173 </b><br>
+
+ <table>
+<TR>
+<TD align="center"><b>x = </b></TD>
+<TD align="center"><b>0,06991101 &middot; 0,00173<br> <img src="../../immagini/rufonero.jpg" width="200" height="2"><br> 0,00250</b></TD>
+<TD align="center"><b> = 0,048378419</b></TD> 
+</TR>
+<table>
+quindi ottengo<br>
+<b>(1.02673)<sup>18</sup>= (1,55965872+0,048378419) = 1,608037139</b>
+
+ <br>e quindi<br>
+<b> M   = 20000&middot;1,608037139 = 32160,7427784   &#8364;</b>che approssimo a
+<b> &#8364;32160,75</b><br>
+il montante e' di  <b>&#8364; 32160,75</b><br><br>
+
+</li>
+</ul>
+
+In questo ultimo esercizio gli errori sono piuttosto rilevanti: il metodo migliore, che da' il risultato piu' preciso,  comunque, e' sempre quello dell'utilizzo di una calcolatrice per calcoli finanziari, segue quello dell'uso dei logaritmi e quindi quello dell'interpolazione fra i tassi nelle tavole finanziarie  che avra' sempre un errore dovuto all'utilizzo dell'interpolazione <hr>
+<img src="../../n/immagini/figura016.jpg" align="right" width="250">  
+<font size=2>L'errore e' dovuto all'interpolazione fra i tassi ed all'interpolazione per calcolare logaritmo ed antilogaritmo.<br> Infatti la curva che rappresenta il tasso di interesse  ha la concavita' rivolta verso l' alto e quindi avranno sempre un errore in eccesso<br>Nel logaritmo abbiamo due interpolazioni diverse:<br> La prima, nel passaggio dal numero al logaritmo avra' un errore in difetto, avendo la funzione logaritmo la concavita' rivolta verso il basso<br>   La seconda nel passaggio dal logaritmo al numero avra' un errore in eccesso avendo la funzione inversa del logaritmo (antilogaritmo) la concavita' rivolta verso l'alto<br>
+Quindi con l'uso dei logaritmi i due errori in parte si compenseranno a vicenda
+<hr>
+   </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+
+  </center>
+  </BODY>
+</HTML>

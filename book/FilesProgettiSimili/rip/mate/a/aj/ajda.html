@@ -1,0 +1,313 @@
+<HTML>
+<HEAD>
+<TITLE>prodotto fra matrici
+</TITLE>
+ 
+</HEAD>
+<BODY Background="../immagini/sfondo0311.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+Prodotto fra matrici
+   </font></center>
+<br>
+
+   <font size=3>
+ E' possibile definire in vari modi il prodotto fra matrici:
+<ul>
+<LI>righe per righe</LI>
+<LI>righe per colonne</LI>
+<LI>colonne per righe</LI>
+<LI>colonne per colonne</LI>
+</ul>
+<hr>
+<font size=2>
+Tra questi l'unico che viene usato normalmente e' il <b>prodotto righe per colonne</b> indichiamolo con il simbolo <img src="../../immagini/matricep.jpg" width="14">.<br>
+Vediamone un esempio: per poterlo usare dobbiamo avere lo stesso numero di colonne nella prima matrice del numero delle righe nella seconda; facciamo un prodotto fra una matrice 2X3 con una matrice 3X4;<br>
+La prima ha tre colonne e la seconda tre righe; otterremo una matrice 2X4 con due righe e 4 colonne
+</font>
+<hr>
+<table>
+<TR>
+<TD align="center">
+<!-- matrice annidata--><table><tr>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=40></td>
+
+<td><b><font color="ff0000" size=3>
+1 &nbsp;&nbsp;&nbsp;  2 &nbsp;&nbsp;&nbsp; 3<br>
+3 &nbsp;&nbsp;&nbsp; 4 &nbsp;&nbsp;&nbsp; 2
+    
+	 </font>
+</b></td>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=40></td>
+
+</tr></table>
+<!-- fine matrice annidata--> 
+</TD>
+<td rowspan="2" align="center"><font size=5 color="ff0000"><img src="../../immagini/matricep.jpg" width="20"></font>
+</td>
+<td>
+<!-- matrice annidata-->
+<table><tr>
+<td><img src="../immagini/matriceblu.jpg" width=10 height=60></td>
+
+<td><b><font color="0000ff" size=3>
+1 &nbsp;&nbsp;&nbsp;  4 &nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp; 6<br>
+2 &nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp; 3 &nbsp;&nbsp;&nbsp; 4 <br>
+ 3 &nbsp;&nbsp;  -1 &nbsp;&nbsp;&nbsp; 5 &nbsp;&nbsp;&nbsp; 2
+ 
+  	 </font>
+</b></td>
+<td><img src="../immagini/matriceblu.jpg" width=10 height=60> </td>
+
+</tr>
+</table>
+<!-- fine matrice annidata -->
+</td>
+<td rowspan="2"><font size=5 color="ff0000"> &nbsp; = &nbsp;</font>
+</td>
+
+</TR>
+ </table>
+
+
+devo moltiplicare ogni termine di una riga per ogni termine di una colonna: <br>
+<font size=2>
+<ul type="circle">
+<LI>
+al primo posto a<sub>1,1</sub> metto la somma dei prodotti degli elementi della prima riga per la prima colonna<br>
+<font size=2 color="ff0000"><b>1&#183;<font color="0000ff">1</font> +  2&#183;<font color="0000ff">2</font> + 3&#183;<font color="0000ff">3</font> = 14 </b></font>
+</LI>
+
+<LI>
+al posto a<sub>1,2</sub> metto la somma dei prodotti degli elementi della prima riga per la seconda colonna<br>
+<font size=2 color="ff0000"><b>1&#183;<font color="0000ff">4</font> +  2&#183;<font color="0000ff">1</font> + 3&#183;<font color="0000ff">(-1)</font> = 3 </b></font>
+</LI>
+
+<LI>
+al posto a<sub>1,3</sub> metto la somma dei prodotti degli elementi della prima riga per la terza colonna<br>
+<font size=2 color="ff0000"><b>1&#183;<font color="0000ff">2</font> +  2&#183;<font color="0000ff">3</font> + 3&#183;<font color="0000ff">5</font> = 23 </b></font>
+</LI>
+
+<LI>
+al posto a<sub>1,4</sub> metto la somma dei prodotti degli elementi della prima riga per la quarta colonna<br>
+<font size=2 color="ff0000"><b>1&#183;<font color="0000ff">6</font> +  2&#183;<font color="0000ff">4</font> + 3&#183;<font color="0000ff">2</font> = 20 </b></font>
+</LI>
+
+<LI>
+al posto a<sub>2,1</sub> metto la somma dei prodotti degli elementi della seconda riga per la prima colonna<br>
+<font size=2 color="ff0000"><b>3&#183;<font color="0000ff">1</font> +  4&#183;<font color="0000ff">2</font> + 2&#183;<font color="0000ff">3</font> = 17 </b></font>
+</LI>
+<li>
+al posto a<sub>2,2</sub> metto la somma dei prodotti degli elementi della seconda riga per la seconda colonna<br>
+<font size=2 color="ff0000"><b>3&#183;<font color="0000ff">4</font> +  4&#183;<font color="0000ff">1</font> + 2&#183;<font color="0000ff">(-1)</font>  = 14</b> </font>
+</li>
+<li>
+al posto a<sub>2,3</sub> metto la somma dei prodotti degli elementi della seconda riga per la terza colonna<br>
+<font size=2 color="ff0000"><b>3&#183;<font color="0000ff">2</font> + 
+4&#183;<font color="0000ff">3</font> + 2&#183;<font color="0000ff">5</font> =
+28</b></font>
+</li>
+<li>al posto a<sub>2,4</sub> metto la somma dei prodotti degli elementi della seconda riga per la quarta colonna<br>
+<font size=2 color="ff0000"><b>3&#183;<font color="0000ff">6</font> +  4&#183;<font color="0000ff">4</font> + 2&#183;<font color="0000ff">2</font> = 38 </b></font>
+</li>
+
+</ul>
+
+cioe'
+
+<table><tr>
+<td><font size=5 color="ff0000">=</font></td>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=40></td>
+
+<td><b><font color="ff0000" size=2>
+<b>1&#183;<font color="0000ff">1</font> + 
+ 2&#183;<font color="0000ff">2</font> + 3&#183;<font color="0000ff">3</font>  </b>
+
+&nbsp;&nbsp;&nbsp;  
+
+<b>1&#183;<font color="0000ff">4</font> +  2&#183;<font color="0000ff">1</font> + 3&#183;<font color="0000ff">(-1)</font>  </b>
+
+ &nbsp;&nbsp;&nbsp;
+
+ <b>1&#183;<font color="0000ff">2</font> +  2&#183;<font color="0000ff">3</font> + 3&#183;<font color="0000ff">5</font>  </b>
+
+ &nbsp;&nbsp;&nbsp; 
+<b>1&#183;<font color="0000ff">6</font> +  2&#183;<font color="0000ff">4</font> + 3&#183;<font color="0000ff">2</font>  </b>  
+<br>
+
+<b>3&#183;<font color="0000ff">1</font> +  4&#183;<font color="0000ff">2</font> + 2&#183;<font color="0000ff">3</font>  </b>
+
+ &nbsp;&nbsp;&nbsp;
+<b>3&#183;<font color="0000ff">4</font> +  4&#183;<font color="0000ff">1</font> + 2&#183;<font color="0000ff">(-1)</font>  </b> 
+
+&nbsp;&nbsp;&nbsp; 
+<b>3&#183;<font color="0000ff">2</font> +  4&#183;<font color="0000ff">3</font> + 2&#183;<font color="0000ff">5</font>  </b>
+
+ &nbsp;&nbsp;&nbsp; 
+<b>3&#183;<font color="0000ff">6</font> +  4&#183;<font color="0000ff">4</font> + 2&#183;<font color="0000ff">2</font>  </b>   
+  	 </font>
+</b></td>
+<td><img src="../immagini/matriceblu.jpg" width=10 height=40> </td>
+<td><font size=5 color="ff0000">=</font></td>
+</tr>
+</table>
+<br><br>
+<table><tr>
+<td><font size=5 color="ff0000">=</font></td>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=40></td>
+
+<td><b><font color="ff0000" size=3>
+14 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  3 &nbsp;&nbsp;&nbsp; 23 &nbsp;&nbsp;&nbsp; 20<br>
+17 &nbsp;&nbsp;&nbsp; 14 &nbsp;&nbsp;&nbsp; 28 &nbsp;&nbsp;&nbsp; 38 
+ 
+ 
+  	 </font>
+</b></td>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=40> </td>
+
+</tr>
+</table> 
+</font>
+<hr>
+Un'interessante applicazione del prodotto righe per colonne e' che permette di dare una rappresentazione matriciale di un sistema di n equazioni in n incognite<br>
+
+ad esempio il sistema:<br><br>
+
+<img src="../../immagini/graffa.jpg" width=16 height=150 align="left">
+<font color="ff0000" size=4><b>
+a<sub><font size=1>1,1</font></sub> x<sub><font size=1>1</font></sub> + a<sub><font size=1>1,2</font></sub> x<sub><font size=1>2</font></sub> + a<sub><font size=1>1,3</font></sub> x<sub><font size=1>3 </font></sub> + .... +
+a<sub><font size=1>1,n</font></sub> x<sub><font size=1>n </font></sub> = b<sub><font size=1>1</font></sub><br>
+
+a<sub><font size=1>2,1</font></sub> x<sub><font size=1>1</font></sub> + a<sub><font size=1>2,2</font></sub> x<sub><font size=1>2</font></sub> + a<sub><font size=1>2,3</font></sub> x<sub><font size=1>3 </font></sub> + .... +
+a<sub><font size=1>2,n</font></sub> x<sub><font size=1>n </font></sub> = b<sub><font size=1>2</font></sub><br>
+a<sub><font size=1>3,1</font></sub> x<sub><font size=1>1</font></sub> + a<sub><font size=1>3,2</font></sub> x<sub><font size=1>2</font></sub> + a<sub><font size=1>3,3</font></sub> x<sub><font size=1>3 </font></sub> + .... +
+a<sub><font size=1>3,n</font></sub> x<sub><font size=1>n </font></sub> = b<sub><font size=1>3</font></sub><br>
+
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . <br>
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . <br>
+
+a<sub><font size=1>n,1</font></sub> x<sub><font size=1>1</font></sub> + a<sub><font size=1>n,2</font></sub> x<sub><font size=1>2</font></sub> + a<sub><font size=1>n,3</font></sub> x<sub><font size=1>3 </font></sub> + .... +
+a<sub><font size=1>n,n</font></sub> x<sub><font size=1>n </font></sub> = b<sub><font size=1>n</font></sub><br>
+</b></font>
+<br><br>
+si puo' rappresentare come<br>
+
+
+
+<table>
+<TR>
+<TD align="center">
+<!-- matrice annidata--><table><tr>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=140></td>
+
+<td><b><font color="ff0000" size=3>
+a<sub><font size=1>1,1</font></sub> &nbsp;&nbsp;&nbsp;  a<sub><font size=1>1,2</font></sub> &nbsp;&nbsp;&nbsp; a<sub><font size=1>1,3</font></sub> &nbsp;&nbsp;&nbsp; .......
+&nbsp; a<sub><font size=1>1,n</font></sub><br>
+
+a<sub><font size=1>2,1</font></sub> &nbsp;&nbsp;&nbsp;  a<sub><font size=1>2,2</font></sub> &nbsp;&nbsp;&nbsp; a<sub><font size=1>2,3</font></sub> &nbsp;&nbsp;&nbsp; .......
+&nbsp; a<sub><font size=1>2,n</font></sub><br>
+
+a<sub><font size=1>3,1</font></sub> &nbsp;&nbsp;&nbsp;  a<sub><font size=1>3,2</font></sub> &nbsp;&nbsp;&nbsp; a<sub><font size=1>3,3</font></sub> &nbsp;&nbsp;&nbsp; .......
+&nbsp; a<sub><font size=1>3,n</font></sub><br>
+
+. . . . . . . . . . . . . . . . . . . . <br>
+. . . . . . . . . . . . . . . . . . . . <br>
+
+a<sub><font size=1>n,1</font></sub> &nbsp;&nbsp;&nbsp;  a<sub><font size=1>n,2</font></sub> &nbsp;&nbsp;&nbsp; a<sub><font size=1>n,3</font></sub> &nbsp;&nbsp;&nbsp; .......
+&nbsp; a<sub><font size=1>n,n</font></sub><br>
+
+    
+	 </font>
+</b></td>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=140></td>
+
+</tr></table>
+<!-- fine matrice annidata--> 
+</TD>
+<td rowspan="2"><font size=4 color="ff0000"><img src="../../immagini/matricep.jpg" width=20></font>
+</td>
+<td>
+<!-- matrice annidata-->
+<table><tr>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=140></td>
+
+<td><b><font color="ff0000" size=3>
+x<sub><font size=1>1</font></sub><br>
+x<sub><font size=1>2</font></sub><br>
+x<sub><font size=1>3</font></sub><br>
+... <br>
+... <br>
+x<sub><font size=1>n</font></sub><br>
+  
+  	 </font>
+</b></td>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=140> </td>
+
+</tr>
+</table>
+<!-- fine matrice annidata -->
+</td>
+<td rowspan="2"><font size=5 color="ff0000"> &nbsp; = &nbsp;</font>
+</td>
+<td>
+<!-- matrice annidata-->
+<table><tr>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=140></td>
+
+<td><b><font color="ff0000" size=3>
+b<sub><font size=1>1</font></sub><br>
+b<sub><font size=1>2</font></sub><br>
+b<sub><font size=1>3</font></sub><br>
+.... <br>
+.... <br>
+b<sub><font size=1>n</font></sub><br>
+  
+  	 </font>
+</b></td>
+<td><img src="../immagini/matricerossa.jpg" width=10 height=140> </td>
+
+</tr>
+</table>
+<!-- fine matrice annidata -->
+</td>
+</TR>
+ </table>
+
+
+
+
+
+
+</font> 
+<hr>
+
+   </td>
+   </tr>
+   </font>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+   <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></LI>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../a.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></blink>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="ajdb.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></b>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="ajd.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></a>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

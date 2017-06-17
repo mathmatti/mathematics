@@ -1,0 +1,248 @@
+<HTML>
+<HEAD>
+<TITLE>calcolo del determinante
+</TITLE>
+<style>
+A:link, A:visited{text-decoration:none}
+A:hover{text-decoration:underline;color:black}
+  </style>
+</HEAD>
+<BODY Background="../immagini/sfondo0307.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+   Calcolo del determinante col metodo di Laplace
+   </font></center>
+<br>
+   <font size=4>
+
+<hr>
+Il determinante di ordine 1 corrisponde al numero stesso<br>
+<table><tr>
+ <td><img src="../immagini/determinanterosso.jpg" width=10 height=25> </td>
+<td><b> <font color="ff0000" size=4>a<sub><font size=1>1,1</font></sub></font></b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=25> </td>
+<td><b> <font color="ff0000" size=4> = a<sub><font size=1>1,1</font></sub></font></b></td>
+</tr></table>
+<br>
+Se ora vado a rivedere come <a href="../ai/aibaad0.html" target="_blank">calcolavo</a> il determinante nel caso di un sistema di due equazioni in due incognite posso dire:
+
+<table><tr>
+ <td><img src="../immagini/determinanterosso.jpg" width=10 height=60> </td>
+<td><b> <font color="ff0000" size=4>
+a<sub><font size=1>1,1</font></sub> &nbsp;&nbsp;
+a<sub><font size=1>1,2</font></sub><br>
+a<sub><font size=1>2,1</font></sub> &nbsp;&nbsp;
+a<sub><font size=1>2,2</font></sub></font><br>
+
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=60> </td>
+<td><b><font color="ff0000"> = a<sub><font size=1>1,1</font></sub>&#183;a<sub><font size=1>2,2</font></sub>  -  a<sub><font size=1>1,2</font></sub>&#183;a<sub><font size=1>2,1</font></sub> = a<sub><font size=1>1,1</font></sub>&#183;C<sub><font size=1>1,1</font></sub> - a<sub><font size=1>1,2</font></sub>&#183;C<sub><font size=1>1,2</font></sub>  </font></b></td>
+</tr>
+</table><br>
+Cioe' moltiplico il primo elemento della prima riga per il suo <a href="../ai/aibbbc3.html" target="_blank">complemento </a> e moltiplico il secondo elemento della prima riga per il suo <a href="../ai/aibbbc4.html" target="_blank">complemento </a> e faccio la differenza<br>
+Posso anche dire:<br> <b>Sommo ogni termine della prima riga moltiplicato per il suo complemento algebrico</b><hr>
+<font size=2>Controlla come esercizio che e' indifferente se sviluppi utilizzando gli elementi della seconda riga, della prima colonna od anche della seconda colonna: ottieni sempre lo stesso risultato</font>
+<hr>
+Estendiamo il metodo ad un determinante 3x3
+<br><br>
+<table><tr>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+a<sub><font size=1>1,1</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>1,2</font></sub> &nbsp;&nbsp;
+a<sub><font size=1>1,3</font></sub> <br>
+    a<sub><font size=1>2,1</font></sub>&nbsp;&nbsp; 
+a<sub><font size=1>2,2</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>2,3</font></sub> <br>
+ a<sub><font size=1>3,1</font></sub>&nbsp;&nbsp; 
+a<sub><font size=1>3,2</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>3,3</font></sub> <br>
+	 </font>
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90> </td>
+
+</tr>
+</table>
+<br>
+Sviluppo secondo la prima riga (e' indifferente sviluppare secondo una qualsiasi riga o colonna) mettendo il segno positivo se la somma degli indici dell'elemento e' pari ed il segno negativo se la somma degli indici dell'elemento e' dispari.<br>
+Meglio dire: <br>
+<b> Sommo ogni termine di una riga (o colonna) moltiplicato per il suo complemento algebrico </b>
+<br>
+
+<table><tr>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+a<sub><font size=1>1,1</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>1,2</font></sub> &nbsp;&nbsp;
+a<sub><font size=1>1,3</font></sub> <br>
+    a<sub><font size=1>2,1</font></sub>&nbsp;&nbsp; 
+a<sub><font size=1>2,2</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>2,3</font></sub> <br>
+ a<sub><font size=1>3,1</font></sub>&nbsp;&nbsp; 
+a<sub><font size=1>3,2</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>3,3</font></sub> <br>
+	 </font>
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90> </td>
+<td><b><font color="ff0000" size=4> 
+= <a title="calcolo del segno" href="../ai/aibbbc0.html" target="_blank"><font size=5>+</font></a> a<sub><font size=1>1,1</font></sub>&#183;C<sub><font size=1>1,1</font></sub>
+<a title="calcolo del segno" href="../ai/aibbbc1.html" target="_blank"><font size=6>-</font></a> a<sub><font size=1>1,2</font></sub>&#183;C<sub><font size=1>1,2</font></sub>
+<a title="calcolo del segno" href="../ai/aibbbc2.html" target="_blank"><font size=5>+</font></a> a<sub><font size=1>1,3</font></sub>&#183;C<sub><font size=1>1,3</font></sub>
+
+</font></b></td>
+
+</tr>
+</table>
+<font size=1>se vuoi vedere come calcolare il segno dei complementi algebrici fai click sopra i segni stessi</font>
+<br>
+<br>
+
+e quindi abbiamo<br>
+<table><tr>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90></td>
+
+<td><b><font color="ff0000" size=4>
+a<sub><font size=1>1,1</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>1,2</font></sub> &nbsp;&nbsp;
+a<sub><font size=1>1,3</font></sub> <br>
+    a<sub><font size=1>2,1</font></sub>&nbsp;&nbsp; 
+a<sub><font size=1>2,2</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>2,3</font></sub> <br>
+ a<sub><font size=1>3,1</font></sub>&nbsp;&nbsp; 
+a<sub><font size=1>3,2</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>3,3</font></sub> <br>
+	 </font>
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=90> </td>
+
+<td><b><font color="ff0000" size=4> = a<sub><font size=1>1,1</font></sub> &#183; </font></b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=60> </td>
+<td><b><font color="ff0000" size=4>
+a<sub><font size=1>2,2</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>2,3</font></sub> <br> 
+a<sub><font size=1>3,2</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>3,3</font></sub> <br>
+</font></b></td>
+ <td><img src="../immagini/determinanterosso.jpg" width=10 height=60> </td> 
+
+<td><b><font color="ff0000" size=4> - a<sub><font size=1>1,2</font></sub> &#183; </font></b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=60> </td>
+<td><b><font color="ff0000" size=4>
+a<sub><font size=1>2,1</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>2,3</font></sub> <br> 
+a<sub><font size=1>3,1</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>3,3</font></sub> <br>
+</font></b></td>
+ <td><img src="../immagini/determinanterosso.jpg" width=10 height=60> </td> 
+
+<td><b><font color="ff0000" size=4> + a<sub><font size=1>1,3</font></sub> &#183; </font></b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=60> </td>
+<td><b><font color="ff0000" size=4>
+a<sub><font size=1>2,1</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>2,2</font></sub> <br> 
+a<sub><font size=1>3,1</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>3,2</font></sub> <br>
+</font></b></td>
+ <td><img src="../immagini/determinanterosso.jpg" width=10 height=60> </td> 
+
+</tr>
+</table>
+<hr><font size=2>
+Se vuoi vedere un esempio numerico di <a href="ajcba.html" target="_blank">calcolo di un determinante </a> 3x3 </font><hr>
+
+
+Questo metodo sara' applicabile per ricorrenza anche a determinanti 4x4, 5x5,....
+<br>
+Regola generale (sviluppo secondo l'h-sima riga)<br><br>
+
+<table><tr> 
+ <td><img src="../immagini/determinanterosso.jpg" width=10 height=120></td>
+
+<td align="center"><b><font color="ff0000" size=3>
+a<sub><font size=1>1,1</font></sub> &nbsp;&nbsp; 
+a<sub><font size=1>1,2</font></sub> &nbsp;&nbsp;
+. . . &nbsp;&nbsp;a<sub><font size=1>1,k</font></sub>&nbsp;&nbsp; . . . &nbsp;&nbsp;
+a<sub><font size=1>1,n</font></sub><br>
+
+    a<sub><font size=1>2,1</font></sub>&nbsp;&nbsp; 
+a<sub><font size=1>2,2</font></sub> &nbsp;&nbsp; 
+. . . &nbsp;&nbsp;a<sub><font size=1>2,k</font></sub>&nbsp;&nbsp; . . . &nbsp;&nbsp;
+a<sub><font size=1>2,n</font></sub><br>
+. . . . . . . . . . . . . . . . . . . . . . . .  <br>
+a<sub><font size=1>h,1</font></sub>&nbsp;&nbsp; 
+a<sub><font size=1>h,2</font></sub> &nbsp;&nbsp; 
+. . . &nbsp;&nbsp;a<sub><font size=1>h,k</font></sub>&nbsp;&nbsp; . . . &nbsp;&nbsp;
+a<sub><font size=1>h,n</font></sub><br>
+. . . . . . . . . . . . . . . . . . . . . . . . <br>
+
+ a<sub><font size=1>n,1</font></sub>&nbsp;&nbsp; 
+a<sub><font size=1>n,2</font></sub> &nbsp;&nbsp; 
+. . . &nbsp;&nbsp;a<sub><font size=1>n,k</font></sub>&nbsp;&nbsp; . . . &nbsp;&nbsp;
+a<sub><font size=1>n,n</font></sub><br>
+	 </font>
+</b></td>
+<td><img src="../immagini/determinanterosso.jpg" width=10 height=120></td>
+<td><b><font color="ff0000" size=3>=</font></b></td>
+</tr></table><br><br>
+<b><font color="ff0000" size=3>
+ = a<sub><font size=1>h,1</font></sub> (-1)<sup><font size=2>h+1</font></sup> C<sub><font size=1>h,1</font></sub> 
++ a<sub><font size=1>h,2</font></sub> (-1)<sup><font size=2>h+2</font></sup> C<sub><font size=1>h,2</font></sub> +
+.... +
+a<sub><font size=1>h,k</font></sub> (-1)<sup><font size=2>h+k</font></sup> C<sub><font size=1>h,k</font></sub> +
+.... +
+a<sub><font size=1>h,n</font></sub> (-1)<sup><font size=2>h+n</font></sup> C<sub><font size=1>h,n</font></sub> 
+
+</font></b>
+<br><br>
+<font size=2>ti ricordo che i termini (-1)<sup><font size=1></font>h+k</sup> forniscono il segno del complemento algebrico e valgono +1 quando l'esponente e' pari mentre valgono -1 quando l'eponente e' dispari</font>
+<hr>
+Inoltro posso scegliere una qualunque riga o colonna per sviluppare; quindi, per rendere i calcoli piu' semplici, se possibile, scegliero' una riga o una colonna dove vi sono termini uguali a zero
+<hr>
+<!--
+<font size=2>Se vuoi vedere la <a href="ajcbb.html" target="blank">Formula generale</a> per un determinante nxn</font>
+<hr> -->
+<font size=2>
+esempio di <a href="../ai/aibcaca.html" target="_blank">calcolo di un determinante </a> 4x4<br>
+esempio di <a href="../ai/aibcaba.html" target="_blank">calcolo di un determinante </a> 5x5 
+</font>
+<hr>
+
+Essendo i calcoli generalmente molto laboriosi vedremo nella prossima pagina delle proprieta' che ci permetteranndo di trasformare un determinante in altri equivalenti ma con righe o colonne con elementi nulli
+ 
+
+
+ 
+<hr>
+
+   </td>
+   </tr>
+   </font>
+   <p>
+ <table cellpadding=12>
+<tr bgcolor="ffffaa">
+   <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></LI>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../a.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></blink>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="ajcc.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></b>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="ajca.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>

@@ -1,0 +1,75 @@
+<HTML>
+<HEAD>
+<TITLE>trovare termine di posto k
+</TITLE>
+</HEAD>
+<BODY Background="../immagini/sfondoq020.jpg"> <P>
+<center><br><br><br>
+<table border=0 width=80% cellpadding=20>
+ <tr bgcolor="ccffcc">
+
+   <td>
+   <center><font color="#FF2200" size=6>
+  Conoscendo il termine di posto h e la ragione trovare il termine di posto k
+   </font></center> 
+<br><br>
+
+  <font size=4><hr> <br> 
+in pratica e' l'inverso di quello che abbiamo fatto nella pagina precedente:<br>
+Vediamo, anche qui, sullo stesso esempio della pagina precedente,  come procedere <br>
+Supponiamo di conoscere il terzo termine <b>a<sub><font size=2>3</font></sub> = 12</b> e la ragione <b>2</b>, troviamo il settimo termine <b>a<sub><font size=2>7</font></sub> = 192</b><br><br>
+Per ottenere il settimo termine partendo dal terzo devo moltiplicare il terzo per la ragione per 4 volte (7-3)<br>
+quindi <br><br>
+<b>a<sub><font size=2>7</font></sub> = a<sub><font size=2>3</font></sub> &middot; 2<sup>4</sup>= 12&middot;16 = 192 </b><br><br>
+ Adesso facciamo lo stesso ragionamento con due termini generici, in modo da avere la formula generale<br><br>
+Supponiamo di conoscere il termine 
+<b>a<sub>k</sub></b> e la ragione <b>q</b><br> supponiamo, per semplicita'  anche  <b>k&lt;n</b> <br>
+allora per ottenere <b>a<sub><font size=2></font>k</sub></b> partendo da <b>a<sub><font size=2></font>h</sub></b>, dovro' moltiplicare tale termine per la ragione <b>q</b> elevata all'esponente <b>(n-k)</b><br><br>
+<center> <font color="ff0000" size="5">
+<b>a<sub><font size=3>n</font></sub> = a<sub><font size=3>k</font></sub>&middot;q<sup>(n-k)</sup></b><br> </font>
+</center>
+<font size=2>(siccome se k&gt;n la differenza n-k diventa negativa la formula e' comunque valida: infatti, essendo n-k un esponente  negativo significa che  devo moltiplicare per l'inverso, cioe'  dividere, come vedi nell'esempio successivo) </font>
+<br>
+
+  <hr>
+<font size=2>esempio: anche qui riferiamoci allo stesso esempio della pagina precedente<br>
+<font size=3>
+ Dato il sesto termine <b>a<sub>6</sub>= 96</b> e la ragione <b>q = 2</b> trovare il secondo termine <b>a<sub>2</sub></b>  </font><br><br> 
+applico la formula<br>
+ 
+<b>a<sub>2</sub> = a<sub>6</sub>&middot;2<sup>2-6</sup> = 96&middot;2<sup>-4</sup> = 96/2<sup>4</sup> = 96/16 = 6</b>
+
+quindi <b>a<sub>2</sub>= 6</b>
+ 
+
+</font> 
+
+ 
+  <hr>
+   </font>
+   </td>
+   </tr>
+   </table>
+   <p>
+ <table cellpadding=12> 
+<tr bgcolor="ffffaa">
+   <td align="center" valign=middle>
+    <A HREF="../../../index.html"><IMG SRC="../../immagini/dino.jpg" Height=70 Width=70 alt="Pagina iniziale" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="../../q.html"><IMG SRC="../../immagini/indice.jpg" Height=70 width=70 alt="Indice di algebra" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+     <A HREF="qbbe.html"><IMG SRC="../../immagini/avanti.jpg" Height=70 Width=70 alt="Pagina successiva" border=0></A>
+   </td>
+
+   <td align="center" valign=middle>
+      <A HREF="qbbc.html"><IMG SRC="../../immagini/indietro.jpg" Height=70 Width=70 alt="Pagina precedente" border=0></A>
+    </td>
+</tr>
+</table>
+  </center>
+  </BODY>
+</HTML>
