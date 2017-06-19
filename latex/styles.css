@@ -1,0 +1,50 @@
+@media only screen and (min-width: 1600px) {
+
+	body {
+		margin-left: 450px;
+		margin-right: 450px;
+	}
+
+}
+
+@media only screen and (min-width: 1000px) {
+
+	body {
+		margin-left: 250px;
+		margin-right: 250px;
+	}
+
+}
+
+	body {
+		background-color: black;
+		color: white;
+		text-align: justify;
+	}
+	
+	h2 {
+		color: 	fuchsia;		
+	}
+
+	h3 {
+		color: yellow;
+	}
+
+	li {
+		color: white;
+	}
+	
+	a {
+		color: #b5e853;
+	}
+	a:hover {
+		color: #b5e853;
+	}
+
+	a:visited {
+		color: #b5e853;
+	}
+
+	.verbatim {
+		color: red;
+	}

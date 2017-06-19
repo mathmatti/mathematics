@@ -23,7 +23,7 @@ REM	move %%G %SITEDIR%
 REM )
 
 del %LATEXDIR%\*.log
-REM del %LATEXDIR%\*.dvi
+del %LATEXDIR%\*.dvi
 del %LATEXDIR%\*.4tc
 del %LATEXDIR%\*.4ct
 del %LATEXDIR%\*.aux
