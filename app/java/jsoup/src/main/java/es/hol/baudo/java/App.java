@@ -28,7 +28,7 @@ public class App
     	Document doc = Jsoup.parse(input, "UTF-8");    	
     	Element e = doc.body();   
     	e.select("head"); //selezione da sistemare
-    	e.append("<link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\">");
+    	e.append("<link rel=\"stylesheet\" type=\"text/css\" href=\"./css/styles.css\">");
     	
     	System.out.println(doc.outerHtml());
     	    	

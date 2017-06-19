@@ -9,9 +9,9 @@ REM del %SITEDIR%\*.*
 
 REM cd ..\..\latex
 cd %LATEXDIR%
-FOR %%G IN ("%LATEXDIR%\*.tex") DO (
-	
-	htlatex %%~nxG 	
+FOR %%G IN ("%LATEXDIR%\*.tex") DO (	
+	REM htlatex %%~nxG 	
+	pdflatex %%~nxG
 )
 
 REM FOR %%G IN ("%LATEXDIR%\*.html") DO (
