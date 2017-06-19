@@ -2,8 +2,8 @@ REM compile from latex to html
 @ECHO off 
 SETLOCAL enableDelayedExpansion 
 
-SET LATEXDIR=C:\Users\baudo_g\git\mathematics
-SET SITEDIR=C:\Users\baudo_g\git\mathematics\site
+SET LATEXDIR=C:\Users\baudo_g\git\mathematics\latex
+SET SITEDIR=C:\Users\baudo_g\git\mathematics\latex
 
 REM del %SITEDIR%\*.*
 
@@ -14,16 +14,16 @@ FOR %%G IN ("%LATEXDIR%\*.tex") DO (
 	htlatex %%~nxG 	
 )
 
-FOR %%G IN ("%LATEXDIR%\*.html") DO (
-	move %%G %SITEDIR%
-)
+REM FOR %%G IN ("%LATEXDIR%\*.html") DO (
+REM	move %%G %SITEDIR%
+REM )
 
-FOR %%G IN ("%LATEXDIR%\*.css") DO (
-	move %%G %SITEDIR%
-)
+REM FOR %%G IN ("%LATEXDIR%\*.css") DO (
+REM	move %%G %SITEDIR%
+REM )
 
 del %LATEXDIR%\*.log
-del %LATEXDIR%\*.dvi
+REM del %LATEXDIR%\*.dvi
 del %LATEXDIR%\*.4tc
 del %LATEXDIR%\*.4ct
 del %LATEXDIR%\*.aux
