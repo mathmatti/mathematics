@@ -1,0 +1,90 @@
+\documentclass[a4paper,oneside]{book}
+\usepackage{analisi-matematica}
+\hypersetup{
+	pdftitle={Analisi Matematica},
+	pdfauthor={Davide Ferracin},
+	pdflang={it},
+	pdfsubject={Appunti dei corsi di Analisi Matematica},
+	pdfcreator={Davide Ferracin},
+	pdfcaptionwriter={Davide Ferracin}
+	pdfcopyright={Creative Commons Attribution-ShareAlike 4.0 International},	
+	pdflicenseurl={http://creativecommons.org/licenses/by-sa/4.0/},
+	pdfmetalang={it}
+}
+
+\title{
+	{\sffamily\fontsize{35}{42}\selectfont Analisi Matematica}
+}
+\author{
+	{\small a cura di}\\
+	Davide Ferracin
+}
+\date{}
+
+\pagestyle{headings}
+
+\addbibresource{analisi-matematica.bib}
+
+\begin{document}
+\frontmatter
+
+% Frontespizio
+\maketitle
+
+% Colophon
+\null % Bisogna inserire qualcosa prima di \vfill, altrimenti non funziona
+\vfill % Riempie lo spazio verticale della pagina
+\hspace*{-1.5em}\includegraphics[scale=.7]{by-sa-icon.pdf}
+\begin{flushleft}
+	Quest'opera è stata rilasciata con licenza \emph{Creative Commons} Attribuzione - Condividi allo stesso modo 4.0 Internazionale. Per leggere una copia della licenza visita il sito web \url{http://creativecommons.org/licenses/by-sa/4.0/}.\\
+	2015, Davide Ferracin (\href{mailto:davide.ferracin@studenti.unimi.it}{\ttfamily davide.ferracin@studenti.unimi.it})\\[1cm]
+	Versione aggiornata al \today.
+\end{flushleft}
+
+\include{prefazione}
+
+\mainmatter
+
+\part{}
+\startcontents[parts]
+\printcontents[parts]{}{-1}{\setcounter{tocdepth}{1}}
+\include{i/insiemi-numerici}
+\include{i/spazi-metrici}
+\include{i/successioni}
+\include{i/serie}
+\include{i/limiti-continuita}
+\include{i/calcolo-differenziale}
+\include{i/numeri-complessi}
+\stopcontents[parts]
+\part{}
+\startcontents[parts]
+\printcontents[parts]{}{-1}{\setcounter{tocdepth}{1}}
+\include{ii/integrale-riemann}
+\include{ii/calcolo-differenziale-multidimensionale}
+\include{ii/successioni-funzioni}
+\include{ii/serie-funzioni}
+\include{ii/equazioni-differenziali-ordinarie}
+\stopcontents[parts]
+\part{}
+\startcontents[parts]
+\printcontents[parts]{3}{-1}{\setcounter{tocdepth}{1}}
+\include{iii/funzioni-implicite}
+\include{iii/forme-differenziali}
+\include{iii/integrale-lebesgue}
+\include{iii/analisi-vettoriale}
+\stopcontents[parts]
+
+\backmatter
+
+% Bibliografia
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{part}{\bibname}
+\nocite{*}
+\printbibliography
+
+% Indice
+\cleardoublepage
+\pdfbookmark[-1]{Indice}{contents}
+\tableofcontents
+\end{document}

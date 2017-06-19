@@ -1,0 +1,462 @@
+\chapter{Determinanti}
+\section{Permutazioni} \label{sec:permutazioni}
+Prima di affrontare i determinanti, abbiamo bisogno di studiare le proprietà di base delle permutazioni tra numeri naturali.
+\begin{definizione} \label{d:permutazione}
+	Sia $J_n$ l'insieme dei naturali consecutivi fino a $n$, ossia l'insieme $\{1,2,\dots,n\}\subset\N$.
+	Una \emph{permutazione} è una mappa iniettiva $\sigma\colon J_n\to J_n$.
+\end{definizione}
+Una permutazione si può rappresentare ad esempio nella forma
+\begin{equation*}
+\sigma=\begin{pmatrix}1&2&3&4&5&\cdots&n\\50&849&23&1&9234&\cdots&k\end{pmatrix},
+\end{equation*}
+in cui $k\in J_n$.
+La scrittura $S_n$ indica l'insieme delle permutazioni $\sigma$ da $J_n$ in sé stesso.
+Poiché gli insiemi $J_n$ hanno cardinalità finita, una permutazione è automaticamente anche suriettiva.
+Si indica con $\sigma^{-1}$ l'inversa di $\sigma$.
+La composizione di due permutazioni $\zeta$ e $\sigma$ si indica in notazione moltiplicativa come $\zeta\sigma$.
+L'insieme $(S_n,\cdot)$, delle permutazioni dei primi $n$ numeri naturali rispetto alla composizione, forma un gruppo non abeliano, detto \emph{gruppo simmetrico}.
+Il suo elemento neutro è la permutazione che lascia invariati tutti gli elementi di $J_n$.
+\begin{definizione} \label{d:scambio}
+	Si chiama \emph{scambio}, o \emph{trasposizione}, un'operazione $J_n\to J_n$ che consiste nello scambio di due elementi, lasciando invariati tutti gli altri.
+\end{definizione}
+Uno scambio tra due elementi $a,b\in J_n$ si indica in breve con la notazione $(ab)$.
+\begin{proprieta} \label{pr:permutazione-prodotto-scambi}
+	Ogni permutazione si può sempre esprimere come prodotto di scambi:
+	\begin{equation*}
+		\sigma=\tau_1\tau_2\cdots\tau_s.
+	\end{equation*}
+\end{proprieta}
+Una permutazione è detta \emph{pari} se è composta da un numero pari di scambi, altrimenti è detta \emph{dispari}.
+La funzione detta \emph{segno} (o anche \emph{parità}) indica se la permutazione è pari o dispari, assegnando 1 alle prime e $-1$ alle ultime; essa è \emph{ben definita} nel senso che non dipende dall'ordine in cui gli scambi di cui è composta la permutazione sono effettuati.
+Se $s$ è il numero di scambi effettuati, il segno della permutazione che risulta dalla loro composizione è $\sgn(\sigma)=(-1)^s$.
+Possiamo facilmente dedurre alcune proprietà:
+\begin{itemize}
+	\item detto $\id$ l'elemento neutro $S_n$, esso è la permutazione che non effettua scambi, perciò $\sgn(\id)=1$;
+	\item per ogni $\sigma,\sigma'\in S_n$ si ha $\sgn(\sigma\sigma')=\sgn(\sigma)\sgn(\sigma')$;
+	\item $\sgn(\sigma\sigma^{-1})=\sgn(\id)=1$, ma allora $1=\sgn(\sigma)\sgn(\sigma^{-1})$ cioè $\sgn(\sigma^{-1})=\sgn(\sigma)$.
+\end{itemize}
+La mappa $\sgn\colon S_n\to\{-1,1\}$ è perciò un omomorfismo, chiaramente suriettivo, tra il gruppo simmetrico e l'insieme $\{-1,1\}$ con l'operazione di moltiplicazione.
+Il suo nucleo, composto dalle permutazioni pari (il cui segno è 1), forma un sottogruppo di $S_n$: esso è detto \emph{gruppo alterno} di ordine $n$, indicato solitamente con $A_n$.
+
+\section{Applicazioni multilineari alternanti}
+\begin{definizione} \label{d:applicazione-multilineare-alternante}
+	Siano $V_1,V_2,\dots,V_n,W$ spazi vettoriali sul campo $K$.
+	L'applicazione $T\colon V_1\times V_2\times\dots\times V_n\to W$ si dice \emph{multilineare} se $\forall v_1\in V_1,v_2\in V_2,\dots,v_n\in V_n$ e $v_i',v_i''\in V_i$ e $\mu,\lambda\in K$ si ha che
+	\begin{multline*}
+		T(v_1,\dots,v_{i-1},\mu v_i'+\lambda v_i'',v_{i+1},\dots,v_n)=\mu T(v_1,\dots,v_{i-1},v_i',v_{i+1},\dots,v_n)+\\+\lambda T(v_1,\dots,v_{i-1},v_i'',v_{i+1},\dots,v_n).
+	\end{multline*}
+	In pratica essa è lineare in ciascuna delle variabili.
+	Si dice inoltre \emph{alternante} se ogniqualvolta esistono due indici $i,j\in\{1,\dots,n\}$ per i quali $v_i=v_j$, allora $T(v_1,\dots,v_i,\dots,v_j,\dots,v_n)=0$.
+\end{definizione}
+Dall'alternanza dell'applicazione ricaviamo subito un'importante proprietà, nel caso in cui lo spazio di partenza sia il prodotto di tante copie di un unico spazio vettoriale.
+A tal proposito, come è uso comune, indichiamo
+\begin{equation}
+	V^n\defeq\underbracket[.5pt]{V\times V\times\cdots\times V}_{n\text{volte}}.
+\end{equation}
+\begin{teorema} \label{t:alternante-implica-antisimmetrica}
+	Sia $T\colon V^n\to W$ un'applicazione multilineare.
+	Se è alternante allora è antisimmetrica.
+\end{teorema}
+\begin{proof}
+	Scegliamo due variabili distinte uguali a $x+y$, con $x,y\in V$.
+	Risulta dalla multilinearità che
+	\begin{multline}
+		T(x_1,\dots,x+y,\dots,x+y,\dots,x_n)=T(x_1,\dots,x,\dots,x,\dots,x_n)+T(x_1,\dots,x,\dots,y,\dots,x_n)+\\+T(x_1,\dots,y,\dots,x,\dots,x_n)+T(x_1,\dots,y,\dots,y,\dots,x_n),
+	\end{multline}
+	mentre l'alternanza implica che il primo membro e il primo e ultimo termine del secondo membro sono nulli.
+	Di conseguenza
+	\begin{equation}
+		T(x_1,\dots,x,\dots,y,\dots,x_n)+T(x_1,\dots,y,\dots,x,\dots,x_n)=0
+	\end{equation}
+	cioè $T$ è antisimmetrica.
+\end{proof}
+In generale, in seguito ad uno scambio $\tau\colon\{1,\dots,n\}\to\{1,\dots,n\}$ risulta
+\begin{equation}
+	T(x_{\tau(1)},\dots,x_{\tau(n)})=-T(x_1,\dots,x_n).
+\end{equation}
+L'implicazione inversa non è sempre vera in generale: esistono infatti dei campi in cui vale $x=-x$ anche se $x\ne 0$, come $\Z_2$ in cui $1+1=0$.
+Essi sono i campi con caratteristica $2$, e in tal caso evidentemente l'antisimmetria non implica l'alternanza.
+Al di là di questi casi patologici, se la caratteristica del campo è diversa da 2 allora un'applicazione antisimmetrica è anche alternante e viceversa.
+\begin{proprieta} \label{pr:alternante-variabili-linearmente-dipendenti}
+	Se $\{x_1,\dots,x_k\}\subset V$ è un insieme linearmente dipendente in uno spazio vettoriale $V$ su un campo $K$, allora per ogni applicazione $T\colon V^k\to K$ alternante si ha $T(x_1,\dots,x_k)=0$.
+\end{proprieta}
+\begin{proof}
+	Esprimiamo uno dei vettori come combinazione lineare dei restanti, e sfruttiamo la multilinearità di $T$: a meno di riordinamenti, supponiamo che $x_1$ si possa scrivere come combinazione lineare
+	\begin{equation}
+		x_1=\alpha_2x_2+\cdots+\alpha_kx_k
+	\end{equation}
+	per certi $\alpha_i\in K$.
+	Otteniamo cos\`i
+	\begin{equation}
+		T(x_1,\dots,x_k)=T\bigg(\sum_{i=2}^k\alpha_ix_i,x_2,\dots,x_k\bigg)=\sum_{i=2}^k\alpha_iT(x_i,x_2,\cdots,x_k)
+	\end{equation}
+	ma in ciascun $T(x_i,x_2,\dots,x_k)$ c'e sempre (poich\'e $i=2,\dots,k$) una coppia di variabili uguali, perciò ognuno di questi è nullo, vale a dire $T(x_1,\dots,x_k)=0$.
+\end{proof}
+L'affermazione contraria, ossia che se l'insieme è linearmente indipendente allora $T(x_1,\dots,x_k)\ne~0$, vale solo se $k=\dim V$, cioè quando l'insieme è una base di $V$.
+
+\begin{lemma}
+	Sia $V$ uno spazio vettoriale di dimensione $n$ e con base $\mathcal B=\{e_1,\dots,e_n\}$, e $W$ un altro (arbitrario) spazio vettoriale, entrambi sul campo $K$.
+	Dato un insieme di $n$ vettori $\{v_1,\dots,v_n\}$, ogni applicazione multilineare alternante $T\colon V^n\to W$ si può scrivere come
+	\begin{equation}
+		T(v_1,\dots,v_n)=\sum_{\sigma\in S_n}\sgn(\sigma)\prod_{j=1}^nv_{\sigma(j)j}T(e_1,\dots,e_n)
+	\end{equation}
+	dove $v_{ab}$ è la $a$-esima componente del vettore $v_b$, ossia $v_b=\sum_{i=1}^nv_{ib}e_i$.
+\end{lemma}
+\begin{proof}
+	Scomponiamo i vettori come combinazioni lineari degli elementi di $\mathcal B$, nella forma $v_k=\sum_{k=1}^nv_{ik}e_i$ per $i=1,\dots,n$.
+	Allora, sfruttando la multilinearità, otteniamo
+	\begin{multline}
+		T(v_1,\dots,v_n)=
+		T\bigg(\sum_{i=1}^nv_{i1}e_i,\dots,\sum_{i=1}^nv_{in}e_i\bigg)=\\=
+		\sum_{i=1}^n\sum_{j=1}^n\cdots\sum_{k=1}^nv_{i1}v_{j2}\cdots v_{kn}T(e_i,e_j,\dots,e_k)=
+		\sum_{f\in F_n}T(e_{f(1)},\dots,e_{f(n)})\prod_{j=1}^nv_{f(j)j},
+	\end{multline}
+	indicando con $F_n$ l'insieme di tutte le funzioni da $\{1,\dots,n\}$ in s\'e stesso.
+	Se $f\in F_n$ non è iniettiva, allora esistono $i,k\le n$ tali per cui $f(i)=f(k)$, con $i\ne k$; dato che $T$ è alternante l'addendo corrispondente a tale $f$ è nullo.
+	Rimangono dunque nella somma solo le $f$ iniettive, che sono evidentemente anche suriettive.
+	Tali funzioni sono proprio le permutazioni di $\{1,\dots,n\}$: di conseguenza
+	\begin{equation}
+		T(v_1,\dots,v_n)=\sum_{\sigma\in S_n}T(e_{\sigma(1)},\dots,e_{\sigma(n)})\prod_{j=1}^nv_{\sigma(j)j}.
+	\end{equation}
+	Ora, ogni permutazione di $S_n$ può essere espressa come il prodotto di un certo numero $m$ di scambi: ogni volta che applichiamo uno di questi scambi alle variabili $e_1,\dots,e_n$ il segno di $T$ cambia, perch\'e è alternante.
+	In totale, dunque, $T(e_{\sigma(1)},\dots,e_{\sigma(n)})=(-1)^mT(e_1,\dots,e_n)=\sgn(\sigma)T(e_1,\dots,e_n)$ da cui ricaviamo infine
+	\begin{equation}
+		T(v_1,\dots,v_n)=\sum_{\sigma\in S_n}\sgn(\sigma)T(e_1,\dots,e_n)\prod_{j=1}^nv_{\sigma(j)j}.\qedhere
+	\end{equation}
+\end{proof}
+
+Ci concentriamo ora sulle \emph{forme} multilineari alternanti, ossia applicazioni da $V^n$ al campo $K$.
+Una loro caratteristica fondamentale è che sono univocamente determinate da un solo elemento di $K$, come vediamo nel seguente teorema.
+\begin{teorema} \label{t:unicita-applicazione-multilineare-alternante}
+	Sia $V$ uno spazio vettoriale sul campo $K$ con $\dim V=n$, e $\mathcal B=\{e_1,\dots,e_n\}$ una sua base.
+	Per ogni $\lambda\in K$, esiste un'unica forma multilineare alternante $h\colon V^n\to K$ tale che $h(e_1,\dots,e_n)=\lambda$.
+\end{teorema}
+\begin{proof}
+	Ci basta mostrare che
+	\begin{equation}
+		h\bigg(\sum_{j_1=1}^nv_{j_11}e_{j_1},\dots,\sum_{j_n=1}^nv_{j_nn}e_{j_n}\bigg)=\lambda\sum_{\sigma\in S_n}\sgn(\sigma)\prod_{k=1}^nv_{\sigma(k)k}
+		\label{eq:unicita-applicazione-multilineare-alternante}
+	\end{equation}
+	è la forma cercata.
+	L'unicità segue allora direttamente dal lemma precedente.
+
+	Dimostriamo che è multilineare: presi i vettori $v_1,\dots,av_k'+bv_k'',\dots,v_n$ si ha
+	\begin{equation}
+		\begin{split}
+			&h(v_1,\dots,av_k'+bv_k'',\dots,v_n)=\\
+			=\,&\lambda\!\sum_{\sigma\in S_n}\sgn(\sigma)v_{\sigma(1)1}\cdots(av_{\sigma(k)k}'+bv_{\sigma(k)k}'')\cdots v_{\sigma(n)n}=\\
+			=\,&\lambda a\!\sum_{\sigma\in S_n}\sgn(\sigma)v_{\sigma(1)1}\cdots v_{\sigma(k)k}'\cdots v_{\sigma(n)n}+
+			\lambda b\!\sum_{\sigma\in S_n}\sgn(\sigma)v_{\sigma(1)1}\cdots v_{\sigma(k)k}''\cdots v_{\sigma(n)n}=\\
+			=\,&ah(v_1,\dots,v_k',\dots,v_n)+bh(v_1,\dots,v_k'',\dots,v_n).
+		\end{split}
+	\end{equation}
+	Per dimostrare che è alternante, notiamo che, fissato uno scambio $\tau\in S_n$, per ogni permutazione dispari $\sigma\in S_n$ esiste una permutazione pari $\pi\in A_n$ tale che $\pi\tau=\sigma$.
+	Possiamo dunque suddividere il gruppo simmetrico nei due insiemi, disgiunti, $A_n$ e $\tau A_n=\{\sigma\in S_n\colon\sigma=\pi\tau,\ \pi\in A_n\}$.
+	Supponiamo ora che $v_k=v_l$ per $k\ne l$.
+	Detto $\tau=(kl)$, scriviamo le permutazioni dispari come $\pi\tau$, con $\pi$ pari, ottenendo
+	\begin{multline}
+		\lambda\!\sum_{\sigma\in S_n}\sgn(\sigma)\prod_{j=1}^nv_{\sigma(j)j}=
+		\lambda\!\sum_{\pi\in A_n}\sgn(\pi)v_{\pi(1)1}\cdots v_{\pi(n)n}+\lambda\sum_{\pi\in A_n}\sgn(\pi\tau)v_{(\pi\tau)(1)1}\cdots v_{(\pi\tau)(n)n}=\\=
+		\lambda\!\sum_{\pi\in A_n}v_{\pi(1)1}\cdots v_{\pi(k)k}\cdots v_{\pi(l)l}\cdots v_{\pi(n)n}-
+		\lambda\!\sum_{\pi\in A_n}v_{\pi(1)1}\cdots v_{\pi(l)k}\cdots v_{\pi(k)l}\cdots v_{\pi(n)n}
+	\end{multline}
+	poich\'e $(\pi\tau)(k)=\pi\big(\tau(k)\big)=\pi(l)$ e viceversa $(\pi\tau)(l)=\pi(k)$.
+	Abbiamo però che $v_l=v_k$, dunque $v_{\pi(l)k}=v_{\pi(l)l}$ e $v_{\pi(k)k}=v_{\pi(k)l}$, e per questo motivo i due termini coincidono, dando 0 come risultato.
+	La forma cos\`i definita è allora anche alternante.
+	Infine, applicandola agli elementi (ordinati) della base $\mathcal B$, si ottiene
+	\begin{equation}
+		h(e_1,\dots,e_n)=\lambda\!\sum_{\sigma\in S_n}\sgn(\sigma)\delta_{\sigma(1)1}\delta_{\sigma(2)2}\cdots\delta_{\sigma(n)n}
+	\end{equation}
+	e l'unico addendo non nullo è quello in cui $\sigma(i)=i$ $\forall i\in\{1,\dots,n\}$, ossia $\sigma$ è l'elemento neutro di $S_n$.
+	Allora $h(e_1,\dots,e_n)=\lambda\delta_{11}\delta_{22}\cdots\delta_{nn}=\lambda$.
+\end{proof}
+Le forme multilineari alternanti sono dunque univocamente determinate dal valore $\lambda$ che esse assumono sulla $n$-upla ordinata dei vettori della base di $V$.
+In altre parole, questo teorema afferma che lo spazio delle forme multilineari alternanti $V^n\to K$ e $K$ sono, come spazi vettoriali, isomorfi tramite la mappa di valutazione
+\begin{equation}
+	h\mapsto h(e_1,\dots,e_n).
+\end{equation}
+Inoltre possiamo guardare a $V^n$ (con $n=\dim V$) come allo spazio vettoriale i cui elementi sono $n$ vettori di $n$ elementi: in questa luce è facile associarlo allo spazio $\mat(n,K)$, in cui le matrici quadrate sono formate affiancando in ordine i vettori di ciascun $V$.
+Alla $n$-upla ordinata $(e_1,\dots,e_n)$ di $V^n$, se $\{e_1,\dots,e_n\}$ è la base canonica di $K^n$, corrisponde in questo modo la matrice $[e_1\ \cdots\ e_n]$ che è la matrice identità di ordine $n$.
+Possiamo allora considerare le forme multilineari alternanti sia su $V^n$ che su $\mat(n,K)$.
+Presa una matrice $A=(a_{ij})$ scriviamo cos\`i
+\begin{equation}
+	h(A)=\lambda\!\sum_{\sigma\in S_n}\sgn(\sigma)\prod_{j=1}^na_{\sigma(j)j}.
+	\label{eq:forma-multilineare-alternante-matrici}
+\end{equation}
+\begin{definizione} \label{d:determinante}
+	Definiamo \emph{determinante} di una matrice quadrata $A\in\mat(n,K)$ la forma multilineare alternante $h\colon\mat(n,K)\to K$ tale per cui $h(I_n)=1$, dove $I_n$ è la matrice identità di ordine $n$.
+\end{definizione}
+Il determinante di una matrice si indica solitamente con
+\begin{equation}
+	\det(A)\quad\text{oppure}\quad
+	\begin{vmatrix}
+		a_{11}&\cdots&a_{1n}\\
+		\vdots&\ddots&\vdots\\
+		a_{n1}&\cdots&a_{nn}
+	\end{vmatrix}.
+\end{equation}
+Per $\lambda=1$ nella \eqref{eq:forma-multilineare-alternante-matrici} otteniamo dunque l'equazione nota come \emph{formula di Leibniz}
+\begin{equation}
+	\det(A)=\sum_{\sigma\in S_n}\sgn(\sigma)\prod_{j=1}^na_{\sigma(j)j}.
+	\label{eq:determinante-leibniz}
+\end{equation}
+
+Riassumiamo quindi le proprietà del determinante di una matrice quadrata:
+\begin{enumerate}
+	\item $\det I_n=1$, dove $I_n$ è la matrice identità di $\mat(n,K)$;
+	\item se $A$ ha due colonne uguali, $\det A=0$;
+	\item se $B$ è ottenuta moltiplicando una (e \emph{una sola}) riga o colonna di $A$ per uno scalare $k\in K$, allora $\det B=k\det A$;
+	\item se $B$ è ottenuta scambiando due colonne di $A$, allora $\det B=-\det A$;
+	\item è lineare nelle colonne della matrice, ossia $\det(A_1\cdots A_i'+A_i''\cdots A_n)=\det(A_1\cdots A_i'\cdots A_n)+\det(A_1\cdots A_i''\cdots A_n)$.
+\end{enumerate}
+
+\section{Riduzione a scala}
+\begin{definizione}
+	Una matrice si dice \emph{ridotta a scala} se il primo termine non nullo di ciascuna riga si trova ``più a destra'' di quello della riga precedente.
+	Il primo termine non nullo di una riga è detto \emph{pivot}.
+\end{definizione}
+La definizione vale per qualsiasi tipo di matrice; ora ci concentriamo su quelle quadrate, per le quali è definito il determinante.
+Per tali matrici, essere ridotta a scala significa essere triangolare superiore: tutti gli elementi sotto la diagonale sono nulli.
+\begin{proprieta}[Metodo di Gauss]
+	Sia $K$ un campo con caratteristica\footnote{
+		La caratteristica di $K$ è il più piccolo numero naturale $n$ tale che $nx=0$ per ogni elemento $x$ di $K$: $\cha K=\{n\in\N\colon nx=0_K,\ \forall x\in K\}$. Se tale numero non esiste, la caratteristica è per definizione 0.
+	}
+	diversa da 2.
+	Sia $\det\colon\mat(n,K)\to K$ una funzione soddisfacente le proprietà precedentemente elencate.
+	Allora:
+	\begin{enumerate}
+		\item Se $A$ ha una riga o una colonna nulla, $\det A=0$.
+		\item Per $\lambda,\mu\in K$, se $A_i'=\lambda A_i+\mu A_j$, dove $\{A_k\}_{k=1}^n$ indicano le righe della matrice, allora
+		\begin{equation*}
+			\begin{vmatrix}
+				A_1\\A_i'\\A_j\\A_n
+			\end{vmatrix}
+			=\lambda
+			\begin{vmatrix}
+				A_1\\A_i\\A_j\\A_n
+			\end{vmatrix}.
+		\end{equation*}
+		\item Se $\rk A<n$, dove $n$ è l'ordine della matrice, allora $\det A=0$; se invece $\rk A=n$, $\det A=(-1)^sp_1p_2\cdots p_n$, dove $s$ è il numero di scambi di righe o colonne effettuati e $p_1,\dots,p_n$ sono i pivot della matrice ridotta a scala.
+	\end{enumerate}
+\end{proprieta}
+\begin{proof}
+	\begin{enumerate}
+		\item Se una riga o colonna è nulla, nel prodotto $\prod_{j=1}^na_{\sigma(j)j}$ si ha sempre, qualsiasi sia $\sigma\in S_n$, un fattore nullo, perciò $\det(A)=0$.
+	\item Per la multilinearità si ha
+		\begin{equation*}
+			\begin{vmatrix}
+				A_1\\\vdots\\\lambda A_i+\mu A_j\\ A_j\\\vdots\\A_n
+			\end{vmatrix}
+			=
+			\begin{vmatrix}
+				A_1\\\vdots\\\lambda A_i\\ A_j\\\vdots\\A_n
+			\end{vmatrix}
+			+
+			\begin{vmatrix}
+				A_1\\\vdots\\\mu A_j\\ A_j\\\vdots\\A_n
+			\end{vmatrix}
+			=\lambda
+			\begin{vmatrix}
+				A_1\\\vdots\\A_i\\ A_j\\\vdots\\A_n
+			\end{vmatrix}
+			+\mu
+			\begin{vmatrix}
+				A_1\\\vdots\\A_j\\ A_j\\\vdots\\A_n
+			\end{vmatrix},
+		\end{equation*}
+		ma la seconda matrice ha due righe uguali quindi il suo determinante è nullo.
+	\item Per ridurre a scala una matrice, si cambia il segno del determinante tante volte ($s$) quante volte si sono scambiate due righe, mentre il determinante non varia sostituendo ad una riga $A_i$ una combinazione lineare del tipo $1_KA_i+\mu A_j$, con $i\neq j$.
+		Se il rango della matrice non è massimo, cioè non è esattamente $n$, le colonne sono linearmente dipendenti, perciò dalla proprietà \ref{pr:alternante-variabili-linearmente-dipendenti} segue che $\det(A)=0$.
+		Altrimenti, sia
+		\begin{equation*}
+			B=
+			\begin{pmatrix}
+				b_{11}	&b_{12}	&\dots	&b_{1n}\\
+				0		&b_{22}	&\dots 	&b_{2n}\\
+				\vdots 	&\vdots 	&\ddots 	&\vdots\\
+				0		&0		&\dots 	&b_{nn}
+			\end{pmatrix}.
+		\end{equation*}
+		Si può scrivere la prima riga come la somma dei vettori riga $B_1=B_1'+B_1''$, dove $B_1'=(b_{11},0,\dots,0)$ e $B_1''=(0,b_{12},\dots,b_{1n})$.
+		Allora risulta
+		\begin{equation*}
+			\det B=
+			\begin{vmatrix}
+				B_1'\\\vdots\\B_n
+			\end{vmatrix}
+			+
+			\begin{vmatrix}
+				B_1''\\\vdots\\B_n
+			\end{vmatrix},
+		\end{equation*}
+		ma il secondo termine ha la prima colonna nulla, ossia il suo rango non è massimo, perciò ha determinante nullo.
+		Iterando il processo sulle righe seguenti, si ottiene che il determinante di $B$ è uguale al determinante della matrice diagonale
+		\begin{equation*}
+			\begin{pmatrix}
+				b_{11}	&0		&\dots	&0\\
+				0		&b_{22}	&\dots	&0\\
+				\vdots 	&\vdots	&\ddots	&\vdots\\
+				0		&0		&\dots	&b_{nn}
+			\end{pmatrix},
+		\end{equation*}
+		che è a sua volta equivalente a $b_{11}b_{22}\cdots b_{nn}$, si ha quindi $\det B=b_{11}b_{22}\cdots b_{nn}$.
+	\end{enumerate}
+\end{proof}
+
+Andiamo ora a vedere le condizioni che permettono a una matrice di essere ridotta a scala:
+\begin{proprieta} \label{pr:pivot-riduzione-scala}
+	Una matrice generica $A$ può essere ridotta a scala se soddisfa le seguenti proprietà:
+	\begin{itemize}
+		\item Se $A_{ij}$ è la riga e la colonna in cui la matrice $A$ ammette un pivot, allora la $i$-esima riga, se ammette un pivot, lo ammette su una colonna di indice almeno $j+1$.
+		\item Se la riga $j$-esima di $A$ non ammette pivot, allora non li ammette nemmeno la riga $j+1$-esima.
+	\end{itemize}
+\end{proprieta}
+\begin{definizione}
+	Sia $A$ una matrice, si definisce \emph{rango} di $A$ il numero di pivot della sua riduzione a scala.
+	Esso si indica con $\rk A$.
+\end{definizione}
+Diamo ora senza dimostrazione due teoremi importanti per i sistemi lineari.
+\begin{teorema}[di Cramer] \label{t:cramer}
+	Sia $A\in\mat(n,K)$: se $\rk A=n$ allora per ogni $b\in K^n$ il sistema lineare composto da $A$, detta matrice dei coefficienti, e da $b$, vettore dei termini noti, ammette una ed una sola soluzione.
+\end{teorema}
+Per dimostrarlo è sufficiente considerare la matrice $A\mid b$ e ridurla a scala.
+\begin{teorema}[di Rouch\'e-Capelli] \label{t:rouche-capelli}
+	Sia $A\in\mat(n,K)$ e sia $b\in K^n$, se $A$ è la matrice dei coefficienti e $b$ il vettore dei termini noti.
+	Allora:
+	\begin{enumerate}
+		\item Il sistema ammette soluzioni se e solo se $\rk A=\rk(A\mid b)$.
+		\item Se il sistema ammette soluzioni, allora l'insieme delle soluzioni dipende dal numero delle incognite e dal rango (cioè $n$ e $\rk A$).
+	\end{enumerate}
+\end{teorema}
+
+\section{Calcolo del determinante}
+Il determinante coincide, in pratica, con la somma di tutti i possibili prodotti tra elementi di righe e colonne diverse della matrice: questa definizione è ovviamente inutilizzabile in generale, ma per le matrici di ordini piccoli si traduce in formule veloci per il suo calcolo.
+Il determinante di una matrice nulla è ovviamente 0.
+Per le matrici di ordine 1, che si identificano con gli scalari del campo $K$, il determinante coincide con la loro unica componente: $\det(k_{11})=k_{11}$.
+Per le matrici di ordine 2 vale
+\begin{equation*}
+	\det
+	\begin{pmatrix}
+		a&b\\c&d
+	\end{pmatrix}
+	=ad-bc.
+\end{equation*}
+Per le matrici di ordine 3 si può utilizzare la \emph{regola di Sarrus}: il determinante può essere espresso come la somma dei prodotti degli elementi sulle tre ``diagonali'' a cui si sottrae la somma dei prodotti di quelli sulle ``antidiagonali'':
+\begin{equation*}
+	\det
+	\begin{pmatrix}
+		a_{11}&a_{12}&a_{13}\\
+		a_{21}&a_{22}&a_{23}\\
+		a_{31}&a_{32}&a_{33}
+	\end{pmatrix}
+	=a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}-a_{11}a_{23}a_{32}-a_{12}a_{21}a_{33}-a_{13}a_{22}a_{31}.
+\end{equation*}
+Tale regola però \emph{non} si può estendere a matrici di ordini superiori.
+
+Il metodo più usato è la \emph{scomposizione di Laplace} per righe o per colonne.
+\begin{definizione} \label{d:minori-complementi}
+	Siano $A\in\mat(n,K)$ e $i,k\in\{1,\dots,n\}$.
+	Con $A_{ik}$ si indica la sottomatrice ottenuta eliminando da $A$ la riga $i$-esima e la colonna $k$-esima.
+	Si definiscono:
+	\begin{itemize}
+		\item \emph{minore complementare} dell'elemento $a_{ik}$ di $A$ la quantità $M_{ik}=\det A_{ik}$;
+		\item \emph{complemento algebrico}, o \emph{cofattore}, di $a_{ik}$ lo scalare $C_{ik}=(-1)^{i+k}M_{ik}$.
+	\end{itemize}
+\end{definizione}
+\begin{teorema}[di Laplace] \label{t:sviluppo-laplace}
+	Sia $A=(a_{ij})\in\mat(n,K)$.
+	Per ogni $k\in\{1,\dots,n\}$ si ha
+	\begin{equation} \label{eq:det-laplace1}
+		\det A=\sum_{i=1}^nC_{ik}a_{ik},
+	\end{equation}
+	e per ogni $h,k\in\{1,\dots,n\}$ distinti inoltre si ha che
+	\begin{equation} \label{eq:det-laplace2}
+		\sum_{i=1}^nC_{ih}a_{ik}=0_K.
+	\end{equation}
+\end{teorema}
+\begin{proof}
+	Fissato $k$, dalla \eqref{eq:determinante-leibniz} risulta
+	\begin{equation*}
+		\det A=\sum_{\sigma\in S_n}\sgn(\sigma)a_{\sigma(1)1}\dots a_{\sigma(n)n}=a_{1k}\alpha_{1k}+\dots+a_{nk}\alpha_{nk},
+	\end{equation*}
+	dove si è definito
+	\begin{equation*}
+		\alpha_{ik}=\sum_{\substack{\sigma\in S_n\\\sigma(k)=i}}\sgn(\sigma)a_{\sigma(1)1}\dots a_{\sigma(k-1)k-1}a_{\sigma(k+1)k+1}\dots a_{\sigma(n)n},
+	\end{equation*}
+	poiché tutti gli elementi con indice $ik$ sono quelli per cui $\sigma(k)=i$, e l'elemento di indice $\sigma(k)k$, cioè in questo caso $a_{ik}$, è raccolto fuori dalla somma perché appare in tutti i prodotti.
+	Poiché questo $\alpha_{ik}$ è per definizione proprio il determinante di $A$ saltando la riga $i$ e la colonna $k$, si ha $\alpha_{ik}=C_{ik}$, da cui la tesi.
+
+	La permutazione $\sigma\in S_{n-1}$ può essere vista anche come una permutazione di $S_n$ in cui un elemento rimane fisso. Sia quindi
+	\begin{equation*}
+		A'=(A_1\cdots A_{k-1}A_kA_{k+1}\cdots A_{h-1}A_hA_{h+1}\cdots A_n),
+	\end{equation*}
+	dove $h>k$ e $A_i$ sono dei vettori colonna, la matrice $A$ in cui si è posto $A_h=A_k$. Risulta quindi
+	\begin{equation*}
+		0=\det A'=\sum_{i=1}^na_{ih}'C_{ih}'=\sum_{i=1}^na_{ik}C_{ih},
+	\end{equation*}
+	dato che $a_{ih}'=a_{ik}$ per come è stata definita $A'$ e $C_{ih}'=C_{ih}$ perché eliminando da $A$ o da $A'$ la colonna $h$ si ottiene la stessa sottomatrice, in quanto differivano tra loro proprio per quella colonna soltanto.
+\end{proof}
+Questo sviluppo può essere effettuato indifferentemente lungo una colonna o una riga.
+Il metodo migliore per applicarlo è scegliere la colonna o riga con il maggior numero di zeri, in modo da ridurre il numero di somme di determinanti minori nello sviluppo.
+
+Vediamo ora come si comporta il determinante con la trasposizione e l'inversione delle matrici.
+\begin{teorema} \label{t:determinante-trasposta}
+	Per ogni $A\in\mat(n,K)$ risulta $\det(A^T)=\det A$.
+\end{teorema}
+	\begin{proof}
+	Sia $A=(a_{ij})$, e $A^T=(b_{ij})$, in modo che $b_{ij}=a_{ji}$.
+	Dalla \eqref{eq:determinante-leibniz} si ha
+	\begin{equation}
+		\begin{split}
+			\det A^T &=\sum_{\sigma\in S_n}\sgn(\sigma)b_{\sigma(1)1}\cdots b_{\sigma(n)n}=\\
+			&=\sum_{\sigma\in S_n}\sgn(\sigma)a_{1\sigma(1)}\cdots a_{n\sigma(n)}=\\
+			&=\sum_{\sigma\in S_n}\sgn(\sigma)a_{\sigma^{-1}(\sigma(1))\sigma(1)}\cdots a_{\sigma^{-1}(\sigma(n))\sigma(n)}.
+		\end{split}
+	\end{equation}
+	Ora, fissiamo l'ordine dei secondi coefficienti $\sigma(1),\dots,\sigma(n)$ e passiamo alla somma su $\sigma^{-1}$: questo è possibile perch\'e ogni permutazione ammette un'unica inversa.
+	Otteniamo, riordinando i fattori $a_{\sigma^{-1}(\sigma(i))\sigma(i)}$ in modo che i coefficienti delle colonne (i $\sigma(i)$ che abbiamo appena fissato) risultino in ordine da 1 a $n$,
+	\begin{equation}
+		\begin{split}
+			\det(A^T)&=\sum_{\sigma^{-1}\in S_n}\sgn(\sigma^{-1})a_{\sigma^{-1}(1)1}\cdots a_{\sigma^{-1}(n)n}=\\
+			&=\sum_{\sigma\in S_n}\sgn(\sigma)a_{\sigma(1)1}\cdots a_{\sigma(n)n}=\det A.
+		\end{split}
+	\end{equation}
+	Il segno $\sgn$ è uguale per entrambe, dato che contengono lo stesso numero di scambi, solo il ``percorso'' è al contrario.
+\end{proof}
+Con il determinante possiamo caratterizzare le matrici invertibili con il seguente teorema.
+\begin{teorema}[di Binet] \label{t:binet}
+	Per ogni $A,B\in\mat(n,K)$, si ha $\det(AB)=\det A\det B$.
+\end{teorema}
+\begin{proof}
+	Siano $f,g\colon\mat(n,K)\to K$ definite come $f(B)=\det(AB)$ e $g(B)=\det A\det B$.
+	Si dimostra che le due forme coincidono: per fare ciò si mostra che sono entrambe multilineari alternanti, e l'unicità segue dal teorema \ref{t:unicita-applicazione-multilineare-alternante}.
+	Sulla matrice identità, le due applicazioni agiscono come $f(I)=\det(AI)=\det A$ e $g(I)=\det I\det A=\det A$.
+	L'applicazione $f$ è multilineare, perché
+	\begin{align*}
+		&f(B_1\cdots\lambda B_i'+\mu B_i''\cdots B_n)=\\
+		&=\det[A(B_1\cdots\lambda B_i'+\mu B_i''\cdots B_n)]=\\
+		&=\det(AB_1\cdots\lambda AB_i'+\mu AB_i''\cdots AB_n)=\\
+		&=\lambda\det(AB_1\cdots AB_i'\cdots AB_n)+\mu\det(AB_1\cdots AB_i''\cdots AB_n)=\\
+		&=\lambda\det[A(B_1\cdots B_i'\cdots B_n)]+\mu\det[A(B_1\cdots B_i''\cdots B_n)]=\\
+		&=\lambda f(B_1\cdots B_i'\cdots B_n)+\mu f(B_1\cdots B_i''\cdots B_n),
+	\end{align*}
+	ed è anche alternante perché scrivendo sempre $B$ per colonne, si supponga $B_i=B_j$ per qualche $i,j\in\{1,\dots,n\}$ distinti.
+	Si ha che $f(B)=\det(AB)=\det(AB_1\cdots AB_n)=0$ per l'alternanza del determinante, dato che $AB_i=AB_j$.
+	Si può dimostrare che anche $g$ ammette le stesse proprietà, quindi anche $g$ è multilineare e alternante.
+	Allora $f$ e $g$ devono coincidere, dunque $f(B)=g(B)$ cioè $\det(AB)=\det A\det B$.
+\end{proof}
+Da questo teorema si ricava, per la matrice inversa $A^{-1}$, che $\det(AA^{-1})=\det I$, quindi $\det A\det A^{-1}=1_K$: questa uguaglianza non ha modo di esistere se $\det A$ è nullo, altrimenti si avrebbe l'assurda uguaglianza $0=1$, che in un campo come $K$ non ha senso.
+Allora per essere invertibile, una matrice deve necessariamente avere il determinante non nullo.
+Inoltre $\det A^{-1}=(\det A)^{-1}$.
+Per individuare la matrice inversa di $A$, la si può o costruire prendendo la trasposta della matrice dei cofattori, divisa per $\det A$,
+\begin{equation*}
+	A^{-1}=\frac1{\det A}C^T,
+\end{equation*}
+oppure si affianca alla matrice identità formando $(A\mid I)$ e con il metodo dell'eliminazione di Gauss si procede arrivando alla forma $(I\mid M)$; la matrice $M$ è proprio l'inversa di $A$ cercata.
+L'insieme delle matrici invertibili, o alternativamente con determinante non nullo, a coefficienti in $K$ si indica con $GL(n,K)$.
+\begin{itemize}
+	\item Se $A,B\in GL(n,K)$, allora per il teorema di Binet $\det(AB)=\det A\det B\ne 0$ essendo $K$ un campo, dunque $AB\in GL(n,K)$.
+	\item La matrice identità $I$ è un elemento neutro rispetto alla composizione, dato che $AI=IA=A$ per ogni $A\in GL(n,K)$.
+	\item Infine, data $A\in GL(n,K)$ esiste sempre la sua inversa $A^{-1}$, sempre in tale insieme, e $AA^{-1}=A^{-1}A=I$.
+\end{itemize}
+Ciò prova che $GL(n,K)$, dotato dell'usuale prodotto righe per colonne tra matrici, è un gruppo: esso è chiamato \emph{gruppo generale lineare} di $K$.

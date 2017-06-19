@@ -1,0 +1,769 @@
+\chapter{Teoria delle perturbazioni}
+Nel capitolo precedente abbiamo calcolato i livelli energetici dell'atomo di idrogeno.
+Per quanto sia di grande importanza ``accademica'', però, sperimentalmente ha un interesse relativamente basso: per misurare queste energie, e in generale le proprietà del sistema, dobbiamo infatti farlo interagire con un agente esterno, tipicamente un campo elettromagnetico.
+In generale lo studio dell'interazione tra materia e radiazione è molto importante, ma in questa trattazione troviamo molti problemi, come:
+\begin{itemize}
+	\item a rigore, tutto il sistema andrebbe quantizzato, ma il campo elettromagnetico ha un numero infinito di gradi di libertà;
+	\item il campo elettromagnetico è invariante sotto ad un diverso gruppo di trasformazioni (quelle di Lorentz), che non abbiamo introdotto;
+	\item anche introducendo le teorie relativistiche, dovremmo porre sullo stesso piano le quattro coordinate spaziotemporali, mentre finora il tempo è sempre stato un parametro e la posizione un operatore.
+\end{itemize}
+Dobbiamo quindi trovare un approccio più semplificato.
+Se trattiamo il campo elettromagnetico in modo ``classico'', ad esempio, ci basterà aggiungere dei termini all'hamiltoniano.
+Più in generale possiamo vedere quest'ultimo come composto da un termine $\op H_0$ che corrisponde al sistema isolato più un termine $\op H'$ che caratterizza la sua interazione con il campo,
+\begin{equation}
+	H=H_0+H'
+	\label{eq:perturbazione}
+\end{equation}
+dove in generale $\op H'$ può anche dipendere esplicitamente dal tempo.
+In quest'ottica possiamo vedere $\op H'$ come una \emph{perturbazione} del sistema isolato descritto da $\op H_0$.
+Nel caso in cui $\op H'$ sia poi ``piccolo'' rispetto a $\op H_0$ possiamo poi analizzare il problema come si analizzerebbe un problema classico nell'ambito delle piccole oscillazioni.
+
+Rimane però da capire cosa si intende con ``piccolo'': $\op H'$ è un operatore, non un numero, che in tutta generalità può anche essere illimitato.
+Solitamente $\op H'$ e $\op H_0$ non sono compatibili, per cui non possiamo diagonalizzarli simultaneamente e confrontare gli autovalori.
+Prendiamo una base $\{\ket{n}\}_{n\in\N}$ in cui $\op H_0$ è diagonale, e in questa base scriviamo la \eqref{eq:perturbazione} come
+\begin{equation}
+	\bra{n}\op H\ket{m}=H_{nm}=E_n\delta_{nm}+H'_{nm},
+	\label{eq:perturbazione-base}
+\end{equation}
+dove $E_i$ sono gli autovalori di $\op H_0$.
+Supponiamo ora che lo spazio degli stati sia bidimensionale, cos\`i da scrivere $\op H$ in forma matriciale:
+\begin{equation}
+	H=
+	\begin{pmatrix}
+		E_1+H'_{11}	&H'_{12}\\
+		H'_{21}		&E_2+H'_{22}
+	\end{pmatrix}.
+\end{equation}
+Dato che deve essere hermitiano, si ha $H'_{21}={H'_{12}}^*$ e $E_i+H'_{ii}\in\R$.
+Il polinomio caratteristico è
+\begin{multline}
+	\chi_H(\lambda)=(E_1+H_{11}'-\lambda)(E_2+H'_{22}-\lambda)-\abs{H'_{12}}^2=\\
+	=\lambda^2-(E_1+E_2+H'_{11}+H'_{22})\lambda+(E_1+H'_{11})(E_2+H'_{22})-\abs{H'_{12}}^2
+	\label{eq:polinomio-caratteristico-H-perturbato-2d}
+\end{multline}
+da cui troviamo i due autovalori
+\begin{equation}
+	\begin{split}
+		\lambda
+		&=\frac12\bigg[E_1+E_2+H'_{11}+H'_{22}\pm\sqrt{(E_1+E_2+H'_{11}+H'_{22})^2-4(E_1+H'_{11})(E_2+H'_{22})+4\abs{H'_{12}}^2}\bigg]=\\
+		&=\frac12\bigg[E_1+E_2+H'_{11}+H'_{22}\pm(E_1+H'_{11}-E_2-H'_{22})\sqrt{1+\frac{4\abs{H'_{12}}^2}{(E_1+H'_{11}-E_2-H'_{22})^2}}\bigg].
+	\end{split}
+	\label{eq:autovalori-H-perturbato-2d}
+\end{equation}
+Se $\abs{H'_{12}}^2\ll\abs{E_1+H'_{11}-E_2-H'_{22}}$ possiamo allora approssimare al primo ordine gli autovalori, in pratica trascurando la radice.
+in tal caso, essi sono $E'_1\defeq E_1+H'_{11}$ e $E'_2\defeq E_2+H'_{22}$.
+La condizione affinch\'e $\op H'$ sia piccolo può dunque essere formulata richedendo che gli elementi, in modulo, fuori dalla diagonale di esso siano molto minori della differenza $\abs{E'_1-E'_2}$.
+Se inoltre $\abs{H'_{ii}}\ll\abs{E_i}$, allora $E'_i\approx E_i$, dunque la condizione può essere semplificata affermando che deve risultare
+\begin{equation}
+	\abs{H'_{ij}}\ll\abs{E_i-E_j},
+	\label{eq:condizione-approssimazione-perturbazione-2d}
+\end{equation}
+potendo cos\`i usare i livelli energetici direttamente di $\op H_0$ anzich\'e di $\op H$ (i primi li conosciamo, se il sistema dato da $\op H_0$ è già noto, a differenza dei secondi).
+Allora il valore di aspettazione di $\op H'$, calcolato sull'autostato imperturbato $\ket{E_i}$ di $\op H_0$, è proprio il termine da aggiungere al livello energetico corrispondente di $\op H_0$, che è l'autovalore in tale autostato.
+
+\section{L'effetto Stark nell'atomo di idrogeno}
+Consideriamo un sistema con un atomo di idrogeno posto in un campo elettrico costante nella direzione $z$ ($\vec E=\mathcal E\vec e_3$).
+L'hamiltoniano del sistema è
+\begin{equation}
+	\op H=\op H_0+e\mathcal E\op x_3
+	\label{eq:hamiltoniano-stark-idrogeno}
+\end{equation}
+dove $\op H_0$ è l'hamiltoniano, già visto, dell'atomo di idrogeno.
+Nel sistema dell'atomo idrogeno isolato conosciamo le simmetrie, che portano alle degenerazioni con $n^2$ stati all'$n$-esimo livello di energia e $2l+1$ stati con momento angolare $l(l+1)\hbar^2$.
+La perturbazione indotta da $\op H'$ potrebbe rimuovere alcune di queste degenerazioni, rompendo delle simmetrie.
+Abbiamo infatti $[\op{\vec L},\op H_0]=0$, ma $[\op{\vec L},\op H']$ non è nullo: potremmo pensare inizialmente che, dato che $\op H'$ comprende il prodotto scalare $\scalar{\vec E}{\vec x}=\mathcal Ex_3$, esso commuti con $\op{\vec L}$, dato che i prodotti scalari sono invarianti per rotazioni dello spazio.
+Ma tale momento angolare non è quello del sistema complessivo (formato dall'atomo e dal campo) ma solo dell'atomo, quindi esso genera solamente le rotazioni di quest'ultimo; poich\'e il campo ovviamente non ruota insieme all'atomo ma rimane fisso, non è invariante per questa rotazione, quindi $[\op{\vec L},\op H']\ne 0$.
+
+L'elemento di matrice del termine $\op H'=e\mathcal E\op x_3$ è determinato da $\bra{n',l',m'}\op x_3\ket{n,l,m}$, dove $n,l,m$ sono i numeri quantici associati agli autovalori (per l'atomo di idrogeno imperturbato) rispettivamente di $\op H_0$, $\op{\vec L}^2$ e $\op L_3$.
+Innanzitutto, ovviamente, risulta $\bra{n',l',m}\op x_3\ket{n,l,m}\leq\bra{n',l',m'}\op r\ket{n,l,m}$; trascurando per un attimo i numeri $l$ e $m$, dato che gli stati $\ket{n'}$ formano un insieme completo si ha
+\begin{equation}
+	\abs{\bra{n'}\op r\ket{n}}^2=\bra{n}\op r\ket{n'}\bra{n'}\op r\ket{n}\leq\sum_n\bra{n}\op r\ket{n'}\bra{n'}\op r\ket{n}=\bra{n}\op r^2\ket{n}
+\end{equation}
+ma allora
+\begin{equation}
+	\abs{\bra{n'}\op r\ket{n}}\leq\sqrt{\bra{n}\op r^2\ket{n}}=\sqrt{\frac12n^2[5n^2-3l(l+1)]}.
+\end{equation}
+Per grandi valori di $n$ dunque questo valore è asintotico a $n^2$, mentre se prendiamo stati con $n$ basso l'elemento di perturbazione sarà piccolo rispetto agli autovalori, e varrà la condizione \eqref{eq:condizione-approssimazione-perturbazione-2d}.\footnote{Ovviamente dovremo scegliere, nell'applicare la teoria, due livelli energetici differenti, altrimenti nella \eqref{eq:condizione-approssimazione-perturbazione-2d} troveremmo $\abs{E_n-E_n}=0$.}
+Calcoliamo dunque gli elementi di matrice per i primi valori di $n$.
+
+Per $n=1$ abbiamo lo stato fondamentale, che è simmetrico radialmente: allora, poich\'e non esistono direzioni ``privilegiate'', vediamo subito che $\bra{1,0,0}\op x_3\ket{1,0,0}=0$.
+Al primo ordine, dunque, la perturbazione non influenza il sistema
+
+Per $n=2$ abbiamo quattro stati, cioè l'insieme $\{\ket{2,0,0},\ket{2,1,0},\ket{2,1,-1},\ket{2,1,1}\}$ che prendiamo come base per calcolare i sedici elementi di matrice di $\op H'$.
+Possiamo ridurre subito il numero di calcoli da fare notando che $\op H'$ è reale e hermitiano, perciò simmetrico.
+Sempre per il discorso per cui non esistono direzioni privilegiate in stati a simmetria radiale, vale anche $\bra{2,0,0}\op x_3\ket{2,0,0}$.
+Questo chiaramente vale per ogni componente di $\op{\vec x}$ in qualsiasi stato con $l=0$.
+Detto $\ket{\psi}$ un tale stato, sarà combinazione lineare di stati del tipo $\ket{n,0,0}$, perch\'e se $l=0$ allora necessariamente $m=0$; quindi $\ket{\psi}=\sum_{n\in\N}a_n\ket{n,0,0}$.
+Chiaramente vale $\op{\vec L}^2\ket{\psi}=0$: allora $\op x_i\ket{\psi}$ è ancora un suo autostato?
+Poich\'e, come già visto, $\bra{\psi}\op x_i\ket{\psi}=0$, si ha che $\op x_i\ket{\psi}$ si trova in un sottospazio ortogonale a $\ket{\psi}$, in cui quindi $l\ne 0$.
+Dopotutto, sappiamo che le tre armoniche sferiche con $l=1$ sono combinazioni lineari (linearmente indipendenti) di $x_1,x_2,x_3$ quindi possiamo, al contrario, scrivere $\op{\vec x}$ come combinazione lineare delle tre funzioni $Y_{1,0}$, $Y_{1,-1}$ e $Y_{1,1}$.
+Allora $\op x_i\ket{n,0,0}$ è autostato di $\op{\vec L}^2$ con $l=1$.
+
+Sappiamo inoltre che $\op H_0$ è invariante per parità, ossia $[\op H_0,\op I]=0$: allora i due operatori avranno autostati simultanei.
+Infatti la parte radiale è simmetrica, e $\op I$ agisce soltanto sul fattore angolare della funzione d'onda come $\op IY_{l,m}=(-1)^lY_{l,m}$.
+Di conseguenza abbiamo, dato che gli operatori $\op x_i$ sono dispari ossia $\adj{\op I}\op x_i\op I=-\op x_i$, che
+\begin{equation}
+	\bra{2,0,0}\op x_i\ket{2,0,0}=
+	\bra{2,0,0}\op I^2\op x_i\op I^2\ket{2,0,0}=
+	(-1)^{2l}\bra{2,0,0}\op I\op x_i\op I\ket{2,0,0}=
+	-\bra{2,0,0}\op x_i\ket{2,0,0}
+\end{equation}
+da cui $\bra{2,0,0}\op x_i\ket{2,0,0}=0$, come ulteriore riprova.
+Con lo stesso ragionamento troviamo che tra stati con uguale $l$ il valor medio di $\op x_i$ è nullo.
+
+Ora, gli stati $\ket{2,0,0}$ e $\ket{2,1,0}$ hanno valori di $l$ differenti, e in particolare il secondo contiene nella funzione d'onda il termine $e^{i\phi}$, che integrato in $\phi$ dà zero.
+Più in generale, per $n,l$ qualsiasi, $\op x_3\ket{m}$ è ancora autostato di $\op L_3$ (ma non necessariamente uguale, ma con lo stesso autovalore), poich\'e $[\op L_3,\op x_3]=0$.
+Se $m_1\ne m_2$ allora si ha necessariamente che $\bra{2,1,m_1}\op x_3\ket{2,1,m_2}=0$ e in modo simile per gli altri stati.
+
+Riassumendo, abbiamo trovato che alcune transizioni tra autostati sono proibite: abbiamo delle \emph{regole di selezione} con gli operatori $\op{\vec L}^2$, $\op L_3$ e $\op I$ che ci permettono di semplificare in modo veloce gli elementi di matrice di $\op H'$.
+Rimane, infine, soltanto l'elemento $\bra{2,0,0}\op x_3\ket{2,1,0}$, che (insieme al suo simmetrico) è l'unico non nullo e vale $3r_B$.
+Di conseguenza, la matrice che rappresenta l'hamiltoniano perturbato dal campo elettrico in questo sottospazio con $n=2$ è
+\begin{equation}
+	\begin{pmatrix}
+		E_2				&3r_B\mathcal E	&0		&0	\\
+		3r_B\mathcal E	&E_2			&0		&0	\\
+		0				&0				&E_2	&0	\\
+		0				&0				&0		&E_2\\
+	\end{pmatrix}
+\end{equation}
+che ha come autovalori $E_2$, doppio (evidentemente per gli stati $\ket{2,1,1}$ e $\ket{2,1,-1}$), e $E_2\pm 3r_B\mathcal E$ per gli stati $\frac{\ket{2,0,0}\pm\ket{2,1,0}}{\sqrt{2}}$.
+Quelli che prima erano quattro stati nello stesso livello (degenere) di energia per effetto della perturbazione ora formano tre livelli distinti.
+La perturbazione, quindi, al primo ordine causa la rottura della degenerazione del livello di energia, per momenti angolari differenti con $m=0$.
+
+\section{Perturbazioni indipendenti dal tempo}
+\subsection{Caso non degenere}
+Passiamo ora ad un approccio più generale, con un sistema descritto da un hamiltoniano $\op H^{(0)}$ non degenere, di cui conosciamo lo spettro $\{E^{(0)}_n\}$, a cui è aggiunta una perturbazione $\epsilon\op V$, nessuno dei due dipendente esplicitamente dal tempo.
+Preso l'insieme (che è completo) degli autostati $\ket{n^{(0)}}$ di $\op H^{(0)}$, possiamo esprimere uno stato perturbato $\ket{n}$ qualsiasi in tale base come
+\begin{equation}
+	\ket{n}=\sum_mc_{nm}\ket{m^{(0)}}
+	\label{eq:perturbazione-autostati-non-degeneri}
+\end{equation}
+per cui l'equazione di Schr\"odinger (con l'hamiltoniano perturbato) $\op H\ket{n}=E_n\ket{n}$ si scrive come
+\begin{equation}
+	\sum_mc_{nm}(\op H^{(0)}+\epsilon\op V)\ket{m^{(0)}}=\sum_mc_{nm}E_n\ket{m^{(0)}}
+\end{equation}
+e poich\'e $\op H^{(0)}\ket{m^{(0)}}=E^{(0)}_m\ket{m^{(0)}}$, moltiplicando a sinistra per $\bra{k^{(0)}}$ otteniamo
+\begin{equation}
+	\begin{aligned}
+		\sum_mc_{nm}(E^{(0)}_m\braket{k^{(0)}}{m^{(0)}}+\epsilon\bra{k^{(0)}}\op V\ket{m^{(0)}})&=\sum_mc_{nm}E_n\braket{k^{(0)}}{m^{(0)}}\\
+		\sum_mc_{nm}(E^{(0)}_m\delta_{km}+\epsilon V_{km})&=\sum_mc_{nm}E_n\delta_{km}\\
+		c_{nk}E^{(0)}_k+\epsilon\sum_mc_{nm}V_{km}&=c_{nk}E_n\\
+		c_{nk}(E_n-E^{(0)}_k)&=\epsilon\sum_mc_{nm}V_{km}
+	\end{aligned}
+	\label{eq:perturbazione-non-degenere}
+\end{equation}
+definendo l'elemento di matrice $V_{km}\defeq\bra{\psi_k}\op V\ket{\psi_n}$.
+Immaginiamo ora di poter sviluppare i termini della perturbazione in serie come
+\footnote{
+	Avevamo scritto il termine di perturbazione come $\epsilon\op V$, in vista di questi sviluppi in serie, per indicare che --- essendo $\op V$ una piccola correzione di $\op H^{(0)}$ --- i termini $c^{(1)}$ ed $E^{(1)}$ sono dello stesso ordine di grandezza della perturbazione, e le quantità $c^{(2)}$ ed $E^{(2)}$ di un ordine maggiore, e cos\`i via.
+}
+\begin{equation}
+	\begin{gathered}
+		c_{ij}=c^{(0)}_{ij}+\epsilon c^{(1)}_{ij}+\epsilon^2 c^{(2)}_{ij}+o(\epsilon^2)\\
+		E_{i}=E^{(0)}_i+\epsilon E^{(1)}_i+\epsilon^2 E^{(2)}_i+o(\epsilon^2)
+	\end{gathered}
+\end{equation}
+All'ordine zero abbiamo innanzitutto che gli $E^{(0)}_i$ sono proprio gli autovalori di $\op H^{(0)}$ (questo giustifica la notazione usata), poich\'e la perturbazione lascia, a quest'ordine, invariati i livelli energetici.
+Analogamente dalla \eqref{eq:perturbazione-non-degenere}, trascurando tutti i termini $o(1)$, risulta $c^{(0)}_{nk}(E^{(0)}_n-E^{(0)}_k)=0$ da cui $c^{(0)}_{nk}=\delta_{nk}$.
+Al primo ordine, invece, sostituendo gli sviluppi nella \eqref{eq:perturbazione-non-degenere} otteniamo
+\begin{equation}
+	(\delta_{nk}+\epsilon c^{(1)}_{nk})(E^{(0)}_n+\epsilon E^{(1)}_n-E^{(0)}_k)=\epsilon\sum_m(\delta_{nm}+\epsilon c^{(1)}_{nm})V_{km}\\
+\end{equation}
+che trascurando tutti i termini $o(\epsilon)$ si riduce a
+\begin{equation}
+	\delta_{nk}(E^{(0)}_n+\epsilon E^{(1)}_n-E^{(0)}_k)+\epsilon c^{(1)}_{nk}(E^{(0)}_n-E^{(0)}_k)=\epsilon\sum_m\delta_{nm}V_{km}
+\end{equation}
+e il secondo membro è poi uguale a $\epsilon V_{kn}$.
+Distinguiamo ora i casi
+\begin{itemize}
+	\item $k=n$, per cui si ha $E^{(1)}_n=V_{nn}=\bra{n^{(0)}}\op V\ket{n^{(0)}}$
+	\item $k\ne n$, per cui risulta
+		\begin{equation}
+			\epsilon c^{(1)}_{nk}(E^{(0)}_n-E^{(0)}_k)=\epsilon V_{kn}\qqq c^{(1)}_{nk}=\frac{V_{kn}}{E^{(0)}_n-E^{(0)}_k}.
+			\label{eq:perturbazione-non-degenere-primo-ordine}
+		\end{equation}
+		La non degenerazione di $\op H^{(0)}$ assicura che $E^{(0)}_k\ne E^{(0)}_n$ quando $k\ne n$.
+		Notiamo come questa formula assomigli alla \eqref{eq:condizione-approssimazione-perturbazione-2d} trovata nel caso bidimensionale.
+\end{itemize}
+Al primo ordine, dunque, la correzione da apportare agli autovalori corrisponde al valore di aspettazione della perturbazione nell'autostato imperturbato corrispondente all'autovalore.
+Le correzioni agli autostati sono date invece dai coefficienti $c^{(1)}_{nm}$, che abbiamo trovato per $n\ne m$, mentre il coefficiente $c^{(1)}_{nn}$ è arbitrario e si calcola normalizzando lo stato (sempre a meno di termini $o(\epsilon)$): risulta quindi dalla \eqref{eq:perturbazione-autostati-non-degeneri}
+\begin{equation}
+	\ket{n^{(1)}}=c^{(1)}_{nn}\ket{n^{(0)}}+\sum_{m\ne n}\frac{V_{kn}}{E^{(0)}_n-E^{(0)}_m}\ket{m^{(0)}}.
+	\label{eq:perturbazione-autostati-non-degeneri-primo-ordine}
+\end{equation}
+
+\section{Perturbazioni dipendenti dal tempo}
+Considieriamo ora un hamiltoniano $\op H(t)=\op H^{(0)}+\op V(t)$, con $\op H^{(0)}$ indipendente (esplicitamente) dal tempo.
+Supponiamo di avere uno stato stazionario $\ket{E_i^{(0)}}$ presente da un tempo molto remoto (anche $t=-\infty$) e che la perturbazione $\op V(t)$ si «attivi» ad un certo istante $t_0$.
+Siamo interessati a calcolare la probabilità che il sistema si trovi in un autostato (fissato) $\ket{E_f^{(0)}}$ di $\op H^{(0)}$ per effetto della perturbazione: anche se due autostati di $\op H^{(0)}$ sono ortogonali, per cui si avrebbe una probabilità di transizione tra i due nulla, per effetto di $\op V(t)$ essi non sono più stazionari quindi anche le loro probabilità cambiano nel tempo, e non si possono più considerare a priori ortogonali.
+Dovremo quindi caratterizzare l'evoluzione temporale dello stato $\ket{E_i^{(0)}}$ per effetto di $\op H(t)$: chiamando lo stato progredito $\ket{E_i(t)}$, la probabilità di passare dallo stato iniziale a quello finale che abbiamo fissato è, istante per istante, data da $\abs{\braket{E_i(t)}{E_f}}^2$.
+All'hamiltoniano $\op H^{(0)}$, indipendente dal tempo, possiamo associare l'operatore di evoluzione temporale
+\begin{equation}
+	\op U_0(t,t_0)=\exp\bigg(-\frac{i}{\hbar}(t-t_0)\op H^{(0)}\bigg)
+\end{equation}
+Ci affidiamo dunque al postulato secondo il quale gli stati evolvono secondo l'equazione differenziale\footnote{Naturalmente anche $\op U_0(t,t_0)$ soddisfa quest'equazione, con $\op H^{(0)}$ al posto di $\op H(t)$, se poniamo la naturale condizione al contorno $U_0(t_0,t_0)=1$; per sistemi indipendenti dal tempo è equivalente assumere come postulato l'equazione differenziale o direttamente l'espressione dell'operatore.}
+\begin{equation}
+	i\hbar\drp{}{t}\ket{E_i(t)}=\op H(t)\ket{E_i(t)}.
+	\label{eq:evouzione-temporale-autostato-iniziale}
+\end{equation}
+Cerchiamo di trovare, stavolta con delle inevitabili approssimazioni, un operatore $\op U(t,t_0)$ che descriva l'evoluzione del sistema nel tempo, ossia in questo caso tale che $\op U(t,t_0)\ket{E_i(t_0)}=\ket{E_i(t)}$ (in cui $\ket{E_i(t_0)}$ è ancora lo stato iniziale, cioè è proprio $\ket{E_i^{(0)}}$).
+Per la \eqref{eq:evouzione-temporale-autostato-iniziale} tale operatore dovrà quindi soddisfare l'equazione
+\begin{equation}
+	i\hbar\drp{\op U(t,t_0)}{t}=\op H(t)\op U(t,t_0).
+\end{equation}
+La probabilità di transizione tra i due stati è dunque
+\begin{equation}
+	P_{fi}=\abs{\braket{E_f^{(0)}}{E_i(t)}}^2=\abs{\bra{E_f^{(0)}}\op U(t,t_0)\ket{E_i^{(0)}}}^2=\abs{\bra{E_f^{(0)}}\adj{\op U_0}(t,t_0)\op U(t,t_0)\ket{E_i^{(0)}}}^2
+\end{equation}
+poich\'e $\op U_0(t,t_0)\ket{E_f^{(0)}}=e^i\phi(t)\ket{E_f^{(0)}}$, essendo un autostato di $\op H^{(0)}$, e la fase non influisce sul modulo, quindi sulla probabilità di transizione.
+
+\paragraph{Rappresentazione di interazione}
+Definiamo a questo punto l'operatore
+\begin{equation}
+	\op{\mathbb U}(t,t_0)\defeq\adj{\op U_0}(t,t_0)\op U(t,t_0).
+\end{equation}
+Ora, per studiare l'evoluzione temporale degli stati o degli operatori, anzich\'e adottare lo schema di Heisenberg o di Schr\"odinger è conveniente usare la cosiddetta \emph{rappresentazione di interazione}, nella quale gli stati evolvono con l'operatore $\op{\mathbb U}$ mentre le osservabili con l'operatore $\op U_0$.
+Ad esempio, presa un'osservabile $\xi$, il suo valor medio nel tempo è
+\begin{equation}
+	\avg{\xi(t)}=
+	\bra{\psi(t)}\op\xi\ket{\psi(t)}=
+	\bra{\psi}\adj{\op U}(t)\op\xi\op U(t)\ket{\psi}=
+	\bra{\psi}\adj{\op{\mathbb U}}\adj{\op U_0}\op\xi\op U_0\op{\mathbb U}\ket{\psi}
+	\label{eq:esempio-rappresentazione-interazione}
+\end{equation}
+per cui è utile assumere $\ket{\psi(t)}=\op{\mathbb U}(t,t_0)\ket{\psi(t_0)}$ e $\op\xi(t)=\adj{\op U}(t,t_0)\op\xi(t_0)\op U(t,t_0)$.
+
+La derivata temporale dell'operatore $\op{\mathbb U}$ è inoltre
+\begin{multline}
+	\drp{}{t}\op{\mathbb U}=\drp{}{t}(\adj{\op U_0}\op U)=\drp{\adj{\op U_0}}{t}\op U+\adj{\op U_0}\drp{\op U}{t}=\frac{i}{\hbar}\adj{\op U_0}\op H^{(0)}\op U+\adj{\op U_0}\bigg(-\frac{i}{\hbar}\op H\op U\bigg)=\\=
+	-\frac{i}{\hbar}\adj{\op U_0}(-\op H^{(0)}+\op H)\op U=-\frac{i}{\hbar}\adj{\op U_0}\op V\op U=-\frac{i}{\hbar}\adj{\op U_0}\op V\op U_0\adj{\op U_0} \op U =\\= 
+	-\frac{i}{\hbar}\adj{\op U_0}\op V\op U_0 \op{\mathbb U}.
+\end{multline}
+Chiamando dunque $\op{\mathbb V}\defeq\adj{\op U_0}\op V\op U_0$ abbiamo dunque l'equazione
+\begin{equation}
+	i\hbar\drp{\op{\mathbb U}}{t}=\op{\mathbb V}\op{\mathbb U}.
+	\label{eq:evoluzione-temporale-perturbazione-dipendende-tempo}
+\end{equation}
+Notiamo che se $\op V=0$ ritroviamo correttamente che il sistema è stazionario.
+Soffermiamoci un attimo su questa equazione.
+Possiamo anche in questo caso immaginarci uno sviluppo formale di $\op{\mathbb U}$ del tipo $\op{\mathbb U}^{(0)}+\epsilon\op{\mathbb U}^{(1)}+\epsilon^2\op{\mathbb U}^{(2)}+o(\epsilon^2)$, come spesso abbiamo già fatto per altre grandezze.
+Poich\'e all'ordine zero si ha $\op{\mathbb U}^{(0)}=1$, dato che sia $\op U$ che $\op U_0$ si riducono all'identità, da questa equazione ritroviamo che all'ordine zero $\op{\mathbb V}=0$, come giustamente deve risultare.
+Al primo ordine, al primo membro troviamo $\drp{}{t}(\op{\mathbb U}^{(0)}+\epsilon\op{\mathbb U}^{(1)})=\drp{}{t}(1+\epsilon\op{\mathbb U}^{(1)})=\epsilon\drp{}{t}\op{\mathbb U}^{(1)}$; al secondo membro, invece, ricordando che $\op{\mathbb V}$ è già del primo ordine (scriviamo $\epsilon\op{\mathbb V}$ per tenerne conto) abbiamo $\epsilon\op{\mathbb V}(1+\epsilon\op{\mathbb U}^{(1)})=\epsilon\op{\mathbb V}+\epsilon^2\op{\mathbb V}\op{\mathbb U}^{(1)}$ ma il termine $\epsilon^2\op{\mathbb V}\op{\mathbb U}^{(1)}$ è già del secondo ordine ed è quindi da trascurare.
+Approssimando al primo ordine la \eqref{eq:evoluzione-temporale-perturbazione-dipendende-tempo} si può ridurre dunque alla forma
+\begin{equation}
+	i\hbar\drp{}{t}\op{\mathbb U^{(1)}}=-\op{\mathbb V}.
+	\label{eq:evoluzione-temporale-perturbazione-dipendende-tempo-primo-ordine}
+\end{equation}
+Saremmo tentati a questo punto di assumere che anche $\op{\mathbb U}(t,t_0)$ si possa scrivere, alla luce di questi risultati, come l'esponenziale
+\begin{equation}
+	\exp\bigg(\!\!-\frac{i}{\hbar}\int_{t_0}^t\op{\mathbb V(t')}\,\dd t'\bigg),
+\end{equation}
+assimilando dunque anche il caso dipendente dal tempo a quello indipendente con $\op U_0$, con $\op{\mathbb V}$ al posto dell'hamiltoniano $\op H^{(0)}$: se infatti $\op{\mathbb V}$ fosse indipendente dal tempo tale integrale sarebbe proprio $(t-t_0)\op{\mathbb V}$.
+Un'analisi più approfondita, considerando anche i termini di ordine successivo, mostra invece che non è questo il caso.
+
+\paragraph{Serie di Dyson}
+Possiamo integrare la \eqref{eq:evoluzione-temporale-perturbazione-dipendende-tempo} ottenendo l'equazione, del tutto equivalente,
+\begin{equation}
+	\op{\mathbb U}(t,t_0)=1-\frac{i}{\hbar}\int_{t_0}^t\op{\mathbb V}(t',t_0)\op{\mathbb U}(t',t_0)\,\dd t'.
+	\label{eq:evoluzione-temporale-perturbazione-dipendente-tempo-integrata}
+\end{equation}
+Nell'integrale appare ancora $\op{\mathbb U}$, per cui dovremmo escogitare un modo per approssimare la funzione.
+Possiamo ricavare invece una soluzione formale nel modo seguente.
+Riprendiamo la \eqref{eq:evoluzione-temporale-perturbazione-dipendende-tempo} agli ordini successivi al primo: trascurando i termini $o(\epsilon^2)$ troviamo
+\begin{equation}
+	\drp{}{t}(1+\epsilon\op{\mathbb U}^{(1)}+\epsilon^2\op{\mathbb U}^{(2)})=-\frac{i}{\hbar}\epsilon\op{\mathbb V}(1+\epsilon\op{\mathbb U}^{(1)})
+\end{equation}
+ma per i risultati già ottenuti agli ordini di approssimazione precedenti questa si riduce a
+\begin{equation}
+	\drp{}{t}(\epsilon^2\op{\mathbb U}^{(2)})=-\frac{i}{\hbar}\epsilon^2\op{\mathbb V}\op{\mathbb U}^{(1)}
+	\qqq
+	\drp{}{t}\op{\mathbb U}^{(2)}=-\frac{i}{\hbar}\op{\mathbb V}\op{\mathbb U}^{(1)}.
+	\label{eq:evoluzione-temporale-perturbazione-dipendente-tempo-secondo-ordine}
+\end{equation}
+La formula ottenuta è della stessa forma della \eqref{eq:evoluzione-temporale-perturbazione-dipendende-tempo-primo-ordine}, con gli ordini opportunamente scalati.
+Mostriamo infatti per induzione che vale l'equazione
+\begin{equation}
+	\drp{}{t}\op{\mathbb U}^{(n)}=-\frac{i}{\hbar}\op{\mathbb V}\op{\mathbb U}^{(n-1)}.
+	\label{eq:evoluzione-temporale-perturbazione-dipendente-tempo-ordine-generico}
+\end{equation}
+Sicuramente vale per $n=0,1,2$ come già visto.
+Supponendo che sia vera per $n$, per $n+1$ risulta
+\begin{equation}
+	\drp{}{t}\sum_{k=0}^{n+1}\epsilon^k\op{\mathbb U}^{(k)}=-\frac{i}{\hbar}\epsilon\op{\mathbb V}\sum_{k=0}^{n+1}\epsilon^k\op{\mathbb U}^{(k)}
+\end{equation}
+ma ancora, sfruttando la \eqref{eq:evoluzione-temporale-perturbazione-dipendente-tempo-ordine-generico} per i termini da $k=0$ a $k=n$ e trascurando i termini $o(\epsilon^{n+1})$ si ottiene proprio (dividendo per $\epsilon^{n+1}$ i due membri)
+\begin{equation}
+	\drp{}{t}\op{\mathbb U}^{(n+1)}=-\frac{i}{\hbar}\op{\mathbb V}\op{\mathbb U}^{(n)}
+\end{equation}
+che prova l'ipotesi di induzione.
+
+Per ottenere tutti i termini dello sviluppo in serie di $\op{\mathbb U}(t,t_0)$ è sufficiente allora integrare la \eqref{eq:evoluzione-temporale-perturbazione-dipendente-tempo-ordine-generico} per ogni $n$.
+Nell'integrale dell'ordine $n$-esimo appare l'integranda $\op{\mathbb V}(t')\op{\mathbb U}^{(n-1)}(t',t_0)$, che possiamo riscrivere sostituendo a $\op{\mathbb U}^{(n-1)}$ il risultato ottenuto integrando la \eqref{eq:evoluzione-temporale-perturbazione-dipendente-tempo-ordine-generico} dal tempo $t_0$ a $t'$: in tale integrale si avrà dunque il fattore $\op{\mathbb V}(t'')\op{\mathbb U}^{(n-2)}(t'',t_0)$ (per $t_0<t''<t'$) in cui possiamo sostituire a $\op{\mathbb U}^{(n-2)}$ un altro integrale, in modo analogo, procedendo in questo modo (per ciascun termine dello sviluppo) fino ad arrivare all'ordine zero della serie.
+Troviamo cos\`i per $\op{\mathbb U}(t,t_0)$ l'espressione formale
+\begin{multline}
+	\op{\mathbb U}(t,t_0)=
+	1
+	-\frac{i}{\hbar}\int_{t_0}^t\op{\mathbb V}(t',t_0)\,\dd t'
+	+\bigg(\!\!-\frac{i}{\hbar}\bigg)^2\int_{t_0}^t\int_{t_0}^{t'}\op{\mathbb V}(t',t_0)\op{\mathbb V}(t'',t_0)\,\dd t''\,\dd t'+\\
+	+\bigg(\!\!-\frac{i}{\hbar}\bigg)^n\int_{t_0}^t\cdots\int_{t_0}^{t^{(n)}}\op{\mathbb V}(t',t_0)\cdots\op{\mathbb V}(t^{(n)},t_0)\,\dd t^{(n)}\cdots\dd t''\,\dd t'
+	\label{eq:serie-dyson}
+\end{multline}
+detta \emph{serie di Dyson}.
+È essenziale in quest'ultima equazione l'ordinamento temporale dei vari operatori, con $t>t'>\cdots>t^{(n)}>t_0$.
+
+Per semplificare questa espressione, introduciamo un operatore $\mathcal T$ che, applicato ad un prodotto di operatori, ne restituisce il prodotto ordinato nel tempo: ad esempio, con due operatori $\op A(t)$ e $\op B(t)$ si ha
+\begin{equation}
+	\mathcal T\big(\op A(t_1)\op B(t_2)\big)=
+	\begin{cases*}
+		\op A(t_1)\op B(t_2)	&se $t_1<t_2$\\
+		\op B(t_2)\op A(t_1)	&se $t_1>t_2$
+	\end{cases*}
+	\label{eq:operatore-prodotto-ordinato-tempo}
+\end{equation}
+Si generalizza facilmente al caso di un numero qualsiasi di operatori nel prodotto.
+\footnote{
+	Siccome questo operatore ``mette a posto'' da solo l'ordine della somma, possiamo considerare a tutti gli effetti come se gli operatori su cui è applicato commutassero.
+}
+Consideriamo ora i due integrali
+\begin{equation}
+	\begin{aligned}
+		I_n&=\int_{t_0}^t\int_{t_0}^t\cdots\int_{t_0}^t\mathcal T\big(\op{\mathbb V}(t')\op{\mathbb V}(t'')\cdots\op{\mathbb V}(t^{(n)})\big)\,\dd t^{(n)}\cdots\dd t''\,\dd t'\text{ e}\\
+		S_n&=\int_{t_0}^t\int_{t_0}^{t'}\cdots\int_{t_0}^{t^{(n)}}\mathcal T\big(\op{\mathbb V}(t')\op{\mathbb V}(t'')\cdots\op{\mathbb V}(t^{(n)})\big)\,\dd t^{(n)}\cdots\dd t''\,\dd t':
+	\end{aligned}
+\end{equation}
+possiamo suddividere l'insieme di integrazione, che è qui $[t_0,t]^n$, nei vari sottoinsiemi $t^{(1)}>t^{(2)}>\cdots>t^{(n)}$, $t^{(2)}>t^{(1)}>\cdots>t^{(n)}$ e cos\`i via, trovandoci con $n!$ di questi sottoinsiemi (ognuno con un diverso ordinamento dei $t^{(k)}$).
+\footnote{
+	Un esempio di tutto ciò appare indispensabile.
+	Prendiamo il secondo ``ordine'', cioè $I_2$, che è un integrale sul quadrato $[t_0,t]\times[t_0,t]$.
+	Possiamo suddividerlo nei due triangoli in cui, rispettivamente, $t^{(1)}>t^{(2)}$ e $t^{(1)}<t^{(2)}$.
+	I due integrali coincidono, perch\'e l'integranda (qui $\mathcal T$ applicato al prodotto dei $\op{\mathbb V}$, che sono tutti la stessa funzione) è simmetrica rispetto alle sue variabili, nel senso che le possiamo liberamente scambiare grazie all'operatore $\mathcal T$ di ordinamento, quindi abbiamo $I_2=2S_2$.
+	Analogamente, possiamo suddividere il cubo $[t_0,t]\times[t_0,t]\times[t_0,t]$ in sei tetraedri $\{t^{(1)}>t^{(2)}>t^{(3)}\}$, $\{t^{(1)}>t^{(3)}>t^{(2)}\}$, $\{t^{(2)}>t^{(1)}>t^{(3)}\}$, $\{t^{(2)}>t^{(3)}>t^{(1)}\}$, $\{t^{(3)}>t^{(1)}>t^{(2)}\}$ e $\{t^{(3)}>t^{(2)}>t^{(1)}\}$.
+	In ciascun sottointervallo si ottiene sempre $S_3$, per cui $I_3=6S_3=3!S_3$.
+	Generalizzando possiamo vedere che $I_n=n!S_n$: ogni insieme $[t_0,t]^n$ si suddivide in questo modo in un numero di sottoinsiemi pari al numero delle permutazioni possibili dei $\{t',t'',\dots,t^{(n)}\}$, ossia dei primi $n$ numeri naturali, che è $n!$.
+}
+In virtù della simmetria in tutte le variabili della funzione integranda $\mathcal T\big(\op{\mathbb V}(t')\cdots\op{\mathbb V}(t^{(n)})\big)$, data dall'operatore $\mathcal T$, in ciascuno di questi sottoinsiemi l'integrale è lo stesso e vale $S_n$, perciò otteniamo
+\begin{equation}
+	\begin{split}
+		\op{\mathbb U}(t,t_0)
+		&=\sum_{n=0}^{+\infty}\bigg[\frac1{n!}\bigg(\!\!-\frac{i}{\hbar}\bigg)^n\int_{t_0}^t\cdots\int_{t_0}^t\mathcal T\big(\op{\mathbb V}(t')\cdots\op{\mathbb V}(t^{(n)})\big)\,\dd t^{(n)}\cdots\dd t'\bigg]=\\
+		&=\sum_{n=0}^{+\infty}\bigg[\frac1{n!}\bigg(\!\!-\frac{i}{\hbar}\bigg)^n\mathcal T\int_{t_0}^t\op{\mathbb V}(t')\,\dd t'\cdots\int_{t_0}^t\op{\mathbb V}(t^{(n)})\,\dd t^{(n)}\bigg]=\\
+		&=\mathcal T\sum_{n=0}^{+\infty}\frac1{n!}\bigg(\!\!-\frac{i}{\hbar}\bigg)^n\bigg(\int_{t_0}^t\op{\mathbb V}(t')\,\dd t'\bigg)^n=\\
+		&=\mathcal T\exp\bigg(-\frac{i}{\hbar}\int_{t_0}^t\op{\mathbb V}(t')\,\dd t'\bigg)
+	\end{split}
+	\label{eq:serie-dyson-alt}
+\end{equation}
+come maniera più compatta per scrivere la serie di Dyson.
+
+Ora, ricordando che $\op{\mathbb V}(t)$ è stato definito come $\adj{\op U}_0(t,t_0)\op V(t)\op U_0(t,t_0)$, tornando alla probabilità di transizione abbiamo se $\ket{E_f^{(0)}}\ne\ket{E_i^{(0)}}$ che
+\begin{equation}
+	\begin{split}
+        P_{fi}&=\abs[\bigg]{\bra{E_f^{(0)}}1-\frac{i}{\hbar}\int_{t_0}^t\op{\mathbb V}(t')\,\dd t'\ket{E_i^{(0)}}}^2=\\
+        &=\frac1{\hbar^2}\abs[\bigg]{\bra{E_f^{(0)}}\int_{t_0}^t\op{\mathbb V}(t')\,\dd t'\ket{E_i^{(0)}}}^2=\\
+        &=\frac1{\hbar^2}\abs[\bigg]{\int_{t_0}^t\bra{E_f^{(0)}}\adj{\op U}_0(t',t_0)\op V(t')\op U_0(t',t_0)\ket{E_i^{(0)}}\,\dd t'}^2=\\
+        &=\frac1{\hbar^2}\abs[\bigg]{\int_{t_0}^te^{-\frac{i}{\hbar}(E_f^{(0)}-E_i^{(0)})(t'-t_0)}\bra{E_f^{(0)}}\op V(t')\ket{E_i^{(0)}}\,\dd t'}^2
+	\end{split}
+	\label{eq:probabilita-transizione-autostati-dipendente-tempo}
+\end{equation}
+poich\'e gli stati $\ket{E_i^{(0)}}$ e $\ket{E_f^{(0)}}$ sono stazionari.
+
+\section{Perturbazioni periodiche nel tempo}
+Studiamo ora il sistema di un atomo su cui incide una radiazione elettromagnetica monocromatica.
+In meccanica classica la funzione hamiltoniana per una particella di carica $q$ soggetta ai potenziali $\Phi$ e $\vec A$ è
+\begin{equation}
+	\mathcal H=\frac1{2m}\bigg(\vec p-\frac{q}{c}\vec A\bigg)^2+q\Phi
+	\label{eq:hamiltoniana-potenziale-elettromagnetico}
+\end{equation}
+che trasportiamo in versione quantistica, come al solito, sostituendo opportunamente gli operatori alle varie osservabili.
+Nello sviluppare il quadrato, troviamo il prodotto scalare tra $\vec p$ e $\vec A$, i cui operatori non commutano: per risolvere il problema, notiamo che nella rappresentazione di Schr\"odinger
+\begin{equation}
+	[\op p_i,\op A_i]f=-i\hbar\bigg[\drp{}{x_i},A_i\bigg]f=\drp{}{x_i}(A_if)-A_i\drp{f}{x_i}=-i\hbar\drp{A_i}{x_i}f=-i\hbar f\div\vec A
+	\label{eq:commutatore-impulso-potenziale-vettore}
+\end{equation}
+dunque ci basta scegliere il gauge in cui $\div\vec A=0$ affinch\'e i due commutino.
+In questo caso l'hamiltoniano della particella nel campo elettromagnetico è
+\begin{equation}
+	\op H=\frac{\op{\vec p}^2}{2m}-\frac{q}{mc}\scalar{\op{\vec A}}{\op{\vec p}}+\frac{q^2}{2mc^2}\op{\vec A}^2-q\op{\Phi}
+	\label{eq:hamiltoniano-campo-elettromagnetico}
+\end{equation}
+e come ulteriore approssimazione, se già il campo elettromagnetico può essere considerato come perturbazione del sistema significa che $\scalar{\op{\vec A}}{\op{\vec p}}$ è piccolo, quindi a maggior ragione $\op{\vec A}^2$ sarà trascurabile, quindi possiamo ignorare (al primo ordine di approssimazione) quest'ultimo termine.
+Abbiamo dunque un hamiltoniano $\op H=\op H^{(0)}+\op V'(t)$ con
+\footnote{Il potenziale scalare $\Phi$ è già incorporato in $\op H^{(0)}$.}
+\begin{equation}
+	\op V(t')=\frac{q}{mc}\scalar{\op{\vec p}}{\op{\vec A}}(t).
+\end{equation}
+Con esso la probabilità di transizione tra due autostati $\ket{i^{(0)}}$ e $\ket{f^{(0)}}$ di $\op H^{(0)}$, con energia rispettivamente $E_i^{(0)}$ e $E_f^{(0)}$, è data da
+\begin{equation}
+    P_{fi}=\frac1{\hbar^2}\abs[\bigg]{\int_{t_0}^t\frac{q}{mc}\bra{f^{(0)}}\scalar{\op{\vec p}}{\op{\vec A}}(t')\ket{i^{(0)}}e^{\frac{i}{\hbar}(E_f^{(0)}-E_i^{(0)})(t'-t_0)}\,\dd t'}^2=\\
+\end{equation}
+e se il campo elettromagnetico è un'onda monocromatica di frequenza, detto $\vec u$ il vettore di polarizzazione, allora
+\begin{equation}
+	\vec A(t)=\frac{A}2\Big[\vec u e^{i(\scalar{\vec k}{\vec x}-\omega t)}+\vec u^*e^{-i(\scalar{\vec k}{\vec x}-\omega t)}\Big].
+	\label{eq:campo-elettromagnetico-monocromatico}
+\end{equation}
+Definiamo a questo punto
+\begin{equation}
+	\omega_{fi}\defeq\frac{E_f^{(0)}-E_i^{(0)}}{\hbar}
+	\label{eq:frequenza-transizione}
+\end{equation}
+ottenendo
+\begin{equation}
+    P_{fi}=\bigg(\frac{qA}{2mc\hbar}\bigg)^2\abs[\bigg]{\int_{t_0}^t
+		\bra{f^{(0)}}\scalar{\op{\vec p}}{\vec u}e^{i\scalar{\vec k}{\op{\vec x}}}\ket{i^{(0)}}e^{i(\omega_{fi}-\omega)(t'-t_0)}+
+		\bra{f^{(0)}}\scalar{\op{\vec p}}{\vec u^*}e^{-i\scalar{\vec k}{\op{\vec x}}}\ket{i^{(0)}}e^{i(\omega_{fi}+\omega)(t'-t_0)}
+	\,\dd t'}^2
+\end{equation}
+e definendo le quantità
+\begin{equation}
+	F\defeq\frac{qA}{2mc\hbar}\bra{f^{(0)}}\scalar{\op{\vec p}}{\vec u}e^{i\scalar{\vec k}{\op{\vec x}}}\ket{i^{(0)}}
+	\qeq
+	G\defeq\frac{qA}{2mc\hbar}\bra{f^{(0)}}\scalar{\op{\vec p}}{\vec u^*}e^{-i\scalar{\vec k}{\op{\vec x}}}\ket{i^{(0)}}
+\end{equation}
+e integrando otteniamo l'espressione
+\begin{equation}
+    P_{fi}=\abs[\bigg]{F\frac{e^{i(\omega_{fi}-\omega)(t-t_0)}-1}{\omega_{fi}-\omega}+G\frac{e^{i(\omega_{fi}+\omega)(t-t_0)}-1}{\omega_{fi}+\omega}}^2.
+\end{equation}
+Ci aspettiamo che solo uno dei due termini contribuisca in gran parte al risultato, ossia solo il termine con $F$ o quello con $G$ siano ``grandi''.
+In tal modo possiamo trascurare l'altro e, con esso, i termini di interferenza tra i due.
+Se ad esempio $E_f^{(0)}>E_i^{(0)}$, vale a dire $\omega_{fi}>0$, può essere che $\omega_{fi}-\omega\approx 0$ per cui possiamo tenere in prima approssimazione solo il termine con $F$.
+L'interpretazione fisica è la seguente: se i fotoni che portano il campo $\vec A$ hanno esattamente l'energia che separa i due livelli energetici $E_i^{(0)}$ e $E_f^{(0)}$, allora si ha proprio $\omega=\omega_{fi}$: un fotone viene assorbito e l'elettrone effettua una transizione dallo stato $\ket{i^{(0)}}$ a $\ket{f^{(0)}}$.
+Al contrario, il caso in cui $\omega_{fi}=-\omega$ è quello in cui il fotone è emesso dall'atomo quando quest'ultimo perde energia, nel momento in cui un elettrone effettua una transizione da $\ket{i^{(0)}}$ a $\ket{f^{(0)}}$ questa volta con $E_f^{(0)}<E_i^{(0)}$, ossia in uno stato con energia minore.
+Si ha dunque un fenomeno di \emph{assorbimento indotto} o \emph{emissione indotta}, in quanto l'elettrone non cambia stato spontaneamente.
+
+Consideriamo dunque solo il primo termine, con $F$, in cui si ha
+\begin{equation}
+	\begin{split}
+        \abs[\bigg]{\frac{e^{i(\omega_{fi}-\omega)(t-t_0)}-1}{\omega_{fi}-\omega}}^2
+        &=\abs[\big]{e^{\frac{i}2(\omega_{fi}-\omega)(t-t_0)}}^2\abs[\bigg]{\frac{e^{\frac{i}2(\omega_{fi}-\omega)(t-t_0)}-e^{-\frac{i}2(\omega_{fi}-\omega)(t-t_0)}}{\omega_{fi}-\omega}}^2=\\
+		&=\bigg(\frac2{\omega_{fi}-\omega}\bigg)^2\sin^2\frac{(\omega_{fi}-\omega)(t-t_0)}2.
+	\end{split}
+\end{equation}
+Chiamiamo $\Omega\defeq\omega_{fi}-\omega$ e $T\defeq t-t_0$: se $T\gg\frac1{\Omega}$, o più formalmente per $T\to+\infty$, si ha
+\begin{equation}
+	\lim_{T\to+\infty}\frac1{T}\bigg(\frac{\sin\frac{\Omega T}2}{\frac{\Omega}2}\bigg)^2=2\pi T\delta(\Omega)
+\end{equation}
+che rappresenta la probabilità di transizioni per intervallo di tempo.
+Più in generale, per una perturbazione periodica della forma
+\begin{equation}
+	\op V'(t)=\op B e^{-i\omega t}+\op B^* e^{i\omega t}
+	\label{eq:perturbazione-periodica-generica}
+\end{equation}
+si ottiene l'espressione nota come \emph{regola d'oro di Fermi}:
+\begin{equation}
+	\lim_{T\to+\infty}\frac{P_{fi}}{T}=\frac{2\pi}{\hbar}\abs{\bra{f^{(0)}}\op B\ket{i^{(0)}}}^2\delta(E_f^{(0)}-E_i^{(0)}-\hbar\omega)
+	\label{eq:regola-oro-fermi}
+\end{equation}
+che vale sia per il fenomeno di emissione che di assorbimento.
+
+\section{Approssimazione di dipolo elettrico}
+Continuiamo lo studio dell'atomo colpito da un'onda elettromagnetica monocromatica nel caso in cui la sua lunghezza d'onda sia comparabile con le dimensioni atomiche, come il raggio di Bohr.
+In questo senso possiamo assumere che il vettore d'onda $\vec k$ non vari apprezzabilmente all'interno del sistema fisico considerato, per cui possiamo usare l'approssimazione
+\begin{equation}
+	e^{\pm i\scalar{\vec k}{\vec x}}\approx 1
+\end{equation}
+trascurando cos\`i la dipendenza spaziale dell'onda incidente.
+Questa approssimazione è detta \emph{di dipolo elettrico}, per ragioni che vedremo in seguito.
+Nel gauge scelto, il campo elettrico portato dall'onda è dato da
+\begin{equation}
+	\vec E(\vec x,t)=-\frac1{c}\drp{\vec A}{t}(\vec x,t)=-\frac1{c}\drp{}{t}\bigg[\frac{A}2\big(\vec ue^{-i\omega t}+\vec u^*e^{i\omega t}\big)\bigg]=
+	\frac{iA\omega}{2c}\big(\vec ue^{-i\omega t}-\vec u^*e^{i\omega t}\big).
+	\label{eq:campo-elettrico-approssimazione-dipolo}
+\end{equation}
+Prendiamo ora il caso di un elettrone in un atomo, con $q=e$: il termine $F$ definito precedentemente diventa, con questa approssimazione,
+\begin{equation}
+	F=-\frac{eA}{2mc\hbar}\bra{f^{(0)}}\scalar{\op{\vec p}}{\vec u}\ket{i^{(0)}}
+\end{equation}
+Dall'equazione per l'evoluzione temporale della posizione $\drp{}{t}\op{\vec x}=\frac{i}{\hbar}[\op H_0,\op{\vec x}]=\frac1{m}\op{\vec p}$ abbiamo inoltre
+\begin{multline}
+	F=-\frac{eA}{2\hbar c}\bra{f^{(0)}}\frac{i}{\hbar}\scalar{[\op H_0,\vec x]} {\vec u}\ket{i^{(0)}}=
+	-\frac{ieA}{2\hbar^2c}\bra{f^{(0)}}\op H_0\scalar{\op{\vec x}}{\vec u}-\scalar{\op{\vec x}}{\vec u}\op H_0\ket{i^{(0)}}=\\=
+	-\frac{ieA}{2\hbar^2c}(E_f^{(0)}-E_i^{(0)})\bra{f^{(0)}}\scalar{\op{\vec x}}{\vec u}\ket{i^{(0)}}
+\end{multline}
+dato che i due stati sono autostati di $\op H_0$.
+Il vettore $-e\vec x$ è il vettore di dipolo elettrico, che qui ritroviamo come operatore e indichiamo più brevemente con $\op{\vec d}$, per cui
+\begin{equation}
+	F=\frac{iA\omega_{fi}}{2c\hbar}\bra{f^{(0)}}\scalar{\op{\vec d}}{\vec u}\ket{i^{(0)}}.
+\end{equation}
+
+Cos\`i come per l'effetto Stark, anche la perturbazione data da $\bra{f^{(0)}}\scalar{\op{\vec d}}{\vec u}\ket{i^{(0)}}$ ha importanti conseguenze dalle regole di selezione, perch\'e come vedremo alcune transizioni tra stati, al livello dell'approssimazione di dipolo, sono proibite a causa di certe simmetrie.
+Innanzitutto $\op{\vec d}$ è un operatore dispari, poich\'e lo è $\op{\vec x}$, di conseguenza (come già visto nell'effetto Stark) siccome gli stati $\ket{f^{(0)}}$ e $\ket{i^{(0)}}$ hanno una parità definita nell'atomo di idrogeno, le transizioni tra stati della medesima parità sono proibite in quanto
+\begin{equation}
+	\bra{f^{(0)}}\scalar{\op{\vec d}}{\vec u}\ket{i^{(0)}}=
+	\bra{f^{(0)}}\op I^2\scalar{\op{\vec d}}{\vec u}\op I^2\ket{i^{(0)}}=
+	\bra{f^{(0)}}\op I\scalar{\op{\vec d}}{\vec u}\op I\ket{i^{(0)}}=
+	-\bra{f^{(0)}}\scalar{\op{\vec d}}{\vec u}\ket{i^{(0)}}.
+\end{equation}
+Il termine successivo nell'approssimazione (il termine di \emph{quadrupolo elettrico}) è invece pari, perciò in tal caso sono proibite le transizioni tra stati di parità opposta: la transizione di dipolo e quella di quadrupolo sono quindi esclusive.
+Troviamo anche delle regole di selezione con il momento angolare: poich\'e è un vettore, $\op{\vec d}$ ruota con la solita equazione $[\op L_i,\op d_j]=i\hbar\epsilon_{ijk}\op d_k$.
+In particolare, risultano
+\begin{equation}
+	\begin{aligned}
+		[\op L_3,\op d_1+i\op d_2]&=i\hbar(\op d_2-i\op d_i)=\hbar(\op d_1+i\op d_2)\\
+		[\op L_3,\op d_1-i\op d_2]&=i\hbar(\op d_2+i\op d_1)=-\hbar(\op d_1-i\op d_2)\\
+		[\op L_3,\op d_3]&=0
+	\end{aligned}
+	\label{eq:operatore-dipolo-scala-momento-angolare}
+\end{equation}
+quindi $\op d_+\defeq \op d_1+i\op d_2$ e $\op d_-\defeq\op d_1-i\op d_2$ si comportano proprio come gli operatori a scala della terza componente momento angolare.
+Indicando gli stati con il loro numero quantico magnetico $m$, dalla terza di queste tre equazioni risulta
+\begin{equation}
+	0=\bra{m'}[\op L_3,\op d_3]\ket{m}=\bra{m'}\op L_3\op d_3-\op d_3\op L_3\ket{m}=\hbar(m'-m)\bra{m'}\op d_3\ket{m}
+\end{equation}
+perciò deve essere $\bra{m'}\op d_3\ket{m}=0$ se $m\ne m'$: ciò indica che se l'onda è polarizzata linearmente lungo l'asse di $\op L_3$ (l'asse $z$) allora sono proibite transizioni tra stati con diverso $m$.
+Se l'onda è invece polarizzata circolarmente il vettore $\vec u$ di polarizzazione ha la forma $\vec u_\pm=\vec u_1\pm i\vec u_2$, perciò $\scalar{\op{\vec d}}{\vec u_\pm}=\op d_\pm$:
+\begin{equation}
+	\begin{aligned}
+		\bra{m'}\op d_+\ket{m}&=\frac1{\hbar}\bra{m'}[\op L_3,\op d_+]\ket{m}=(m'-m-1)\bra{m'}\op d_+\ket{m}\\
+		\bra{m'}\op d_-\ket{m}&=-\frac1{\hbar}\bra{m'}[\op L_3,\op d_-]\ket{m}=-(m'-m+1)\bra{m'}\op d_-\ket{m}
+	\end{aligned}
+\end{equation}
+quindi la polarizzazione circolare proibisce transizioni tra stati con $m'\ne m\pm 1$.
+Il quadrato del momento angolare fornisce ulteriori regole di selezione: sappiamo che $\op{\vec d}$, essendo proporzionale a $\op{\vec x}$, è a sua volta una combinazione lineare delle tre armoniche sferiche con $l=1$ (come abbiamo già visto studiando l'effetto Stark), perciò $\op{\vec d}\ket{n,l,m}$ è uno stato al cui numero $l$ è aggiunto 1.
+Dalla regola di composizione dei momenti angolari segue quindi che il numero quantico $l$ del nuovo stato assume valori tra $\abs{l-1},l$ e $l+1$, perciò sono ammesse solo le transizioni tra stati con $\Delta l=0,\pm1$.
+In particolare la transizione da $l=0$ a $l'=0$ è sempre proibita, dato che $\op d\ket{n,0,m}$ ha $l=1$; questa regola di selezione vale in realtà non solo nell'approssimazione di dipolo, ma più in generale.
+Scegliendo infatti l'asse $\vec e_3$ come direzione di propagazione, ossia $\vec k=k\vec e_3$, il vettore $\vec u$ di polarizzazione è nel piano a esso ortogonale quindi $\scalar{\vec p}{\vec u}=p_1u_1+p_2u_2$.
+Se ora $l=l'=0$ risulta anche qui che $\bra{n',0,0}(\op p_1u1+\op p_2u_2)e^{ik\op x_3}\ket{n,0,0}=0$ dato che, come già visto, $\op x_3$ porta $\ket{n,0,0}$ in uno stato con $l>0$ che è cos\'i ortogonale a $\ket{n',0,0}$.
+Nel caso specifico dell'atomo di idrogeno, la parità di uno stato è data dal momento angolare, ed è $(-1)^l$, perciò le transizioni con $\Delta l=0$ risultano proibita in quanto tra stati con la stessa parità.
+A causa della degenerazione dei livelli energetici, però, queste regole di selezione rimangono nascoste; diventano evidenti se invece all'atomo è applicato un campo elettrico esterno, in modo da rimuovere tali degenerazioni.
+
+\section{Struttura fine degli atomi idrogenoidi}
+Avendo a disposizione la teoria delle perturbazioni possiamo effettuare alcune correzioni alla teoria che abbiamo sviluppato per gli atomi idrogenoidi.
+Mentre allora abbiamo ricavato che i livelli energetici dipendono soltanto dal numero quantico $n$, le evidenze sperimentali (principalmente nella divisione delle linee spettrali che indicano la transizione tra due stati atomici) indicano che tali livelli possono dipendere anche dagli altri numeri quantici.
+La teoria sviluppata finora infatti trascura del tutto gli effetti relativistici, e queste divisioni dei livelli sono causa proprio di questi effetti: in questa sezione tratteremo alcuni di questi effetti come perturbazioni del primo ordine agli autostati degli atomi idrogenoidi:
+D'ora in poi sia $\op H_0$ l'hamiltoniano $\frac1{2m}\op{\vec p}^2+Ze^2\frac1{r}$ imperturbato.
+Assumeremo ancora che la massa ridotta sia uguale alla massa dell'elettrone e che il nucleo sia puntiforme.
+
+\subsection{Interazione spin-orbita}
+Trattando gli atomi idrogenoidi lo spin dell'elettrone non compariva in alcun modo nell'equazione di Schrödinger, e pertanto il suo unico ruolo era di raddoppiare la molteplicità degli stati.
+La presenza dello spin però conferisce all'elettrone un momento magnetico intrinseco $\op\vmu_s=-g_s\frac{\mu_B}{\hbar}\op{\vec S}$, che interagisce con il campo elettromagnetico generato dal nucleo: infatti passando dal sistema di riferimento in cui il nucleo è in quiete e genera il campo elettromagnetico $\vec E$ al sistema di riferimento in cui l'elettrone è in quiete, la trasformazione di Lorentz fa s\`i che tale campo elettrico sia avvertito dall'elettrone come un campo magnetico
+\begin{equation}
+    \vec B=-\frac1{2c^2}\vec v\times\vec E.
+\end{equation}
+in cui il fattore $\frac12$ è dovuto all'effetto noto come \emph{precessione di Thomas}, dato che il sistema di riferimento in cui l'elettrone è in quiete non è inerziale ma ruota attorno al nucleo.\footnote{
+    Per il calcolo della precessione di Thomas si veda \cite[app.~O]{eisberg-resnick}.
+}
+Il termine perturbativo è dunque
+\begin{equation}
+    \op H_1=
+    -\scalar{\op\vmu_s}{\vec B}=
+    g_s\frac{\mu_B}{\hbar}\scalar{\op{\vec S}}{\vec B}=
+    -g_s\frac{\mu_B}{2\hbar mc^2}\scalar{\op{\vec S}}{\op{\vec p}\times\vec E}
+\end{equation}
+sostituendo a $\vec v$ il corrispondente operatore $\frac1{m}\op{\vec p}$.
+In generale per un campo elettrostatico centrale si ha
+\begin{equation}
+    \vec E(\vec x)=-\frac{\vec x}{r}\drp{\Phi}{r}(\vec x)
+\end{equation}
+per cui l'interazione tra il momento magnetico dell'elettrone e il campo magnetico è
+\begin{equation}
+    \op H_1=
+    \frac12g_s\frac{\mu_B}{\hbar}\frac1{mc^2r}\drp{\Phi}{r}\scalar{\op{\vec S}}{\op{\vec p}\times\op{\vec x}}=
+    -\frac{g_sq_e}{4m^2c^2}\frac1{r}\drp{\Phi}{r}\scalar{\op{\vec S}}{\op{\vec L}}.
+    \label{eq:interazione-spin-orbita}
+\end{equation}
+Il potenziale elettrostatico del nucleo è $\Phi(r)=\frac{Zq_e}{4\pi\epsilon_0r}$ dunque
+\begin{equation}
+    \op H_1=
+    \frac{Zg_sq_e^2}{16\pi\epsilon_0m^2c^2}\frac1{r^3}\scalar{\op{\vec S}}{\op{\vec L}}=
+    \frac{Zg_se^2}{4m^2c^2}\frac1{r^3}\scalar{\op{\vec S}}{\op{\vec L}}.
+    \label{eq:interazione-spin-orbita-coulomb}
+\end{equation}
+L'ordine in cui si scrive il prodotto scalare $\scalar{\op{\vec S}}{\op{\vec L}}$ è ininfluente dato che i due operatori commutano; d'ora in poi useremo inoltre l'approssimazione $g_s\approx 2$.
+L'operatore $\scalar{\op{\vec S}}{\op{\vec L}}$ \emph{non} è diagonale nella base disaccoppiata $\ket{n,l,m_l,s,m_s}$: notiamo però che, detto $\op{\vec J}=\op{\vec L}+\op{\vec S}$ il momento angolare totale dell'elettrone,
+\begin{equation}
+    \op{\vec J}^2=\op{\vec L}^2+2\scalar{\op{\vec L}}{\op{\vec S}}+\op{\vec S}^2
+\end{equation}
+da cui
+\begin{equation}
+    \scalar{\op{\vec S}}{\op{\vec L}}=\frac{\op{\vec J}^2-\op{\vec L}^2-\op{\vec S}^2}2
+\end{equation}
+e certamente questo operatore è diagonale nella base accoppiata $\ket{n,l,s,j,m_j}$: useremo dunque questa per calcolare il valore di aspettazione di $\op H_1$, che è la correzione al primo ordine da apportare agli autovalori di $\op H_0$.
+Ovviamente si ha
+\begin{equation}
+    \bra{n,l,s,j,m_j}\scalar{\op{\vec S}}{\op{\vec L}}\ket{n,l,s,j,m_j}=\frac{\hbar^2}2\bigl[j(j+1)-l(l+1)-s(s+1)\bigr]
+\end{equation}
+mentre
+\begin{equation}
+    \bra{n,l,s,j,m_j}\frac1{r^3}\ket{n,l,s,j,m_j}=\frac{Z^3}{a_0^3}\frac2{n^3l(l+1)(2l+1)}
+\end{equation}
+che vale per $l\ge 1$, in tal caso però si ha $\op{\vec L}=0$ quindi l'interazione spin-orbita non è contemplata.
+Di conseguenza la correzione è
+\begin{equation}
+    \begin{split}
+        \bra{n,l,s,j,m_j}\op H_1\ket{n,l,s,j,m_j}=&
+        \frac{Z^4e^2\hbar^2}{2m^2c^2a_0^3}\frac{j(j+1)-l(l+1)-s(s+1)}{n^3l(l+1)(2l+1)}=\\=&
+        \frac{Z^4e^8m}{2\hbar^4c^2}\frac{j(j+1)-l(l+1)-s(s+1)}{n^3l(l+1)(2l+1)}=\\=&
+        \frac{Z^2e^4m}{2\hbar^2n^2}\frac{Z^2e^4}{\hbar^2c^2}\frac{j(j+1)-l(l+1)-s(s+1)}{nl(l+1)(2l+1)}=\\=&
+        -E_n(Z\alpha)^2\frac{j(j+1)-l(l+1)-s(s+1)}{nl(l+1)(2l+1)}
+    \end{split}
+    \label{eq:correzione-spin-orbita}
+\end{equation}
+dove $E_n$ è l'autovalore di $H_0$ imperturbato e
+\begin{equation}
+    \alpha=\frac{e^2}{\hbar c}=\num{0.0072973525664(17)}\approx\frac1{137}
+    \label{eq:costante-struttura-fine}
+\end{equation}
+è la \emph{costante di struttura fine}.
+
+\subsection{Correzione relativistica dell'impulso}
+Con le costanti a disposizione $\hbar$, $e$, possiamo costruire una grandezza con le dimensioni di una velocità,
+\begin{equation}
+    \frac{e^2}{\hbar}\approx\SI{2.18769e6}{\meter\per\second}
+    \label{eq:velocita-tipica-elettrone}
+\end{equation}
+che rappresenta, come ordine di grandezza, la velocità tipica di un elettrone attorno a un nucleo atomico.
+Il suo valore è meno dell'1\% della velocità della luce (il suo rapporto con $c$ non è altro che la costante di struttura fine definita poco sopra), che giustifica la trattazione non relativistica, almeno in prima approssimazione, con l'equazione di Schrödinger.
+Ora miglioriamo la precisione di questa approssimazione sviluppando la formula relativistica dell'energia cinetica ad un ordine superiore:
+\begin{multline}
+    T=
+    \sqrt{m^2c^4+\vec{p}^2c^2}-mc^2=
+    \biggl(\sqrt{1+\frac{\vec{p}^2}{m^2c^2}}-1\biggr)mc^2\approx\\\approx
+    \biggl[1+\frac12\frac{\vec{p}^2}{m^2c^2}-\frac18\biggl(\frac{\vec{p}^2}{m^2c^2}\biggr)^2-1\biggr]mc^2=
+    \frac{\vec{p}^2}{2m}-\frac{(\vec{p}^2)^2}{8m^3c^2}
+    \label{eq:energia-cinetica-relativistica}
+\end{multline}
+da cui ricaviamo il termine di perturbazione
+\begin{equation}
+    \op H_2=-\frac{(\op{\vec p}^2)^2}{8m^3c^2}.
+    \label{eq:perturbazione-energia-cinetica-relativistica}
+\end{equation}
+Questo termine può essere facilmente risolto osservando che
+\begin{equation}
+    (\op{\vec p}^2)^2=(2m)^2\biggl(\op H_0+\frac{Ze^2}{r}\biggr)
+\end{equation}
+per cui
+\begin{equation}
+    \op H_2=-\frac1{2mc^2}\biggl(\op H_0^2+2\op H_0\frac{Ze^2}{r}+\frac{Z^2e^4}{r^2}\biggr).
+\end{equation}
+Per valutare il valore di aspettazione usiamo la base accoppiata, in linea con l'interazione spin-orbita (ma usare questa o la disaccoppiata qui è indifferente); per le formule \eqref{eq:valore-medio-r^-1-idrogeno} e \eqref{eq:valore-medio-r^-2-idrogeno} abbiamo allora
+\begin{equation}
+    \begin{split}
+        \bra{n,l,s,j,m_j}\op H_2\ket{n,l,s,j,m_j}&=
+        -\frac1{2mc^2}\biggl[E_n^2+2Ze^2E_n\frac{Z}{a_0n^2}+Z^2e^4\frac{2Z^2}{n^3(2l+1)a_0^2}\biggr]=\\&=
+        -\frac1{2mc^2}\biggl[\frac{Z^4e^8m^2}{4\hbar^4n^4}-\frac{Z^4e^8m^2}{\hbar^4n^4}+\frac{2Z^4m^2e^8}{\hbar^4n^3(2l+1)}\biggr]=\\&=
+        -\frac{Z^4e^8m}{2n^2\hbar^4c^2}\biggl[-\frac3{4n^2}+\frac{2}{n(2l+1)}\biggr]=\\&=
+        -E_n(Z\alpha)^2\biggl[\frac3{4n^2}-\frac{2}{n(2l+1)}\biggr].
+    \end{split}
+    \label{eq:correzione-energia-cinetica-relativistica}
+\end{equation}
+
+\subsection{Termine di Darwin}
+L'ultimo termine che affrontiamo, che prende il nome da C.~G.~Darwin, è dovuto al fenomeno della \textit{Zitterbewegung}, una rapida oscillazione dell'elettrone dovuta all'interazione tra stati di energia positiva e negativa, ossia tra l'elettrone e un antielettrone virtuale; tale oscillazione avviene con una lunghezza d'onda pari alla lunghezza d'onda di Compton $\lambda_c=\frac{\hbar}{mc}=\SI{2.4263102389(16)e-12}{m}$.
+Il termine perturbativo vale
+\begin{equation}
+    \op H_3=\frac{Ze^2\hbar^2}{8m^2c^2}4\pi\delta^3(\op{\vec x}).
+    \label{eq:perturbazione-darwin}
+\end{equation}
+Chiaramente è impensabile di ricavare questo termine a questo livello, non potendo includere il fenomeno in alcun modo nella trattazione non relativistica --- come abbiamo fatto per l'interazione spin-orbita e l'energia cinetica relativistica.
+Possiamo però avvicinarci al risultato a meno di un fattore numerico di ordine 1 con il seguente ragionamento: preso atto della \textit{Zitterbewegung}, l'elettrone non risulta più localizzato in un punto $\vec x$ nello spazio ma, a causa delle sue oscillazioni, appare diffuso in una sfera di raggio $\lambda_c$.
+Di conseguenza l'energia potenziale elettrostatica non è più localizzata in $V(\vec x)$, ma possiamo prenderne la media sulla sfera di raggio $\lambda_c$ centrata in $\vec x$, che indichiamo con $B_{\lambda_c}(\vec x)$.
+È lecito assumere che il potenziale vari lentamente all'interno di tale sfera, per cui possiamo svilupparlo al secondo ordine come
+\begin{equation}
+    V(\vec x+\vec y)=V(\vec x)+\sum_{i=1}^3y_i\drp{V}{x_i}(\vec x)+\frac12\sum_{i=1}^3\sum_{j=1}^3y_iy_j\frac{\partial^2V}{\partial x_i\partial x_j}(\vec x)+o(\norm{\vec y}^2)
+\end{equation}
+per $\vec x+\vec y\in B_{\lambda_c}(\vec x)$ o equivalentemente $\vec y\in B_{\lambda_c}(0)$.
+Trascurando il resto $o(\norm{\vec y}^2)$, la media del potenziale è allora
+\begin{multline}
+    \avg{V}=
+    \frac1{\frac43\pi\lambda_c^3}\int_{B_{\lambda_c}(0)} V(\vec x+\vec y)\,\dd^3y=\\=
+    \frac3{4\pi\lambda_c^3}\biggl[V(\vec x)\int_{B_{\lambda_c}(0)}\,\dd^3y+\sum_{i=1}^3\drp{V}{x_i}(\vec x)\int_{B_{\lambda_c}(0)} y_i\,\dd^3y+\frac12\sum_{i=1}^3\sum_{j=1}^3\frac{\partial^2V}{\partial x_i\partial x_j}(\vec x)\int_{B_{\lambda_c}(0)} y_iy_j\,\dd^3y\biggr].
+\end{multline}
+Il secondo dei tre integrali è nullo per $i=1,2,3$ per ragioni di simmetria, cos\`i come il terzo se $i\ne j$; se invece in quest'ultimo $i=j$, il risultato non cambia se $i$ è $1$, $2$ o $3$: scegliendo $i=3$ si può calcolare come
+\begin{equation}
+    \int_{B_{\lambda_c}(0)}y_i^2\,\dd^3y=
+    2\pi\int_0^{\lambda_c}\int_0^\pi r^4\cos^2\theta \sin\theta\,\dd\theta\,\dd r=
+    2\pi\biggl[\frac{r^5}5\biggr]_0^{\lambda_c}\biggl[-\frac{\cos^3\theta}3\biggr]_0^\pi=
+    2\pi\frac{\lambda_c^5}5\frac23=
+    \frac{4\pi\lambda_c^5}{15}
+\end{equation}
+dunque
+\begin{equation}
+    \avg{V}=
+    V(\vec x)+\frac{\lambda_c^2}{10}\lap V(\vec x).
+\end{equation}
+Per il potenziale coulombiano, si ha
+\begin{equation}
+    \lap V(\vec x)=
+    -Ze^2\lap\frac1{r}=
+    4\pi Ze^2\delta^3(\vec x)
+\end{equation}
+perciò risulta infine
+\begin{equation}
+    \avg{V}=
+    V(\vec x)+\frac{Ze^2\lambda_c^2}{10}4\pi\delta^3(\vec x)=
+    V(\vec x)+\frac{Ze^2\hbar^2}{10m^2c^2}4\pi\delta^3(\vec x)
+\end{equation}
+e il secondo addendo sarebbe il termine da aggiungere come perturbazione; otteniamo il termine esatto \eqref{eq:perturbazione-darwin} moltiplicando per $\frac54$.
+
+Calcoliamo dunque il valore di aspettazione, sempre nella base accoppiata: la presenza della $\delta^3(\vec x)$ fa s\`i che la correzione si applichi soltanto agli stati con $l=0$, dato che per $r\to 0$ si ha $\psi_{n,l,m_l}(r,\theta,\phi)\propto r^l$.
+\begin{multline}
+    \bra{n,l,s,j,m_j}\op H_3\ket{n,l,s,j,m_j}=
+    \frac{Ze^2\hbar^2}{8m^2c^2}4\pi\abs{\psi_{n,0,m_l}(0)}^2=\\=
+    \frac{Ze^2\hbar^2}{8m^2c^2}4\biggl(\frac{Z}{na_0}\biggr)^3=
+    \frac{Z^4e^8m}{2c^2n^3\hbar^4}=
+    -E_n(Z\alpha)^2\frac1{n}.
+    \label{eq:correzione-darwin}
+\end{multline}
+
+\subsection{Riepilogo}
+Riassumiamo le tre correzioni per un elettrone, fissando quindi $s=\frac12$.
+Dobbiamo distinguere i casi $l\ne 0$ e $l=0$: nel primo si applica l'interazione spin-orbita ma non il termine di Darwin, viceversa per il secondo.
+\begin{itemize}
+    \item Per $l\ne 0$ e $j=l+s=l+\frac12$ si ha
+        \begin{equation}
+            \begin{split}
+                \Delta E&=
+                -E_n(Z\alpha)^2\biggl[\frac{(l+\frac12)(l+\frac32)-l(l+1)-\frac34}{nl(l+1)(2l+1)}+\frac3{4n^2}-\frac2{n(2l+1)}\biggr]=\\&=
+                -E_n(Z\alpha)^2\biggl[\frac1{n(l+1)(2l+1)}+\frac3{4n^2}-\frac2{n(2l+1)}\biggr]=\\&=
+                -E_n(Z\alpha)^2\biggl[\frac3{4n^2}+\frac{1-2(l+1)}{n(l+1)(2l+1)}\biggr]=\\&=
+                -E_n(Z\alpha)^2\biggl[\frac3{4n^2}-\frac1{n(l+1)}\biggr]=\\&=
+                -E_n(Z\alpha)^2\biggl[\frac3{4n^2}-\frac1{n(j+\frac12)}\biggr].
+            \end{split}
+        \end{equation}
+    \item Per $l\ne 0$ e $j=l-\frac12$ si ha
+        \begin{equation}
+            \begin{split}
+                \Delta E&=
+                -E_n(Z\alpha)^2\biggl[\frac{(l-\frac12)(l+\frac12)-l(l+1)-\frac34}{nl(l+1)(2l+1)}+\frac3{4n^2}-\frac2{n(2l+1)}\biggr]=\\&=
+                -E_n(Z\alpha)^2\biggl[-\frac1{nl(2l+1)}\frac3{4n^2}-\frac2{n(2l+1)}\biggr]=\\&=
+                -E_n(Z\alpha)^2\biggl[\frac3{4n^2}-\frac{1+2l}{nl(2l+1)}\biggr]=\\&=
+                -E_n(Z\alpha)^2\biggl[\frac3{4n^2}-\frac1{nl}\biggr]=\\&=
+                -E_n(Z\alpha)^2\biggl[\frac3{4n^2}-\frac1{n(j+\frac12)}\biggr].
+            \end{split}
+        \end{equation}
+    \item Per $l=0$ (e per forza $j=\frac12$) infine si ha
+        \begin{equation}
+            \Delta E=
+            -E_n(Z\alpha)^2\biggl(\frac3{4n^2}-\frac2{n}+\frac1{n}\biggr)=
+            -E_n(Z\alpha)^2\biggl(\frac3{4n^2}-\frac1{n}\biggr)=
+            -E_n(Z\alpha)^2\biggl[\frac3{4n^2}-\frac1{n(j+\frac12)}\biggr].
+        \end{equation}
+\end{itemize}
+Dato che il termine correttivo ha un fattore $(Z\alpha)^2$, si è soliti dire che è una correzione di ordine $\alpha^2$ agli autovalori.
+I livelli energetici corretti all'ordine $\alpha^2$ sono dunque
+\begin{equation}
+    E_n+\Delta E=
+    E_n\biggl[1-(Z\alpha)^2\biggl(\frac3{4n^2}-\frac1{n(j+\frac12)}\biggr)\biggr].
+    \label{eq:energia-idrogenoidi-struttura-fine}
+\end{equation}
+Dato che $j+\frac12=l+s+\frac12=l+1\le n$, si ha
+\begin{equation}
+    \frac3{4n^2}-\frac1{n(j+\frac12)}\le
+    \frac3{4n^2}-\frac1{n^2}=
+    -\frac1{4n^2}
+\end{equation}
+di conseguenza
+\begin{equation}
+    \Delta E=
+    \abs{E_n}(Z\alpha)^2\biggl[\frac3{4n^2}-\frac1{n(j+\frac12)}\biggr]\le
+    -\abs{E_n}(Z\alpha)^2\frac1{4n^2}
+\end{equation}
+perciò la correzione è sempre negativa, ossia il suo effetto è abbassare tutti i livelli energetici imperturbati.
+La correzione relativa $\Delta E/E$ è maggiore per gli orbitali $2s_{\frac12}$ e $2p_{\frac12}$, per cui vale $\frac5{16}(Z\alpha)^2$ (circa $\num{1.7e-5}$ per l'idrogeno); assolutamente invece è maggiore ovviamente per lo stato fondamentale, per cui vale approssimativamente $\SI{1.81e-4}{\electronvolt}$.
+Può sorprendere come si sia arrivati allo stesso risultato in tutti e tre i casi: questo risultato oltretutto non dipende da $l$, ma da $j$ (oltre che, ovviamente, da $n$).
+La degenerazione su $l$ non è ancora del tutto rimossa: orbitali con differenti valori $l$ che danno lo stesso $j$ (ad esempio gli orbitali $2s_{\frac12}$ e $2p_{\frac12}$) hanno ancora la stessa energia.
+Chiaramente questi risultati sono validi per valori piccoli di $Z\alpha$, vale a dire per atomi con piccolo numero atomico: all'aumentare di $Z$ perdono valore, e altri effetti di ordine minore che qui non sono inclusi diventano più rilevanti.
+
+Questi risultati trovano una conferma nell'equazione di Dirac, la cui teoria comprende in pieno gli effetti relativistici: se si approssima l'equazione di Dirac per $Z\alpha\ll 1$ si ottengono (oltre all'hamiltoniano $\op H_0$) proprio i tre termini che abbiamo aggiunto come perturbazione; inoltre i livelli energetici \eqref{eq:energia-idrogenoidi-struttura-fine} coincidono con gli autovalori dell'hamiltoniano relativistico degli atomi idrogenoidi sviluppati in serie all'ordine $(Z\alpha)^4$.\footnote{
+    Nell'espressione dell'energia non relativistica $E_n$ è già presente un fattore $c^2(Z\alpha)^2$, perciò la correzione perturbativa contiene in totale un fattore $(Z\alpha)^4$.
+}
+La teoria relativistica di Dirac non è comunque l'ultima parola sull'atomo di idrogeno: sono esclusi da essa il momento magnetico anomalo dell'elettrone, per il quale $g_s$ non è esattamente $2$, l'interazione tra i momenti magnetici di spin dell'elettrone e del nucleo (che porta alla \emph{struttura iperfine}), e il \emph{Lamb shift}.

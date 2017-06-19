@@ -1,0 +1,564 @@
+\chapter{Sistemi con più gradi di libertà} \label{ch:multi}
+Salvo brevi eccezioni, finora abbiamo trattato solamente dei sistemi ad un grado di libertà, tipicamente una particella in moto lungo una retta.
+Passiamo ora a studiare sistemi con più gradi di libertà, che possono corrispondere ad un maggior numero di particelle, all'aggiunta di altre dimensioni spaziali, o entrambe.
+In questo capitolo ci occuperemo di introdurre lo schema matematico in cui inquadrare questi problemi, in via generale, per poterlo poi applicare a problemi più complessi di quelli già visti, come le rotazioni e gli atomi.
+
+\section{Prodotto diretto di spazi vettoriali}
+Il problema principale è capire come costruire lo spazio degli stati di tali sistemi.
+Sappiamo che con un grado di libertà possiamo associare ad ogni stato un raggio in uno spazio di Hilbert complesso, separabile e infinito dimensionale.
+Quando il sistema possiede più di una dimensione spaziale, tali dimensioni sono indipendenti e apportano ciascuna un grado di libertà; per ciascuna di esse abbiamo, ad esempio, un operatore della posizione e uno dell'impulso, e sappiamo già dai commutatori fondamentali che posizione e impulso di coordinate differenti commutano.
+Analogamente, componendo più particelle in un sistema ciascuna di esse ha associata la coppia di operatori posizione e impulso (ad esempio) e tutti quelli che ne derivano.
+\begin{equation}
+	\hilbert=\hilbert_1\otimes\hilbert_2\otimes\cdots\otimes\hilbert_d.
+\end{equation}
+
+Per studiare la definizione e le proprietà di base ci restringiamo ora al prodotto di due spazi $\hilbert_1$ e $\hilbert_2$.
+Dati gli stati (qualsiasi) $\ket{A}\in\hilbert_1$ e $\ket{B}\in\hilbert_2$, possiamo costruire il loro prodotto diretto $\ket{A}\otimes\ket{B}$ che rappresenta lo stato del sistema combinato $\hilbert=\hilbert_1\otimes\hilbert_2$ in cui il sottosistema $\hilbert_1$ è nello stato $\ket{A}$ e il sottosistema $\hilbert_2$ è nello stato $\ket{B}$.
+Chiaramente il prodotto non è commutativo, perch\'e in generale non è detto nemmeno che esista uno stato $\ket{A}$ in $\hilbert_2$ in modo da poter scrivere $\ket{B}\otimes\ket{A}$.
+Lo spazio vettoriale $\hilbert_1\otimes\hilbert_2$ è dotato in modo naturale delle operazioni di somma e di moltiplicazione per scalare (un numero complesso) esattamente come gli spazi di partenza: esso contiene le coppie $\ket{A}\otimes\ket{B}$ per \emph{ogni} stato $\ket{A}\in\hilbert_1$ e ogni stato $\ket{B}\in\hilbert_2$, e tutte le possibili combinazioni lineari di essi.
+Il \textit{bra} associato al \textit{ket} $\ket{A}\otimes\ket{B}$ è semplicemente $\bra{A}\otimes\bra{B}$; con questo, il prodotto interno nello spazio prodotto è definito come
+\begin{equation}
+	(\bra{A}\otimes\bra{B})(\ket{C}\otimes\ket{D})=\braket{A}{C}\braket{B}{D}
+\end{equation}
+che, in termini di probabilità, mostra come gli ``eventi'' nei due sistemi siano indipendenti, poich\'e la probabilità dell'evento composto risulta essere il prodotto delle singole probabilità.
+Spesso lo stato composto si scrive omettendo il simbolo $\otimes$, o anche in un unico \textit{ket}, come
+\begin{equation}
+	\ket{A}\otimes\ket{B}\hspace{2cm}\ket{A}\ket{B}\hspace{2cm}\ket{A,B}.
+\end{equation}
+Utilizzeremo per un po' la prima e la terza notazione insieme.
+
+Anche se possiamo costruire uno stato composto dal prodotto di due stati, non è vero che ogni stato del sistema composto si possa scrivere in tale modo: in generale, uno stato $\ket{\psi}\in\hilbert=\hilbert_1\otimes\hilbert_2$ è una combinazione lineare di stati composti.
+Date due basi di autostati (eventualmente anche continui) $\ket{i}$ e $\ket{j}$ per gli spazi, una base dello spazio prodotto è l'insieme $\{\ket{i}\otimes\ket{j}=\ket{i,j}\}$, quindi in generale
+\begin{equation}
+	\hilbert\ni\ket{\psi}=\sum_{i,j}c_{ij}\ket{i,j}=\sum_{i,j}c_{ij}\ket{i}\otimes\ket{j}
+\end{equation}
+dove come al solito $c_{ij}=\braket{i,j}{\psi}=(\bra{i}\otimes\bra{j})\ket{\psi}$.
+Solo nel caso in cui $c_{ij}$ si può scrivere nella forma $a_ib_j$ allora si ha
+\begin{equation}
+	\ket{\psi}=\sum_{i,j}a_ib_j\ket{i,j}=\sum_{i,j}a_i\ket{i}\otimes b_j\ket{j}=\bigg(\sum_ia_i\ket{i}\bigg)\otimes\bigg(\sum_jb_j\ket{j}\bigg)
+\end{equation}
+cioè $\ket{\psi}$ si può scrivere come prodotto di due stati semplici, e si dice talvolta \emph{separabile}.
+Quando non esiste una tale fattorizzazione, lo stato è detto \emph{entangled}.\footnote{
+	Letteralmente \textit{ingrovigliato}, \textit{intrecciato}.
+	Il termine inglese è di uso comune, e raramente si trova tradotto in italiano.
+}
+
+Gli operatori nello spazio composto in generale sono, anche qui, combinazioni lineari di prodotti diretti di operatori di ciascuno spazio: dati due operatori $\op\xi^{(1)}$ e $\op\eta^{(2)}$ rispettivamente su $\hilbert_1$ e su $\hilbert_2$, possiamo associare ad essi l'operatore $\op\xi^{(1)}\otimes\op\eta^{(2)}$ sullo spazio composto tale che
+\begin{equation}
+	(\op\xi^{(1)}\otimes\op\eta^{(2)})(\ket{A}\otimes\ket{B})=(\op\xi^{(1)}\ket{A})\otimes(\op\eta^{(2)}\ket{B}).
+\end{equation}
+Notare come ogni operatore agisce soltanto sullo stato del ``proprio'' spazio, indipendentemente dal resto.
+Ogni operatore di ciascuno spazio, d'altronde, si estende ad un operatore sullo spazio composto in modo naturale: l'operatore $\op\xi^{(1)}$ può essere esteso all'operatore
+\begin{equation}
+	\op\xi^{(1\otimes 2)}=\op\xi^{(1)}\otimes 1^{(2)}
+    \label{eq:estensione-operatore-singola-particella}
+\end{equation}
+dove $1^{(2)}$ è l'identità dello spazio $\hilbert_2$.
+Analogamente gli operatori di $\hilbert_2$ si estendono ad operatori del tipo $1^{(1)}\otimes\op\eta^{(2)}$.
+Spesso ometteremo gli indici nei pedici, dato che nella maggior parte dei casi $\op\xi^{(1)}$ e $\op\xi^{(1)}\otimes 1^{(2)}$ rappresentano la stessa osservabile, solo definita in spazi diversi.\footnote{
+	In generale però l'osservabile $\op\xi$ potrebbe non essere definita nell'altro spazio.
+}
+L'identità dello spazio composto è ovviamente $1^{(1)}\otimes 1^{(2)}$.
+Come già anticipato, le osservabili $\op\xi$ e $\op\eta$ in questo caso fanno riferimento a sistemi differenti, dunque sono \emph{sempre compatibili}.
+Una semplice conseguenza di questo fatto è che se $\op\xi\ket{\xi}=\xi\ket{\xi}$ e $\op\eta\ket{\eta}=\eta\ket{\eta}$, dove $\ket{\xi}\in\hilbert_1$ e $\ket{\eta}\in\hilbert_2$, allora
+\begin{equation}
+	\op\xi\op\eta\ket{\xi,\eta}=(\op\xi\otimes 1)(1\otimes\op\eta)(\ket{\xi}\otimes\ket{\eta})=\xi\eta\ket{\xi,\eta}
+\end{equation}
+cioè l'autovalore dello stato composto è il prodotto degli autovalori.
+Un altro esempio è
+\begin{equation}
+	(\op\xi+\op\eta)\ket{\xi,\eta}=(\op\xi\otimes 1+1\otimes\op\eta)(\ket{\xi}\otimes\ket{\eta})=(\xi+\eta)\ket{\xi,\eta}
+\end{equation}
+Cos\`i come per gli stati, in generale un operatore non è il prodotto diretto di due operatori, e $\op\xi+\op\eta$ ne è un esempio.
+Gli elementi di matrice di un operatore $\op\xi$ sullo spazio composto, data una base $\ket{i,j}$, si definiscono nel modo solito come $\xi_{iji'j'}\defeq\bra{i,j}\op\xi\ket{i',j'}$ in modo che
+\begin{equation}
+	\op\xi=\sum_{i,j,i',j'}\xi_{iji'j'}\ket{i,j}\bra{i',j'}
+\end{equation}
+e se $\op\xi$ si fattorizza nel prodotto $\op\eta\op\zeta=(\op\eta\otimes 1)(1\otimes\op\zeta)$ allora
+\begin{equation}
+	\bra{i,j}\op\xi\ket{i',j'}=\bra{i,j}\op\eta\op\zeta\ket{i',j'}=\bra{i}\op\eta\ket{i'}\bra{j}\op\zeta\ket{j'}
+\end{equation}
+cioè l'elemento di matrice dell'operatore prodotto non è altro che il prodotto degli elementi di matrice dei due fattori, nelle basi di ciascun singolo spazio.
+
+\section{Oscillatore armonico isotropo}
+Come primo facile esempio di sistema con più gradi di libertà riprendiamo l'oscillatore armonico in più dimensioni già visto a pagina \pageref{sec:oscillatore-armonico-multidimensionale}.
+Per semplicità consideriamo solo due gradi di libertà, dato che la generalizzazione ad un numero maggiore è molto semplice.
+Un oscillatore armonico è dato dal potenziale
+\begin{equation}
+	V(x_1,x_2)=\frac12m(\omega_1x_1^2+\omega_2x_2^2)
+\end{equation}
+ed è \emph{isotropo} se tutte le frequenze di oscillazione coincidono, in questo caso $\omega_1=\omega_2=\omega$.
+L'hamiltoniano del sistema è dunque
+\begin{equation}
+	\op H=\frac1{2m}(p_1^2+p_2^2)+\frac12m\omega^2(x_1^2+x_2^2).
+\end{equation}
+Indichiamo i due gradi di libertà con dei generici indici 1 e 2 in quanto non sono necessariamente la due coordinate cartesiane di una particella in un piano, ma possono avere altri significati: i risultati che troveremo si applicano, senza alcun cambiamento, anche ad un sistema di due particelle in moto unidimensionale.
+Con la notazione dei prodotti tensoriali che abbiamo introdotto, è chiaro che $\op x_1$ corrisponde all'operatore $\op x\otimes 1$ nello spazio composto, e analogamente $\op x_2=1\otimes\op x$, $\op p_1=\op p\otimes 1$ e $\op p_2=1\otimes\op p$.\footnote{
+	Nell'indicare gli operatori composti omettiamo l'indice che indica a quale spazio si riferiscono, dato che è la stessa osservabile in spazi diversi.
+	Lo spazio a cui fanno riferimento risulta comunque è ovvio in base alla posizione dell'operatore nel prodotto: $\op p\otimes 1$ è l'impulso del primo spazio, e cos\`i via.
+}
+Risulta inoltre che $(\op x\otimes 1)^2=\op x^2\otimes 1$ e analogamente per gli altri.
+Allora l'hamiltoniano si riscrive come
+\begin{equation}
+	\begin{split}
+		\op H&=\frac1{2m}(\op p^2\otimes 1+1\otimes\op p^2)+\frac12m\omega^2(\op x^2\otimes 1+1\otimes\op x^2)=\\
+		&=\frac1{2m}(\op p^2\otimes 1+m^2\omega^2\op x^2\otimes 1+1\otimes\op p^2+m^2\omega^2 1\otimes\op x^2)=\\
+		&=\frac1{2m}(\op p^2+m^2\omega^2\op x^2)\otimes 1+\frac1{2m}1\otimes(\op p^2+m^2\omega^2\op x^2)=\\
+		&=\op H^{(1)}\otimes 1+1\otimes\op H^{(2)}
+	\end{split}
+\end{equation}
+cioè l'hamiltoniano composto non è altro che la somma dei due hamiltoniani dei sottosistemi.
+Dato che i due sistemi sono indipendenti, non interagiscono, ed è lecito aspettarsi che i due hamiltoniani rimangano ``separati''.
+Se dunque $\ket{E_1}$ e $\ket{E_2}$ sono autostati, in ordine, dei due hamiltoniani con autovalori $E_1$ ed $E_2$, allora
+\begin{multline}
+	\op H(\ket{E_1}\otimes\ket{E_2})=
+	(\op H^{(1)}\otimes 1)(\ket{E_1}\otimes\ket{E_2})+(1\otimes\op H^{(2)})(\ket{E_1}\otimes\ket{E_2})=\\=
+	\op H^{(1)}\ket{E_1}\otimes\ket{E_2}+\ket{E_1}\otimes\op H^{(2)}\ket{E_2}=E_1\ket{E_1}\otimes\ket{E_2}+\ket{E_1}\otimes E_2\ket{E_2}=(E_1+E_2)\ket{E_1}\otimes\ket{E_2}
+\end{multline}
+cioè $\ket{E_1}\otimes\ket{E_2}$ è un autostato dell'hamiltoniano nel sistema composto.
+Conosciamo già gli autostati dei singoli sistemi, ossia gli stati $\ket{n}$ tali che $\op H\ket{n}=(n+\frac12)\hbar\omega\ket{n}$: allora prese le basi $\{\ket{n_1}\}_{n_1=0}^{+\infty}$ e $\{\ket{n_2}\}_{n_2=0}^{+\infty}$ possiamo costruire la base del sistema composto data dagli stati
+\begin{equation}
+	\ket{n_1}\otimes\ket{n_2}=\ket{n_1,n_2}
+\end{equation}
+che sono tutti autostati dell'hamiltoniano, con autovalore $(n_1+n_2+1)\hbar\omega$.
+
+La funzione d'onda, nelle variabili $x_1,x_2$ della posizione, dello stato composto è data da 
+\begin{equation}
+	\braket{x_1,x_2}{n_1,n_2}=(\bra{x_1}\otimes\bra{x_2})(\ket{n_1}\otimes\ket{n_2})=\braket{x_1}{n_1}\braket{x_2}{n_2}
+\end{equation}
+perciò la funzione d'onda dello stato composto è semplicemente il prodotto delle funzioni d'onda dei due sottosistemi: la notazione con il prodotto tensoriale rende subito evidente questo fatto.
+\input{grafici/autofunzione-oscillatore2d-isotropo}
+
+\section{Buca di potenziale quadrata}
+Consideriamo il sistema composto da una buca di potenziale quadrata e infinita, di lato $a$: è descritta dal potenziale
+\begin{equation}
+	V(x_1,x_2)=
+	\begin{cases*}
+		0		&se $0<x<a,\ 0<y<a$\\
+		+\infty	&altrimenti
+	\end{cases*}
+\end{equation}
+Possiamo interpretarla equivalentemente come una particella racchiusa in una buca bidimensionale o due particelle identiche nella medesima buca unidimensionale.
+Sappiamo già che all'esterno della buca la funzione d'onda deve essere identicamente nulla, quindi consideriamo d'ora in poi solo l'interno.
+L'hamiltoniano del sistema è
+\begin{equation}
+	\op H=\frac1{2m}(\op p_1^2+\op p_2^2)=\frac1{2m}(\op p^2\otimes 1+1\otimes\op p^2)
+\end{equation}
+che si scompone in modo ovvio in due hamiltoniani, uno per ciascun grado di libertà.
+Gli autostati di $\op H$ del sistema composto saranno allora il prodotto tensoriale degli autostati dei singoli sistemi: poich\'e una buca di potenziale unidimensionale, con tale potenziale, ammette le autofunzioni
+\begin{equation}
+	\psi_n(x)=\sqrt{\frac2{a}}\sin\frac{n\pi x}{a}
+	\hspace{1cm}\text{con }
+	E_n=\frac{\hbar^2n^2\pi^2}{2ma^2}
+\end{equation}
+per l'autostato $\ket{n}$, il sistema composto ammetterà le autofunzioni
+\begin{equation}
+	\braket{x_1,x_2}{n_1,n_2}=\braket{x_1}{n_1}\braket{x_2}{n_2}=\frac2{a}\sin\frac{n_1\pi x_1}{a}\sin\frac{n_2\pi x_2}{a}
+\end{equation}
+con l'energia data dalla somma degli autovalori
+\begin{equation}
+	E=E_{n_1}+E_{n_2}=\frac{\hbar^2(n_1^2+n_2^2)\pi^2}{2ma^2}.
+\end{equation}
+
+\section{Particelle identiche}
+Nella meccanica classica il moto di una particella è dato in maniera deterministica: una volta specificati posizione e momento in un certo istante, le equazioni del moto forniscono una soluzione (la traiettoria della particella) ben definita, ad ogni istante.
+Quando abbiamo a che fare con sistemi di particelle identiche, quindi, possiamo immaginare di individuare in un istante di tempo ciascuna particella, e misurandone posizione e momento potremo seguirle per tutta la durata del moto, effettivamente distinguendole l'una dall'altra.
+In meccanica quantistica, a causa del principio di indeterminazione, ciò non è più possibile: nemmeno il concetto di traiettoria non è più definito, in quanto se misuriamo con assoluta precisione la posizione di una particella allora il suo momento avrà un'incertezza infinita, e non abbiamo alcun modo di determinare all'istante successivo dove si troverà.
+Non possiamo più quindi aggrapparci alle equazioni del moto per distinguere le particelle l'una dall'altra, e infatti se esse condividono lo stesso insieme di proprietà fisiche (spin, massa, etc.) esse diventano a tutti gli effetti \emph{indistinguibili}.
+Anche gli stati fisici nello spazio di Hilbert dovranno quindi riflettere questo fatto, ossia preso uno stato di un certo numero di particelle, se scambiamo tra loro alcune particelle lo stato non deve cambiare (a meno del solito fattore di fase).
+
+In termini più rigorosi, quando abbiamo un insieme di $n$ particelle e ne scambiamo alcune tra loro, effettuiamo una permutazione di $n$ elementi, che è un elemento del \emph{gruppo simmetrico} $S_n$.
+Come conseguenza, gli stati nello spazio di Hilbert si trasformeranno secondo una rappresentazione di tale gruppo.
+Quando le particelle sono indistinguibili (e lo supporremo sempre nel resto della sezione) l'hamiltoniano del sistema non può dipendere dalla ``numerazione delle particelle'', quindi sarà invariante rispetto a ciascuna permutazione $\Pi\in S_n$: in altre parole l'operatore $\op U(\Pi)$ che implementa la permutazione nello spazio di Hilbert commuta con l'hamiltoniano:
+\begin{equation}
+    [\op U(\Pi),\op H]=0.
+    \label{eq:commutatore-permutazione-hamiltoniano}
+\end{equation}
+Sappiamo inoltre che tale permutazione lascia lo stato fisico invariato a meno di un fattore di fase, perciò $\op U(\Pi)$ realizza una rappresentazione unidimensionale di $S_n$: per qualsiasi $n\ge 2$ è noto che le uniche rappresentazioni unidimensionali di $S_n$ sono quella banale e la rappresentazione ``segno'', che assegna a ciascuna permutazione --- appunto --- il suo segno (anche detto parità).
+Chiaramente la rappresentazione banale non è di alcun interesse, di conseguenza abbiamo
+\begin{equation}
+    \op U(\Pi)=\pm 1.
+\end{equation}
+La \eqref{eq:commutatore-permutazione-hamiltoniano} implica tra l'altro che $\op H$ e $\op U(\Pi)$ hanno una base di autostati in comune; preso uno di questi autostati, avremo
+\begin{equation}
+    \op U(\Pi)\ket{E}=\pm\ket{E}
+\end{equation}
+e per le equazioni del moto di Heisenberg tale autovalore $\pm 1$ rimane tale per tutti gli istanti di tempo, cioè $\Pi$ è una costante del moto: l'evoluzione temporale degli stati non può portare stati con autovalore $-1$ in stati con autovalore $1$, e viceversa.
+Questo comportamento degli stati sotto l'azione delle permutazioni delle particelle divide dunque lo spazio di Hilbert in due sottospazi ortogonali: se $\hilbert$ è lo spazio degli stati di una particella singola, allora lo spazio $\hilbert^n=\hilbert\otimes\cdots\otimes\hilbert$ composto dal prodotto di $n$ copie identiche di $\hilbert$ si suddivide in
+\begin{equation}
+    \hilbert^n=\hilbert_{(S)}\oplus\hilbert_{(A)}
+\end{equation}
+dove $(S)$ indica gli stati \emph{simmetrici}, con autovalore $1$, che non cambiano segno in seguito alla permutazione, e $(A)$ indica gli stati \emph{antisimmetrici}, che hanno autovalore $-1$ e invece cambiano segno.
+La proprietà di un sistema di particelle di possedere stati simmetrici o antisimmetrici dipende dalla natura delle particelle:
+\begin{itemize}
+    \item le particelle con stati simmetrici sono dette \emph{bosoni}, poich\'e seguono la statistica di Bose-Einstein;
+    \item le particelle con stati antisimmetrici sono dette \emph{fermioni}, poich\'e seguono invece la statistica di Fermi-Dirac.
+\end{itemize}
+La statistica a cui obbediscono in realtà dipende soltanto dallo spin delle particelle: le particelle con spin semi-intero sono fermioni, mentre quelle con spin intero sono bosoni.\footnote{
+    Ciascuna particella elementare ha un proprio spin caratteristico: ad esempio elettroni, neutrini e in generale tutti i quark e i leptoni hanno spin semi-intero e sono dunque fermioni, mentre le particelle mediatrici delle forze come i fotoni hanno spin intero.
+}
+Per le particelle composte, la statistica è determinata da quella delle particelle che le compongono: se una particella è composta (oltre al resto) da $k$ fermioni, scambiare due tali particelle composte equivale a scambiare $k$ coppie di fermioni, e questo determina il segno dello stato finale; lo scambio dei bosoni non ha invece alcun effetto.
+
+Prendiamo ora un esempio più concreto, con un sistema di due particelle.
+Dato lo spazio di Hilbert $\hilbert$ della particella singola, con base $\{\ket{\alpha}\}_{\alpha\in I}$, lo stato delle due particelle è $\hilbert^2\defeq\hilbert\otimes\hilbert$ con base $\{\ket{\alpha}\otimes\ket{\beta}\}_{\alpha,\beta\in I}$, in breve $\ket{\alpha,\beta}$.
+Per due particelle il gruppo simmetrico $S_n$ è composto da solo due elementi, l'identità e lo scambio $1\leftrightarrow 2$ che indichiamo con $\Pi_{12}$.
+Indicando la rappresentazione di quest'ultimo con il medesimo simbolo, sulla base che abbiamo scritto esso agisce come
+\begin{equation}
+    \op\Pi_{12}\ket{\alpha,\beta}=\ket{\beta,\alpha}
+\end{equation}
+(ma il comportamento è chiaramente indipendente dalla base scelta) ed è tale che $\op\Pi_{12}^2=1$, da cui segue che $\adj{\op\Pi_{12}}=\op\Pi_{12}^{-1}=\op\Pi_{12}$ quindi è anche hermitiano, come potevamo aspettarci dato che i suoi autovalori sono $\pm 1$.
+In termini delle funzioni d'onda, abbiamo che se $\psi(\vec x_1,\vec x_2)=\braket{\vec x_1,\vec x_2}{\psi}$ allora, nella base degli autostati della posizione si ha $\op\Pi_{12}\ket{\vec x_1,\vec x_2}=\ket{\vec x_2,\vec x_1}$ quindi
+\begin{equation}
+    \Pi_{12} \colon \psi(\vec x_1,\vec x_2) \mapsto \bra{\vec x_1,\vec x_2}\op\Pi_{12}\ket{\psi}=\braket{\vec x_2,\vec x_1}{\psi}=\psi(\vec x_2,\vec x_1).
+    \label{eq:scambio-particelle-funzione-donda}
+\end{equation}
+Analogamente $\op\Pi_{12}$ scambia le altre grandezze associate alle due particelle, come lo spin.
+
+Ora, se disponiamo di $n$ stati $\ket{i}$ ($i=1,\ldots,n$) di singola particella, come costruire lo stato del sistema composto dalle $n$ particelle?
+Non è sufficiente prendere un prodotto, in un ordine qualsiasi, degli $n$ stati: la costruzione deve infatti riflettere l'indistinguibilità delle particelle.
+Se infatti ad esempio abbiamo due stati $\ket{1}$ e $\ket{2}$ differenti, non ha senso dire che <<la particella 1 si trova nello stato $\ket{1}$ e la particella 2 nello stato $\ket{2}$>> poich\'e non abbiamo alcun modo di dire quale particella è quale: dovremo quindi costruire uno stato tale che, scambiando due o più stati, si ottiene lo stesso stato a meno del segno.
+Per fare ciò dovremo prendere delle opportune combinazioni lineari degli stati di base: per i bosoni avremo uno stato \emph{completamente simmetrico}
+\begin{equation}
+    \ket{\Psi^{(S)}}=\sqrt{\frac{m_1!m_2!\cdots m_n!}{n!}}\sum_{\sigma\in S_n}\ket{\sigma(1)}\otimes\ket{\sigma(2)}\otimes\cdots\otimes\ket{\sigma(n)}
+    \label{eq:stato-completamente-simmetrico}
+\end{equation}
+dove la somma corre su tutte le possibili permutazioni degli $n$ stati e $m_k$ nel fattore di normalizzazione indica il numero di volte in cui lo stato $k$-esimo appare nella somma.
+Per i fermioni avremo invece lo stato \emph{completamente antisimmetrico}
+\begin{equation}
+    \ket{\Psi^{(A)}}=\frac1{\sqrt{n!}}\sum_{\sigma\in S_n}\sgn(\sigma)\ket{\sigma(1)}\otimes\ket{\sigma(2)}\otimes\cdots\otimes\ket{\sigma(n)}
+    \label{eq:stato-completamente-antisimmetrico}
+\end{equation}
+dove $\sgn(\sigma)$ è il segno della permutazione $\sigma$; notiamo l'assenza dei fattori $m_k!$ al numeratore dato che, per antisimmetria, lo stesso stato non può comparire più di una volta negli addendi, che altrimenti sarebbero nulli.
+Questo ha come conseguenza che in un insieme di fermioni identici, non è possibile che due o più di essi si trovino nel medesimo stato: questo è noto come \emph{principio di esclusione}, dovuto a Wolfgang Pauli.
+
+Per quanto riguarda le funzioni d'onda, abbiamo per i bosoni
+\begin{equation}
+    \Psi^{(S)}(\vec x_1,\ldots,\vec x_n)=\sqrt{\frac{m_1!m_2!\cdots m_n!}{n!}}\sum_{\sigma\in S_n}\psi_{\sigma(1)}(\vec x_1)\psi_{\sigma(2)}(\vec x_2)\cdots\psi_{\sigma(n)}(\vec x_n)
+    \label{eq:funzione-donda-completamente-simmetrica}
+\end{equation}
+mentre per i fermioni
+\begin{equation}
+    \Psi^{(A)}(\vec x_1,\ldots,\vec x_n)=\frac1{\sqrt{n!}}\sum_{\sigma\in S_n}\sgn(\sigma)\psi_{\sigma(1)}(\vec x_1)\psi_{\sigma(2)}(\vec x_2)\cdots\psi_{\sigma(n)}(\vec x_n).
+    \label{eq:funzione-donda-completamente-antisimmetrica}
+\end{equation}
+Si noti l'analogia con la formula del determinante: la funzione completamente antisimmetrica può essere infatti scritta anche nella forma
+\begin{equation}
+    \Psi^{(A)}(\vec x_1,\ldots,\vec x_n)=\frac1{\sqrt{n!}}
+    \begin{vmatrix}
+        \psi_1(\vec x_1) & \psi_1(\vec x_2) & \cdots & \psi_1(\vec x_n) \\
+        \psi_2(\vec x_1) & \psi_2(\vec x_2) & \cdots & \psi_2(\vec x_n) \\
+        \vdots           & \vdots           & \ddots & \vdots           \\
+        \psi_n(\vec x_1) & \psi_n(\vec x_2) & \cdots & \psi_n(\vec x_n)
+    \end{vmatrix}
+    \label{eq:determinante-slater}
+\end{equation}
+nota come \emph{determinante di Slater}.
+
+\begin{osservazione} \label{o:osservabili-scambio-particelle}
+    Cos\`i come una funzione d'onda che non è (anti)simmetrica rispetto allo scambio di due particelle identiche non ha un senso fisico, poich\'e non rispecchia il principio di indistinguibilità, lo stesso discorso si può fare per gli operatori.
+    Componendo i due spazi delle singole particelle ci ``portiamo dietro'' tutti gli operatori che agiscono sul singolo spazio, estesi come nella \eqref{eq:estensione-operatore-singola-particella}: anch'essi però perdono il loro significato fisico.
+    Se non possiamo distinguere le particelle infatti non ha più senso dire che la particella 1 ha spin $\frac12$ e la seconda ha spin $-\frac12$, e lo stesso per la posizione, l'impulso, il momento angolare etc. delle singole particelle.
+    Ricordiamo che gli operatori autoaggiunti corrispondono a una misura che si può fare sul sistema: non possiamo pretendere di misurare la posizione della particella 1, semmai possiamo fare la misura e scoprire che c'è una particella in una certa regione di spazio, ma non sappiamo se tale particella è la <<particella 1>>.
+    D'altro canto ha senso misurare lo spin totale, la posizione del centro di massa, e in generale le proprietà del sistema composto, quindi hanno senso gli operatori come $\op{\vec S}^{(1)}+\op{\vec S}^{(2)}$, $\frac12(\op{\vec x}^{(1)}+\op{\vec x}^{(2)})$, $\op{\vec p}^{(1)}+\op{\vec p}^{(2)}$ eccetera.
+    Questi operatori (e le funzioni di essi), come è evidente, commutano con $\op\Pi_{12}$.
+    Gli operatori che non corrispondono a delle misure possibili sul sistema, ossia quelli che si riferiscono a una particella specifica (o che dipendono da una certa ``numerazione'' delle particelle) restano comunque validi dal punto di vista matematico, cos\`i come le funzioni d'onda di singola particella: il principio da seguire è che \emph{questa numerazione non può avere alcuna conseguenza dal punto di vista fisico}.
+    Questo si estende ovviamente anche ai sistemi di più di due particelle identiche.
+\end{osservazione}
+
+\section{L'atomo di elio}
+Nell'atomo di elio abbiamo un sistema di due elettroni che interagiscono con il nucleo di due protoni e due neutroni.
+Possiamo subito generalizzarlo, come per l'atomo di idrogeno, ad un sistema di due elettroni orbitanti un nucleo di carica arbitraria $Z$.
+Ci aspettiamo di applicare quanto visto per l'elettrone nell'atomo di idrogeno a questo caso, ma il problema non è esattamente risolubile, nemmeno con tutte le approssimazioni fatte per l'idrogeno.
+Anche considerando il nucleo come un punto materiale di massa infinita, e trascurando le svariate correzioni relativistiche come il momento degli elettroni e l'interazione dei loro spin con il campo del nucleo o tra loro stessi, rimane l'ostacolo dell'interazione elettrostatica tra le due particelle.
+Partiamo studiando questo problema avendo già svolto la trasformazione di coordinate nel moto relativo dei due elettroni rispetto al nucleo --- che consideriamo puntiforme e di massa infinita --- in cui l'hamiltoniano è
+\begin{equation}
+    \op H=\frac{\op{\vec p}_1^2}{2m}+\frac{\op{\vec p}_2^2}{2m}-\frac{Ze^2}{\op r_1}-\frac{Ze^2}{\op r_2}+\frac{e^2}{\norm{\op{\vec x}_1-\op{\vec x}_2}}
+    \label{eq:H-elio}
+\end{equation}
+con la solita notazione.
+Se il termine di interazione non fosse presente, l'hamiltoniano sarebbe la somma di due hamiltoniani di atomi idrogenoidi, e il sistema si potrebbe completamente separare; in tal caso avremmo risolto il problema: gli stati sarebbero il prodotto di due autostati dell'hamiltoniano dell'atomo di idrogeno e le energie si sommerebbero.
+Cominciamo proprio da questa approssimazione, nota come l'\emph{approssimazione a elettroni indipendenti}.
+
+\paragraph{Stima del livello fondamentale}
+Come detto finora, non possiamo conoscere esattamente i livelli energetici dell'atomo di elio, nemmeno per lo stato fondamentale.
+Per quest'ultimo, possiamo procedere cominciando dall'approssimazione a elettroni indipendenti e trattare l'interazione elettrostatica con un calcolo perturbativo, oppure dare una stima per eccesso dell'energia con il metodo variazionale.
+Cominciamo con il primo metodo: scriviamo
+\begin{equation}
+    \begin{gathered}
+        \op H^{(0)}\defeq\frac{\op{\vec p}_1^2}{2m}+\frac{\op{\vec p}_2^2}{2m}-\frac{Ze^2}{\op r_1}-\frac{Ze^2}{\op r_2}\\
+        \op H'\defeq\frac{e^2}{\norm{\op{\vec x}_1-\op{\vec x}_2}}
+    \end{gathered}
+    \label{eq:scomposizione-H-elio-perturbazione}
+\end{equation}
+in modo che $\op H=\op H^{(0)}+\op H'$.
+Gli autostati dell'hamiltoniano imperturbato li conosciamo già, e sono i prodotti di due autostati dell'hamiltoniano dell'atomo di idrogeno, per cui $\ket{E_0^{(0)}}=\ket{1,0,0}\otimes\ket{1,0,0}$, con funzione d'onda $\Psi(\vec x_1,\vec x_2)=\psi_{1,0,0}(\vec x_1)\psi_{1,0,0}(\vec x_2)$.
+I due stati ``di particella singola'' con $l^{(1)}=l^{(2)}=0$ si combinano a dare uno stato con $l=0$, la cui energia è il doppio di quella dello stato fondamentale dell'idrogeno.
+
+Il termine di correzione, al primo ordine, di questo autovalore è il valore medio della perturbazione $\op H'$ su questo stato, che risulta
+\begin{equation}
+    \begin{split}
+        \Delta E_0^{(1)}&=
+        \bra{E_0^{(0)}}\op H'\ket{E_0^{(0)}}=
+        \int_{\R^3}\int_{\R^3}\Psi(\vec x_1,\vec x_2)^*\frac{e^2}{\norm{\vec x_1-\vec x_2}}\Psi(\vec x_1,\vec x_2)\,\dd^3 x_2\,\dd^3 x_1=\\&=
+        \int_{\R^3}\abs{\psi_{1,0,0}(\vec x_1)}^2\int_{\R^3}\abs{\psi_{1,0,0}(\vec x_2)}^2\frac{e^2}{\norm{\vec x_1-\vec x_2}}\,\dd^3 x_2\,\dd^3 x_1=\\&=
+        \frac{e^2Z^6}{\pi^2 r_B^6}\int_{\R^3}e^{-2Zr_1/r_B}\int_{\R^3}\frac1{\norm{\vec x_1-\vec x_2}}e^{-2Zr_2/r_B}\,\dd^3 x_2\,\dd^3 x_1
+    \end{split}
+    \label{eq:perturbazione-stato-fondamentale-elio-1}
+\end{equation}
+dove $r_i=\norm{\vec x_i}$ e $r_B=\frac{\hbar^2}{me^2}$ è il raggio di Bohr.
+L'integrale interno, in $\vec x_2$, è formalmente identico al potenziale elettrostatico generato dalla distribuzione $e^{-2Zr_2/r_B}$ in $\vec x_1$, che possiamo dunque calcolare come segue: essa genera un campo elettrico $\mathcal E$ con simmetria sferica attorno all'origine, per cui possiamo calcolarlo con il teorema di Gauss ottenendo
+\begin{equation}
+    \begin{split}
+        \mathcal E(r)&=
+        \frac{4\pi}{r^2}\int_0^re^{-r_2/a}r_2^2\dd r_2=
+        \frac{4\pi a^3}{r^2}\int_0^{r/a}y^2e^{-y}\dd y=\\&=
+        \frac{4\pi a^3}{r^2}e^{-y}(-y^2-2y-2)\Bigr|_0^{r/a}=
+        \frac{8\pi a^3}{r^2}\biggl[1-e^{-r/a}\biggl(1+\frac{r}{a}+\frac{r^2}{2a^2}\biggr)\biggr]
+    \end{split}
+\end{equation}
+dove $a\defeq\frac{r_B}{2Z}$; esso ha dunque come potenziale
+\begin{equation}
+    \begin{split}
+        \phi(r)&=
+        -\int_{+\infty}^r\mathcal E(r')\,\dd r'=
+        -8\pi a^3\int_{+\infty}^r\frac1{r'^2}\biggl[1-e^{-r'/a}\biggl(1+\frac{r'}{a}+\frac{r'^2}{2a^2}\biggr)\biggr]\,\dd r'=\\&=
+        -8\pi a^2\int_{+\infty}^{r/a}\biggl[1-e^{-z}\biggl(1+z+\frac{z^2}2\biggr)\biggr]\frac1{z^2}\,\dd z=
+        -8\pi a^2\biggl[-\frac1{z}+\frac1{z}e^{-z}+\frac12e^{-z}\biggr]_{+\infty}^{r/a}=\\&=
+        8\pi a^3\biggl(\frac{1-e^{-r/a}}{r}-\frac1{2a}e^{-r/a}\biggr)
+    \end{split}
+\end{equation}
+e l'integrale \eqref{eq:perturbazione-stato-fondamentale-elio-1} risulta cos\`i
+\begin{equation}
+    \begin{split}
+        \Delta E_0^{(1)}
+        &=\frac{e^2Z^6}{\pi^2 r_B^6}\int_0^{+\infty}e^{-2Zr_1/r_B}\phi(r_1)4\pi r_1^2\,\dd r_1=\\
+        &=\frac{e^2}{2a^3}\int_0^{+\infty}\biggl[(1-e^{-r_1/a})r_1e^{-r_1/a}-\frac{r_1^2}{2a}e^{-2r_1/a}\biggr]\,\dd r_1=\\
+        &=\frac{e^2}{2a}\int_0^{+\infty}\biggl(\zeta e^{-\zeta}-\zeta e^{-2\zeta}-\frac12\zeta^2e^{-2\zeta}\biggr)\,\dd\zeta=\frac{5e^2}{16a}
+    \end{split}
+    \label{eq:perturbazione-stato-fondamentale-elio-2}
+\end{equation}
+L'energia dello stato fondamentale al primo ordine perturbativo è dunque
+\begin{equation}
+    \begin{split}
+        E_0^{(1)}&=
+        E_0^{(0)}+\Delta E_0^{(1)}=
+        -\frac{Z^2me^4}{\hbar^2}+\frac{5e^2}{16a}=
+        -\frac{Z^2me^4}{\hbar^2}+\frac{5Ze^2}{8r_B}=\\&=
+        -\frac{Z^2me^4}{\hbar^2}+\frac{5Zme^4}{8\hbar^2}=
+        -\frac{Z^2me^4}{\hbar^2}\bigg(1-\frac{5}{8Z}\bigg).
+    \end{split}
+    \label{eq:energia-elio-perturbazione}
+\end{equation}
+Per l'elio, con $Z=2$, si ha $E_0^{(1)}=\SI{-75}{\electronvolt}$, mentre il valore sperimentale è \SI{-78.95}{\electronvolt}.
+
+Passiamo ora al metodo variazionale, che ci fornirà una stima per eccesso dell'energia di questo stato.
+Prendiamo uno stato $\ket{\psi_\beta}$ di prova con una funzione d'onda della forma $e^{-Z\beta(r_1+r_2)/r_B}$: normalizzandola otteniamo la funzione
+\begin{equation}
+    \psi_\beta(\vec x_1,\vec x_2)=\frac1{\pi}\biggl(\frac{Z\beta}{r_B}\biggr)^3e^{-Z\beta(r_1+r_2)/r_B}.
+    \label{eq:funzione-prova-stato-fondamentale-elio}
+\end{equation}
+Scriviamo
+\begin{equation}
+    T\defeq\frac1{2m}(\op{\vec p}_1^2+\op{\vec p}_2^2),\quad
+    V\defeq-Ze^2\biggl(\frac1{\op r_1}+\frac1{\op r_2}\biggr),
+\end{equation}
+cos\`i che $H=T+V+H'$.
+Abbiamo i valori di aspettazione
+\begin{equation}
+    \begin{split}
+        \avg{T}&=
+        \frac1{2m}\bra{\psi_\beta}\op{\vec p}_1^2+\op{\vec p}_2^2\ket{\psi_\beta}=
+        -\frac{\hbar^2}{2m}\int_{\R^3}\int_{\R^3}\psi_\beta(\vec x_1,\vec x_2)(\lap_1+\lap_2)\psi_\beta(\vec x_1,\vec x_2)\,\dd^3 x_1\,\dd^3 x_2=\\&=
+        \begin{multlined}[t]
+            -\frac{\hbar^2}{2m\pi^2}\biggl(\frac{Z\beta}{r_B}\biggr)^616\pi^2\int_0^{+\infty}\int_0^{+\infty}e^{-Z\beta(r_1+r_2)/r_B}\biggl(\frac1{r_1^2}\drp{}{r_1}r_1^2\drp{}{r_1}+\\
+            +\frac1{r_2^2}\drp{}{r_2}r_2^2\drp{}{r_2}\biggr)e^{-Z\beta(r_1+r_2)/r_B}r_1^2r_2^2\,\dd r_1\,\dd r_2=
+        \end{multlined}\\&=
+        \begin{multlined}[t]
+            -\frac{8\hbar^2}{m}\biggl(\frac{Z\beta}{r_B}\biggr)^6\biggl(-\frac{Z\beta}{r_B}\biggr)\int_0^{+\infty}\int_0^{+\infty}e^{-Z\beta(r_1+r_2)/r_B}\biggl[\frac1{r_1^2}\drp{}{r_1}\biggl(r_1^2e^{-Z\beta(r_1+r_2)/r_B}\biggr)+\\
+            +\frac1{r_2^2}\drp{}{r_2}r_2^2\biggl(r_2^2e^{-Z\beta(r_1+r_2)/r_B}\biggr)\biggr]r_1^2r_2^2\,\dd r_1\,\dd r_2=
+        \end{multlined}\\&=
+        \begin{multlined}[t]
+            \frac{8\hbar^2}{m}\biggl(\frac{Z\beta}{r_B}\biggr)^7\int_0^{+\infty}\int_0^{+\infty}e^{-Z\beta(r_1+r_2)/r_B}\biggl[\frac1{r_1^2}\Bigl(2r_1e^{-Z\beta(r_1+r_2)/r_B}-\frac{Z\beta}{r_B}r_1^2e^{-Z\beta(r_1+r_2)/r_B}\Bigr)+\\
+                +\frac1{r_2^2}\Bigl(2r_2e^{-Z\beta(r_1+r_2)/r_B}-\frac{Z\beta}{r_B}r_2^2e^{-Z\beta(r_1+r_2)/r_B}\Bigr)r_1^2r_2^2\,\dd r_1\,\dd r_2=
+        \end{multlined}\\&=
+        \frac{8\hbar^2}{m}\biggl(\frac{Z\beta}{r_B}\biggr)^7\int_0^{+\infty}\int_0^{+\infty}e^{-2Z\beta(r_1+r_2)/r_B}\biggl(2r_1r_2^2+2r_1^2r_2-\frac{2Z\beta}{r_B}r_1^2r_2^2\biggr)\,\dd r_1\,\dd r_2=\\&=
+        \frac{8\hbar^2}{m}\biggl(\frac{Z\beta}{r_B}\biggr)^7\biggl(\frac{r_B}{2Z\beta}\biggr)^5\int_0^{+\infty}\int_0^{+\infty}e^{-\xi_1-\xi_2}(2\xi_1\xi_2^2+2\xi_1^2\xi_2-\xi_1^2\xi_2^2)\,\dd\xi_1\,\dd\xi_2=\\&=
+        \frac{\hbar^2}{4m}\biggl(\frac{Z\beta}{r_B}\biggr)^2\int_0^{+\infty}\int_0^{+\infty}e^{-\xi_1-\xi_2}(2\xi_1\xi_2^2+2\xi_1^2\xi_2-\xi_1^2\xi_2^2)\,\dd\xi_1\,\dd\xi_2=
+        \frac{\hbar^2}{m}\biggl(\frac{Z\beta}{r_B}\biggr)^2,
+    \end{split}
+\end{equation}
+\begin{equation}
+    \begin{split}
+        \avg{V}&=
+        -Ze^2\bra{\psi_\beta}\frac1{\op r_1}+\frac1{\op r_2}\ket{\psi_\beta}=
+        -Ze^2\int_{\R^3}\int_{\R^3}\psi_\beta(\vec x_1,\vec x_2)^2\biggl(\frac1{r_1}+\frac1{r_2}\biggr)\,\dd^3 x_1\,\dd^3 x_2=\\&=
+        -Ze^2\frac1{\pi^2}\biggl(\frac{Z\beta}{r_B}\biggr)^6\int_0^{+\infty}\int_0^{+\infty}e^{-2Z\beta(r_1+r_2)/r_B}\biggl(\frac1{r_1}+\frac1{r_2}\biggr)4\pi r_1^2 4\pi r_2^2\,\dd r_1\,\dd r_2=\\&=
+        -16Ze^2\biggl(\frac{Z\beta}{r_B}\biggr)^6\int_0^{+\infty}\int_0^{+\infty}e^{-2Z\beta(r_1+r_2)/r_B}(r_1r_2^2+r_1^2r_2)\,\dd r_1\,\dd r_2=\\&=
+        -16Ze^2\biggl(\frac{Z\beta}{r_B}\biggr)^6\frac1{32}\biggl(\frac{r_B}{Z\beta}\biggr)^5\int_0^{+\infty}\int_0^{+\infty}e^{-\xi_1-\xi_2}(\xi_1\xi_2^2+\xi_1^2\xi_2)\,\dd \xi_1\,\dd \xi_2=-\frac{2Z^2e^2\beta}{r_B}.
+    \end{split}
+\end{equation}
+Per l'interazione elettrostatica, il procedimento è identico a quello già svolto per il termine perturbativo del paragrafo precedente:
+\begin{equation}
+    \begin{split}
+        \avg{H'}&=
+        e^2\bra{\psi_\beta}\frac1{\norm{\op{\vec x}_1-\op{\vec x}_2}}\ket{\psi_\beta}=
+        e^2\int_{\R^3}\int_{\R^3}\psi_\beta(\vec x_1,\vec x_2)^2\frac1{\norm{\vec x_1-\vec x_2}}\,\dd^3 x_1\,\dd^3 x_2=\\&=
+        \frac{e^2}{\pi^2}\biggl(\frac{Z\beta}{r_B}\biggr)^6\int_{\R^3}e^{-2Z\beta\norm{\vec x_1}/r_B}\int_{\R^3}\frac1{\norm{\vec x_1-\vec x_2}}e^{-2Z\beta\norm{\vec x_2}/r_B}\,\dd^3 x_2\,\dd^3 x_1.
+    \end{split}
+\end{equation}
+La ``distribuzione di carica'' $\rho(\vec x_2)=\exp\big(-\frac{2Z\beta}{r_B}\norm{\vec x_2}\big)$ è radiale dunque genera un ``campo elettrico'' a simmetria sferica, che vale, detto $g\defeq\frac{r_B}{2Z\beta}$,
+\begin{equation}
+    \begin{split}
+        \mathcal E(r)&=
+        \frac1{r^2}\int_0^r\rho(r')4\pi r'^2\,\dd r'=
+        \frac{4\pi}{r^2}\int_0^re^{r'/g}r'^2\,\dd r'=\\&=
+        \frac{4\pi g^3}{r^2}\int_0^{r/g}e^{-y}y^2\,\dd y=4\pi g\biggl[2\frac{g^2}{r^2}-e^{-r/g}\biggl(1+2\frac{g}{r}+2\frac{g^2}{r^2}\biggr)\biggr]
+    \end{split}
+\end{equation}
+a cui è associato il potenziale
+\begin{equation}
+    \begin{split}
+        \phi(r)&=
+        -\int_{\infty}^r\mathcal E(r')\,\dd r'=
+        -4\pi g\int_{+\infty}^r\biggl[2\frac{g^2}{r'^2}-e^{-r'/g}\biggl(2\frac{g^2}{r'^2}+2\frac{g}{r'}+1\biggr)\biggr]\,\dd r'=\\&=
+        -4\pi g^2\int_{+\infty}^{r/g}\biggl[\frac2{z^2}-e^{-z}\biggl(\frac2{z^2}+\frac2{z}+1\biggr)\biggr]\,\dd z=
+        8\pi g^3\biggl(\frac{1-e^{-r/g}}{r}-\frac1{2g}e^{-r/g}\biggr)
+    \end{split}
+\end{equation}
+da cui otteniamo
+\begin{equation}
+    \begin{split}
+        \avg{H'}&=
+        \frac{e^2}{\pi^2}\biggl(\frac{Z\beta}{r_B}\biggr)^6\int_0^{+\infty}\rho(r)\phi(r)4\pi r^2\,\dd r=\\&=
+        \frac{e^2}{\pi^2}\biggl(\frac{Z\beta}{r_B}\biggr)^6\int_0^{+\infty}e^{-r/g}8\pi g^3\biggr(\frac{1-e^{-r/g}}{r}-\frac1{2g}e^{-r/g}\biggr)4\pi r^2\,\dd r=\\&=
+        32e^2\biggl(\frac{Z\beta}{r_B}\biggr)^6g^5\int_0^{+\infty}e^{-\zeta}\biggl(\frac{1-e^{-\zeta}}{\zeta}-\frac12e^{-\zeta}\biggr)\zeta^2\,\dd\zeta=\\&=
+        \frac{5e^2}{16g}=
+        \frac{5Z\beta e^2}{8r_B}.
+    \end{split}
+\end{equation}
+Riassumendo i tre risultati abbiamo che
+\begin{equation}
+    f(\beta)\defeq
+    \bra{\psi_\beta}H\ket{\psi_\beta}=
+    \avg{T}+\avg{V}+\avg{H'}=
+    \frac{\hbar^2Z^2\beta^2}{mr_B^2}-\frac{2Z^2e^2\beta}{r_B}+\frac{5Ze^2\beta}{8r_B}=
+    \frac{me^4}{\hbar^2}\Bigl(Z^2\beta^2-2Z^2\beta+\frac58Z\beta\Bigr)
+\end{equation}
+Troviamo il minimo calcolandone la derivata,
+\begin{equation}
+    f'(\beta)=\frac{me^4}{\hbar^2}\Bigl(2Z^2\beta-2Z^2+\frac58Z\Bigr)
+\end{equation}
+che si annulla se $2Z^2\beta-2Z^2+\frac58Z=0$ ossia per $\beta=1-\frac5{16Z}$.
+Per questo valore si ha allora
+\begin{equation}
+    E_0\le
+    \bra{\psi_\beta}\op H\ket{\psi_\beta}=
+    \frac{me^4}{\hbar^2}\biggl[\bigg(Z-\frac5{16}\bigg)^2-2Z\biggl(Z-\frac5{16}\biggr)+\frac58\bigg(Z-\frac5{16}\biggr)\biggr]=
+    -\frac{me^4}{\hbar^2}\biggl(Z^2+\frac{25}{256}-\frac58Z\biggr).
+\end{equation}
+Per l'elio si ha il valore di \SI{-78}{\electronvolt}, che è un netto miglioramento rispetto al risultato ottenuto trattando l'interazione tra gli elettroni come perturbazione, in precedenza.
+Oltretutto, ora sappiamo che l'energia $E_0$ è necessariamente \emph{minore} della stima appena trovata, mentre prima con la correzione al primo ordine questo non era un fatto certo.
+
+Rimane ora soltanto da prendere in considerazione lo spin: l'unico modo per costruire lo stato fondamentale dell'elio a partire dagli autostati dell'atomo di idrogeno è $\ket{1,0,0}\otimes\ket{1,0,0}$, e tale stato ha una parte orbitale automaticamente simmetrica rispetto allo scambio dei due elettroni, perciò la parte di spin dorvà essere antisimmetrica.
+Entrambi gli elettroni hanno spin $s_1=s_2=\frac12$, e componendoli si ottiene $s=1$ o $s=0$: la parte antisimmetrica è data da $s=0$, che contiene solamente lo stato $\frac1{\sqrt{2}}(\ket{+,-}-\ket{-,+})$, quindi i due elettroni hanno spin opposto.
+Lo stato fondamentale dell'elio, di conseguenza, non è degenere.
+
+\paragraph{Primi stati eccitati}
+Chiuso il discorso sullo stato fondamentale, passiamo a valutare --- questa volta in modo più qualitativo --- i primi stati eccitati dell'atomo di elio, sempre riprendendo le varie approssimazioni di cui abbiamo discusso prima.
+Promuoviamo uno dei due elettroni al primo stato (di singola particella) eccitato, con $n=2$: questo già ci porta a distinguere gli stati con $l=0$ e $l=1$.
+Questa volta abbiamo il prodotto di due diverse autofunzioni $\psi_{n,l,m}$, quindi dovremo prendere delle opportune combinazioni lineari per riflettere l'indistinguibilità dei due elettroni: scambiando le due particelle dobbiamo ottenere il medesimo stato (a meno di un fattore di fase, che in questo caso sappiamo essere $\pm 1$).
+Abbiamo dunque il fattore orbitale della funzione d'onda
+\begin{equation}
+    \frac1{\sqrt{2}}\bigl[\psi_{1,0,0}(\vec x_1)\psi_{2,l,m}(\vec x_2)\pm\psi_{2,l,m}(\vec x_1)\psi_{1,0,0}(\vec x_2)\bigr]:
+\end{equation}
+\begin{itemize}
+    \item se prendiamo la somma, tale fattore è simmetrico rispetto allo scambio delle due particelle, e come visto per lo stato fondamentale l'unico modo di comporre gli spin rispettando il principio di Pauli è formare lo stato con spin totale $s=0$, di singoletto;
+    \item se prendiamo la differenza, il fattore orbitale è invece antisimmetrico e affinch\'e l'intera funzione d'onda sia antisimmetrica rispetto allo scambio delle particelle dovremo prendere stati di spin totale $s=1$, di tripletto
+\end{itemize}
+Nel primo caso, dunque, troviamo uno stato con $s=0$, nel secondo ne troviamo tre con $s=1$, che sono
+\begin{equation}
+    \ket{1,1}=\ket{+,+},\quad
+    \ket{1,0}=\frac1{\sqrt{2}}(\ket{+,-}+\ket{-,+}),\quad
+    \ket{1,-1}=\ket{-,-}.
+\end{equation}
+
+Valutiamo l'energia di questi due stati come valore medio dell'hamiltoniano che comprende l'interazione elettrostatica:
+\begin{equation}
+    \begin{split}
+        \Delta E&=
+        \bra{\psi}\op H'\ket{\psi}=\\&=
+        \begin{multlined}[t]
+            \frac{e^2}2\int_{\R^3}\int_{\R^3}
+            \bigl[
+                \psi_{1,0,0}^*(\vec x_1)\psi_{2,l,m}^*(\vec x_2)\pm\psi_{2,l,m}^*(\vec x_1)\psi_{1,0,0}^*(\vec x_2)
+            \bigr]
+            \frac1{\norm{\vec x_1-\vec x_2}}
+            \bigl[
+                \psi_{1,0,0}(\vec x_1)\psi_{2,l,m}(\vec x_2)+\\\pm\psi_{2,l,m}(\vec x_1)\psi_{1,0,0}(\vec x_2)
+            \bigr]
+            \,\dd^3 x_1\,\dd^3 x_2=
+        \end{multlined}\\&=
+        \begin{multlined}[t]
+            \frac{e^2}2\int_{\R^3}\int_{\R^3}
+            \bigr[
+                \psi_{1,0,0}^*(\vec x_1)\psi_{2,l,m}^*(\vec x_2)\psi_{1,0,0}(\vec x_1)\psi_{2,l,m}(\vec x_2)+\\\pm
+                \psi_{1,0,0}^*(\vec x_1)\psi_{2,l,m}^*(\vec x_2)\psi_{1,0,0}(\vec x_2)\psi_{2,l,m}(\vec x_1)\pm
+                \psi_{1,0,0}^*(\vec x_2)\psi_{2,l,m}^*(\vec x_1)\psi_{1,0,0}(\vec x_1)\psi_{2,l,m}(\vec x_2)+\\+
+                \psi_{1,0,0}^*(\vec x_2)\psi_{2,l,m}^*(\vec x_1)\psi_{1,0,0}(\vec x_2)\psi_{2,l,m}(\vec x_1)
+            \bigr]
+            \frac1{\norm{\vec x_1-\vec x_2}}
+            \,\dd^3 x_1\,\dd^3 x_2.
+        \end{multlined}
+    \end{split}
+\end{equation}
+Possiamo suddividere l'integrale in quattro termini separati, e dato che il termine $H'$ di interazione è una funzione simmetrica rispetto allo scambio $\vec x_1\leftrightarrow\vec x_2$, risulta
+\begin{equation}
+    \begin{aligned}
+        &\int_{\R^3}\int_{\R^3}
+            \psi_{1,0,0}^*(\vec x_2)\psi_{2,l,m}^*(\vec x_1)\psi_{1,0,0}(\vec x_1)\psi_{2,l,m}(\vec x_2)
+            \frac1{\norm{\vec x_1-\vec x_2}}
+        \,\dd^3 x_1\,\dd^3 x_2=\\
+        =&\int_{\R^3}\int_{\R^3}
+            \psi_{1,0,0}^*(\vec x_1)\psi_{2,l,m}^*(\vec x_2)\psi_{1,0,0}(\vec x_2)\psi_{2,l,m}(\vec x_1)
+            \frac1{\norm{\vec x_1-\vec x_2}}
+        \,\dd^3 x_1\,\dd^3 x_2
+    \end{aligned}
+\end{equation}
+e analogamente
+\begin{equation}
+    \begin{aligned}
+        &\int_{\R^3}\int_{\R^3}
+            \psi_{1,0,0}^*(\vec x_2)\psi_{2,l,m}^*(\vec x_1)\psi_{1,0,0}(\vec x_2)\psi_{2,l,m}(\vec x_1)
+            \frac1{\norm{\vec x_1-\vec x_2}}
+        \,\dd^3 x_1\,\dd^3 x_2=\\
+        =&\int_{\R^3}\int_{\R^3}
+            \psi_{1,0,0}^*(\vec x_1)\psi_{2,l,m}^*(\vec x_2)\psi_{1,0,0}(\vec x_1)\psi_{2,l,m}(\vec x_2)
+            \frac1{\norm{\vec x_1-\vec x_2}}
+        \,\dd^3 x_1\,\dd^3 x_2
+    \end{aligned}
+\end{equation}
+perciò
+\begin{multline}
+    \Delta E=
+    \int_{\R^3}\int_{\R^3}
+        \abs{\psi_{1,0,0}(\vec x_1)\psi_{2,l,m}(\vec x_2)}^2
+        \frac{e^2}{\norm{\vec x_1-\vec x_2}}
+    \,\dd^3 x_1\,\dd^3 x_2
+    + \\ \pm
+    \int_{\R^3}\int_{\R^3}
+        \psi_{1,0,0}^*(\vec x_1)\psi_{2,l,m}^*(\vec x_2)
+        \frac{e^2}{\norm{\vec x_1-\vec x_2}}
+        \psi_{1,0,0}(\vec x_2)\psi_{2,l,m}(\vec x_1)
+    \,\dd^3 x_1\,\dd^3 x_2.
+\end{multline}
+Notiamo subito che questi integrali non dipendono da $m$, dato che gli esponenziali $e^{im\phi}$ nelle armoniche sferiche si semplificano tutti.
+Il primo integrale è solitamente detto \emph{coulombiano}, data la sua somiglianza con l'energia elettrostatica di una distribuzione di carica; il secondo è detto integrale \emph{di scambio}, ed è una conseguenza del principio di Pauli.
+Indicheremo il primo con $J_{2,l}$ e il secondo con $K_{2,l}$, come spesso si trova in letteratura.
+Non ci interessa a questo punto il loro risultato analitico, ma è evidente almeno che $J_{2,l}$ è sempre positivo; si può mostrare che anche $K_{2,l}$ lo è.
+Di conseguenza,
+\begin{equation}
+    \Delta E=J_{2,l}\pm K_{2,l}
+\end{equation}
+con il segno $+$ per gli stati di singoletto ($s=0$) e il segno $-$ per gli stati di tripletto ($s=1$): questi ultimi di conseguenza hanno un'energia minore, e il primo stato eccitato vede la sua degenerazione parzialmente rimossa (come già abbiamo notato, il $\Delta E$ non dipende comunque da $m$).
+\input{grafici/split-elio}
+Questo mostra come lo spin, pur non entrando nell'hamiltoniano del sistema, ha comunque un effetto --- tramite il principio di Pauli --- sui livelli energetici.

@@ -1,0 +1,652 @@
+\chapter{L'oscillatore armonico}
+Il sistema fisico più semplice da studiare in meccanica quantistica, contrariamente alla tradizione, non è la particella libera, in quanto l'operatore impulso (che sarebbe l'unico ad apparire nell'hamiltoniana) è un po' particolare e richiede una trattazione dedicata, che faremo in seguito.
+Il sistema più semplice risulta invece essere l'oscillatore armonico, che studiamo qui in una dimensione.
+Occupiamoci del problema fondamentale di individuare gli autovalori possibili dell'operatore hamiltoniano, e la loro probabilità associata.
+Diamo innanzitutto l'operatore hamiltoniano, in cui sostituiamo già la costante $k$ della forza di richiamo con $m\omega^2$, in modo da evidenziare la frequenza naturale dell'oscillatore ($\omega^2=k/m$):
+\begin{equation}
+	\op H=\frac1{2m}(\op p^2+m^2\omega^2\op q^2).
+	\label{eq:H-oscillatore}
+\end{equation}
+Chiamiamo $E_0,E_1,\dots,E_n,\dots$ i suoi autovalori, ordinati in modo crescente, ossia con $E_i\leq E_{i+1}$ per ogni $i$, e indichiamo di conseguenza gli autostati corrispondenti con $\ket{E_i}$.
+L'autostato $\ket{E_0}$, per cui l'energia è minima, è anche chiamato \emph{autostato fondamentale}.
+Cominciamo con un primo importante risultato.
+\begin{teorema} \label{t:oscillatore-autovalori-positivi}
+	Gli autovalori di $\op H$ di un oscillatore armonico sono tutti positivi.
+\end{teorema}
+\begin{proof}
+	Preso uno stato qualunque $\ket{x}$, il valore di aspettazione dell'energia è
+	\begin{equation}
+		\avg{H}=\bra{x}\op H\ket{x}=\frac1{2m}(\bra{x}\op p^2\ket{x}+m^2\omega^2\bra{x}\op q^2\ket{x}).
+	\end{equation}
+	Ora, dato che $\op p$ è hermitiano, $\bra{x}\op p^2\ket{x}=\bra{x}\adj{\op p}\op p\ket{x}$ che è la norma di $\op p\ket{x}$, e lo stesso per la posizione, dunque sono entrambi positivi o nulli: allora $\bra{x}\op H\ket{x}\geq 0$ qualsiasi sia $\ket{x}$.
+	Se vale per qualsiasi stato, sarà vero anche per gli autostati $\ket{E_i}$, e se li prendiamo normalizzati allora
+	\begin{equation}
+		0\leq\bra{E_i}\op H\ket{E_i}=E_i\braket{E_i}{E_i}=E_i
+	\end{equation}
+	cioè tutti gli autovalori non sono negativi.
+	Se prendiamo poi l'autostato fondamentale $\ket{E_0}$, esso non può avere l'autovalore nullo: infatti $E_0=0$ se e solo se $\bra{E_0}\op H\ket{E_0}=0$, vale a dire
+	\begin{equation}
+		\frac1{2m}(\bra{E_0}\op p^2\ket{E_0}+m^2\omega^2\bra{E_0}\op q\ket{E_0})=0,
+	\end{equation}
+	ma sono tutti addendi non negativi quindi l'equazione è vera se e solo se $\bra{E_0}\op p^2\ket{E_0}=0$ e contemporaneamente $\bra{E_0}\op q^2\ket{E_0}$.
+	Come prima, però, questi due sono la norma di $\op p\ket{E_0}$ e $\op q\ket{E_0}$, e ciò significherebbe che questi due vettori siano nulli, vale a dire $\op q\ket{E_0}=0$ e $\op p\ket{E_0}=0$, e di conseguenza $\ket{E_0}$ sarebbe un autostato simultaneo di $q$ e $p$.
+	Questo fatto però viola il rapporto di indeterminazione per cui $\Delta q\Delta p\geq\frac{\hbar}2$ in \emph{qualsiasi} stato: in questo caso invece si avrebbe $\Delta q\Delta p=0$, in quanto sapremmo con precisione posizione e impulso (entrambi nulli).
+	Allora è assurdo che $E_0$ sia nullo: se non è nemmeno positivo per quanto dimostrato precedentemente, allora $E_0>0$.
+	Dato che $E_0$ è l'autovalore minimo, segue immediatamente che $E_i>0$ per ogni $i$, ossia ogni autovalore di $H$ è positivo.
+\end{proof}
+
+Nell'oscillatore armonico riconosciamo anche la simmetria che è presente anche nella controparte classica: i valori di aspettazione della posizione e dell'impulso sono zero, negli autostati di energia.
+Infatti, preso un qualunque operatore $\op A$,
+\begin{equation}
+	\bra{E_i}[\op H,\op A]\ket{E_i}=\bra{E_i}\op H\op A\ket{E_i}-\bra{E_i}\op A\op H\ket{E_i}=E_i^*\bra{E_i}\op p\ket{E_i}-E_i\bra{E_i}\op p\ket{E_i}=0
+\end{equation}
+in quanto $E_i\in\R$.
+Allo stesso tempo, il commutatore con $\op p$ vale
+\begin{equation}
+	[\op H,\op p]=\frac1{2m}[\op p^2+m^2\omega^2\op q^2,\op p]=\frac1{2m}[\op p^2,\op p]+\frac{m\omega^2}{2}[\op q^2,\op p]=\frac{m\omega^2}2(\op q[\op q,\op p]+[\op q,\op p]\op q)=i\hbar m\omega^2\op q\ne 0
+	\label{eq:commutatore-Hp}
+\end{equation}
+cioè $\op q=[\op H,\op p]/i\hbar m\omega^2$.
+Di conseguenza il valore di aspettazione di $q$ da un autostato di energia risulta
+\begin{equation}
+	\bra{E_i}\op q\ket{E_i}=\frac1{i\hbar m\omega^2}\bra{E_i}[\op H,\op p]\ket{E_i}=0.
+\end{equation}
+Con lo stesso ragionamento, calcolando $[\op H,\op q]$ si giunge a $\bra{E_i}\op p\ket{E_i}=0$.
+
+Calcoliamo infine lo stato di energia minima: assumendo $\braket{E_0}{E_0}=1$, abbiamo
+\begin{equation}
+	E_0=\bra{E_0}\op H\ket{E_0}=\frac1{2m}(\bra{E_0}\op p^2\ket{E_0}+m^2\omega^2\bra{E_0}\op q^2\ket{E_0}),
+\end{equation}
+ma $\bra{E_0}\op p^2\ket{E_0}=\avg{p^2}$, e dato che $\avg{p}=0$ si ha $\Delta p^2=\avg{p^2}-\avg{p}^2=\avg{p^2}$ (analogamente per $q$), quindi\footnote{Sfruttiamo la disuguaglianza $a^2+b^2\ge 2ab$, per $a,b\in\R$: basta considerare $(a-b)^2\ge 0$ per dimostrarla.}
+\begin{equation}
+	E_0=\frac1{2m}(\avg{p^2}+m^2\omega^2\avg{q^2})=\frac1{2m}(\Delta p^2+m^2\omega^2\Delta q^2)\ge \frac1{2m}2m\omega\Delta p\Delta q=\omega\Delta p\Delta q\ge\frac{\hbar\omega}2,
+\end{equation}
+e in particolare vale proprio $\hbar\omega/2$ soltanto se $\Delta p=m\omega\Delta q$.
+Pertanto lo stato di minima energia, che è allo stesso tempo lo stato di \emph{minima indeterminazione}, è dato da
+\begin{equation}
+	\begin{cases}
+		\Delta p=m\omega\Delta q\\ \Delta p\Delta q=\frac{\hbar}2.
+	\end{cases}
+	\label{eq:oscillatore-armonico-stato-minima-energia}
+\end{equation}
+
+\section{Operatori di creazione e distruzione}
+Per calcolare lo spettro dell'hamiltoniano, come faremo nella prossima sezione, ci conviene introdurre due nuovi operatori: definiamo
+\begin{equation}
+	\op a=\frac1{\sqrt{2\hbar m\omega}}(\op p-im\omega\op q)
+	\label{eq:operatore-distruzione}
+\end{equation}
+e di conseguenza il suo aggiunto
+\begin{equation}
+	\adj{\op a}=\frac1{\sqrt{2\hbar m\omega}}(\op p+im\omega\op q).
+	\label{eq:operatore-creazione}
+\end{equation}
+Essi sono chiamati rispettivamente operatore di \emph{distruzione} e di \emph{creazione}, per ragioni che vedremo più avanti.
+Il loro prodotto è dato da
+\begin{multline}
+	\adj{\op a}\op a=\frac1{2\hbar m\omega}(\op p+im\omega\op q)(\op p-im\omega\op q)=\frac1{2\hbar m\omega}(\op p^2+im\omega\op q\op p-im\omega\op p\op q+m^2\omega^2\op q^2)=\\=\frac1{2\hbar m\omega}(\op p^2+im\omega[\op q,\op p]+m^2\omega^2\op q^2)=\frac{\op H}{\hbar\omega}+\frac{im\omega[\op q,\op p]}{2\hbar m\omega}=\frac{\op H}{\hbar\omega}-\frac12,
+\end{multline}
+mentre
+\begin{equation}
+	\op a\adj{\op a}=\frac{\op H}{\hbar\omega}+\frac12.
+\end{equation}
+Il commutatore tra i due operatori è dunque $[\op a,\adj{\op a}]=1$.
+Possiamo anche ricavare l'hamiltoniano da questi due operatori, trovando che $\op H=\hbar\omega(\adj{\op a}\op a+\frac12)=\hbar\omega(\op a\adj{\op a}-\frac12)$, e di conseguenza
+\begin{equation}
+	[\op H,\op a]=\hbar\omega[\adj{\op a}\op a, a]=\hbar\omega([\adj{\op a}[\op a,\op a]+[\adj{\op a},\op a]\op a)=-\hbar\omega\op a,
+\end{equation}
+e anche, dato che il commutatore è antihermitiano, $[\op H,\adj{\op a}]=-\adj{[\op H,\op a]}=\hbar\omega\adj{\op a}$.
+
+Semplificando ulteriormente, definiamo l'operatore \emph{numero} $\op N=\adj{\op a}\op a$, con il quale possiamo riscrivere l'hamiltoniano come
+\begin{equation}
+	\op H=\hbar\omega\bigg(\op N+\frac12\bigg).
+	\label{eq:hamiltoniano-numero}
+\end{equation}
+L'operatore $\op N$ è evidentemente hermitiano, e vediamo che i suoi autostati sono anche autostati dell'hamiltoniano: se esiste uno stato $\ket{n}$ tale che $\op N\ket{n}=n\ket{n}$, allora
+\begin{equation}
+	\op H\ket{n}=\hbar\omega\bigg(\op N+\frac12\bigg)\ket{n}=\hbar\omega\bigg(n+\frac12\bigg)\ket{n}.
+	\label{eq:autostato-H-N}
+\end{equation}
+Abbiamo inoltre i commutatori
+\begin{equation}
+	[\op a,\adj{\op a}]=1,\qquad [\op N,\op a]=-\op a,\qquad [\op N,\adj{\op a}]=\adj{\op a}.
+	\label{eq:commutatori-algebra-heisenberg}
+\end{equation}
+L'insieme di questi tre operatori forma un'algebra detta \emph{algebra di Heisenberg}.
+
+\section{Spettro dell'hamiltoniano}
+Sia $\ket{E}$ un autostato di $H$: prendiamo lo stato che risulta applicando l'operatore di distruzione $\op a$ introdotto precedentemente, e questa volta l'azione dell'hamiltoniana è
+\begin{equation}
+	\op H\op a\ket{E}=(\op H\op a-\op a\op H+\op a\op H)\ket{E}=([\op H,\op a]+\op a\op H)\ket{E}=-\hbar\omega\op a\ket{E}+\op a E\ket{E}=(E-\hbar\omega)\op a\ket{E},
+\end{equation}
+ossia $\op a\ket{E}$ è ancora un autostato dell'hamiltoniano, ma con l'autovalore (di $H$) diminuito di $\hbar\omega$.
+Applicando nuovamente $\op a$ si ottiene un ulteriore autostato con autovalore diminuito di $2\hbar\omega$ rispetto a quello di partenza.
+Troviamo quindi una catena di autovalori $\{E,E-\hbar\omega,E-2\hbar\omega,\dots\}$: essa non potrà continuare indefinitamente, perch\'e gli autovalori di $H$ sono tutti positivi.
+Infatti si arriverà ad un certo stato $\ket{x}$ tale che $\op a\ket{x}=0$: applicando ancora $\op a$, non troviamo un autovalore diminuito di $\hbar\omega$, ma troviamo l'equazione $\op H\op a\ket{x}=(E-\hbar\omega)\op a\ket{x}$: dato che $\op a\ket{x}=0$, quindi essa si riduce a $0=0$, e non ha senso proseguire con gli autovalori.
+Se $E_0$ è l'autovalore minimo e $\ket{E_0}$ è il suo autostato, esso dovrà avere il valore minimo accettabile di energia, e sarà quindi tale che $\op a\ket{E_0}=0$.
+Di conseguenza anche la sua norma è nulla, perciò
+\begin{equation}
+	0=\bra{E_0}\adj{\op a}\op a\ket{E_0}=\bra{E_0}\frac{\op H}{\hbar\omega}-\frac12\ket{E_0}=\Big(\frac{E_0}{\hbar\omega}-\frac12\Big)\braket{E_0}{E_0}
+\end{equation}
+poich\'e $\bra{E_0}\op H=\adj{\op H\ket{E_0}}=\op H\ket{E_0}=E_0\ket{E_0}$.
+Risulta quindi
+\begin{equation}
+	E_0=\frac{\hbar\omega}2.
+	\label{eq:oscillatore-armonico-energia-minima}
+\end{equation}
+
+Se ora guardiamo a $\adj{\op a}$, con un ragionamento analogo troviamo in un autostato di $H$ che
+\begin{equation}
+	\op H\adj{\op a}\ket{E}=([\op H,\adj{\op a}]+\adj{\op a}\op H)\ket{E}=(E+\hbar\omega)\adj{\op a}\ket{E},
+\end{equation}
+ossia $\adj{\op a}$ porta ogni autostato dell'hamiltoniano in un altro autostato con autovalore (sempre di $H$) aumentato di $\hbar\omega$.
+Dunque, se partiamo da $\ket{E_0}$, possiamo applicare indefinitamente l'operatore o esiste un'energia massima che non si può oltrepassare?
+Se esistesse un autostato $\ket{E_M}$ (per il quale $\op H\ket{E_M}=E_M\ket{E_M}$) tale che $\adj{\op a}\ket{E_M}=0$, si avrebbe come prima
+\begin{equation}
+	0=\bra{E_M}\op a\adj{\op a}\ket{E_M}=\bra{E_M}\frac{\op H}{\hbar\omega}+\frac12\ket{E_M}=\Big(\frac{E_M}{\hbar\omega}+\frac12\Big)\braket{E_M}{E_M},
+\end{equation}
+ma $E_M=-\hbar\omega/2$ contraddice il fatto che tutti gli autovalori di $H$ sono positivi, quindi un tale autostato non può esistere.
+
+Abbiamo trovato dunque che gli autostati di $H$ soddisfano l'equazione
+\begin{equation}
+	\op H(\adj{\op a})^k\ket{E_0}=(E_0+k\hbar\omega)(\adj{\op a})^k\ket{E_0}=\Big(\frac{\hbar\omega}2+k\hbar\omega\Big)(\adj{\op a})^k\ket{E_0}=\Big(k+\frac12\Big)\hbar\omega(\adj{\op a})^k\ket{E_0},
+\end{equation}
+ossia che gli autovalori $E_n$ sono dati da
+\begin{equation}
+	E_n=\Big(\frac12+n\Big)\hbar\omega
+	\label{eq:oscillatore-armonico-autovalori-hamiltoniano}
+\end{equation}
+per $n\in\{0,1,2,\dots\}$.
+Questi devono necessariamente essere tutti e soli gli autovalori perch\'e, se ne esistesse uno con un espressione diversa, applicando $\op a$ ripetutamente non si incontrerebbe più l'autovalore $E_0$ (scendendo a ``gradini'' di $\hbar\omega$, verrebbe saltato) e si scenderebbe cos\`i in autovalori negativi, che è assurdo.
+Non conoscendo se $H$ sia degenere o meno, non possiamo però affermare che gli autostati $\ket{E_n}$ relativi a tali autovalori sono unici.\footnote{L'hamiltoniano \emph{non è} degenere, quindi sono realmente tutti e soli gli autostati, ma questo non lo dimostriamo ora.}
+
+\section{Autostati di energia}
+Abbiamo dunque ora un insieme di autostati $\{\ket{E_n}\}_{n=0}^{+\infty}$ dell'hamiltoniano, tali che
+\begin{equation}
+	\op H\ket{E_n}=\hbar\omega\Big(n+\frac12\Big)\ket{E_n}.
+\end{equation}
+Su di essi, gli operatori di creazione e distruzione agiscono come
+\begin{equation}
+	\op H\op a\ket{E_n}=\hbar\omega\bigg((n-1)+\frac12\bigg)\op a\ket{E_n}=\op H\ket{E_{n-1}}
+\end{equation}
+dunque $\op a\ket{E_n}=\ket{E_{n-1}}$ (per $n\le 1$, altrimenti $\op a\ket{E_0}=0$ come abbiamo già visto) e analogamente $\adj{\op a}\ket{E_n}=\ket{E_{n+1}}$.
+
+Ci rimane da capire se questo insieme forma un sistema ortonormale completo per lo spazio di Hilbert degli stati.
+Per quanto abbiamo visto, questi stati si ottengono tutti applicando ripetutamente $\adj{\op a}$ allo stato fondamentale $\ket{E_0}$, ma in generale $(\adj{\op a})^n\ket{0}=\ket{E_n}$ non è normalizzato.
+Per calcolare la sua norma dobbiamo calcolare $\bra{E_0}\op a^n(\adj{\op a})^n\ket{E_0}$: sarebbe comodo se ci trovassimo con dei termini $\bra{E_0}\adj{\op a}$ oppure $\op a\ket{E_0}$, che sono nulli, in modo da semplificare i calcoli: vediamo allora come commutano $\op a$ e $(\adj{\op a})^n$.
+Abbiamo già visto che $[\op a,\adj{\op a}]=[\op a,(\adj{\op a})^1]=1=1(\adj{\op a})^{1-1}$, dunque potremmo supporre che $[\op a,(\adj{\op a})^n]=n(\adj{\op a})^{n-1}$.
+Dimostriamolo per induzione: se assumiamo che $[\op a,(\adj{\op a})^{n-1}]=(n-1)(\adj{\op a})^{n-2}$, allora troviamo
+\begin{equation}
+	\begin{split}
+		[\op a,(\adj{\op a})^n]&=[\op a,\adj{\op a}(\adj{\op a})^{n-1}]=\\
+		&=\adj{\op a}[\op a,(\adj{\op a})^{n-1}]+[\op a,\adj{\op a}](\adj{\op a})^{n-1}=\\
+		&=\adj{\op a}(n-1)(\adj{\op a})^{n-2}+(\adj{\op a})^{n-1}=\\
+		&=(n-1)(\adj{\op a})^{n-1}+(\adj{\op a})^{n-1}=\\
+		&=n(\adj{\op a})^{n-1}.
+	\end{split}
+\end{equation}
+Allora abbiamo
+\begin{equation}
+	\begin{split}
+		\bra{E_0}\op a^n(\adj{\op a})^n\ket{E_0}&=\bra{E_0}\op a^{n-1}\op a(\adj{\op a})^n\ket{E_0}=\\
+		&=\bra{E_0}\op a^{n-1}\big(\op a(\adj{\op a})^n-(\adj{\op a})^n\op a+(\adj{\op a})^n\op a\big)\ket{E_0}=\\
+		&=\bra{E_0}\op a^{n-1}[\op a,(\adj{\op a})^n]\ket{E_0}+\bra{E_0}\op a^{n-1}(\adj{\op a})^n\op a\ket{E_0}=\\
+		&=\bra{E_0}\op a^{n-1}[\op a,(\adj{\op a})^n]\ket{E_0}
+	\end{split}
+\end{equation}
+dove $\bra{E_0}\op a^{n-1}(\adj{\op a})^n\op a\ket{E_0}=0$ poich\'e $\op a\ket{E_0}=0$.
+Sostituendo il commutatore con quanto trovato in precedenza, otteniamo
+\begin{equation}
+	\bra{E_0}\op a^n(\adj{\op a})^n\ket{E_0}=n\bra{E_0}\op a^{n-1}(\adj{\op a})^{n-1}\ket{E_0},
+\end{equation}
+di conseguenza iteriamo il calcolo fino ad ottenere
+\begin{equation}
+	\bra{E_0}\op a^n(\adj{\op a})^n\ket{E_0}=n!\braket{E_0}{E_0}.
+\end{equation}
+Definiamo quindi un nuovo insieme di stati $\{\ket{n}\}_{n=0}^{+\infty}$ con
+\begin{equation}
+	\ket{n}\defeq\frac1{\sqrt{n!}}(\adj{\op a})^n\ket{E_0},
+	\label{eq:sonc-oscillatore-armonico}
+\end{equation}
+e $\ket{0}\defeq\ket{E_0}$.
+Sono evidentemente ancora autostati dell'hamiltoniano, e adesso se $\braket{0}{0}=1$ allora anche $\braket{n}{n}=1$ per ogni $n\in\N$.
+
+Calcoliamo nuovamente l'azione degli operatori di creazione e distruzione su questi nuovi stati: notiamo innanzitutto che, essendo $\ket{n}$ multiplo di $\ket{E_n}$, abbiamo sempre $\op H\ket{n}=\hbar\omega\big(n+\frac12\big)\ket{n}$.
+Inoltre $\op a\ket{E_n}=\ket{E_{n-1}}$ (per $n\ge 1$), dunque una relazione simile si avrà anche per gli stati $\ket{n}$: poniamo $\op a\ket{n}=\lambda_n\ket{n-1}$.
+Prendendone la norma, abbiamo $\bra{n}\adj{\op a}\op a\ket{n}=\lambda_n^*\lambda_n\braket{n-1}{n-1}=\abs{\lambda_n}^2$.
+Allo stesso tempo, si ha $\adj{\op a}\op a=\op N$, e dalla \eqref{eq:hamiltoniano-numero} risulta dunque
+\begin{equation}
+	\abs{\lambda_n}^2=\bra{n}\adj{\op a}\op a\ket{n}=\bra{n}\bigg(\frac{\op H}{\hbar\omega}-\frac12\bigg)\ket{n}=\bra{n}\bigg(n+\frac12-\frac12\bigg)\ket{n}=n\braket{n}{n}=n.
+\end{equation}
+Di conseguenza $\lambda_n=e^{i\theta_n}\sqrt{n}$ per un certo $\theta_n\in\R$ arbitrario: scegliamo ovviamente $\theta_n=0$ ottenendo\footnote{Dato che multipli dello stesso \emph{ket} rappresentano il medesimo stato fisico, la scelta della fase è arbitraria poich\'e per ogni $\theta_n$ scelto lo stato risulta comunque normalizzato.}
+\begin{equation}
+	\op a\ket{n}=\sqrt{n}\ket{n-1}.
+\end{equation}
+Con un ragionamento del tutto analogo, ipotizzando questa volta che $\adj{\op a}\ket{n}=\lambda_n'\ket{n+1}$, si trova $\adj{\op a}\ket{n}=\sqrt{n+1}\ket{n+1}$.
+L'operatore numero allora è tale che
+\begin{equation}
+	\op N\ket{n}=\adj{\op a}\op a\ket{n}=\sqrt{n}\adj{\op a}\ket{n-1}=\sqrt{n(n-1+1)}\ket{n}=n\ket{n}
+\end{equation}
+ossia ``conta'' i quanti $\hbar\omega$ di energia, o il livello energetico dello stato (da cui il suo nome).
+
+Gli stati $\ket{n}$ formano dunque un sistema ortonormale completo, quindi possiamo assumerli come base per il nostro spazio degli stati.
+Infatti
+\begin{equation}
+	\begin{split}
+		\braket{n}{m}&=\bra{0}\frac{\op a^n}{\sqrt{n!}}\frac{(\adj{\op a})^n}{\sqrt{m!}}\ket{0}=\\
+		&=\frac1{\sqrt{n!m!}}\bra{0}\op a^{n-1}\op a(\adj{\op a})^m\ket{0}=\\
+		&=\frac1{\sqrt{n!m!}}\bra{0}\op a^{n-1}[\op a,(\adj{\op a})^m]\ket{0}=\\
+		&=\frac{m}{\sqrt{n!m!}}\bra{0}\op a^{n-1}(\adj{\op a})^{m-1}\ket{0}=\dots
+	\end{split}
+	\label{eq:oscillatore-armonico-ortonormalita-autostati}
+\end{equation}
+diminuendo ad ogni successivo passo le potenze di $\op a$ e $\adj{\op a}$, fino ad esaurirle, perciò
+\begin{itemize}
+	\item se $n<m$, si giunge a un multiplo di $\bra{0}\op a^{m-n}\ket{0}$, che è nullo;
+	\item se $n>m$, si giunge a un multiplo di $\bra{0}(\adj{\op a})^{n-m}\ket{0}$, che è ancora nullo;
+	\item se $n=m$, entrambi gli operatori arrivano alla potenza nulla, chè è l'identità, perciò si arriva a
+		\begin{equation}
+			\frac{m!}{\sqrt{n!m!}}\braket{0}{0}=\frac{m!}{m!}\braket{0}{0}=\braket{0}{0}=1,
+		\end{equation}
+\end{itemize}
+quindi $\braket{n}{m}=\delta_{nm}$.
+
+Usando questo insieme come base di Hilbert per lo spazio degli stati, possiamo dunque rappresentare gli operatori incontrati finora come matrici.
+Cominciamo dagli operatori di creazione e distruzione: risulta
+\begin{multline}
+	(\adj{\op a})_{nm}=\bra{n}\adj{\op a}\ket{m}=\frac1{\sqrt{m!}}\bra{n}\adj{\op a}(\adj{\op a})^m\ket{0}=\frac1{\sqrt{m!}}\bra{n}(\adj{\op a})^{m+1}\ket{0}=\\
+	=\frac1{\sqrt{m!}}\bra{n}\sqrt{(m+1)!}\ket{m+1}=\sqrt{\frac{(m+1)!}{m!}}\delta_{n,m+1}=\sqrt{n}\delta_{n,m+1}.
+	\label{eq:matrice-operatore-creazione-oscillatore}
+\end{multline}
+L'operatore di creazione è l'aggiunto di quest'ultimo quindi $(\op a)_{nm}=(\adj{\op a})_{mn}^*$.
+Abbiamo dunque le matrici\footnote{Volendo essere rigorosi, il simbolo di uguaglianza è sbagliato in questo caso, dato che le matrici \emph{non sono} i rispettivi operatori, ma \emph{li rappresentano} in un determinato spazio, che qui è $\ell^2(\C)$. Per mantenere una notazione più semplice continueremo comunque con questa notazione.}
+\begin{equation}
+	\adj{\op a}=
+	\begin{bmatrix}
+		0		&0			&0			&0		&0		&\cdots\\
+		1		&0			&0			&0		&0		&\cdots\\
+		0		&\sqrt{2}	&0			&0		&0		&\cdots\\
+		0		&0			&\sqrt{3}	&0		&0		&\cdots\\
+		0		&0			&0			&2		&0		&\cdots\\
+		\vdots	&\vdots		&\vdots		&\vdots	&\vdots	&\ddots
+	\end{bmatrix}
+	\qeq
+	\op a=
+	\begin{bmatrix}
+		0		&1			&0			&0			&0			&\cdots\\
+		0		&0			&\sqrt{2}	&0			&0			&\cdots\\
+		0		&0			&0			&\sqrt{3}	&0			&\cdots\\
+		0		&0			&0			&0			&2			&\cdots\\
+		0		&0			&0			&0			&0			&\cdots\\
+		\vdots	&\vdots		&\vdots		&\vdots		&\vdots		&\ddots
+	\end{bmatrix}.
+	\label{eq:matrici-operatori-scala-oscillatore}
+\end{equation}
+Per risalire alla posizione e al momento, invertiamo le \eqref{eq:operatore-distruzione} e \eqref{eq:operatore-creazione} ottenendo
+\begin{equation}
+	\op q=i\sqrt{\frac{\hbar}{2m\omega}}(\op a-\adj{\op a})\qeq\op p=\sqrt{\frac{m\hbar\omega}2}(\op a+\adj{\op a}).
+\end{equation}
+I due operatori sono allora rappresentati in $\ell^2(\C)$ dalle matrici
+\begin{equation}
+	\op q=i\sqrt{\frac{\hbar}{2m\omega}}
+	\begin{bmatrix}
+		0		&1			&0			&0			&0		&\cdots\\
+		-1		&0			&\sqrt{2}	&0			&0		&\cdots\\
+		0		&-\sqrt{2}	&0			&\sqrt{3}	&0		&\cdots\\
+		0		&0			&-\sqrt{3}	&0			&2		&\cdots\\
+		0		&0			&0			&-2			&0		&\cdots\\
+		\vdots	&\vdots		&\vdots		&\vdots		&\vdots	&\ddots
+	\end{bmatrix}
+	\qeq
+	\op p=\sqrt{\frac{m\hbar\omega}2}
+	\begin{bmatrix}
+		0		&1			&0			&0			&0		&\cdots\\
+		1		&0			&\sqrt{2}	&0			&0		&\cdots\\
+		0		&\sqrt{2}	&0			&\sqrt{3}	&0		&\cdots\\
+		0		&0			&\sqrt{3}	&0			&2		&\cdots\\
+		0		&0			&0			&2			&0		&\cdots\\
+		\vdots	&\vdots		&\vdots		&\vdots		&\vdots	&\ddots
+	\end{bmatrix}.
+	\label{eq:matrici-posizione-impulso}
+\end{equation}
+È evidente che le matrici di $\op q$ e $\op p$ sono hermitiane, e verificano la relazione $[\op q,\op p]=i\hbar$, dove $i\hbar$ è inteso come multiplo della matrice identità.
+È importante inoltre notare che queste due rappresentazioni matriciali degli operatori di posizione e impulso valgono sempre in $\ell^2(\C)$, non solo quando si studia l'oscillatore armonico, a patto ovviamente di rappresentare gli stati nella base degli autostati $\ket{n}$ come definiti in precedenza.
+
+\section{Stati coerenti}
+Matematicamente, gli \emph{stati coerenti} sono definiti come gli autostati ``destri'' dell'operatore di distruzione, cioè\footnote{L'attributo \emph{destri} attribuito agli autostati è importante in questo caso, perch\'e l'operatore di distruzione non è hermitiano, quindi se $\op a\ket{\alpha}=\alpha\ket{\alpha}$ non vale la relazione duale $\bra{\alpha}\op a=\alpha\bra{\alpha}$.}
+\begin{equation}
+	\op a\ket{\alpha}=\alpha\ket{\alpha}
+	\label{eq:stato-coerente}
+\end{equation}
+per un $\alpha\in\C$.
+Possiamo sviluppare $\ket{\alpha}$ nella base di autostati $\{\ket{n}\}_{n=0}^{+\infty}$ dell'hamiltoniano, ottenendo una serie $\sum_{n=0}^{+\infty}a_n\ket{n}$ con i coefficienti $\braket{n}{\alpha}\defeq a_n$ da determinare.
+Dalla \eqref{eq:stato-coerente} otteniamo la relazione
+\begin{equation}
+	\op a\sum_{n=0}^{+\infty}a_n\ket{n}=\sum_{n=0}^{+\infty}a_n\op a\ket{n}=\sum_{n=0}^{+\infty}a_n\sqrt{n}\ket{n-1}.
+\end{equation}
+Il primo addendo è nullo per $\sqrt{n}$, quindi possiamo far iniziare la sommatoria da $n=1$: traslando poi gli indici con $m=n-1$ abbiamo
+\begin{equation}
+	\sum_{n=0}^{+\infty}a_n\sqrt{n}\ket{n-1}=\sum_{n=1}^{+\infty}a_n\sqrt{n}\ket{n-1}=\sum_{m=0}^{+\infty}a_{m+1}\sqrt{m+1}\ket{m}.
+\end{equation}
+Allo stesso modo di prima sviluppiamo anche $\alpha\ket{\alpha}=\sum_{m=0}^{+\infty}\alpha a_m\ket{m}$ e uguagliando ogni addendo con il risultato precedente otteniamo\footnote{Un risultato uguale si ottiene moltiplicando la \eqref{eq:stato-coerente} a sinistra per $\bra{n}$, ottenendo $\bra{n}\op a\ket{\alpha}=\alpha\braket{n}{\alpha}$ e introducendo la risoluzione dell'identità $\sum_{m=0}^{+\infty}\ket{m}\bra{m}=1$, in pratica sviluppando nella base $\ket{m}$, come prima, dato che è un sistema ortonormale completo.}
+\begin{equation}
+	a_{m+1}=\frac{\alpha}{\sqrt{m+1}}a_m.
+	\label{eq:ricorrenza-stati-coerenti}
+\end{equation}
+per $m\in\N_0$.
+Per determinarli completamente ci basta dunque fissare il primo valore, dunque poniamo $a_0=1$ e troviamo $a_1=\alpha$, $a_2=\frac{\alpha^2}{\sqrt{2}}$, $a_3=\frac{\alpha^3}{\sqrt{6}}$ e cos\`i via.
+Completiamo dimostrando per induzione: se $a_k=\frac{\alpha^k}{\sqrt{k!}}$, allora il coefficiente di posto $k+1$ è
+\begin{equation}
+	a_{k+1}=\frac{\alpha}{\sqrt{k+1}}a_k=\frac{\alpha}{\sqrt{k+1}}\frac{\alpha^k}{\sqrt{k!}}=\frac{\alpha^{k+1}}{\sqrt{(k+1)!}},
+\end{equation}
+dunque lo stato coerente si scrive come
+\begin{equation}
+	\ket{\alpha}=\sum_{n=0}^{+\infty}\frac{\alpha^n}{\sqrt{n!}}\ket{n}.
+\end{equation}
+Resta soltanto da normalizzarli: dato che
+\begin{multline}
+	\braket{\alpha}{\alpha}=\sum_{m=0}^{+\infty}\frac{(\alpha^*)^m}{\sqrt{m!}}\bra{m}\sum_{n=0}^{+\infty}\frac{\alpha^n}{\sqrt{n!}}\ket{n}=
+	\sum_{m=0}^{+\infty}\frac{(\alpha^*)^m}{\sqrt{m!}}\sum_{n=0}^{+\infty}\frac{\alpha^n}{\sqrt{n!}}\delta_{nm}=\\=
+	\sum_{m=0}^{+\infty}\frac{(\alpha^*)^m}{\sqrt{m!}}\frac{\alpha^m}{\sqrt{m!}}=
+	\sum_{m=0}^{+\infty}\frac{(\alpha^*\alpha)^m}{m!}=
+	\sum_{m=0}^{+\infty}\frac{\abs{\alpha}^{2m}}{m!}=
+	e^{\abs{\alpha}^2}
+	\label{eq:norma-stato-coerente}
+\end{multline}
+possiamo rappresentare gli stati coerenti, ora di norma unitaria, con
+\begin{equation}
+	\ket{\alpha}=\exp\Big(\!\!-\frac{\abs{\alpha}^2}2\Big)\sum_{n=0}^{+\infty}\frac{\alpha^n}{\sqrt{n!}}\ket{n}.
+	\label{eq:stato-coerente-normalizzato}
+\end{equation}
+In un'ulteriore semplificazione, possiamo sostituire $\ket{n}$ con la \eqref{eq:sonc-oscillatore-armonico}, con la quale otteniamo
+\begin{equation}
+	\ket{\alpha}=\sum_{n=0}^{+\infty}\frac{\alpha^n}{\sqrt{n!}}\ket{n}=\sum_{n=0}^{+\infty}\frac{\alpha^n}{\sqrt{n!}}\frac{(\adj{\op a})^n}{\sqrt{n!}}\ket{0}=\sum_{n=0}^{+\infty}\frac{(\alpha\adj{\op a})^n}{n!}\ket{0}=\exp\big(\alpha\adj{\op a}\big)\ket{0}.
+	\label{eq:stato-coerente-exp}
+\end{equation}
+Notiamo che lo stato fondamentale è anch'esso uno stato coerente, corrispondente ad $\alpha=0$.
+
+\section{Soluzioni dell'equazione di Schr\"odinger}
+In una dimensione, con un potenziale della forma $V(q)=\frac12m\omega^2q^2$, l'equazione di Schr\"odinger per la funzione d'onda $\psi$ nella base della posizione è
+\begin{equation}
+	\frac{\hbar^2}{2m}\psi''(q)+\bigg(E-\frac12m\omega^2 q^2\bigg)\psi(q)=0.
+	\label{eq:schrodinger-oscillatore-1d}
+\end{equation}
+In questa forma però risulta difficile da risolvere, anche perch\'e non conosciamo il valore di $E$.
+Per evitarla usiamo, come abbiamo già fatto per ricavare lo spettro dell'hamiltoniano, gli operatori di creazione e distruzione.
+Nella base delle coordinate, abbiamo per uno stato $\ket{\psi}$ (con la funzione d'onda $\psi(q)=\braket{q}{\psi}$)
+\begin{multline}
+	\bra{q}\op a\ket{\psi}=\bra{q}\frac{\op p-im\omega\op q}{\sqrt{2m\hbar\omega}}\ket{\psi}=\frac1{\sqrt{2m\hbar\omega}}(\bra{q}\op p\ket{\psi}-im\omega\bra{q}\op q\ket{\psi})=\\
+	=\frac1{\sqrt{2m\hbar\omega}}\bigg[-i\hbar\drv{\psi}{q}(q)-im\omega q\psi(q)\bigg]
+\end{multline}
+Possiamo dunque rappresentare $\op a$ come l'operatore in $\leb[2]{\R}$
+\begin{equation}
+	f(q)\mapsto-\frac{i}{\sqrt{2}}\bigg[\sqrt{\frac{\hbar}{m\omega}}\drv{f}{q}(q)+\sqrt{\frac{m\omega}{\hbar}}qf(q)\bigg].
+\end{equation}
+Possiamo semplificare il tutto con un cambio di variabili: poniamo $y=\big(\frac{m\omega}{\hbar})^{-\frac12}q$, da cui $\drv{}{q}=\drv{y}{q}\drv{}{y}=\big(\frac{m\omega}{\hbar})^{-\frac12}\drv{}{y}$, ottenendo
+\begin{equation}
+	\op a=-\frac{i}{\sqrt{2}}\bigg(\drv{}{y}+y\bigg)
+\end{equation}
+ricordando sempre che $y$ (anche come variabile della funzione d'onda) è il riscalamento di $x$ definito poco fa.
+Detto ciò, sappiamo che lo stato fondamentale soddisfa l'equazione $\op a\ket{0}=0$, da cui otteniamo l'equazione differenziale per la funzione d'onda $\psi_0$
+\begin{equation}
+	-\frac{i}{\sqrt{2}}\bigg[\drv{\psi_0}{y}(y)+y\psi_0(y)\bigg]=0\quad\longrightarrow\quad \drv{\psi_0}{y}(y)=-y\psi_0(y)
+\end{equation}
+che ha come soluzione (accettabile) $\psi_0(y)=A\exp(-y^2/2)$.
+Normalizzando la funzione troviamo
+\begin{equation}
+	1=\norm{\psi_0}_2^2=\int_{-\infty}^{+\infty}\abs{\psi_0(y)}^2\,\dd y=A^2\int_{-\infty}^{+\infty}e^{-\frac{y^2}2}\,\dd y=A^2\sqrt{\pi}
+\end{equation}
+dunque $\psi_0(y)=\pi^{-\frac14}\exp(-y^2/2)$.
+
+Analogamente, possiamo rappresentare in $\leb[2]{\R}$ nella base della posizione (e nella variabile $y$) anche l'operatore di creazione $\adj{\op a}$ come $-\frac{i}{\sqrt{2}}\big(\drv{}{y}-y\big)$.
+Possiamo dunque determinare le funzioni d'onda degli stati più energetici dalla \eqref{eq:sonc-oscillatore-armonico}, trovando\footnote{Notare il fattore $(-i)^n$ che moltiplica i vari membri: abbiamo ridefinito, in un certo senso, l'operatore di creazione come $i\adj{\op a}$. Questo, almeno per l'oscillatore armonico unidimensionale che stiamo studiando, non cambia il significato fisico delle soluzioni: alla fine la funzione d'onda apparirà moltiplicata per $i^n$ (per compensare l'altro fattore), ma essa rimane comunque normalizzata e la densità di probabilità associata non cambia.}
+\begin{equation}
+	\begin{split}
+		\psi_n(y)&=\frac{(-i)^n}{\sqrt{n!}}\bigg[-\frac{i}{\sqrt{2}}\bigg(\drv{}{y}-y\bigg)\bigg]^n\psi_0(y)=\\
+		&=\frac1{\sqrt{2^nn!}}\bigg(y-\drv{}{y}\bigg)^n\psi_0(y)=\\
+		&=\frac1{\sqrt{2^nn!\sqrt{\pi}}}\bigg(y-\drv{}{y}\bigg)^ne^{-\frac{y^2}2}=\\
+		&=\frac1{\sqrt{2^nn!\sqrt{\pi}}}e^{-\frac{y^2}2}e^{\frac{y^2}2}\bigg(y-\drv{}{y}\bigg)^ne^{-\frac{y^2}2}=\\
+		&=\frac1{\sqrt{2^nn!\sqrt{\pi}}}e^{-\frac{y^2}2}H_n(y)=h_n(y)
+	\end{split}
+	\label{eq:autofunzioni-oscillatore-hermite}
+\end{equation}
+dove $H_n(y)$ è il \emph{polinomio di Hermite} di grado $n$, definito appunto da
+\begin{equation}
+	H_n(y)=e^{\frac{y^2}2}\bigg(y-\drv{}{y}\bigg)^ne^{-\frac{y^2}2}
+	\label{eq:def-polinomio-hermite}
+\end{equation}
+mentre $h_n(y)$ è la \emph{funzione di Hermite} di grado $n$.
+Nella figura \ref{fig:oscillatore-probabilita} sono mostrate le densità di probabilità nella variabile $y$, per alcuni dei primi autostati.
+\input{grafici/oscillatore-probabilita}
+
+\paragraph{Funzioni di Hermite}
+Approfondiamo per un momento la trattazione di queste funzioni speciali.
+Dei polinomi di Hermite esistono varie definizioni: una delle più importanti è data tramite la funzione generatrice, nella quale i polinomi appaiono nello sviluppo in serie
+\begin{equation}
+	\exp(2ty-t^2)=\sum_{n=0}^{+\infty}\frac{H_n(y)}{n!}t^n.
+	\label{eq:funzione-generatrice-polinomi-hermite}
+\end{equation}
+Essi soddisfano le relazioni di ricorrenza
+\begin{equation}
+	\begin{gathered}
+		H_{n+1}(y)=2yH_n(y)-2nH_{n-1}(y)\\
+		H_n'(y)=2nH_{n-1}(y).
+	\end{gathered}
+	\label{eq:ricorrenza-polinomi-hermite}
+\end{equation}
+che si possono ricavare differenziando i due membri dell'equazione precedente rispetto a $t$ o $y$ (rispettivamente) e uguagliando ogni addendo delle somme.
+Proviamo a verificare la \eqref{eq:def-polinomio-hermite} sostituendola nella serie di potenze: otteniamo una funzione
+\begin{equation}
+	\begin{split}
+		f(t,y)&=\sum_{n=0}^{+\infty}e^{\frac{y^2}2}\bigg(y-\drv{}{y}\bigg)^ne^{-\frac{y^2}2}\frac{t^n}{n!}=\\
+		&=\sum_{n=0}^{+\infty}\frac1{n!}e^{\frac{y^2}2}\bigg[t\bigg(y-\drv{}{y}\bigg)\bigg]^ne^{-\frac{y^2}2}=\\
+		&=\exp\bigg(\frac{y^2}2\bigg)\exp\bigg[t\bigg(y-\drv{}{y}\bigg)\bigg]\exp\bigg(-\frac{y^2}2\bigg).
+	\end{split}
+\end{equation}
+Non possiamo scambiare liberamente l'ordine degli esponenziali, dato che alcuni sono operatori di $\leb[2]{\R}$ e potrebbero non commutare.
+Cerchiamo però di scindere l'operatore che si trova in mezzo in due esponenziali distinti: innanzitutto abbiamo $\big[y,-\drv{}{y}\big]=1$, dato che
+\begin{equation}
+	\bigg[y,\drv{}{y}\bigg]f(y)=y\drv{}{y}f(y)-\drv{}{y}\big[yf(y)\big]=y\drv{}{y}f(y)-f(y)-y\drv{}{y}f(y)=-f(y).
+\end{equation}
+Inoltre, con la formula di Baker-Campbell-Hausdorff, risulta
+\begin{equation}
+	\exp(ty)\exp\bigg(-t\drv{}{y}\bigg)=\exp\bigg\{t\bigg(y-\drv{}{y}\bigg)+\frac{t^2}2\big[y,-\drv{}{y}\big]+\cdots\bigg\}=\exp\bigg[t\bigg(y-\drv{}{y}\bigg)+\frac{t^2}2\bigg]
+\end{equation}
+dato che i termini di ordine superiore al secondo contengono tutti commutatori di $\big[y,-\drv{}{y}\big]$ con altri termini, ma quest'ultimo è uno scalare quindi commuta con tutti gli operatori; di conseguenza, questi termini sono tutti nulli.
+Allora risulta, invertendo la formula,
+\begin{equation}
+	\exp\bigg[t\bigg(y-\drv{}{y}\bigg)\bigg]=\exp\bigg(-\frac{t^2}2\bigg)\exp(ty)\exp\bigg(t\drv{}{y}\bigg).
+\end{equation}
+L'azione di questi esponenziali, in particolare l'ultimo, su una funzione $f$ è\footnote{Assumendo che $f$ sia analitica, in modo che coincida con il suo sviluppo di Taylor.}
+\begin{equation}
+	\exp\bigg(-t\drv{}{y}\bigg)f(y)=\bigg[\sum_{n=0}^{+\infty}\frac{(-t)^n}{n!}\frac{\dd^n}{\dd y^n}\bigg]f(y)=\sum_{n=0}^{+\infty}\frac{(-t)^nf^{(n)}(y)}{n!}
+\end{equation}
+che è lo sviluppo in serie di Taylor di $f(y-t)$ centrato in $y$.
+Di conseguenza
+\begin{equation}
+	\begin{split}
+		f(y,t)&=\exp\bigg(\frac{y^2}2\bigg)\exp\bigg[t\bigg(y-\drv{}{y}\bigg)\bigg]\exp\bigg(-\frac{y^2}2\bigg)=\\
+		&=\exp\bigg(\frac{y^2}2\bigg)\exp\bigg(\frac{t^2}2\bigg)\exp(ty)\exp\bigg(-t\drv{}{y}\bigg)\exp\bigg(-\frac{y^2}2\bigg)=\\
+		&=\exp\bigg(\frac{y^2}2\bigg)\exp\bigg(\frac{t^2}2\bigg)\exp(ty)\exp\bigg[-\frac{(y-t)^2}2\bigg]=\\
+		&=\exp\bigg[\frac{y^2}2+\frac{t^2}2+ty-\frac{(y-t)^2}2\bigg]=\\
+		&=\exp(2ty-t^2)
+	\end{split}
+\end{equation}
+che è proprio la funzione generatrice dei polinomi di Hermite.
+La proprietà fondamentale dei polinomi è che formano un insieme ortogonale nello spazio $\leb[2]{\R,e^{-x^2}\dd x}$, ossia
+\begin{equation}
+	\int_{\R}e^{-x^2}H_n(x)H_m(x)\,\dd x=0\quad\text{se }n\ne m.
+	\label{eq:ortogonalita-polinomi-hermite}
+\end{equation}
+Di conseguenza le funzioni di Hermite $h_n$, per come sono definite, formano invece un insieme \emph{ortonormale} in $\leb[2]{\R}$.\footnote{L'insieme delle funzioni di Hermite è anche \emph{completo}, dunque può essere preso come base di $\leb[2]{\R}$. Il punto chiave per dimostrarlo è che queste funzioni sono anche autofunzioni della trasformata di Fourier, che è un'operatore unitario.}
+
+\paragraph{Soluzione asintotica}
+Possiamo costruire una soluzione come di seguito: per grandi valori di $y$, ipotizziamo che l'autostato di ordine $n$ abbia una funzione d'onda asintotica a $y^n\exp(-y^2/2)$.
+Dato che $\psi_n\to 0$ per $\abs{y}\to+\infty$, possiamo approssimare l'equazione di Schr\"odinger da $-\psi_n''(y)+y^2\psi_n(y)=(2n+1)\psi_n(y)$ a $-\psi_n''(y)+y^2\psi_n(y)=0$, e nel momento in cui trascuro il secondo membro l'equazione non dipende più da $n$.
+Cominciamo quindi a costruire la soluzione: partiamo da una funzione prova del tipo $\psi_n(y)=\exp(-\beta y^k)$.
+Risulta $\psi_n'(y)=-\beta ky^{k-1}\exp(-\beta y^k)=-\beta ky^{k-1}\psi_n(y)$ e $\psi_n''(y)=-\beta k(k-1)y^{k-2}\psi_n(y)+\beta ky^{k-1}\psi_n'(y)$ dunque riscriviamo l'equazione di Schrodinger come
+\begin{equation}
+	-\psi_n''(y)+y^2\psi_n(y)=e^{-\beta y^k}\big[-\beta^2k^2y^{2k-2}+\beta k(k-1)y^{k-2}+y^2\big]\sim e^{-\beta y^k}(-\beta^2k^2y^{2k-2}+y^2)
+\end{equation}
+e affinch\'e l'espressione tenda a zero per $\abs{y}\to+\infty$ deve essere uguali le potenze di $y$, ossia $k=2$.
+A questo punto troviamo
+\begin{equation}
+	-\psi_n''(y)+y^2\psi_n(y)\sim e^{-\beta y^2}(1-4\beta^2)y^2
+\end{equation}
+e con gli stessi vincoli ($\psi_n\to 0$) troviamo che $1-4\beta^2=0$, ossia $\beta=\frac12$.
+La funzione $\exp(-y^2/2)$ è una buona approssimazione iniziale, per grandi valori di $\abs{y}$, della funzione d'onda del sistema.
+Possiamo fare di meglio: aggiungiamo un termine polinomiale, con $\psi_n(y)=y^a\exp(-y^2/2)$.
+Otteniamo $\psi_n'(y)=(ay^{a-1}-y^{a+1})\exp(-y^2/2)$ e $\psi_n''(y)=\big[a(a-1)y^{a-2}-(2a+1)y^a+y^{a+2}\big]\exp(-y^2/2)$, perciò
+\begin{equation}
+	\begin{aligned}
+		\big[-a(a-1)y^{a-2}+(2a+1)y^a-y^{a+2}\big]e^{-\frac{y^2}2}+y^ae^{-\frac{y^2}2}y^2&=(2n+1)y^ae^{-\frac{y^2}2}\\
+		\big[-a(a-1)y^{a-2}+(2a+1)y^a\big]e^{-\frac{y^2}2}&=(2n+1)y^ae^{-\frac{y^2}2}
+	\end{aligned}
+\end{equation}
+e mantenendo solo i termini di ordine maggiore risulta
+\begin{equation}
+	(2a+1)y^ae^{-\frac{y^2}2}=(2n+1)y^ae^{-\frac{y^2}2}
+\end{equation}
+per cui evidentemente $a=n$, perciò la soluzione è la funzione $\psi_n(y)=y^n\exp(-y^2/2)$.
+Potremmo ancora proseguire aggiungendo altri termini ``correttivi'', ma ci fermiamo qui.
+
+\section{Approssimazione classica}
+Vediamo ora in che modo possiamo riottenere la distribuzione di probabilità classica da quanto visto finora.
+In generale, data un'hamiltoniana (classica) $H=\frac1{2m}p^2+V(x)$, l'energia è conservata poich\'e non dipende esplicitamente dal tempo, perciò poniamo $H=E$.
+Fissiamo un punto $x'$: la densità di probabilità di misurare la posizione della particella in $x'$ è
+\begin{equation}
+	\rho(x')=\frac1{t_2-t_1}\int_{t_1}^{t_2}\delta\big(x(t)-x'\big)\,\dd t,
+\end{equation}
+da normalizzare in modo che
+\begin{equation}
+	\int_{-\infty}^{+\infty}\rho(x')\,\dd x'=\int_{-\infty}^{+\infty}\frac1{t_2-t_1}\int_{t_1}^{t_2}\delta\big(x(t)-x'\big)\,\dd t\,\dd x'=1.
+\end{equation}
+Possiamo inoltre scrivere $\dd t=\dd x/\abs{v(x)}$, e data la conservazione dell'energia ricaviamo la velocità in funzione della posizione come
+\begin{equation}
+	\abs{v(x)}=\sqrt{\frac2{m}[E-V(x)]},
+\end{equation}
+nelle regioni in cui $V(x)\le E$.
+Possiamo prendere $v(x)\ge 0$ se ci restringiamo a studiare solo un semiperiodo, quindi per $t_2-t_1=\frac{T}2$.
+\begin{equation}
+	\rho(x')=\frac1{t_2-t_1}\int_{x(t_1)}^{x(t_2)}\frac{\delta(x-x')}{\sqrt{\frac2{m}[E-V(x)]}}\Theta\big(E-V(x)\big)\,\dd x.
+\end{equation}
+Il termine $\Theta\big(E-V(x)\big)$, nullo per $E<V(x)$, assicura che la probabilità sia nulla nelle regioni di spazio in cui non si ha $V(x)\le E$.
+Risulta quindi
+\begin{equation}
+	\rho(x')=\frac2{T}\frac1{\sqrt{\frac2{m}[E-V(x')]}}=\frac2{T}\frac1{\abs{v(x')}}.
+\end{equation}
+Notiamo che è inversamente proporzionale alla velocità della particella: è come ci si aspetta, poich\'e più veloce è la particella più difficile è trovarla nel punto in cui passa.
+
+Nel caso dell'oscillatore armonico, dunque, abbiamo
+\begin{equation}
+	\rho(x')=\frac{\omega}{\pi}\frac1{\sqrt{\frac2{m}\big(E-\frac12m\omega^2x'^2\big)}}=\frac1{\pi}\sqrt{\frac{m\omega^2}{2E}}\frac1{\sqrt{1-\frac{m\omega^2x'^2}{2E}}}.
+	\label{eq:pdf-classica-oscillatore-armonico}
+\end{equation}
+Cambiando la variabile con $y=\big(\frac{m\omega^2}{2E}\big)^{\frac12}x'$ abbiamo poi
+\begin{equation}
+	\rho(x')\,\dd x'=\frac1{\pi}\frac1{\sqrt{1-y^2}}\,\dd y.
+\end{equation}
+Come già visto nel caso generale, la probabilità è minima in $y=0$, dove la velocità è massima.
+Per $E\to 0$, la funzione converge a $\delta(x')$, coerentemente con il fatto che la particella può essere trovata solamente nel punto $x'$.
+
+\paragraph{Quantizzazione nello spazio delle fasi}
+Nello spazio delle fasi, la traiettoria descritta dall'oscillatore armonico è un'ellisse, con equazione data dall'hamiltoniana, ossia
+\begin{equation}
+	\frac{p^2}{2mE}+\frac{x^2}{\frac{2E}{m\omega^2}}=1.
+\end{equation}
+Essa racchiude un'area pari a
+\begin{equation}
+	A=\pi \sqrt{2mE}\sqrt{\frac{2E}{m\omega^2}}=\frac{2\pi}{\omega}E
+\end{equation}
+e sostituendo $E$ con gli autovalori trovati di $\op H$ troviamo il curioso risultato
+\begin{equation}
+	A=\frac{2\pi}{\omega}\Big(n+\frac12\Big)\hbar\omega=\Big(n+\frac12\Big)\hbar
+\end{equation}
+che mostra come l'area (in generale, il volume) nello spazio delle fasi sia quantizzata.
+Questa fu una delle prima idee per spiegare i fenomeni quantistici, nota come \emph{quantizzazione di Bohr-Sommerfield}.
+
+\section{Oscillatore armonico multidimensionale}
+\label{sec:oscillatore-armonico-multidimensionale}
+In più dimensioni, l'operatore hamiltoniano dell'oscillatore armonico è analogo alla versione unidimensionale, ma con gli operatori posizione e impulso vettoriali anzich\'e scalari, ossia
+\begin{equation}
+	\op H=\frac1{2m}(\op{\vec p}^2+m^2\omega^2\op{\vec q}^2)=\frac1{2m}\sum_{i=1}^d(\op p_i^2+m^2\omega^2\op q_i^2)
+	\label{eq:hamiltoniano-oscillatore-armonico-multidim}
+\end{equation}
+dove $d$ è la dimensione del sistema.
+Possiamo definire l'hamiltoniano della coordinata $i$-esima $\op H_i=\frac1{2m}(\op p_i^2+m^2\omega^2\op q_i^2)$ cos\`i che $\op H=\sum_{i=1}^d\op H_i$.
+Dal commutatore $[\op q_i,\op p_j]=i\hbar\delta_{ij}$ è evidente che gli hamiltoniani di differenti coordinate sono compatibili.
+
+Chiamiamo $\ket{n_1,\dots,n_d}$ lo stato tale per cui $\op H_j\ket{n_1,\dots,n_d}=\hbar\omega(n_j+\frac12)$: sono gli stati in cui i vari $\op H_i$ sono diagonali.
+Inoltre
+\begin{equation}
+	\op H\ket{n_1,\dots,n_d}=\sum_{i=1}^d\op H_i\ket{n_1,\dots,n_d}=\sum_{i=1}^d\Big(n_i+\frac12\Big)\hbar\omega\ket{n_1,\dots,n_d}=\hbar\omega\Big(\!N+\frac{d}2\Big)\ket{n_1,\dots,n_d}
+\end{equation}
+dove $N\defeq\sum_{i=1}^dn_i$.
+
+Lo stato fondamentale ha $N=0$, e dato che ogni $n_i$ è non negativo l'unico modo per ottenere zero è che $n_i=0$ per ogni $i\in\{1,\dots,d\}$.
+Dato che ognuno di questi numeri è univocamente determinato, lo stato fondamentale non è degenere.
+Gli stati di energia maggiore però non lo sono: se già $N=1$ si hanno $d$ possibili combinazioni che danno $N=1$.
+In generale, il grado di degenerazione dello stato $N$ è il numero di modi in cui si può ottenere $N$ con $d$ interi positivi o nulli, ossia
+\begin{equation}
+	\frac{d(N+d-1)!}{d!N!}=\frac{(N+d-1)!}{(d-1)!N!}=\binom{N+d-1}{N}.
+\end{equation}
+Notiamo anche qui che se $N=0$ si ha sempre 1.
+
+Poich\'e il potenziale $V(\op{\vec q})$ è centrale, dato che dipende dalla norma al quadrato della posizione, l'hamiltoniano è invariante per rotazioni, le trasformazioni del gruppo $SO(n)$.
+
+Definiamo il momento angolare orbitale, in analogia con la sua controparte classica, come
+\begin{equation}
+	\op{\vec L}=\op{\vec q}\times\op{\vec p}
+\end{equation}
+o per ciascuna componente $\op L_k=\epsilon_{ijk}\op q_i\op p_j$.
+Nella definizione non troviamo problemi di commutazione in quanto posizione e impulso si riferiscono a coordinate diverse.
+In questo caso, dato che l'hamiltoniano è invariante per rotazioni, si ha $[\op H,\op{\vec L}]=0$.
+Definiamo per ciascuna coordinata l'operatore, simile a quello di distruzione, $\op\eta_i=\frac1{\sqrt{2m\hbar\omega}}(\op p_i-im\omega\op q_i)$.
+Con questa definizione risulta $\op H=\sum_{i=1}^d\big(\adj{\op\eta_i}\op\eta_i+\frac12\big)$.
+Possiamo inoltre ricavare gli operatori di posizione e impulso da $\op\eta_i$ e $\adj{\op\eta_i}$ in modo analogo al caso unidimensionale.
+Notiamo subito che tutti questi operatori commutano, anche con i loro aggiunti, cioè $[\op\eta_i,\op\eta_j]=[\adj{\op\eta_i},\adj{\op\eta_j}]=[\adj{\op\eta_i},\op\eta_j]=0$.
+Poniamoci per semplicità in un sistema bidimensionale ($d=2$): il momento angolare ha una sola componente $\op L$ che vale
+\begin{equation}
+	\begin{split}
+		\op L&=-i\sqrt{\frac{m\hbar\omega}2}\sqrt{\frac{\hbar}{2m\omega}}\big[(\adj{\op\eta_1}-\op\eta_1)(\adj{\op\eta_2}+\op\eta_2)-(\adj{\op\eta_2}-\op\eta_2)(\adj{\op\eta_1}+\op\eta_1)\big]=\\
+		&=-\frac{i\hbar}2(\adj{\op\eta_1}\op\eta_2-\op\eta_1\adj{\op\eta_2}-\adj{\op\eta_2}\op\eta_1+\op\eta_2\adj{\op\eta_1})=\\
+		&=i\hbar(\op\eta_1\adj{\op\eta_2}-\adj{\op\eta_1}\op\eta_2)
+	\end{split}
+\end{equation}
+perciò commuta con l'hamiltoniano come
+\begin{equation}
+	[\op H,\op L]=i\hbar[\op H,\op\eta_1\adj{\op\eta_2}-\adj{\op\eta_1}\op\eta_2]=i\hbar[\op H,\op\eta_1\adj{\op\eta_2}]-i\hbar[\op H,\adj{\op\eta_1}\op\eta_2]=0
+\end{equation}
+come si può verificare.
+
+Nello stato fondamentale $\ket{0,0}$, il momento angolare è $\op L\ket{0,0}=i\hbar(\adj{\op\eta_2}\op\eta_1-\adj{\op\eta_1}\op\eta_2)\ket{0,0}=0$, cioè è nullo.
+Il primo stato eccitato è invece una combinazione lineare di $\ket{1,0}$ e $\ket{0,1}$: prendiamo questi due stati come base e applichiamo $\op L$ ad essi, ottenendo
+\begin{equation}
+	\op L\ket{1,0}=i\hbar(\op\eta_1\adj{\op\eta_2}\ket{1,0}-\adj{\op\eta_1}\op\eta_2\ket{1,0})=i\hbar\op\eta_1\ket{1,1}=i\hbar\ket{0,1}
+\end{equation}
+e analogamente $\op L\ket{0,1}=-i\hbar\ket{1,0}$.
+Possiamo quindi rappresentare, in questa base, l'operatore con la matrice $i\hbar\begin{psmallmatrix}0&-1\\1&0\end{psmallmatrix}$, che ha $\hbar,-\hbar$ come autovalori a cui corrispondono gli autostati, rispettivamente, $\ket{1,0}+i\ket{0,1}$ e $\ket{1,0}-i\ket{0,1}$: gli autovalori di $\op L$ nello stato con $N=1$ sono dunque $\pm\hbar$.
+
+Definiamo ora gli operatori
+\begin{equation}
+	\op a_-=\frac{\op\eta_1+i\op\eta_2}{\sqrt{2}},\quad\op a_+=\frac{\op\eta_1-i\op\eta_2}{\sqrt{2}},\quad\op N=\adj{\op a_+}\op a_+-\adj{\op a_-}\op a_-.
+\end{equation}
+Risulta che $\adj{\op a_+}\ket{0,0}=\frac1{\sqrt{2}}(\ket{1,0}+i\ket{0,1})$, ossia $\adj{\op a_+}$ ``crea'' un quanto con momento angolare $\hbar$, mentre $\adj{\op a_-}$ ne crea uno con momento angolare $-\hbar$; $\op a_+$ e $\op a_-$ invece li ``distruggono''.
+Come per il caso unidimensionale, da questi operatori possiamo ritrovare l'hamiltoniano con $\op H=\adj{\op a_+}\op a_++\adj{\op a_-}\op a_-$.
+Poich\'e
+\begin{equation}
+	[\op H,\adj{\op a_+}\op a_-]=0,\quad [\op H,\op L]=0,\quad [\op L,\adj{\op a_+}\op a_-]=2\hbar\adj{\op a_+}\op a_-,
+\end{equation}
+siamo in presenza di una degenerazione.
+
+Per ``creare'' $N$ quanti, possiamo scegliere di crearne un certo numero con $\adj{\op a_+}$ e i restanti con $\adj{\op a_-}$: scelto $k\in\{0,\dots,N\}$, otteniamo dunque uno stato $(\adj{\op a_+})^k(\adj{\op a_-})^{N-k}\ket{0,0}$.
+Per $k=N$, ad esempio, si ha lo stato $(\adj{\op a_+})^N\ket{0,0}$ che ha come autovalore dell'energia $\hbar\omega(N+1)$ e momento angolare orbitale $N\hbar$.
+Ci possiamo chiedere a questo punto se il momento angolare può essere reso grande a piacere.
+La risposta è no, perch\'e risulta
+\begin{equation}
+	\adj{\op a_+}\op a_-(\adj{\op a_+})^N\ket{0,0}=\adj{\op a_+}\big[\op a_-(\adj{\op a_+})^N-(\adj{\op a_+})^N\op a_+(\adj{\op a_+})^N\op a_-\big]\ket{0,0}=\adj{\op a_+}[\op a_-,(\adj{\op a_-})^N]\ket{0,0}=0
+\end{equation}
+e, diversamente, $\adj{\op a_-}\op a_+(\adj{\op a_-})^N\ket{0,0}=\adj{\op a_-}[\op a_+,(\adj{\op a_+})^N]\ket{0,0}=N\adj{\op a_-}(\adj{\op a_+})^{N-1}\ket{0,0}$.
+Dallo stato con momento angolare $N$ si scende dunque di due in due con gli autovalori $N-2$, $N-4$\dots fino a quando?
+Giunti alla situazione simmetrica, nell'altro verso di rotazione, troviamo che $-N$ è il minimo, infatti $\adj{\op a_-}\op a_+(\adj{\op a_-})^N\ket{0,0}=\adj{\op a_-}[\op a_+,(\adj{\op a_-})^N]\ket{0,0}=0$ e il processo si ferma qui.
+

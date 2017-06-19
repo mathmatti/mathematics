@@ -1,0 +1,265 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PER INCLUDERE QUESTE IMPOSTAZIONI %
+% \usepackage{analisi-matematica}   %
+% nel preambolo del documento       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ProvidesPackage{analisi-matematica}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pacchetti generici da caricare per i documenti
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage{microtype}
+\usepackage{mathtools}
+\usepackage{comment}
+\usepackage{amsfonts}                     % Per il font blackboard \mathbb
+\usepackage{amsthm}                       % Per personalizzare gli stili dei teoremi
+\usepackage{siunitx}
+\usepackage{amssymb}                      % Per alcuni comandi come \varnothing, \emptyset
+\usepackage{booktabs}                     % Per i comandi top/mid/bottomrule nelle tabelle
+\usepackage{mathrsfs}                     % Per il font calligrafico \mathscr
+\usepackage{graphicx}                     % Per includere, tra il resto, il logo della licenza CC
+\usepackage{titletoc}                     % Per creare gli indici per ciascuna parte separatamente
+\usepackage[usenames,dvipsnames]{xcolor}  % Per definire alcuni colori come nei link di hyperref
+\usepackage[bibstyle=numeric,backend=biber]{biblatex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Impostazioni e caricamento di pgfplots
+\usepackage{pgfplots}
+	\pgfplotsset{compat=newest}
+	\tikzset{
+	small dot/.style={fill=black,circle,scale=0.3}
+	}
+	\pgfplotsset{ % Impostazioni di default già pronte per grafici
+		standard/.style={
+			axis lines=middle,
+			axis on top,
+			enlargelimits,
+			legend pos=outer north east,
+			every axis x label/.style={at={(current axis.right of origin)},anchor=west},
+			every axis y label/.style={at={(current axis.above origin)},anchor=south}
+		}
+	}
+% Impostazioni per l'esternalizzazione dei grafici di tikz.
+% Con queste opzioni, i grafici sono compilati solo la prima volta e in
+% seguito ad ogni modifica al loro codice, altrimenti viene riutilizzato
+% il file PDF già esistente. Questo permette di ridurre la durata della
+% compilazione drasticamente, da più di dieci minuti a massimo un minuto.
+\usetikzlibrary{external}
+\usepgfplotslibrary{external}
+\tikzexternalize[prefix=tex/]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Margini
+\usepackage[big]{layaureo}
+% Il margine superiore impostato da layaureo è troppo piccolo, soprattutto in presenza delle
+% testatine nell'intestazione della pagina: il margine inferiore in confronto è enorme.
+% Per rimediare, aggiungo al margine superiore (il cui valore è salvato nella variabile
+% \Gm@tmargin) lo spazio che LaTeX imposta tra la testatina e il corpo del testo.
+% (Il valore di default di \headsep è 25pt, poco meno di 1 cm)
+\newlength{\customTopMargin}
+\setlength{\customTopMargin}{\Gm@tmargin+\headsep}
+% Per sommare due lunghezze (come nel 2o argomento del precedente comando) è necessario
+% il pacchetto 'calc', che è automaticamente incluso da layaureo
+\newgeometry{top=\customTopMargin}
+% Definisce delle nuove impostazioni per geometry. Gli altri margini etc. sono già impostati
+% da layaureo e vanno bene cosi`. Serve solo reimpostare 'top' con il nuovo valore.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formattazione del testo
+\usepackage{sectsty}
+% Impostazione della grandezza del font nei vari ambienti
+\usepackage{sectsty}
+	\sectionfont{\large}
+	\subsectionfont{\normalsize}
+	\subsubsectionfont{\itshape}
+	\paragraphfont{\normalsize}
+
+% Stile del titolo dei capitoli
+\usepackage{titlesec}
+\titleformat{\chapter}[display]{\bfseries\Large}{Capitolo \thechapter}{12pt}{\bfseries\Huge}
+
+% Stile del titolo delle parti
+\titleclass{\part}{top}
+\titleformat{\part}{\centering\Huge\bfseries}{Parte \thepart}{0pt}{}
+\titlespacing*{\part}{0pt}{0pt}{2cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Comandi vari (spaziatura, font, lettere greche etc.)
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+\newcommand{\qqq}{\quad\longrightarrow\quad}  % Spazio lungo + --> + spazio lungo
+\newcommand{\qtext}[1]{\quad\text{#1}\quad}   % Testo in caratteri romani (i.e. non slanted, come di defeult in math mode) con spazio attorno
+\renewcommand{\vec}[1]{\mathbf{#1}}           % Indica vettori in grassetto (per vettori di spazi euclidei)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definizioni di nuovi colori
+\colorlet{darkgreen}{green!75!black}
+\colorlet{darkyellow}{yellow!75!orange}
+\colorlet{darkblue}{blue!50!black}      % Da usare per link e citazioni
+\colorlet{indigo}{blue!50!violet}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Comandi matematici
+
+% Parentesi automatiche
+% Esse permettono di aggiustare la loro dimensione in base al contenuto: per specificare la dimensione, si
+% scrive il comando apposito (i soliti \big, \bigg, \Big, etc.) come comando opzionale, come in \abs[\bigg]{x}.
+% La variante "stellata", come \abs*, usa invece \left e \right, cioè \abs*{x} equivale a \left\lvert{x}\right\rvert.
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}                    % Valore assoluto, modulo
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}                   % Norma
+\DeclarePairedDelimiter{\partint}{\lfloor}{\rfloor}              % Parte intera
+\DeclarePairedDelimiter{\card}{\lvert}{\rvert}                   % Cardinalità di un insieme
+\DeclarePairedDelimiterX{\inner}[2]{\langle}{\rangle}{{#1},{#2}} % Prodotto interno
+\DeclarePairedDelimiter{\parentheses}{(}{)}                      % Generiche parentesi tonde (servono per alcuni comandi più sotto)
+% Il comando \parentheses aggiunge un ulteriore argomento ai comandi sotto dove è usato, e.g. \cont[1][]{...} in realtà ha due argomenti, uno opzionale (definito nel comando \cont) e uno obbligatorio che viene da \parentheses.
+% Per tali comandi, l'opzione della dimensione va posta subito prima dell'argomento obbligatorio, e.g. \cont[2][\big]{A}.
+% Si noti infatti che tale scrittura è equivalente alla forma \mathscr{C}^{2}\parentheses[\big]{A}, quindi l'argomento
+% opzionale [\big] è dato a \parentheses, e non a \cont, com'è giusto.
+
+% Simboli
+\newcommand{\dd}{\textup{d}}                                   % Differenziale
+\renewcommand{\emptyset}{\varnothing}                          % Insieme vuoto
+\newcommand{\boundary}{\partial}                               % Simbolo di frontiera di un insieme
+\newcommand{\then}{\Rightarrow}                                % Implicazione logica
+\renewcommand{\iff}{\Leftrightarrow}                           % "Se e solo se"
+\renewcommand{\Re}{\mathfrak{R}\parentheses}                   % Parte reale
+\renewcommand{\Im}{\mathfrak{I}\parentheses}                   % Parte immaginaria
+\newcommand{\conj}[1]{\overline{#1}}                           % Coniugato
+\newcommand{\intinf}{\underline{\int_a^b}}                     % Integrale inferiore (Riemann)
+\newcommand{\intsup}{\overline{\int_a^b}}                      % Integrale superiore (Riemann)
+\newcommand{\partz}{\mathcal{P}}                               % Partizione di un intervallo
+\newcommand{\rie}{\mathfrak{R}\parentheses}                    % Spazio delle funzioni Riemann-integrabili: \rie{A} indica funz. integrabile nell'insieme A
+\newcommand{\cont}[1][]{\mathscr{C}^{#1}\parentheses}          % Spazio delle funzioni continue: \cont[k]{A} indica una funz. di classe C^k nell'insieme A
+\newcommand{\cclass}[1][]{\mathscr{C}^{#1}}                    % Per indicare la "classe di continuità" senza specificare l'insieme
+\newcommand{\bounded}[1][]{\mathscr{B}_{#1}\parentheses}       % Spazio delle funzioni limitate: \boun[B]{A} indica una funz. limitata con dominio A e codominio B
+\newcommand{\leb}{\mathscr L\parentheses}                      % Funzione sommabile: \leb{F} equivale a L(F)
+\newcommand{\grad}{\nabla}                                     % Gradiente
+\renewcommand{\div}{\nabla\cdot}                               % Divergenza
+\newcommand{\rot}{\nabla\times}                                % Rotore
+\newcommand{\lap}{\nabla^2}                                    % Laplaciano
+\newcommand{\lin}{\mathcal L}                                  % Generica applicazione lineare
+\newcommand{\gen}[1]{\left\langle{#1}\right\rangle}            % Spazio generato (da cosa è generato, è definito nell'argomento del comando)
+\newcommand{\scalar}[2]{{#1}\cdot{#2}}                         % Prodotto scalare tra i due argomenti specificati (con il punto)
+\newcommand{\drv}[2]{\frac{\dd {#1}}{\dd {#2}}}                % Derivata prima
+\newcommand{\ddrv}[2]{\frac{\dd^2 {#1}}{\dd {#2}^2}}           % Derivata seconda
+\newcommand{\drp}[2]{\frac{\partial {#1}}{\partial {#2}}}      % Derivata parziale
+\newcommand{\ddrp}[2]{\frac{\partial^2 {#1}}{\partial {#2}^2}} % Derivata parziale seconda, non mista
+\newcommand{\vol}[1]{\left|{#1}\right|}                        % Volume di un iperrettangolo
+\newcommand{\interior}[1]{\mathring{#1}}                       % Interno di un insieme
+\newcommand{\clos}[1]{\overline{#1}}                           % Chiusura di un insieme
+\newcommand{\compl}[1]{{#1}^c}                                 % Complementare di un insieme
+\newcommand{\mis}{\mathcal M}                                  % Classe degli insiemi misurabili secondo Lebesgue
+%simbolo di uguaglianza per definizione
+\newcommand*{\defeq}{
+	\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt \hbox{\scriptsize.} \hbox{\scriptsize.}}} =
+}
+
+% Operatori (come lim, sen, etc. che hanno dello spazio prima e dopo la parola stampata)
+\DeclareMathOperator{\diam}{diam}    % Diametro (di un intervallo etc.)
+\DeclareMathOperator{\sgn}{sgn}      % Funzione segno
+\DeclareMathOperator{\jac}{J}        % Matrice jacobiana
+\DeclareMathOperator{\hes}{H}        % Matrice hessiana
+\DeclareMathOperator{\mat}{mat}      % Spazio delle matrici
+\DeclareMathOperator{\volterra}{V}   % Operatore di Volterra (per eq. differenziali)
+\DeclareMathOperator{\tr}{tr}        % Traccia
+\DeclareMathOperator{\Ker}{Ker}      % Nucleo di un'app lineare
+\DeclareMathOperator{\rk}{rk}        % Rango di una matrice/operatore
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Vettori di lettere greche (per renderle in grassetto come le lettere latine)
+\usepackage{bm,upgreek}
+\newcommand{\valpha}{\bm{\upalpha}}
+\newcommand{\vbeta}{\bm{\upbeta}}
+\newcommand{\vgamma}{\bm{\upgamma}}
+\newcommand{\vdelta}{\bm{\updelta}}
+\newcommand{\vepsilon}{\bm{\upepsilon}}
+\newcommand{\vzeta}{\bm{\upzeta}}
+\newcommand{\veta}{\bm{\upeta}}
+\newcommand{\vtheta}{\bm{\uptheta}}
+\newcommand{\viota}{\bm{\upiota}}
+\newcommand{\vkappa}{\bm{\upkappa}}
+\newcommand{\vlambda}{\bm{\uplambda}}
+\newcommand{\vmu}{\bm{\upmu}}
+\newcommand{\vnu}{\bm{\upnu}}
+\newcommand{\vxi}{\bm{\upxi}}
+\newcommand{\vpi}{\bm{\uppi}}
+\newcommand{\vrho}{\bm{\uprho}}
+\newcommand{\vsigma}{\bm{\upsigma}}
+\newcommand{\vtau}{\bm{\uptau}}
+\newcommand{\vupsilon}{\bm{\upupsilon}}
+\newcommand{\vphi}{\bm{\upvarphi}}
+\newcommand{\vchi}{\bm{\upchi}}
+\newcommand{\vpsi}{\bm{\uppsi}}
+\newcommand{\vomega}{\bm{\upomega}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Stili per i titoli dei teoremi, definizioni, etc.
+% Tutti gli ambienti seguono la numerazione 'teorema', che è definita
+% (con l'opzione 'section') come capitolo.sezione.#, con # reimpostato
+% a zero all'inizio di ogni sezione. # è incrementato per ogni elemento,
+% indiscriminatamente dal tipo di ambiente.
+% In questo modo è più facile individuare teoremi, definizioni, etc. nel
+% testo, inoltre si evitano ripetizioni come "Teorema 5", "Definizione 5",
+% "Osservazione 5" nello stesso capitolo.
+\theoremstyle{plain}
+\newtheorem{teorema}{Teorema}[section]
+\newtheorem{corollario}[teorema]{Corollario}
+\newtheorem{lemma}[teorema]{Lemma}
+\newtheorem{proprieta}[teorema]{Proprietà}
+
+\theoremstyle{definition}
+\newtheorem{definizione}[teorema]{Definizione}
+\newtheorem{esempio}[teorema]{Esempio}
+% Non è scontato cosa "vada" e cosa "non vada" in questo ambiente 'esempio'.
+% In linea di principio ci vanno quegli esempi che non sono una parte fondamentale
+% del discorso, nel senso che se anche non ci fossero la lettura non ne
+% risentirebbe più di tanto. Diciamo che per gli esempi corti (una/due righe) non
+% è necessario questo blocco: o li si raggruppa tutti in una lista numerata, o si
+% fa anche a meno di usare l'ambiente 'esempio' e li si lascia nel testo normale.
+% Per gli esempi lunghi (sette, otto righe o più) vale invece la pena di avere un
+% ambiente esempio per ciascuno di essi, separatamente.
+% Ci sono infine quei paragrafi che si legano direttamente a un teorema come esempio
+% per "cosa succederebbe se togliessimo un'ipotesi": eviterei di usare questo
+% ambiente in tali casi (perche', come detto prima, sono una parte _essenziale_ del
+% discorso).
+
+\theoremstyle{remark}
+\newtheorem{osservazione}[teorema]{Osservazione}
+
+% Numerazione delle equazioni: con questo comando risultano
+% numerate come (capitolo.sezione.#), dove # riparte da 1
+% all'inizio di ogni sezione
+\numberwithin{equation}{section}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Insiemi numerici
+\newcommand{\N}{\mathbb{N}}              % Naturali
+\newcommand{\Z}{\mathbb{Z}}              % Interi
+\newcommand{\Q}{\mathbb{Q}}              % Razionali
+\newcommand{\R}{\mathbb{R}}              % Reali
+\newcommand{\Rex}{\overline{\mathbb{R}}} % Reali estesi
+\newcommand{\C}{\mathbb{C}}              % Complessi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Personalizzazione di collegamenti e segnalibri
+% Il pacchetto hyperref è da caricare per ultimo, dato che
+% sovrascrive alcuni dei comandi di LaTeX. In particolare, lo
+% fa anche il pacchetto titlesec, quindi è meglio che hyperref
+% stia dopo di esso, altrimenti comandi come \pdfbookmark non
+% funzionano correttamente.
+\usepackage{hyperxmp}
+\usepackage{hyperref}
+	\hypersetup{ % Impostazioni generali di hyperref
+		bookmarksnumbered=true,
+		bookmarksopen=true,
+		bookmarksopenlevel=1,
+		colorlinks=true,
+		linkcolor=darkblue,
+		pdfstartview=Fit,
+		pdfpagemode=UseOutlines,
+		citecolor=darkblue
+	}
+

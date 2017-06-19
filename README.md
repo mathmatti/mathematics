@@ -19,8 +19,8 @@ Quando svolgiamo gli esercizi, ci capita di dover rivedere velocemente una defin
  
   
 Per ogni concetto potrebbero esserci diverse definizione le quali a volte sono equivalenti
-mentre altre volte potrebbero essere più o meno diverse. Se vi trovate ad affrontare un esercizio,
-selezionate la definizione che più vi conviene.  
+mentre altre volte potrebbero essere piÃ¹ o meno diverse. Se vi trovate ad affrontare un esercizio,
+selezionate la definizione che piÃ¹ vi conviene.  
 
 # getting involved as Programmer
  - install git

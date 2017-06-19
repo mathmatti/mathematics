@@ -1,0 +1,721 @@
+\chapter{Sistemi unidimensionali}
+In queto capitolo affronteremo una serie di esempi ``accademici'' di sistemi in una dimensione, cercando di risolvere dove possibile l'equazione di Schr\"odinger per la funzione d'onda e lo spettro di energia, o di trovare la migliore approssimazione sfruttando le tecniche acquisite.
+
+\section{Metodo costruttivo}
+Verifichiamo innanzitutto quante soluzioni accettabili (cioè a quadrato sommabile) possiamo ricavare dall'equazione di Schr\"odinger.
+Prendiamo un valore $E\in\R$ appartenente allo spettro discreto dell'hamiltoniano, e prendiamo l'equazione nella rappresentazione nella posizione
+\begin{equation}
+	\psi''(x)=-\frac{2m}{\hbar^2}\big[E-V(x)\big]\psi(x)
+	\label{eq:schroedinger-coordinate}
+\end{equation}
+Supponiamo, per assurdo, che esistano due soluzioni $\psi_1,\psi_2$: moltiplichiamo l'equazione di $\psi_1$ per $\psi_2$ e viceversa, ottenendo
+\begin{equation}
+	\begin{gathered}
+		\psi_1''(x)\psi_2(x)+\frac{2m}{\hbar^2}\big[E-V(x)\big]\psi_1(x)\psi_2(x)=0;\\
+		\psi_2''(x)\psi_1(x)+\frac{2m}{\hbar^2}\big[E-V(x)\big]\psi_2(x)\psi_1(x)=0.
+	\end{gathered}
+\end{equation}
+Sottraendole otteniamo $\psi_1''(x)\psi_2(x)-\psi_2''(x)\psi_1(x)=0$, vale a dire\footnote{Trascuriamo d'ora in poi, per alleggerire la notazione, la dipendenza $(x)$ delle funzioni.}
+\begin{equation}
+	0=\psi_1''\psi_2-\psi_2''\psi_1+\psi_1'\psi_2'-\psi_2'\psi_1'=\drv{}{x}(\psi_1'\psi_2-\psi_2'\psi_1)
+\end{equation}
+da cui $\psi_1'\psi_2-\psi_1\psi_2'=k$ ($k\in\R$).
+Otteniamo il valore di $k$ valutando il primo membro: per $x\to+\infty$, le due funzioni $\psi_1$ e $\psi_2$ devono essere a quadrato sommabile, perciò devono tendere a zero: allora $\psi_1'\psi_2=\psi_1\psi_2'$.
+Dividiamo per $\psi_1\psi_2$ e integriamo ricavando
+\begin{equation}
+	\int\frac{\psi_1'}{\psi_1}\,\dd x=\int\frac{\psi_2'}{\psi_2}\,\dd x\qqq\log\psi_1=\log\psi_2+k
+\end{equation}
+cioè $\psi_1=e^k\psi_2$: le due soluzioni sono linearmente dipendenti.
+Esiste dunque un \emph{unica} soluzione accettabile dell'equazione di Schr\"odinger per ciascun valore di $E$ dello spettro discreto dell'hamiltoniano.
+
+\subsection{Potenziale limitato inferiormente}
+Cerchiamo ora di estrarre delle informazioni qualitative sulla funzione d'onda (nella rappresentazione della posizione) di un sistema unidimensionale composto da una singola particella dalle caratteristiche dell'hamiltoniano.
+Supponiamo di avere una funzione del potenziale limitata inferiormente: dato che $\frac1{2m}p^2$ non è mai negativo, si ha sempre $H(x,p)\ge V(x)\ge\min_{x\in\R}V(x)$.
+Fissata un'energia $E$ iniziale del sistema, esistono dei punti, detti \emph{punti di inversione}, in cui $V(x)=E$: in tali punti la particella ha velocità nulla, dato che l'energia cinetica è $T=E-V(x)$; dato che $T$ non può essere negativa, in una visione classica del sistema la particella resta confinata tra questi punti di inversione: fissata dunque un'energia e un punto $x\in\R$ iniziale del moto, determiniamo univocamente la regione in cui potremo trovare la particella.
+Chiamiamo queste regioni \emph{classicamente accessibili}.
+Abbiamo visto però, nell'oscillatore armonico, che la funzione d'onda dello stato fondamentale (una tra tutte) non è mai nulla in nessun punto dell'asse reale.
+Se, classicamente, la particella si troverebbe soltanto nell'intervallo limitato dai punti $\pm\frac{\hbar\omega}2$, troviamo comunque una probabilità non nulla di poterla misurare \emph{in qualsiasi posizione}.
+Non sappiamo bene cosa aspettarci dal sistema nelle regioni classicamente \emph{non accessibili}: una velocità negativa?
+Non possiamo conoscere con precisione la velocità, se vogliamo mantenere le informazioni sulla posizione.
+
+Studiamo il comportamento della funzione d'onda nei due tipi di regione.
+Tra i tipi di soluzioni, ossia di autofunzioni dell'hamiltoniano, distinguiamo quelle:
+\begin{itemize}
+	\item proprie, ossia in $\leb[2]{\R}$;
+	\item improprie, che non sono in $\leb[2]{\R}$ ma rimangono limitate per ogni $x\in\R$;
+	\item non accettabili, se divergono.
+\end{itemize}
+Nelle regioni classicamente accessibili, abbiamo $E-V(x)\ge 0$, dunque dalla \eqref{eq:schroedinger-coordinate} vediamo che la derivata seconda $\psi''$ della funzione d'onda è di segno opposto a	$\psi$: si ha dunque un fenomeno di oscillazione.
+Nella regione classicamente non accessibile, invece, $\psi''$ e $\psi$ hanno lo stesso segno.
+
+Prendiamo ora un potenziale tale che $\lim_{\abs{x}\to+\infty}V(x)=+\infty$, e prendiamo un punto $x_0$ di inversione tale che la regione per $x>x_0$ sia classicamente non accessibile e per $x<x_0$ (almeno in un intorno) sia classicamente accessibile.
+Distinguiamo due casi, se $E$ è maggiore o minore del minimo del potenziale.
+Nel primo caso, se la $\psi$ non è identicamente nulla per $x>x_0$, prendiamo un punto $x'$ per cui $\psi(x')\ne 0$.
+Possiamo assumere $\psi(x')>0$, perch\'e per la linearità dell'equazione \eqref{eq:schroedinger-coordinate} se $\phi$ è una soluzione lo è anche $k\phi$ per ogni $k\in\C$.
+In tale punto, dunque, abbiamo $\psi''(x')>0$, quindi la derivata prima $\psi'$ è crescente: ciò significa che $\psi\to+\infty$ per $x\to+\infty$, ma allora la soluzione non è accettabile.
+
+Se invece $E>V_\textup{min}$, supponiamo ancora che esista un punto $x'>x_0$ tale che $\psi(x')>0$ e $\psi'(x')>0$: risulta che $\psi$ diminuisce per valori crescenti di $x$ fino a incontrare lo zero (che è necessariamente del primo ordine in quanto $\psi''$ ha lo stesso segno di $\psi$, quindi è positiva).
+A quel punto, $\psi$ sarà negativa perciò anche $\psi''<0$ e la funzione decrescerà sempre di più, cioè $\psi\to-\infty$, e ancora non è accettabile.
+Variando con continuità $\psi'(x')$, possiamo ``regolarla'' in modo che $\psi$ tenda proprio a zero per $x\to+\infty$.
+Per valori di $x$ decrescenti, però, la derivata cresce fino a che $x$ incontra il punto di inversione, nel quale $\psi''$ cambia segno.
+Maggiore è l'energia $E$, maggiore è la quantità $E-V(x)$ di conseguenza la funzione si ``piega'' di più nella regione classicamente accessibile, dunque al crescere dell'energia le oscillazioni crescono e diventano più fitte.
+Proseguendo per $x$ sempre minore, si arriverà all'ultimo punto di inversione a sinistra, dopo il quale resta solo una regione classicamente non acessibile fino a $-\infty$: si ripete qui il ragionamento fatto finora, per cui non sempre la funzione tende a zero per $x\to-\infty$; come prima, se nella regione non classicamente accessibile la funzione ``tocca'' l'asse delle ascisse, cioè si annulla, allora sarà poi negativa e continuerà a decrescere fino a $-\infty$.
+D'altro canto, potrebbero esistere valori di $E$ per cui la funzione ``piega troppo'' e torna a crescere (mantenendo sempre una concavità dello stesso segno) divergendo a $+\infty$.
+Esistono dunque solo valori particolari di $E$ per i quali la funzione d'onda tende a zero all'infinito, per i quali dunque la soluzione è acettabile come funzione d'onda del sistema.
+
+Prendiamo dunque una soluzione $\psi_0$ accettabile, e confrontiamola con un'altra (che chiamiamo $\psi_1$) relativa ad un'energia maggiore: dato che le due devono essere ortogonali (sono autofunzioni di autovalori differenti), $\psi_1$ dovrà necessariamente avere almeno uno zero in più di $\psi_0$, affinch\'e il prodotto delle due sia un po' negativo e un po' positivo.
+In generale, se indichiamo con $\psi_n$ la funzione d'onda dell'$n$-esimo stato eccitato (da $n=1$, ordinati in base alla loro energia), allora $\psi_n$ ha $n-1$ nodi, e se $n_1<n_2$ allora tra due zeri di $\psi_{n_1}$ si trova uno zero di $\psi_{n_2}$.\footnote{Il numero di zeri, e la loro distribuzione nello spazio, di una soluzione di un'equazione differenziale del secondo ordine (come quella di Schr\"odinger) è il soggetto della teoria di Sturm-Liouville.}
+
+\subsection{Potenziale da interazione}
+Consideriamo una forma ``standard'' di potenziale dovuto ad un'interazione, tale che $\lim_{x\to-\infty}V(x)=+\infty$ e $\lim_{x\to+\infty}V(x)=0^-$ e sia limitato inferiormente, come in figura \ref{fig:esempio-potenziale-interazione}.
+\input{grafici/esempio-potenziale-interazione}
+\begin{itemize}
+	\item Se $V_\textup{min}\le E\le0$, si hanno due punti di inversione e la particella oscilla tra di essi; i valori di $E$ ammissibili saranno discreti, per quanto detto precedentemente.
+		Per $x\to+\infty$, il potenziale è trascurabile quindi la funzione d'onda si comporterà come un'onda piana, ossia la particella si potrà considerare libera, con un'energia negativa.
+		Possono dunque esistere delle autofunzioni, che caratterizzano degli stati legati: è interessante in particolare studiare la funzione nell'intorno del minimo del potenziale.
+	\item Se $E>0$, l'equazione di Schr\"odinger ammette soluzioni accettabili per ogni valore reale positivo di $E$, cioè l'hamiltoniano ha uno spettro continuo.
+		Come già in precedenza, se avessimo due soluzioni $\psi_1,\psi_2$ dell'equazione, allora giungiamo ancora a $\psi_1'\psi_2-\psi_1\psi_2'=k$ come prima e possiamo valutare il primo membro per $x\to-\infty$, in cui si deve annullare affinch\'e le soluzioni siano accettabili; di conseguenza troviamo ancora che esiste un'unica soluzione della \eqref{eq:schroedinger-coordinate} per ogni valore di $E$, ossia l'hamiltoniano non è degenere.
+\end{itemize}
+
+\subsection{Potenziale limitato}
+Consideriamo infine un potenziale che rimane limitato anche all'infinito: ammette un minimo, ma converge a due valori (non necessariamente uguali) $V_1$ e $V_2$ per $x$ che tende a $-\infty$ o $+\infty$, come nella figura \ref{fig:esempio-potenziale-limitato}
+\input{grafici/esempio-potenziale-limitato}
+Supponiamo per esempio che $V_1<V_2$: allora abbiamo quattro casi in base all'energia $E$ del sistema:
+\begin{itemize}
+	\item se $E\in(-\infty,V_\textup{min})$ non esistono soluzioni accettabili;
+	\item se $E\in[V_\textup{min},V_1)$ esistono degli stati legati e lo spettro dell'hamiltoniano è discreto;
+	\item se $E\in[V_1,V_2]$ si ha uno spettro continuo, ma l'hamiltoniano ancora non è degenere;
+	\item se $E\in(V_2,+\infty)$ lo spettro è continuo e la funzione d'onda è oscillante, dunque è accettabile ma non è un'autofunzione propria, inoltre l'hamiltoniano è degenere perch\'e non possiamo più calcolare il solito $\psi_1'\psi_2-\psi_1\psi_2'=k$ in un punto in cui siamo certi che le funzioni d'onda si annullino.
+\end{itemize}
+
+\subsection{Regolarità della funzione d'onda}
+Per concludere le nostre osservazioni sulle soluzioni dell'equazioni di Schr\"odinger, è fondamentale studiare la regolarità delle funzioni d'onda: spesso il potenziale è definito ``a pezzi'' o è discontinuo, e si avrà una funzione d'onda definita anch'essa in pezzi che devono essere opportunamente raccordati.
+Questo permette di stabilire il valore di alcune costanti arbitrarie.
+Oltre a trovarsi nello spazio $\leb[2]{\R}$ o in analoghi multidimensionali, la funzione d'onda deve essere sempre limitata: non avrebbe senso fisico una densità di probabilità infinita in un punto.
+
+Solitamente l'equazione da risolvere è del tipo $\psi''(x)=\frac{2m}{\hbar^2}[V(x)-E]\psi(x)$: supponiamo di trovarci nel caso di un potenziale che varia bruscamente (non necessariamente con continuità) in un breve intervallo $[0,\epsilon]$, rimanendo però limitato.
+Integrando l'equazione in tale intervallo si ha
+\begin{equation}
+	\psi'(\epsilon)-\psi'(0)=\lim_{\epsilon\to 0}\int_0^\epsilon\frac{2m}{\hbar^2}[V(x)-E]\psi(x)\,\dd x.
+\end{equation}
+Se dunque $V$ è limitato in $[0,\epsilon]$, la funzione integrale (come funzione di $\epsilon$) è continua perciò il limite tende a zero, ossia $\lim_{\epsilon\to 0}\psi'(\epsilon)=\psi'(0)$: quindi la derivata della funzione d'onda è continua, e lo è di conseguenza anche la funzione d'onda stessa.\footnote{Un altro motivo per non poter accettare un'eventuale discontinuità della funzione d'onda è il seguente: se vedessimo una discontinuità finita, ossia un ``salto'', come il limite di un tratto di funzione sempre più ripido fino a diventare verticale, allora l'impulso del sistema, che è proporzionale alla derivata della funzione, risulterebbe infinito, cosa che non avrebbe senso.}
+Notare che il potenziale può anche non essere continuo: l'ipotesi fondamentale è che sia limitato.
+Queste conclusioni infatti non valgono nel caso di discontinuità infinite, come vedremo più avanti.
+
+\section{Operatore di inversione spaziale}
+Introduciamo un importante operatore che ci servirà spesso negli esempi che incontreremo, l'operatore di \emph{inversione spaziale}, detto anche operatore di \emph{parità}.
+Chiamiamo $\op I$ l'operatore (in una dimensione) che, nella rappresentazione di Schr\"odinger della posizione, agisce sulla funzione d'onda $\psi(q)=\braket{q}{\psi}$ dello stato $\ket{\psi}$ come
+\begin{equation}
+	\bra{q}\op I\ket{\psi}=\psi(-q).
+	\label{eq:inversione-spaziale-posizione}
+\end{equation}
+La sua rappresentazione nella base dell'impulso la otteniamo con il cambiamento di base usando la trasformata di Fourier: detta $\tilde{\psi}(p)=\braket{p}{\psi}$, risulta
+\begin{equation}
+	\begin{split}
+		\bra{p}\op I\ket{\psi}&=\fourier(\op I\psi)(p)=\frac1{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}e^{-\frac{i}{\hbar}pq}(\op I\psi)(q)\,\dd q=\\
+		&=\frac1{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}e^{-\frac{i}{\hbar}pq}\psi(-q)\,\dd q=\\
+		&=\frac1{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}e^{-\frac{i}{\hbar}(-p)(-q)}\psi(-q)\,\dd q=\\
+		&=\frac1{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}e^{-\frac{i}{\hbar}(-p)q'}\psi(q')\,\dd q'=\\
+		&=\tilde{\psi}(-p)
+	\end{split}
+	\label{eq:inversione-spaziale-impulso}
+\end{equation}
+con il cambiamento di variabile $q'=-q$.
+Dunque l'operatore $\op I$ cambia segno sia alla posizione che all'impulso.
+Tornando nella notazione di Dirac, senza passare nella rappresentazione di Schr\"odinger, abbiamo dunque $\op I\ket{q}=\ket{-q}$ e $\op I\ket{p}=\ket{-p}$.
+
+Ovviamente l'operatore è anche il suo stesso inverso, ossia $\op I^2=1$, inoltre
+\begin{multline}
+	\bra{A}\adj{\op I}\ket{B}=\bra{B}\op I\ket{A}^*=\bigg[\int_{-\infty}^{+\infty}\psi_B^*(q)\psi_A(-q)\,\dd q\bigg]^*=\int_{-\infty}^{+\infty}\psi_B(q)\psi_A^*(-q)\,\dd q=\\
+	=\int_{-\infty}^{+\infty}\psi_B(-q')\psi_A^*(q')\,\dd q'=\bra{A}\op I\ket{B}
+	\label{eq:operatore-inversione-spaziale-hermitiano}
+\end{multline}
+dunque $\op I$ è hermitiano, ma allora $1=\op I^2=\adj{\op I}\op I=\op I\adj{\op I}$ per cui è anche unitario.
+Dato che è sia hermitiano che unitario, i suoi autovalori sono di modulo unitario e reali, quindi lo spettro è $\{-1,1\}$.
+Le sue autofunzioni sono tali che $f(-x)=f(x)$ oppure $f(-x)=-f(x)$, ossia sono le funzioni pari o dispari.\footnote{Dato che lo spettro è discreto, abbiamo autovalori \emph{propri} a cui corrispondono autofunzioni \emph{proprie} quindi, ad esempio, la delta di Dirac è esclusa.}
+Ogni funzione $g$ dopotutto si può scrivere come
+\begin{equation}
+	g(x)=\frac{g(x)+g(-x)}2+\frac{g(x)-g(-x)}2
+	\label{eq:decomposizione-funzione-pari-dispari}
+\end{equation}
+e il primo addendo è pari mentre il secondo è dispari.
+
+Completiamo il quadro con le relazioni tra $\op I$ e gli operatori di posizione e impulso: anzich\'e calcolare i commutatori direttamente su una funzione di $\leb[2]{\R}$, calcoliamo
+\begin{equation}
+	\bra{q}\op I\op q\op I\ket{\psi}=\bra{-q}\op q\op I\ket{\psi}=-q\bra{-q}\op I\ket{\psi}=-q\braket{q}{\psi}
+\end{equation}
+da cui $\op I\op q\op I=-\op q$.
+Moltiplicando a destra per $\op I$ troviamo $-\op q\op I=\op I\op q\op I^2=\op I\op q$, dunque i due operatori non commutano.
+Ripetiamo i calcoli per $\op q^2$: con lo stesso metodo di prima abbiamo
+\begin{equation}
+	\bra{q}\op I\op q^2\op I\ket{\psi}=\bra{-q}\op q^2\op I\ket{\psi}=(-q)^2\bra{-q}\op I\ket{\psi}=q^2\braket{q}{\psi}
+\end{equation}
+perciò $\op I\op q^2\op I=\op q^2$.
+Ancora moltiplicando a destra per $\op I$ troviamo $\op q^2\op I=\op I\op q^2\op I^2=\op I\op q^2$ quindi i due commutano.
+
+Per l'impulso troviamo un risultato analogo, dato che l'azione di $\op I$ sugli autostati di $\op p$ è la stessa che su quelli di $\op q$.
+Abbiamo dunque
+\begin{equation}
+	\begin{gathered}
+		[\op q,\op I]=-2\op I\op q,\hspace{1cm}[\op q^2,\op I]=0;\\
+		[\op p,\op I]=-2\op I\op p,\hspace{1cm}[\op p^2,\op I]=0.
+	\end{gathered}
+	\label{eq:commutatori-inversione-posizione-impulso}
+\end{equation}
+\paragraph{Parità del potenziale}
+È evidente che, oltre a $\op q^2$ (o $\op p^2$), l'operatore di inversione commuta anche con una qualsiasi funzione pari di $\op q$ (o di $\op p$).\footnote{Si intende ovviamente una funzione \emph{soltanto} di $\op q$ o soltanto di $\op p$, altrimenti il risultato in generale non è valido.}
+In questo caso, per hamiltoniani della forma $T(\op p)+V(\op q)$ dove $T$ e $V$ sono funzioni pari rispettivamente di $\op p$ e di $\op q$, si ha che $[\op H,\op I]=0$: se $\op H$ non è degenere, i due operatori hanno allora gli stessi autostati; dato inoltre che $\op I$ ha autovalori $\pm 1$ si ha che le autofunzioni di $\op H$ devono essere a parità definita (pari o dispari).
+In particolare, dato che lo stato fondamentale non ha zeri, dorvà per forza rientrare tra le funzioni pari.
+Analogamente, lo stato successivo (diciamo per $n=1$) ha un solo zero che è semplice, quindi l'autofunzione è dispari, e cos\`i via.
+Inoltre, le funzioni pari e dispari sono autofunzioni di $\op I$, che è hermitiano, corrispondenti ad autostati differenti; allora una funzione dispari e una pari sono ortogonali in $\leb[2]{\R}$.
+
+Un esempio di questo fatto lo troviamo nell'oscillatore armonico unidimensionale: dato inoltre che l'hamiltoniano è somma di un multiplo di $\op p^2$ e un multiplo di $\op q^2$, abbiamo $[\op H,\op I]=0$.
+L'hamiltoniano inoltre non è degenere, perciò ciascun autostato è direttamente anche un autostato dell'operatore di inversione, senza possibilità di avere delle combinazioni lineari.
+Di conseguenza ogni autostato di $\op H$ ha una parità definita: dopotutto sappiamo che le autofunzioni sono le funzioni di Hermite, ed esse stesse hanno una parità definita, ossia $h_n(-x)=(-1)^nh_n(x)$; in altre parole, $\op I\ket{n}=(-1)^n\ket{n}$.
+
+\section{Particella libera}
+Contrariamente al caso classico, in cui questo era il sistema più semplice da studiare, nel caso quantistico troviamo qualche complicazione.
+L'hamiltoniano del sistema è semplicemente
+\begin{equation}
+	\op H=\frac1{2m}\op p^2.
+	\label{eq:H-particella-libera}
+\end{equation}
+Notiamo immediatamente che $[\op p,\op H]=0$ essendo $\op H$ funzione unicamente di $\op p$, dunque le due osservabili sono compatibili.
+L'impulso dunque è una quantità conservata: a questo corrisponde la simmetria (evidente) del sistema per traslazioni spaziali, che sono generate da $\op p$.
+Preso un autostato $\ket{p}$ dell'impulso (di autovalore $p$), troviamo $\op H\ket{p}=\frac1{2m}\op p^2\ket{p}=\frac1{2m}p^2\ket{p}$.
+D'altro canto, $\frac1{2m}p^2$ è l'autovalore dell'hamiltoniano dunque è l'energia $E$ del sistema; se fissiamo dunque questo valore, troviamo due autostati di $\op p$ aventi questa energia, che sono $\ket{p}$ e $\ket{-p}$.
+Ciò significa che l'hamiltoniano è degenere, ossia un suo autostato $\ket{E}$ si scrive come $\alpha\ket{p}+\beta\ket{-p}$.
+
+Nella base degli autostati della posizione, la funzione d'onda è soluzione dell'equazione di Schr\"odinger
+\begin{equation}
+	\frac{\hbar^2}{2m}\psi''(x)=E\psi(x)
+	\label{eq:schrodinger-particella-libera}
+\end{equation}
+da cui
+\begin{equation}
+	\psi(x)=Ae^{-\frac{i}{\hbar}\sqrt{2mE}x}+Be^{\frac{i}{\hbar}\sqrt{2mE}x}
+	\label{eq:wf-particella-libera}
+\end{equation}
+per qualche $A,B\in\C$.
+L'energia $E$ è necessariamente positiva in quanto, come visto prima, è uguale a $\frac{p^2}{2m}$.
+Alternativamente, se $E$ fosse negativa allora $\sqrt{E}$ avrebbe anche una parte immaginaria, che moltiplicata per $\pm i$ negli esponenti porterebbe a un'espressione della forma $e^{\pm\lambda x}$: in tal caso la funzione d'onda divergerebbe per $\abs{x}\to+\infty$ e non sarebbe accettabile (fisicamente) come soluzione.
+Oltre a questo, $E$ può assumere qualsiasi valore reale positivo; in ogni caso, per nessun valore risulta $\psi\in \leb[2]{\R}$, dato che la soluzione è oscillante.
+Questo fatto non ci deve turbare, perch\'e sappiamo che l'impulso di uno stato non può essere conosciuto con assoluta precisione, mentre all'inizio del problema abbiamo preso proprio un autostato di $\op p$.
+Dopotutto, se il sistema fosse nell'autostato $\ket{\pm p}$, avrebbe un'indeterminazione \emph{nulla} sull'impulso e di conseguenza, per il principio di Heisenberg, l'indeterminazione sulla posizione dovrà essere \emph{infinita} (ed è questo il caso) affinch\'e il prodotto $\Delta q\Delta p$ possa essere finito.
+
+\section{Potenziale lineare}
+Consideriamo il sistema formato da una particella soggetta al potenziale $V(x)=-ax$.
+L'hamiltoniano del sistema è l'operatore
+\begin{equation}
+	\op H=\frac1{2m}\op p^2-a\op q.
+	\label{eq:H-potenziale-lineare}
+\end{equation}
+Possiamo ricavare qualitativamente alcune informazioni sul sistema guardando al potenziale:
+\begin{itemize}
+	\item dato che $V\to-\infty$ per $x\to+\infty$, non ammette un minimo, perciò lo spettro di $\op H$ non potrà essere discreto e non possono esistere, di conseguenza, stati legati;
+	\item d'altro canto $V\to+\infty$ per $x\to-\infty$ dunque $\op H$ non sarà degenere.
+\end{itemize}
+Nella base della posizione l'equazione di Schr\"odinger è
+\begin{equation}
+	-\frac{\hbar^2}{2m}\psi''(x)-(ax+E)\psi(x)=0
+	\label{eq:schrodinger-posizione-potenziale-lineare}
+\end{equation}
+ossia
+\begin{equation}
+	\psi''(x)+\frac{2m}{\hbar^2}(E+ax)\psi(x)=0.
+\end{equation}
+Osserviamo che $\frac{2ma}{\hbar^2}$ ha le dimensioni di una $\textup{lunghezza}^{-3}$, e che possiamo raggruppare $a$ nell'equazione nel termine $(E+ax)\psi(x)$.
+La variabile $x+\frac{E}{a}$ ha dunque le dimensioni di una lunghezza: nell'equazione di Schr\"odinger operiamo dunque il cambio di variabile
+\begin{equation}
+	\xi=\bigg(\frac{2ma}{\hbar^2}\bigg)^{\frac13}\bigg(x+\frac{E}{a}\bigg).
+\end{equation}
+Per la derivata, abbiamo
+\begin{equation}
+	\drv{}{x}=\drv{}{\xi}\drv{\xi}{x}=\bigg(\frac{2ma}{\hbar^2}\bigg)^{\frac13}\drv{}{\xi}
+\end{equation}
+ottenendo la nuova equazione
+\begin{equation}
+	\begin{gathered}
+		\bigg(\frac{2ma}{\hbar^2}\bigg)^{\frac23}\psi''(\xi)+\frac{2ma}{\hbar^2}\bigg(\frac{2ma}{\hbar^2}\bigg)^{-\frac13}\xi\psi(\xi)=0\\
+		\bigg(\frac{2ma}{\hbar^2}\bigg)^{\frac23}\psi''(\xi)+\bigg(\frac{2ma}{\hbar^2}\bigg)^{\frac23}\xi\psi(\xi)=0\\
+		\psi''(\xi)+\xi\psi(\xi)=0.
+	\end{gathered}
+	\label{eq:soluzione-potenziale-lineare}
+\end{equation}
+Cambiamo ancora variabile con $\zeta=-\xi$ (per cui si ha $\ddrv{}{\xi}=\ddrv{}{\zeta}$) per ottenere l'\emph{equazione di Airy}
+\begin{equation}
+	\psi''(\zeta)-\zeta\psi(\zeta)=0
+	\label{eq:airy-potenziale-lineare}
+\end{equation}
+le cui due soluzioni indipendenti sono le omonime \emph{funzioni di Airy} del primo e del secondo tipo, denominate rispettivamente $\Ai\zeta$ e $\Bi\zeta$.
+Sono funzioni particolari, non esprimibili solamente in termini di funzioni elementari.
+In particolare, hanno un comportamento oscillatorio per $\zeta<0$ ed esponenziale per $\zeta>0$.
+Dato che $\Bi\to+\infty$ esponenzialmente per $\zeta\to+\infty$, ci interessiamo d'ora in poi solo della funzione del primo tipo, $\Ai$: la funzione d'onda soluzione di \eqref{eq:airy-potenziale-lineare} ha dunque la forma $\psi(\zeta)=c\Ai(\zeta)$, o tornando nella variabile $\xi$ precedente $\psi(\xi)=c\Ai(-\xi)$, per qualche $c\in\C$.
+La funzione è mostrata nella figura \ref{fig:potenziale-lineare}.
+\input{grafici/potenziale-lineare}
+
+Cerchiamo ora il comportamento asintotico di $\psi$ per valori molto grandi di $\xi$: ipotizzando che $\psi(\xi)\sim\exp(-\gamma{\xi}^s)$, con $\gamma,s>0$, troviamo
+\begin{gather*}
+	\psi'(\xi)=-(\sgn\xi)\gamma s\abs{\xi}^{s-1}e^{-\gamma\abs{\xi}^s}\\
+	\psi''(\xi)=\big[s^2\gamma^2\abs{\xi}^{2s-2}-(\sgn\xi)\gamma s(s-1)\abs{\xi}^{s-2}\big]e^{-\gamma\abs{\xi}^s}.
+\end{gather*}
+Sostituendole nella \eqref{eq:soluzione-potenziale-lineare} otteniamo che deve essere $\abs{\xi}^{2s-2}\sim\abs{\xi}$ e $s^2\gamma^2=1$ affinch\'e la soluzione sia accettabile, perciò troviamo $s=\frac32$ e $\gamma=\frac23$.
+La funzione d'onda approssimata per grandi valori di $\xi$ è dunque
+\begin{equation}
+	\psi(\xi)\sim ce^{-\frac23\abs{\xi}^{3/2}}
+\end{equation}
+con $c$ da determinare normalizzando.
+Otteniamo una soluzione più ``fine'' ipotizzando che $\psi(\xi)\sim c\exp(-\frac23\abs{\xi}^{3/2})\abs{\xi}^\beta$ per la quale si ottiene $\beta=-\frac14$.
+
+Sebbene sia più ``naturale'' lavorare nella base della posizione, in questo caso risulta più comodo usare la base dell'impulso, perch\'e non appaiono potenze maggiori di $\op q$ nell'hamiltoniano: si ottiene dunque un'equazione differenziale del primo, e non del secondo, ordine.
+L'equazione di Schr\"odinger (chiamiamo $\tilde{\psi}$ la funzione d'onda nello spazio degli impulsi per evitare confusioni) in questa base è dunque
+\begin{equation}
+	\frac1{2m}p^2\tilde{\psi}(p)-ia\hbar\tilde{\psi}'(p)=E\tilde{\psi}(p)
+	\label{eq:schrodinger-impulso-potenziale-lineare}
+\end{equation}
+da cui
+\begin{equation}
+	\tilde{\psi}'(p)=\frac{i}{a\hbar}\bigg(E-\frac{p^2}{2m}\bigg)\tilde{\psi}(p)
+\end{equation}
+che ha come soluzione la funzione d'onda
+\begin{equation}
+	\tilde{\psi}(p)=Ae^{\frac{i}{a\hbar}\big(Ep-\frac{p^3}{6m}\big)}.
+\end{equation}
+
+Torniamo dunque allo spazio della posizione con la trasformata di Fourier:
+\begin{equation}
+	\begin{split}
+		\psi(x)&=(\fourier{\tilde{\psi}})(x)=\frac{A}{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}e^{-\frac{i}{\hbar}px}\tilde{\psi}(p)\,\dd p=\\
+		&=\frac{A}{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}\exp\bigg[\frac{i}{\hbar}p\bigg(x+\frac{E}{a}\bigg)+\frac{ip^3}{6am\hbar}\bigg]\,\dd p=\\
+		&=\frac{A}{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}\exp\bigg[\frac{i}{\hbar}p\xi\bigg(\frac{2am}{\hbar^2}\bigg)^{-\frac13}+\frac{ip^3}{6am\hbar}\bigg]\,\dd p=\\ &=\tilde{A}\int_{-\infty}^{+\infty}\exp\bigg(ip'\xi+\frac{ip'^3}3\bigg)\,\dd p'
+	\end{split}
+\end{equation}
+ponendo $p'=\frac{p}{\hbar}\big(\frac{2am}{\hbar^2}\big)^{-\frac13}$.
+Il risultato è un'espressione integrale proprio della funzione $\Ai(\xi)$, dunque (dopo una normalizzazione per determinare il valore di $\tilde{A}$) si ottiene $\psi(\xi)$.
+
+\section{Buca di potenziale}
+Studiamo un sistema composto da una particella in una buca di potenziale di altezza $V_0$, larghezza $2a$ e centrata nell'origine, ossia soggetta al potenziale
+\begin{equation}
+	V(x)=
+	\begin{cases}
+		0	&x\in[-a,a]\\
+		V_0	&x\in(-\infty,-a)\cup(a,+\infty)
+	\end{cases}.
+	\label{eq:buca-potenziale-finita}
+\end{equation}
+La discontinuità di $V$ è finita, dunque le funzioni d'onda dovranno essere di classe $\cont[1]{\R}$.
+Inoltre $V$ è pari dunque dovranno essere di parità definita (autostati dell'operatore di inversione spaziale).
+Supponiamo che l'energia $E$ del sistema sia minore di $V_0$, e risolviamo l'equazione di Schr\"odinger
+\begin{equation}
+	\begin{cases}
+		\psi''(x)=-\frac{2mE}{\hbar^2}\psi(x)		&x\in(-a,a)\\
+		\psi''(x)=\frac{2mE}{\hbar^2}(V_0-E)\psi(x)	&x\in(-\infty,-a)\cup(a,+\infty)
+	\end{cases}
+	\label{eq:schrodinger-buca-finita}
+\end{equation}
+da cui la soluzione generale
+\begin{equation}
+	\begin{cases}
+		\psi(x)=A_2e^{-k_2x}+B_2e^{k_2x}	&x\in(-\infty,-a)\\
+		\psi(x)=A_1e^{-ik_1x}+B_1e^{ik_1x}	&x\in(-a,a)\\
+		\psi(x)=A_3e^{-k_2x}+B_3e^{k_2x}	&x\in(a,+\infty)
+	\end{cases}
+	\label{eq:soluzione-generale-schrodinger-buca-finita}
+\end{equation}
+definendo $k_1\defeq\sqrt{\frac{2mE}{\hbar^2}}$ e $k_2\defeq\sqrt{\frac{2m(V_0-E)}{\hbar^2}}$.
+Possiamo riscrivere le soluzioni nei termini delle autofunzioni dell'operatore di inversione come
+\begin{equation}
+	\begin{cases}
+		\psi(x)=A_2e^{-k_2x}+B_2e^{k_2x}	&x\in(-\infty,-a)\\
+		\psi(x)=A\cos(k_1x)+B\sin(k_1x)		&x\in(-a,a)\\
+		\psi(x)=A_3e^{-k_2x}+B_3e^{k_2x}	&x\in(a,+\infty)
+	\end{cases}
+	\label{eq:schrodinger-buca-potenziale-finita-autofunzioni-inversione}
+\end{equation}
+
+A questo punto dobbiamo raccordare le soluzioni in modo che $\psi\in\cont[1]{\R}$, e questo ci darà i valori ammessi di $E$.
+Innanzitutto dovrà essere $A_2=B_3=0$ affinch\'e $\psi\in \leb[2]{\R}$.
+La funzione d'onda dello stato fondamentale non ha nodi, perciò deve essere pari: nella regione $(-a,a)$ allora risulta $B=0$ da cui $\psi(x)=A\cos(k_1x)$, mentre all'esterno si ha $B_2=A_3$ sempre per la parità.
+Uguagliando le espressioni di $\psi$ in $x=-a$ ricaviamo $A\cos(k_1a)=B_2e^{k_2a}$; otteniamo il medesimo risultato in $x=a$ per la parità della funzione.
+Ripetiamo il procedimento per la derivata (che sarà dispari) ottenendo $-k_2B_2e^{-k_2a}=-k_1A\sin(k_1a)$.
+Dividiamo le due espressioni trovate ottenendo $k_2\tan(k_1a)=k_1$: dato che $a\ne 0$ nella regione interessata, moltiplichiamo per $a$ e definiamo $\gamma=k_1a$ e $\eta=k_2a$.
+Otteniamo il sistema
+\begin{equation}
+	\begin{cases}
+		\gamma\tan\gamma=\eta\\
+		\gamma^2+\eta^2=\frac{2mV_0a^2}{\hbar^2}
+	\end{cases}
+	\label{eq:sistema-soluzioni-buca-potenziale-finita}
+\end{equation}
+Per trovare le soluzioni dobbiamo ricorrere alla via grafica, mostrata in figura \ref{fig:soluzione-grafica-buca-potenziale}.
+\input{grafici/soluzione-grafica-buca-potenziale.tex}
+Il numero di intersezioni dei due grafici, che dà il numero di soluzioni $(\gamma,\eta)$ del sistema, è il numero di possibili valori di $k_1$ e $k_2$ per cui la $\psi$ è una funzione accettabile per il sistema, che tornando alle loro definizioni è poi il numero di valori di $E$.
+Notiamo che, qualunque siano i valori di $V_0$ e $a$, il sistema ammette sempre una soluzione: è lo stato fondamentale.
+Inoltre, come accade spesso in meccanica quantistica, anche se il sistema parte con un'energia minore del livello del potenziale esiste comunque una probabilità non nulla di individuare la particella ``fuori dalla buca''.
+
+Guardiamo infine al caso di una buca di potenziale infinita: questa volta non è più garantita la continuità di $\psi'$, ma in ogni caso (affinch\'e sia ben definita la probabilità associata alla $\abs{\psi}^2$) dovrà essere $\psi\in\cont{\R}$.
+Innanzitutto nella figura \ref{fig:soluzione-grafica-buca-potenziale} vediamo subito che il numero di soluzioni diventa infinito.
+Inoltre, il coefficiente $k_2$ degli esponenziali tende a $+\infty$, dunque le ``code'' della funzione d'onda, che decadono esponenzialmente a 0, sono del tipo $e^{-k_2\abs{x}}$ cioè diventano sempre più ``basse'': allora $\psi=0$ per $x\notin(-a,a)$.
+In una buca di potenziale infinita perciò si ha una barriera impenetrabile di potenziale, cioè stavolta la particella è \emph{davvero} confinata nella regione $(-a,a)$.
+
+\paragraph{Buca di potenziale traslata}
+Affrontiamo ora un sistema analogo al precedente, ma non più centrato nell'origine, prendendo il potenziale
+\begin{equation}
+	V(x)=
+	\begin{cases}
+		0	&x\in[0,a]\\
+		V_0	&x\in(-\infty,0)\cup(a,+\infty)
+	\end{cases}
+	\label{eq:buca-potenziale-traslata}
+\end{equation}
+Questa volta non è pari, e $\op H$ non commuta con l'operatore di inversione spaziale.
+In ogni caso, per $E<V_0$ la soluzione è una funzione d'onda analoga al caso precedente, del tipo
+\begin{equation}
+	\psi(x)=A\cos(kx)+B\sin(kx),\qquad k\defeq\frac{\sqrt{2m(V_0-E)}}{\hbar}
+\end{equation}
+per $x\in(0,a)$.
+Nel limite $V_0\to+\infty$ abbiamo ancora $\psi=0$ nei punti di discontinuità del potenziale, quindi $\psi(0)=\psi(a)=0$: questo porta ad $A=0$ e $B\sin(ka)=0$, ossia $ka=n\pi$ con $n\in\N$.
+Elevando al quadrato quest'ultima relazione otteniamo gli autovalori di energia, ossia
+\begin{equation}
+	\frac{2mE}{\hbar^2}a^2=n^2\pi^2\qqq E=\frac{n^2\pi^2\hbar^2}{2ma^2}.
+\end{equation}
+
+\paragraph{Particella in una scatola}
+Come digressione sulla buca di potenziale, consideriamo una ``particella in una scatola'', ossia un sistema fisico composto da una particella singola confinata in una regione di spazio rettangolare; possiamo vederlo alternativamente come una buca di potenziale di altezza infinita, nelle tre dimensioni spaziali.
+Il concetto fondamentale è che la particella ha una probabilità di essere trovata fuori dalla regione assegnata pari a zero.
+Nel suo moto all'interno, qualunque esso sia, essa esercita una certa forza sulle barriere: possiamo chiederci quanto vale la pressione che ne risulta.
+Detto $\tau$ il volume della scatola, se $E$ è l'energia del sistema la pressione è data da $P=-\drp{E}{\tau}$.
+Possiamo calcolarla con l'aiuto del seguente teorema.
+\begin{teorema} \label{t:dipendenza-hamiltoniano-parametro}
+	Se l'hamiltoniano dipende da un parametro $\lambda$, allora il valore di aspettazione di $\drp{}{\lambda}\op H(\lambda)$ calcolato in un autostato di $\op H$ con autovalore $E$ è
+	\begin{equation}
+		\bra{E}\drp{\op H}{\lambda}\ket{E}=\drp{E}{\lambda}=\drp{}{\lambda}\bra{E}\op H\ket{E}.
+	\end{equation}
+\end{teorema}
+\begin{proof}
+	Sappiamo che $(\op H-E)\ket{E}=0$, perciò derivando rispetto a $\lambda$ otteniamo
+	\begin{equation}
+		0=\drp{}{\lambda}\big[(\op H-E)\ket{E}\big]=\drp{}{\lambda}(\op H-E)\ket{E}-(\op H-E)\drp{}{\lambda}\ket{E}
+	\end{equation}
+	e applicando $\bra{E}$ troviamo
+	\begin{equation}
+		0=\bra{E}\drp{\op H}{\lambda}-\drp{E}{\lambda}\ket{E}+\bra{E}(\op H-E)\drp{}{\lambda}\ket{E}
+	\end{equation}
+	ma $\op H-E$ è hermitiano dunque $\bra{E}(\op H-E)=0$, e troviamo dunque
+	\begin{equation}
+		\bra{E}\drp{\op H}{\lambda}\ket{E}=\drp{E}{\lambda}\braket{E}{E}=\drp{E}{\lambda}.\qedhere
+	\end{equation}
+\end{proof}
+Tornando alla particella nella scatola, l'hamiltoniano del sistema si può scomporre nelle tre direzioni, in tre addendi $\op H_i$, che commutano, e si possono diagonalizzare contemporaneamente.
+Detti $a_1$, $a_2$ e $a_3$ le lunghezze dei tre lati della scatola si ha dunque
+\begin{equation}
+	E(a_1,a_2,a_3)=\frac{\pi^2\hbar^2}{2m}\sum_{i=1}^3\frac{n_i^2}{a_i^2}
+\end{equation}
+Dato che $\tau=a_1a_2a_3$, la pressione esercitata sulle pareti, con la formula data precedentemente, è dunque
+\begin{multline}
+	P=-\drp{E}{\tau}=-\sum_{i=1}^3\drp{E}{a_i}\drp{a_i}{\tau}=
+	\frac{\pi^2\hbar^2}{m}\sum_{i=1}^3\frac{n_i^2}{a_i^3}\bigg(\drp{\tau}{a_i}\bigg)^{-1}=\\=
+	\frac{\pi^2\hbar^2}{m}\bigg(\frac{n_1^2}{a_1^3a_2a_3}+\frac{n_2^2}{a_1a_2^3a_3}+\frac{n_3^2}{a_1a_2a_3^3}\bigg)=
+	\frac{\pi^2\hbar^2}{m}\frac{(n_1a_2a_3)^2+(n_2a_1a_3)^2+(n_3a_1a_2)^2}{\tau^3}.
+\end{multline}
+
+\section{Potenziale delta attrattivo}
+Dopo una buca di potenziale ``standard'', vediamone la versione infinitamente alta e stretta, modellizzata dall'equazione del potenziale
+\begin{equation}
+	V(x)=-\lambda\delta(x).
+	\label{eq:potenziale-delta-attrattivo}
+\end{equation}
+Possiamo risolvere questo problema in tre metodi diversi, che ora presentiamo.
+\paragraph{Limite della buca di altezza finita}
+Riprendendo direttamente l'esempio precedente, consideriamo una buca centrata nell'origine, di altezza $V_0$ e larghezza $a$, e prendiamone il limite per $a\to 0$, $V_0\to+\infty$ tali che $aV_0\to\lambda$, un valore finito.
+Prendiamo un potenziale della forma
+\begin{equation}
+	V(x)=
+	\begin{cases}
+		-V_0	&x\in\big[-\frac{a}2,\frac{a}2\big]\\
+		0		&x\in\big(-\infty,-\frac{a}2\big)\cup\big(\frac{a}2,+\infty\big)
+	\end{cases}
+\end{equation}
+Il potenziale è sempre pari, dunque la funzione d'onda dello stato fondamentale è anch'essa pari.
+Scegliamo arbitrariamente il suo valore nell'origine ponendo $\psi(0)=1$, e in modo simile alle equazioni \eqref{eq:soluzione-generale-schrodinger-buca-finita} otteniamo\footnote{La scelta di porre $\psi(0)=1$ non lede la generalità del problema, dato che la funzione d'onda è poi da normalizzare.}
+\begin{equation}
+	\psi(x)=
+	\begin{cases}
+		\cos\big(k\frac{a}2\big)e^{\alpha(x+\frac{a}2)}		&x<-\frac{a}2\\
+		\cos\big(kx\big)									&\abs{x}\le\frac{a}2\\
+		\cos\big(k\frac{a}2\big)e^{-\alpha(x-\frac{a}2)}	&x>\frac{a}2
+	\end{cases}
+	\label{eq:soluzione-generale-delta-attrattivo}
+\end{equation}
+dove $k=\sqrt{\frac{2m(E+V_0)}{\hbar^2}}$ e $\alpha=\sqrt{\frac{-2mE}{\hbar^2}}$, con un'energia iniziale del sistema $-V_0<E<0$.
+Per come è scritta, la $\psi$ è già continua; imponendo anche $\psi\in\cont[1]{\R}$ otteniamo
+\begin{equation}
+	k\sin\frac{ka}2=\alpha\cos\frac{ka}2\qqq k\tan\frac{ka}2=\alpha
+	\label{eq:condizione-C1-delta-attrattivo}
+\end{equation}
+e portando al limite $V_0\to+\infty$ si ottiene $ka\to 0$, dunque possiamo approssimare
+\begin{equation}
+	\alpha=k\tan\frac{ka}2\approx k^2\frac{a}2,
+\end{equation}
+da cui troviamo l'energia dello stato fondamentale
+\begin{equation}
+	-\frac{2mE}{\hbar^2}=\frac{m^2\lambda^2}{\hbar^4}\qqq E=-\frac{m\lambda^2}{2\hbar^2}.
+	\label{eq:E-fondamentale-delta-attrattivo}
+\end{equation}
+Con $a\to 0$ si ha inoltre la funzione d'onda $\psi(x)=e^{-\alpha\abs{x}}$.
+La sua derivata non è continua in $x=0$, ma non è un problema dato che il potenziale ha una discontinuità infinita in quel punto.
+Risulta, in particolare, $\psi'(x)=-\alpha e^{-\alpha\abs{x}}\sgn x$, che integrata in $[-\epsilon,\epsilon]$ dà
+\begin{equation}
+	\psi'(\epsilon)-\psi'(-\epsilon)=\int_{-\epsilon}^{\epsilon}-\alpha e^{-\alpha\abs{x}}\sgn x\,\dd x=-2\alpha=-\frac{2m\lambda}{\hbar^2}\psi(0)=-\frac{2m\lambda}{\hbar^2}
+	\label{eq:discontinuita-derivata-wf-delta-attrattivo}
+\end{equation}
+che misura la discontinuità di $\psi'$ nell'origine.
+
+\paragraph{Equazione di Schr\"odinger}
+Scriviamo direttamente l'equazione di Schr\"odinger del sistema, con energia $E$, che è
+\begin{equation}
+	-\frac{\hbar^2}{2m}\psi''(x)-\lambda\delta(x)\psi(x)=E\psi(x)\qqq \psi''(x)=-\frac{2m}{\hbar^2}\big[E+\lambda\delta(x)\big]\psi(x).
+	\label{eq:schrodinger-delta-attrattivo}
+\end{equation}
+Integrando i due membri dell'equazione nell'intervallo $[-\epsilon,\epsilon]$ abbiamo
+\begin{equation}
+	\begin{split}
+		\psi'(\epsilon)-\psi'(-\epsilon)&=\int_{-\epsilon}^{\epsilon}-\frac{2m}{\hbar^2}\big[E+\lambda\delta(x)\big]\psi(x)\,\dd x=\\
+		&=-\frac{2mE}{\hbar^2}\int_{-\epsilon}^{\epsilon}\psi(x)\,\dd x-\frac{2m\lambda}{\hbar^2}\int_{-\epsilon}^{\epsilon}\delta(x)\psi(x)\,\dd x=\\
+		&=-\frac{2mE}{\hbar^2}\int_{-\epsilon}^{\epsilon}\psi(x)\,\dd x-\frac{2m\lambda}{\hbar^2}\psi(0)=\\
+		&=-\frac{2m\lambda}{\hbar^2}\psi(0)
+	\end{split}
+\end{equation}
+nel limite, all'ultimo passaggio, per $\epsilon\to 0^+$, e dato che $\psi$ è continua il primo addendo è nullo.
+Escludendo l'origine, l'equazione di Schr\"odinger si scrive più semplicemente come $\psi''(x)=-\frac{2mE}{\hbar^2}\psi(x)$, che ha come soluzione $\psi(x)=\psi(0)\exp(-\alpha\abs{x})$ dove $\alpha$ è definita come prima.
+Imponendo la discontinuità di $\psi'$ nell'origine, appena trovata integrando la \eqref{eq:schrodinger-delta-attrattivo}, troviamo lo stesso valore per $\alpha$ del paragrafo precedente; si ha un solo valore di energia ammissibile.
+
+\paragraph{Spazio degli impulsi}
+Nella notazione di Dirac la \eqref{eq:schrodinger-delta-attrattivo} si scrive, in uno stato legato $\ket{E}$, come
+\begin{equation}
+	\bigg(\frac1{2m}\op p^2+V(\op q)\bigg)\ket{E}=E\ket{E}\qqq\bigg(\frac1{2m}\op p^2-E\bigg)\ket{E}=-V(\op q)\ket{E}.
+	\label{eq:schrodinger-delta-attrattivo-dirac}
+\end{equation}
+Anzich\'e rappresentarla nella base della posizione, lavoriamo nella base degli impulsi: moltiplicando per $\bra{p}$ otteniamo
+\begin{equation}
+	\frac1{2m}\bra{p}\op p^2\ket{E}-E\braket{p}{E}=-\bra{p}V(\op q)\ket{E}
+\end{equation}
+da cui (chiamiamo ancora $\psi$ la funzione d'onda nello spazio degli impulsi)
+\begin{equation}
+	\frac{p^2}{2m}\psi(p)-E\psi(p)=-\int_{-\infty}^{+\infty}\bra{p}V(\op q)\ket{p'}\braket{p'}{E}\,\dd p'=-\int_{-\infty}^{+\infty}\bra{p}V(\op q)\ket{p'}\psi(p')\,\dd p'.
+\end{equation}
+Calcoliamo l'elemento di matrice $\bra{p}V(\op q)\ket{p'}$: l'espressione del potenziale nella base della posizione è troppo comoda per non essere usata, dunque introduciamo a destra del potenziale una risoluzione dell'identità con gli autostati $\ket{x}$ della posizione, ottenendo
+\begin{multline}
+	\bra{p}V(\op q)\ket{p'}=\int_{-\infty}^{+\infty}\bra{p}V(\op q)\ket{x}\braket{x}{p'}\,\dd x=\int_{-\infty}^{+\infty}V(x)\braket{p}{x}\braket{x}{p'}\,\dd x=\\
+	=\frac1{2\pi\hbar}\int_{-\infty}^{+\infty}V(x)\exp\bigg[\frac{i}{\hbar}(p'-p)x\bigg]\,\dd x=-\frac{\lambda}{2\pi\hbar}\int_{-\infty}^{+\infty}\delta(x)\exp\bigg[\frac{i}{\hbar}(p'-p)x\bigg]\,\dd x=-\frac{\lambda}{2\pi\hbar}.
+\end{multline}
+Sostituendo questo nell'equazione precedente, troviamo dunque
+\begin{equation}
+	\bigg(\frac{p^2}{2m}-E\bigg)\psi(p)=\frac{\lambda}{2\pi\hbar}\int_{-\infty}^{+\infty}\psi(p')\,\dd p'=\frac{\lambda}{\sqrt{2\pi\hbar}}\psi_0
+\end{equation}
+dove $\psi_0$ è il valore della funzione d'onda \emph{delle coordinate} nel punto $x=0$.
+Troviamo infine
+\begin{equation}
+	\psi(p)=\frac{\lambda\psi_0}{\sqrt{2\pi\hbar}}\frac1{\frac{p^2}{2m}-E}.
+	\label{eq:wf-impulsi-delta-attrattivo}
+\end{equation}
+Integrando in $p$ (su tutto $\R$) e dividendo per $\sqrt{2\pi\hbar}$ i due membri si può trovare la relazione che lega $E$ a $\lambda$, con
+\begin{equation}
+	\frac1{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}\psi(p)\,\dd p=\psi_0\frac1{2\pi\hbar}\int_{-\infty}^{+\infty}\frac1{\frac{p^2}{2m}-E}\,\dd p
+\end{equation}
+da cui, considerando $\psi$ normalizzata, e ricordando che $\psi_0=1$ (dai paragrafi precedenti) affinch\'e sia normalizzata anche la funzione d'onda nella base della posizione, si ottiene l'equazione
+\begin{equation}
+	\int_{-\infty}^{+\infty}\frac1{p^2+2mE}\,\dd p=\frac{\pi\hbar}{m\lambda}.
+\end{equation}
+
+\section{Coefficiente di trasmissione}
+Prendiamo un sistema con un potenziale monotono crescente da $-\infty$ in cui è nullo a $+\infty$ in cui assume un certo valore $V_0>0$, e immaginiamo un fascio di particelle incidente ``da sinistra'', ossia da $-\infty$; esse si propagano fino al \emph{gradino di potenziale}: classicamente, esse possono superarlo e proseguire a destra solo se la loro energia $E$ inizial è maggiore dell'altezza $V_0$, altrimenti tornano indietro.
+Nella meccanica quantistica, come ci si può ormai aspettare, anche con energie minori di $V_0$ la probabilità di trovare la particella oltre il gradino non sarà nulla: possiamo ricavare un coefficiente di trasmissione per quantificare questa probabilità.
+
+Un procedimento analogo si usa per modellizzare un urto tra particelle (o tra fasci di esse, se vogliamo trascurare il tempo): il potenziale è nullo sull'asse reale tranne che in una certa regione $S$ in cui non sappiamo il suo comportamento.
+Essendo $V(x)=0$ per $x\notin S$, in tale regione la particella sarà libera e la sua funzione d'onda sarà un'onda piana della forma
+\begin{equation}
+	\psi(x)=
+	\begin{cases}
+		A'e^{ikx}+Ae^{-ikx}	&x\to-\infty\\
+		Ce^{ikx}+C'e^{-ikx}	&x\to+\infty
+	\end{cases}
+\end{equation}
+e le due soluzioni sono indipendenti.
+Ora assegnamo alcune delle costanti: studiando in particolare un sistema composto da un fascio di particelle incidente da sinistra, avremo sicuramente $A'=1$, mentre poich\'e da destra non indice alcuna particella avremo analogamente $C'=0$.
+Con queste scelte la funzione d'onda può essere vista come la sovrapposizione di
+\begin{itemize}
+	\item un'onda incidente da sinistra $e^{ikx}$;
+	\item un'onda trasmessa $Ce^{ikx}$ oltre alla regione $S$, verso destra;
+	\item un'onda riflessa $A'e^{-ikx}$ dalla regione $S$ verso sinistra.
+\end{itemize}
+Essi soddisfano, come per delle reali onde incidenti su una superficie, l'equazione $\abs{A}^2+\abs{C}^2=1$.
+Calcoliamo infatti la densità di corrente di probabilità dei due termini: nella regione a sinistra di $S$ abbiamo
+\begin{gather*}
+	\psi^*(x)\drv{}{x}\psi(x)=ik(e^{ikx}-Ae^{-ikx})(e^{-ikx}+A^*e^{ikx})=ik(1-Ae^{-2ikx}+A^*e^{2ikx}-\abs{A}^2)\\
+	\psi(x)\drv{}{x}\psi^*(x)=-ik(e^{ikx}+Ae^{-ikx})(e^{-ikx}-A^*e^{ikx})=-ik(1+Ae^{-2ikx}-A^*e^{2ikx}-\abs{A}^2).
+\end{gather*}
+Nella regione a destra invece
+\begin{gather*}
+	\psi^*(x)\drv{}{x}\psi(x)=ikCe^{ikx}C^*e^{-ikx}=ik\abs{C}^2\\
+	\psi(x)\drv{}{x}\psi^*(x)=-ikCe^{ikx}C^*e^{-ikx}=-ik\abs{C}^2
+\end{gather*}
+di conseguenza nelle regioni a sinistra e a destra di $S$ si ha rispettivamente
+\begin{equation}
+	\begin{aligned}
+		J_-(x)&=-\frac{i\hbar}{2m}ik(1-Ae^{-2ikx}+A^*e^{2ikx}-\abs{A}^2+1+Ae^{-2ikx}-A^*e^{2ikx}-\abs{A}^2)=\frac{\hbar k}{m}(1-\abs{A}^2)\\
+		J_+(x)&=-\frac{i\hbar}{2m}(ik\abs{C}^2+ik\abs{C}^2)=\frac{\hbar k}{m}\abs{C}^2.
+	\end{aligned}
+\end{equation}
+Notiamo inoltre che in questo caso, poich\'e la funzione d'onda è una sovrapposizione di autostati dell'impulso, ossia lo stato $\ket{\psi}$ a cui è associata è della forma $\ket{\psi}=\ket{k}\braket{k}{\psi}+\ket{-k}\braket{-k}{\psi}$, la densità corrente di probabilità è la somma delle densità di ciascun autostato, ossia $J_-$ è la somma della densità di corrente dell'onda $e^{ikx}$ (che vale $\frac{\hbar k}{m}$) e di quella dell'onda $Ae^{-ikx}$ (che è $\frac{\hbar k}{m}\abs{A}^2$).
+
+Chiamiamo dunque $j_i$ la densità di corrente di probabilità dell'onda incidente, $j_r$ di quella riflessa e $j_t$ di quella trasmessa; con ciò troviamo $J_-=j_i+j_r$ e $J_+=j_t$.
+Definiamo dunque il \emph{coefficiente di trasmissione} $T$ come il rapporto tra la densità di corrente di probabilità trasmessa e incidente, e quello di \emph{riflessione} come il rapporto tra riflessa e incidente:
+\begin{equation}
+	T\defeq\frac{j_t}{j_i},\hspace{1cm} R\defeq\frac{j_r}{j_i}
+	\label{eq:coefficienti-trasmissione-riflessione}
+\end{equation}
+e in questo caso ovviamente $T=\abs{A}^2$ e $R=\abs{C}^2$.
+Notiamo che vale, come in ottica, la relazione $T+R=1$.
+
+\section{Effetto tunnel}
+Applichiamo i risultati della sezione precedente ad un problema preciso, con un particella soggetta al potenziale $V(x)=V_0\chi_{[0,a]}(x)$, che forma una sorta di barriera.
+Se l'energia $E$ è maggiore dell'altezza della barriera, chiaramente la particella può superarla, ma questo può succedere anche se $E<V_0$, dando luogo a un effetto noto come \emph{effetto tunnel} quantistico.
+Troveremo una probabilità non nulla di misurare la particella anche per $x>a$.
+\input{grafici/tunneling}
+Posti $k\defeq\Big(\frac{2mE}{\hbar^2}\Big)^{1/2}$ e $\lambda\defeq\Big(\frac{2m(V_0-E)}{\hbar^2}\Big)^{1/2}$, l'equazione di Schr\"odinger ha come soluzione la funzione d'onda (negli autostati della posizione)
+\begin{equation}
+	\psi(x)=
+	\begin{cases}
+		e^{ikx}+Ae^{-ikx}				&x<0\\
+		Be^{\lambda x}+B'e^{-\lambda x}	&0\ge x\ge a\\
+		Ce^{ik(x-a)}					&x>a
+	\end{cases}
+	\label{eq:tunnel-wf}
+\end{equation}
+Notiamo che nell'espressione di $\psi$ per $x>a$ abbiamo scritto $e^{ik(x-a)}$ anzich\'e $e^{ikx}$: questo non modifica la soluzione, in quanto la modifica consiste soltanto nel moltpilicare $\psi$ per un fattore di fase $e^{-ika}$, per cui ciò che cambia è solo la costante $C$, che comunque è arbitraria.
+Imponendo la continuità della funzione e della sua derivata nei punti $x=0$ e $x=a$ abbiamo rispettivamente
+\begin{equation}
+	\begin{cases}
+		1+A=B+B'\\
+		ik(1-A)=\lambda(B-B')
+	\end{cases}
+	\qeq
+	\begin{cases}
+		Be^{\lambda a}+B'e^{-\lambda a}=C\\
+		\lambda(Be^{\lambda a}-B'e^{-\lambda a})=ikC
+	\end{cases}
+\end{equation}
+
+Troviamo dunque l'andamento dei coefficienti $\abs{A}^2$ e $\abs{C}^2$ in funzione del rapporto $E/V_0$.
+Scrivendo $e^x=\cosh x+\sinh x$, risulta
+\begin{equation}
+	\begin{gathered}
+		C=B\big[\cosh(\lambda a)+\sinh(\lambda a)\big]+B'\big[\cosh(\lambda a)-\sinh(\lambda a)\big]=(1+A)\cosh(\lambda a)+\frac{ik}{\hbar}(1-A)\sinh(\lambda a)\\
+		C=-\frac{i\lambda}{k}\bigg[\frac{ik(1-A)}{\lambda}\cosh(\lambda a)+(1+A)\sinh(\lambda a)\bigg]=(1-A)\cosh(\lambda a)-\frac{i\lambda}{k}(1+A)\sinh(\lambda a)
+	\end{gathered}
+\end{equation}
+e sottraendole abbiamo
+\begin{equation}
+	2A\cosh(\lambda a)+i\bigg(\frac{k}{\lambda}+\frac{\lambda}{k}\bigg)\sinh(\lambda a)-i\bigg(\frac{k}{\lambda}-\frac{\lambda}{k}\bigg)A\sinh(\lambda a)=0
+\end{equation}
+da cui i valori
+\begin{equation}
+	A=\frac{-i\Big(\frac{\lambda}{k}-\frac{k}{\lambda}\Big)\sinh(\lambda a)}{2\cosh(\lambda a)-i\Big(\frac{k}{\lambda}-\frac{\lambda}{k}\Big)\sinh(\lambda a)}
+	\hspace{1cm}
+	C=\frac{2}{2\cosh(\lambda a)-i\Big(\frac{k}{\lambda}-\frac{\lambda}{k}\Big)\sinh(\lambda a)}.
+\end{equation}
+Calcolando i moduli al quadrato, abbiamo i coefficienti di trasmissione e riflessione
+\begin{equation}
+	\abs{A}^2=\frac{V_0^2\sinh^2(\lambda a)}{4E(V_0-E)+V_0^2\sinh^2(\lambda a)}\qeq\abs{C}^2=\frac{4E(V_0-E)}{4E(V_0-E)+V_0^2\sinh^2(\lambda a)}.
+	\label{eq:coefficienti-trasmissione-riflessione-tunneling}
+\end{equation}
+
+\section{Momenti della distribuzione di probabilità}
+Abbiamo visto come la funzione $\abs{\psi(x)}^2$ sia la densità di probabilità di misurare la posizione $x$ della particella, e che tale funzione può essere usata anche per calcolare i valori medi delle osservabili dipendenti solo dall'operatore di posizione.
+Può essere utile quindi disporre di un metodo per calcolare il generico momento della distribuzione data da $\abs{\psi}^2$.
+Supponiamo che la funzione d'onda sia reale, in modo che $\abs{\psi}^2=\psi^2$, e chiamiamo $\rho\defeq\psi^2$ intendendo d'ora in poi che sia normalizzata, ossia
+\begin{equation}
+	\int_{-\infty}^{+\infty}\rho(x)\,\dd x=1.
+\end{equation}
+A partire dall'equazione di Schr\"odinger, nel caso in cui $\op H=\frac1{2m}\op p^2+V(\op x)$, possiamo ricavare un'equazione differenziale anche per $\rho$.
+Innanzitutto abbiamo le due derivate\footnote{
+	Da qui in avanti sottintenderemo spesso la dipendenza da $x$ delle funzioni, a parte dove ce n'è esplicitamente bisogno come negli integrali.
+}
+\begin{equation}
+	\rho'=2\psi\psi',
+	\hspace{1cm}
+	\rho''=2(\psi')^2+2\psi\psi'',
+	\hspace{1cm}
+\end{equation}
+mentre dall'equazione di Schr\"odinger abbiamo $\psi''=\frac{2m}{\hbar^2}(V-E)\psi$, perciò
+\begin{equation}
+	\rho''=2(\psi')^2+\frac{4m}{\hbar^2}(V-E)\psi^2.
+\end{equation}
+Ancora non possiamo riportare l'equazione in termini solo di $\rho$, a causa del $2(\psi')^2$.
+Continuiamo quindi con la derivata terza, ottenendo
+\begin{equation}
+	\rho'''=4\psi'\psi''+\frac{4m}{\hbar^2}V'\rho+\frac{4m}{\hbar^2}(V-E)\rho'=\frac{8m}{\hbar^2}(V-E)\rho'+\frac{4m}{\hbar^2}V'\rho,
+\end{equation}
+da cui, riordinando i termini, otteniamo l'equazione differenziale per la funzione di densità di probabilità $\rho$ per le funzioni dipendenti dalla posizione, per un autostato dell'hamiltoniano in un sistema unidimensionale
+\begin{equation}
+	\frac{\hbar^2}{8m}\rho'''=(V-E)\rho'+\frac12V'\rho.
+	\label{eq:eq-differenziale-pdf-posizione-unidimensionale}
+\end{equation}
+Moltiplichiamo dunque per $x^k$ ($k\ge 0$) e integriamo su tutto l'asse reale: il primo membro, integrando per parti e sfruttando il fatto che per $\abs{x}\to+\infty$ $\rho,\rho'$ e $\rho''$ tendono a zero si ha
+\begin{multline}
+	\int_{-\infty}^{+\infty}x^k\rho'''(x)\,\dd x=
+	(-k)\int_{-\infty}^{+\infty}x^{k-1}\rho''(x)\,\dd x=
+	k(k-1)\int_{-\infty}^{+\infty}x^{k-2}\rho'(x)\,\dd x=\\=
+	-k(k-1)(k-2)\int_{-\infty}^{+\infty}x^{k-3}\rho(x)\,\dd x=
+	-k(k-1)(k-2)\avg{x^{k-3}}.
+\end{multline}
+Gli altri termini dell'equazione, analogamente, risultano
+\begin{equation}
+	\int_{-\infty}^{+\infty}x^kV(x)\rho'(x)\,\dd x=
+	-k\int_{-\infty}^{+\infty}x^{k-1}V(x)\rho(x)\,\dd x-\int_{-\infty}^{+\infty}x^kV'(x)\rho(x)\,\dd x=
+	-k\avg{x^{k-1}V}-\avg{x^{k}V'}
+\end{equation}
+e banalmente
+\begin{equation}
+	\begin{gathered}
+		-\int_{-\infty}^{+\infty}x^kE\rho'(x)\,\dd x=
+			kE\int_{-\infty}^{+\infty}x^{k-1}\rho(x)\,\dd x=
+			kE\avg{x^{k-1}},\\
+		\frac12\int_{-\infty}^{+\infty}x^kV'(x)\rho(x)\,\dd x=
+			\frac12\avg{x^kV'}.
+	\end{gathered}
+\end{equation}
+Da questi risultati otteniamo allora
+\begin{equation}
+	\frac{\hbar^2}{8m}k(k-1)(k-2)\avg{x^{k-3}}=\frac12\avg{x^kV'}+k\avg{x^{k-1}(V-E)}
+	\label{eq:ricorsione-momenti-pdf-posizione-unidimensionale}
+\end{equation}
+che è un'equazione di ricorsione da cui possiamo ottenere in modo diretto alcuni valori medi della posizione o del potenziale.
+\begin{itemize}
+	\item Per $k=0$ troviamo $\frac12\avg{V'}=0$, ossia $\avg{V'}=0$: d'altronde $V'(x)$ rappresenta la forza, descritta dal potenziale, che agisce sul sistema nel punto $x$, e giustamente un autostato dell'hamiltoniano è in equilibrio, cioè risente di una forza complessivamente nulla.
+		Avevamo già visto questo risultato dimostrando che in un autostato $\ket{E}$ dell'hamiltoniano $\op H$ per qualsiasi operatore $\op\xi$ si ha $\bra{E}[\op H,\op\xi]\ket{E}=0$, e poich\'e la forza è $\drv{}{t}\op p=[\op p,\op H]$ (dall'equazione di Heisenberg) si ha questo risultato.
+	\item Per $k=1$ si ha $\frac12\avg{xV'}+\avg{E-V}$ ossia $\avg{xV'}=2\avg{E-V}$.
+		Ma $E-V$ è l'energia cinetica, che indichiamo con $T$, e se $V$ è omogenea di grado $l$ allora $\avg{xV'}=l\avg{V}$, per cui in tal caso $l\avg{V}=2\avg{T}$: questo non è altro che il teorema del viriale.
+\end{itemize}
+
+Possiamo adattare i calcoli effettuati al caso in cui il sistema sia ancora unidimensionale ma ammetta soltanto posizioni su un semiasse.
+Come vedremo più avanti, sarà il caso di un sistema espresso in coordinate sferiche: talvolta si può ridurre la descrizione matematica ad un sistema unidimensionale nella variabile radiale (la distanza $r$ dall'origine), ma la variabile $r$ assume solo valori tra $0$ e $+\infty$.
+Le condizioni al contorno in questo caso non sono più cos\'i semplici.
+Possiamo sempre assumere che $\psi(0)=0$, da cui $\rho(0)=0$: di conseguenza anche $\rho'(0)=2\psi(0)\psi'(0)=0$, qualsiasi sia il valore di $\psi'(0)$.
+Lo stesso non si può dire però di $\rho''=2(\psi')^2$, dato che il termine $(\psi')^2$ non è necessariamente nullo per $r=0$.
+Integrando la \eqref{eq:eq-differenziale-pdf-posizione-unidimensionale} tra $0$ e $+\infty$ otteniamo comunque
+\begin{equation}
+	\frac{\hbar^2}{8m}\int_0^{+\infty}\rho'''(r)\,\dd r=\int_0^{+\infty}[V(r)-E]\rho'(r)\,\dd r+\frac12\int_0^{+\infty}V'(r)\rho(r)\,\dd r
+\end{equation}
+e integrando per parti, poich\'e $\rho,\rho',\rho''\to 0$ per $r\to+\infty$, si ha
+\begin{equation}
+	\begin{aligned}
+		\frac{\hbar^2}{8m}\int_0^{+\infty}\rho'''(r)\,\dd r&=\int_0^{+\infty}V(r)\rho'(r)\,\dd r-E\int_0^{+\infty}\rho'(r)\,\dd r+\frac12\int_0^{+\infty}V'(r)\rho(r)\,\dd r\\
+		\frac{\hbar^2}{8m}\rho''(r)\bigg|_0^{+\infty}&=V(r)\rho(r)\bigg|_0^{+\infty}-\int_0^{+\infty}V'(r)\rho(r)\,\dd r-E\rho(r)\bigg|_0^{+\infty}+\frac12\int_0^{+\infty}V'(r)\rho(r)\,\dd r\\
+		\frac{\hbar^2}{4m}\big(\psi'(0)\big)^2&=-\avg{V'}
+	\end{aligned}
+\end{equation}
+ma come già visto precedentemente $\avg{V'}=0$ in un sistema in equilibrio, come è un autostato dell'hamiltoniano.
+Poich\'e allora vale anche $\rho''(0)=0$, possiamo riportare la \eqref{eq:ricorsione-momenti-pdf-posizione-unidimensionale} anche in questo caso.
+

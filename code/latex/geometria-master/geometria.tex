@@ -1,0 +1,69 @@
+\documentclass[a4paper]{book}
+\usepackage{geometria}
+\hypersetup{
+	pdftitle={Geometria 1},
+	pdfauthor={Davide Ferracin},
+	pdflang={it},
+	pdfsubject={Appunti del corso di Geometria 1},
+	pdfcreator={Davide Ferracin},
+	pdfcaptionwriter={Davide Ferracin}
+	pdfcopyright={Creative Commons Attribution-ShareAlike 4.0 International},
+	pdflicenseurl={http://creativecommons.org/licenses/by-sa/4.0/},
+	pdfmetalang={it}
+}
+
+\title{
+	{\sffamily\fontsize{35}{42}\selectfont Geometria 1}
+}
+\author{
+	{\small a cura di}\\
+	Davide Ferracin
+}
+\date{}
+
+\pagestyle{headings}
+
+\addbibresource{geometria.bib}
+
+\begin{document}
+\frontmatter
+
+% Frontespizio
+\maketitle
+
+% Colophon (informazioni sulla licenza)
+\null % Bisogna scrivere qualcosa prima di \vfill, altrimenti non funziona
+\vfill % Riempie lo spazio verticale della pagina
+\hspace*{-1.5em}\includegraphics[scale=.7]{by-sa-icon.pdf}
+\begin{flushleft}
+	Quest'opera è stata rilasciata con licenza \emph{Creative Commons} Attribuzione - Condividi allo stesso modo 4.0 Internazionale. Per leggere una copia della licenza visita il sito web \url{http://creativecommons.org/licenses/by-sa/4.0/}.\\
+	2015, Davide Ferracin (\href{mailto:davide.ferracin@studenti.unimi.it}{\ttfamily davide.ferracin@studenti.unimi.it})\\[1cm]
+	Versione aggiornata al \today.
+\end{flushleft}
+
+\include{prefazione}
+
+\mainmatter
+
+\include{chapters/anelli}
+\include{chapters/spazi-vettoriali}
+\include{chapters/applicazioni-lineari}
+\include{chapters/duali}
+\include{chapters/determinanti}
+\include{chapters/diagonalizzazione}
+\include{chapters/prodotto-interno}
+
+\backmatter
+
+% Bibliografia
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{part}{\bibname}
+\nocite{*}
+\printbibliography
+
+% Indice
+\cleardoublepage
+\pdfbookmark[-1]{Indice}{contents}
+\tableofcontents
+\end{document}

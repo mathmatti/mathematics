@@ -1,0 +1,215 @@
+\chapter{Spazi duali}
+Tra le applicazioni lineari su uno spazio vettoriale, sono particolarmente interessanti le \emph{forme} lineari, o \emph{funzionali} lineari, ossia le applicazioni da $V$ al campo $K$ su cui è definito.
+Lo spazio (anch'esso vettoriale) dei funzionali lineari è detto \emph{spazio duale} di $V$, e si indica tradizionalmente con $V^*$.
+Per quanto visto nei capitoli precedenti $V^*$ è isomorfo a $\mat(1,\dim V,K)$, in quanto questi funzionali sono associati, scelta una base di $V$, a delle matrici con una sola riga: vediamo subito allora che $\dim V^*=\dim V$.
+
+Ecco alcuni esempi importanti di funzionali lineari.
+\begin{itemize}
+	\item In $\R^n$, possiamo definire un iperpiano come il luogo degli zeri di una funzione
+		\begin{equation*}
+			f(x_1,\dots,x_n)=a_1x_1+\cdots+a_nx_n-b
+		\end{equation*}
+		per dei coefficienti $a_i\in\R$ non tutti nulli e $b\in\R$.
+		In generale, per uno spazio vettoriale $V$ qualunque, non disponiamo di una base canonica, quindi non possiamo trovare immediatamente i coefficienti $x_1,\dots,x_n$ dell'equazione $f(x_1,\dots,x_n)=0$.
+		I funzionali lineari forniscono un modo per caratterizzare gli iperpiani senza bisogno di coordinate (cioè di una base), ossia in modo \emph{canonico}.
+		Possiamo interpretare l'equazione come l'applicazione di un funzionale $\alpha$ del duale di $\R^n$ sul vettore $v=[x_1\,\cdots\, x_n]^T$, ossia come $\alpha(v)=b$.
+		Per un generico spazio $V$ possiamo definire un iperpiano come l'insieme $\{v\in V\colon \alpha(v)=b\}$ per un dato funzionale $\alpha\in V^*$.
+	\item Nello spazio delle funzioni continue reali in $[0,1]$, una mappa da esso a $\R$ può essere ad esempio 
+		\begin{equation*}
+			f\mapsto\int_0^1f(t)\,\dd t
+		\end{equation*}
+		che è evidentemente lineare.
+		Possiamo definire un funzionale lineare anche a partire dalle funzioni stesse di $\cont{}\big([0,1]\big)$: ad una funzione $g$ di tale spazio associamo il funzionale
+		\begin{equation*}
+			T_g\colon f\mapsto\int_0^1f(t)g(t)\,\dd t.
+		\end{equation*}
+		Anche il funzionale definito precedentemente è di questo tipo, con $g=1$.
+\end{itemize}
+
+\section{Base duale}
+\label{sec:base-duale}
+Vediamo ora quelli che probabilmente sono i funzionali lineari più importanti di $V^*$.
+Scegliamo una base $\mathcal B=\{b_1,\dots,b_n\}$ per lo spazio vettoriale $V$ sul campo $K$.
+Sappiamo che un'applicazione lineare è univocamente determinata dalla sua azione su una base, dunque lo stesso vale per i funzionali lineari.
+Definiamo $\beta_i\colon V\to K$ come
+\begin{equation}
+	\beta_i(b_j)=\delta_{ij}
+	\label{eq:funzionale-coordinate}
+\end{equation}
+per $i,j=1,\dots,n$.
+In altre parole, il funzionale $\beta_i$ ``estrae'' la $i$-esima coordinata di un vettore: se $v=\sum_{j=1}^nv_jb_j$ allora $\beta_i(v)=v_i$.
+
+Consideriamo ora l'insieme $\mathcal B^*=\{\beta_1,\dots,\beta_n\}$: preso un qualsiasi $\alpha\in V^*$, possiamo scriverlo come combinazione lineare dei $\beta_i$ osservando che se $\alpha=\sum_{k=1}^n\alpha_k\beta_k$ allora
+\begin{equation}
+	\alpha(b_j)=\sum_{k=1}^n\alpha_k\beta_k(b_j)=\sum_{k=1}^n\alpha_k\delta_{kj}=\alpha_j
+\end{equation}
+e ciò identifica i coefficienti di $\alpha$ rispetto a $\mathcal B^*$.
+Preso allora $v=\sum_{i=1}^nv_ib_i$, si ha
+\begin{equation}
+	\alpha(v)=\sum_{i=1}^nv_i\alpha(b_i)=\sum_{i=1}^nv_i\alpha_i
+\end{equation}
+e allo stesso tempo
+\begin{equation}
+	\sum_{i=1}^n\alpha_i\beta_i(v)=\sum_{i=1}^n\alpha_i\beta_i\bigg(\sum_{j=1}^nv_jb_j\bigg)=\sum_{i=1}^n\alpha_i\sum_{j=1}^nv_j\delta_{ij}=\sum_{i=1}^n\alpha_iv_i
+\end{equation}
+che coincide con la precedente.
+Questo verifica che qualsiasi funzionale lineare può essere espresso come combinazione lineare dei $\beta_i$.
+Inoltre, se $\sum_{i=1}^n\mu_i\beta_i=0$, cioè è il funzionale nullo, allora sulla base $\mathcal B$ risulta
+\begin{equation}
+	0=\sum_{i=1}^n\mu_i\beta_i(b_j)=\sum_{i=1}^n\mu_i\delta_{ij}=\mu_j
+\end{equation}
+per $j=1,\dots,n$ quindi $\mathcal B^*$ è anche linearmente indipendente: ciò prova che è una base di $V^*$.\footnote{
+	Sapendo già che la dimensione di $V^*$ è $n$, l'indipendenza lineare di $\mathcal B^*$ sarebbe stata sufficiente a mostrare che è una base di $V^*$, ciononostante questa dimostrazione è utile per capire come individuare i coefficienti di un funzionale rispetto alla base $\mathcal B^*$.
+}
+\begin{definizione} \label{d:base-duale}
+	Data una base $\mathcal B=\{b_1,\dots,b_n\}$ di uno spazio vettoriale $V$, la base $\{\beta_1,\dots,\beta_n\}$ di $V^*$ tale che per ogni $i,j=1,\dots,n$
+	\begin{equation}
+		\beta_i(b_j)=\delta_{ij}
+	\end{equation}
+	è detta \emph{base duale} di $\mathcal B$.
+\end{definizione}
+Come già visto, in questa base la $i$-esima componente di un funzionale lineare $\alpha$ è data da $\alpha(b_i)$.
+Va detto che non ha senso parlare di una ``base duale di $V^*$'', dato che non è unica: ad ogni scelta di una base di $V$ corrisponde una base duale per $V^*$, a essa associata.
+
+\section{Mappa duale}
+Sia $T\colon V\to Z$ un'applicazione lineare tra gli spazi vettoriali $V$ e $Z$.
+Definiamo la \emph{mappa duale} $T^*\colon Z^*\to V^*$ come
+\begin{equation}
+	T^*(f)=f\circ T.
+	\label{eq:mappa-duale}
+\end{equation}
+Il risultato $T^*(f)$ è un funzionale lineare in $V^*$, detto anche \emph{pullback} di $f$ attraverso $T$.
+Verifichiamo che è lineare: per $f,g\in Z^*$ e $\lambda,\mu\in K$ si ha per $v\in V$
+\begin{equation}
+	T^*(\lambda f+\mu g)(v)=(\lambda f+\mu g)\big(T(v)\big)=\lambda f\big(T(v)\big)+\mu g\big(T(v)\big)=\lambda T^*(f)(v)+\mu T^*(g)(v)
+\end{equation}
+che mostra la linearità di $T^*$.
+\begin{teorema} \label{t:matrice-associata-trasposta}
+	Siano $\mathcal B=\{e_1,\dots,e_n\}$ una base di $V$, $\mathcal C=\{g_1,\dots,g_m\}$ una base di $Z$, e $\mathcal B^*=\{\eta_1,\dots,\eta_n\}$ e $\mathcal C^*=\{\gamma_1,\dots,\gamma_m\}$ le rispettive basi duali di $V^*$ e $Z^*$.
+	Se $A$ è la matrice associata a un'applicazione lineare $T\in\lin(V,Z)$ nelle basi $\mathcal B$ e $\mathcal C$, allora la matrice associata alla sua duale $T^*\in\lin(Z^*,V^*)$ nelle basi duali è la trasposta di $A$.
+\end{teorema}
+\begin{proof}
+	La dimostrazione consiste semplicemente nel costruire le due matrici associate a $T$ e $T^*$.
+	Se $A$ è la matrice associata a $T$ allora
+	\begin{equation}
+		T(e_i)=\sum_{j=1}^mA_{ji}g_j
+	\end{equation}
+	per $i=1,\dots,n$.
+	Se $B$ è la matrice associata a $T^*$, allo stesso modo,
+	\begin{equation}
+		T^*(\gamma_i)=\sum_{j=1}^nB_{ji}\eta_j
+	\end{equation}
+	per $i=1,\dots,m$.
+	Applicando $T^*(\gamma_i)$ agli elementi di $\mathcal B$ risulta cos\`i
+	\begin{equation}
+		T^*(\gamma_i)(e_k)=\sum_{j=1}^nB_{ji}\eta_j(e_k)=\sum_{j=1}^nB_{ji}\delta_{jk}=B_{ki}
+	\end{equation}
+	e d'altra parte per come è definita la mappa duale $T^*$ si ha
+	\begin{equation}
+		T^*(\gamma_i)(e_k)=\gamma_i\big(T(e_k)\big)=\gamma_i\bigg(\sum_{j=1}^mA_{jk}g_j\bigg)=\sum_{j=1}^mA_{jk}\gamma_i(g_j)=\sum_{j=1}^mA_{jk}\delta_{ij}=A_{ik}
+	\end{equation}
+	da cui $B_{ki}=A_{ik}$, ossia $B=A^T$.
+\end{proof}
+
+\begin{teorema} \label{t:iniettivita-suriettivita-mappa-duale}
+	Siano $V$ e $Z$ due spazi vettoriali e $L\in\lin(V,Z)$.
+	\begin{enumerate}
+		\item Se $L$ è iniettiva, allora $L^*$ è suriettiva.
+		\item Se $L$ è suriettiva, allora $L^*$ è iniettiva.
+	\end{enumerate}
+\end{teorema}
+\begin{proof}
+	\begin{enumerate}
+		\item Sia $L$ iniettiva: esiste allora la sua inversa, opportunamente ristretta nell'immagine di $L$, $L(V)$; in altre parole, esiste $L^{-1}\colon L(V)\to V$.
+			Possiamo definire quindi la mappa duale $(L^{-1})^*\colon V^*\to L(V)^*$.
+			Per ogni $v\in V^*$, consideriamo $w\in Z^*$ dato da
+			\begin{equation}
+				w=(L^{-1})^*(v)=v\circ L^{-1}.
+			\end{equation}
+			Allora risulta $L^*(w)=v\circ L^{-1}\circ L=v$, che prova che $L^*$ è suriettiva in quanto esiste sempre una controimmagine (che qui è $w$).
+		\item Sia $L$ suriettiva, e consideriamo $\alpha\in\Ker L^*$: risulta allora $0=L^*(\alpha)(v)=\alpha\big(L(v)\big)$ per ogni $v\in V$.
+			Ma $L(V)$ coincide con $Z$, perciò $\alpha(z)=0$ per ogni $z\in Z$, ossia $\alpha=0$, e ciò prova che $\Ker L^*=0$ ossia $L^*$ è iniettiva.\qedhere
+	\end{enumerate}
+\end{proof}
+
+\begin{teorema} \label{t:rango-mappa-duale}
+	Data l'applicazione lineare $T\colon V\to Z$ tra gli spazi vettoriali $V$ e $Z$, e la sua duale $T^*\colon Z^*\to V^*$, sia $\tilde{T^*}$ la sua restrizione a $T(V)^*$, ossia $\tilde{T^*}\colon T(V)^*\to V^*$.\footnote{
+		Risulta che $T(V)\le Z$ e $T(V)^*\le Z^*$.
+	}
+	Allora
+	\begin{equation}
+		\tilde{T^*}\big(T(V)^*\big)=T^*(Z^*),
+	\end{equation}
+	per ogni $T\in\lin(V,Z)$.
+\end{teorema}
+\begin{proof}
+	Sia $\{e_1,\dots,e_n\}$ una base di $V$ e $\{g_1,\dots,g_m\}$ una base di $T(V)$, che possiamo completare a una base di $Z$ come $\{g_1,\dots,g_m\}\cup\{f_1,\dots,f_{m'}\}$ (perciò $m+m'=\dim Z$).
+	Sia dunque $\alpha\in Z^*$: definiamo $\tilde{\alpha}\in T(V)^*$ come $\tilde{\alpha}(g_k)=\alpha(g_k)$ per $k=1,\dots,m$, in modo che $\alpha=\tilde{\alpha}$ in $T(V)^*$.
+	Allora $T^*(\alpha)\in Z^*$ e risulta
+	\begin{multline}
+		T^*(\alpha)(e_i)=\alpha\big(T(e_i)\big)=\alpha\bigg(\sum_{k=1}^m\lambda_kg_k\bigg)=\sum_{k=1}^m\lambda_k\alpha(g_k)=\\=
+		\sum_{k=1}^m\lambda_k\tilde{\alpha}(g_k)=\tilde{\alpha}\big(T(e_i)\big)=T^*(\tilde{\alpha})(e_i)=\tilde{T^*}(\tilde{\alpha})(e_i)
+	\end{multline}
+	e poich\'e $\tilde{T^*}(\tilde{\alpha})\in\tilde{T^*}\big(T(V)^*\big)$ si ha $T^*(Z^*)\subseteq \tilde{T^*}\big(T(V)\big)$.
+
+	Sia ora $\gamma\in T(V)^*$: estendiamolo ad un funzionale di $Z^*$ tramite gli elementi $f_i$ della base di $Z$, ossia definiamo $\tilde{\gamma}\in Z^*$ come $\tilde{\gamma}(g_k)=\gamma(g_k)$ per $k=1,\dots,m$ e $\tilde{\gamma}(f_k)=0$ per $k=1,\dots,m'$.
+	Allora, dato che $T(e_i)\in T(V)$, si ha $\gamma\big(T(e_i)\big)=\tilde{\gamma}\big(T(e_i)\big)$ per ogni $i=1,\dots,n$, perciò
+	\begin{equation}
+		\tilde{T^*}(\gamma)(e_i)=\gamma\big(T(e_i)\big)=\tilde{\gamma}\big(T(e_i)\big)=T^*(\tilde{\gamma})(e_i)\in T^*(Z^*)
+	\end{equation}
+	da cui segue $\tilde{T^*}\big(T(V)^*\big)\subseteq T^*(Z^*)$, ma allora i due insiemi coincidono.
+\end{proof}
+\begin{definizione} \label{d:rango-applicazione-lineare}
+	Si dice \emph{rango} di un'applicazione lineare la dimensione della sua immagine.
+\end{definizione}
+Il rango di un'applicazione $T$ è indicato solitamente con $\rk T$, dall'inglese \textit{rank}.
+In qualsiasi base, esso coincide con il rango della matrice associata (perciò usiamo lo stesso nome): esso si può dunque calcolare come il numero di colonne linearmente indipendenti di tale matrice.
+\begin{corollario} \label{c:rango-righe-colonne}
+	Dati due spazi vettoriali $V$ e $Z$ sul medesimo campo, per ogni $T\in\lin(V,Z)$ si ha $\rk T=\rk T^*$.
+\end{corollario}
+\begin{proof}
+	Poich\'e $T\colon V\to T(V)$ è (ovviamente) suriettiva, l'applicazione $\tilde{T^*}\colon T(V)^*\to V^*$ è iniettiva per il teorema \ref{t:iniettivita-suriettivita-mappa-duale}.
+	Per il teorema precedente (\ref{t:rango-mappa-duale}) e il corollario del primo teorema dell'isomorfismo segue allora la catena di uguaglianze
+	\begin{equation}
+		\dim T^*(Z^*)=\dim\tilde{T^*}\big(T(V)^*\big)=\dim T(V)^*-\dim(\Ker\tilde{T^*})=\dim T(V)^*=\dim T(V)
+	\end{equation}
+	dato che $\Ker\tilde{T^*}=\{0\}$, essendo $\tilde{T^*}$ iniettiva.
+	In altre parole, la dimensione dell'immagine di $T^*$ concide con la dimensione dell'immagine di $T$, ossia $\rk T^*=\rk T$.
+\end{proof}
+Per l'uguaglianza tra il rango dell'applicazione e il rango della matrice associata, questo corollario mostra che il rango calcolato ``per colonne'' è uguale al rango calcolato ``per righe'': in altre parole, il numero di colonne linearmente indipendenti di una matrice coincide con il numero di righe linearmente indipendenti.
+
+\section[Spazio biduale]{Spazio biduale\footnote{
+	Questo argomento non è stato affrontato a lezione, perciò questa sezione può essere saltata ai fini dell'esame.
+}}
+Dato uno spazio vettoriale $V$ su un campo $K$, abbiamo visto le proprietà più importanti del suo spazio duale $V^*$.
+Ora, anche $V^*$ è uno spazio vettoriale su $K$, quindi esistono dei funzionali lineari $f\colon V^*\to K$, il cui insieme forma lo spazio duale dello spazio duale di $V$: in breve, lo spazio \emph{biduale} (o \emph{doppio duale}) di $V$, indicato con $V^{**}$.
+Non c'è nulla di nuovo in questa definizione: è semplicemente la stessa idea applicata nuovamente su $V^*$.
+Guardiamo infatti al primo esempio fatto in questo capitolo, con gli iperpiani in $V$: il ruolo dei coefficienti $(a_1,\dots,a_n)$ e $(x_1,\dots,x_n)^T$ nell'equazione
+\begin{equation*}
+	a_1x_1+\cdots+a_nx_n=b
+\end{equation*}
+è completamente simmetrico, e possiamo vedere sia il vettore $(a_1\,\cdots\,a_n)$ come funzionale su $(x_1\,\cdots\,x_n)$ sia il secondo come funzionale sul primo.
+
+Nel caso di uno spazio $V$ di dimensione finita, $V$ e $V^*$ sono isomorfi ma l'isomorfismo non è canonico, in quanto richiede la scelta di una base di $V$.
+Anche $V^*$ e $V^{**}$, ovviamente, sono isomorfi, quindi per transitività si ha $V^{**}\cong V$, da cui $\dim V^{**}=\dim V$.
+In questo caso, però, l'isomorfismo tra $V$ e il suo biduale è canonico, tramite la mappa che mostriamo nel seguente teorema.
+\begin{teorema} \label{t:valutazione-biduale}
+	Sia $V$ uno spazio vettoriale di dimensione finita.
+	La mappa $E\colon V\to V^{**}$ definita da
+	\begin{equation}
+		E(v)\colon f\mapsto f(v),
+		\label{eq:mappa-valutazione}
+	\end{equation}
+	per $f\in V^*$, è un isomorfismo.
+\end{teorema}
+\begin{proof}
+	Innanzitutto, $E$ è lineare poich\'e per $f\in V^*$ e $a,b\in K$ risulta
+	\begin{equation}
+		E(av+bw)(f)=f(av+bw)=af(v)+bf(w)=aE(v)(f)+bE(v)(f).
+	\end{equation}
+	Siccome $\dim V^{**}=\dim V$, è sufficiente verificare che $E$ è iniettiva.
+	Se $E(v)=0$, ossia è un funzionale nullo su $V^*$, allora $0=E(v)(f)=f(v)$ per ogni $f\in V^*$, ma l'unico $v\in V$ con tale proprietà è lo zero, perciò $\Ker E=\{0\}$ e ciò prova che è un isomorfismo.
+\end{proof}
+La mappa $E$ è chiamata talvolta ``mappa di valutazione'', dato che manda $v\in V$ nell'elemento di $V^{**}$ che corrisponde al ``valutare il funzionale in $v$''.
+Non avendo specificato alcuna base di $V$, l'isomorfismo dato da $E$ è canonico.
+

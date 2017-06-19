@@ -1,0 +1,501 @@
+\chapter{I princ\`ipi della meccanica quantistica}
+Vediamo in questo capitolo di porre le fondamenta di questa nuova teoria, inquadrando in una struttura matematica quello che avevamo già visto nell'introduzione, come gli stati, le osservabili e il loro comportamento.
+Abbiamo innanzitutto visto la necessità di descrivere gli stati in uno spazio vettoriale, in modo che valga il \emph{principio di sovrapposizione}, e questo stato dovrà essere sul campo complesso per dar luogo a fenomeni di interferenza come nella doppia fenditura.
+Lo spazio degli stati, che per ora indichiamo con $\hilbert$, avrà le seguenti proprietà:
+\begin{itemize}
+	\item è uno spazio vettoriale complesso;
+	\item in esso è definito un prodotto scalare definito positivo;
+	\item è \emph{completo}, come spazio metrico rispetto alla distanza definita dal prodotto scalare;
+	\item è \emph{separabile}, ossia esiste un suo sottoinsieme denso e numerabile;\footnote{Un esempio ``classico'' di spazio separabile è semplicemente $\R$, in cui troviamo $\Q\subset\R$ che è denso e numerabile.} 
+\end{itemize}
+La completezza implica che tutte le successioni di Cauchy in $\hilbert$ sono anche convergenti, mentre la separabilità assicura l'esistenza di una base ortonormale che abbia cardinalità al più numerabile.
+Lo spazio degli stati assuma quindi la struttura di uno \emph{spazio di Hilbert} complesso separabile.
+
+Nella notazione introdotta da Dirac, i vettori di $\hilbert$ sono indicati come \emph{ket}, scritti come $\ket{\cdot}$.
+Dobbiamo notare innanzitutto che la corrispondenza tra gli stati fisici e i vettori di questo spazio \emph{non è biunivoca}: mentre un vettore $\ket{x}\in\hilbert$ rappresenta uno e un solo stato fisico, lo stesso stato fisico è rappresentato da $\ket{x}$ e tutti i suoi multipli $\alpha\ket{x}$ per qualsiasi $\alpha\in\C$.
+Perciò tutte le informazioni che ricaveremo dal modello quantistico che costruiamo dovranno essere indipendenti da questa arbitrarietà.
+Se anzich\'e guardare ai vettori però guardiamo alla classe di vettori che sono tutti multipli (per uno scalare), cioè ai \emph{raggi} dello spazio, allora la corrispondenza diventa s\`i biunivoca.
+I ket, quindi, fanno parte di uno spazio vettoriale complesso, dunque ogni combinazione lineare $\alpha\ket{x}+\beta\ket{y}$ è ancora in $\hilbert$.
+Possiamo riassumere quanto visto finora nel primo postulato della teoria quantistica.
+\begin{postulato}
+    Gli stati di un sistema fisico sono descritti da vettori di uno spazio di Hilbert complesso separabile; in particolare, ogni stato è associato a uno e un solo raggio di tale spazio.
+\end{postulato}
+Il prodotto scalare tra due \emph{ket} è indicato come $\braket{x}{y}$: questa notazione affianca il ket, a destra, con l'elemento a sinistra detto \emph{bra}.
+La notazione differente dei due elementi suggerisce una qualche differenza, e in effetti i \emph{ket} e i bra, seppur molto simili, appartengono a due spazi diversi; il prodotto scalare tra due \emph{ket} diventa quindi l'operazione del \emph{bra} associato al primo \emph{ket} sul secondo.
+Se i \emph{ket} sono dei vettori di $\hilbert$, possiamo pensare ai \emph{bra} come agli elementi del duale, cioè a funzionali lineari sui ket.
+Diamo quindi le proprietà del prodotto scalare cos\`i definito:
+\begin{itemize}
+	\item è antilineare, ossia $\braket{x}{y}=\braket{y}{x}^*$;
+	\item è lineare nella prima variabile, $\braket{x}{\alpha y_1+\beta y_2}=\alpha\braket{x}{y_1}+\beta\braket{x}{y_2}$;
+	\item è definito positivo, $\braket{x}{x}\geq 0$ per ogni $\ket{x}\in\hilbert$.
+\end{itemize}
+Dalle prime due troviamo che è antilineare nella seconda variabile: se vogliamo scomporre il prodotto scalare, dovremo introdurre il coniugato dei componenti, ossia $\braket{\alpha x_1+\beta x_2}{y}=\alpha^*\braket{x_1}{y}+\beta^*\braket{x_2}{y}$.
+Dalla terza notiamo infine che il prodotto scalare di un \emph{ket} con se stesso è sempre un numero reale.
+Vediamo come costruire questo prodotto scalare: se prendiamo una base ortonormale $\{\ket{e_i}\}$ (quindi $\braket{e_i}{e_j}=\delta_{ij}$), che per semplicità supponiamo finita di cardinalità $n$, allora possiamo esprimere un vettore $\ket{x}$ nei termini di questa base come
+\begin{equation}
+	\ket{x}=\sum_{i=1}^nx_i\ket{e_i}=x_i\ket{e_i}.
+\end{equation}
+Analogamente si dà l'espressione di $\ket{y}$, mentre il \emph{bra} associato ad esso è il trasposto coniugato del ket, ossia
+\begin{equation}
+	\bra{y}=\adj{\ket{y}}=y_i^*\bra{e_i}
+\end{equation}
+dunque il prodotto scalare tra i due è dato da
+\begin{equation}
+	\braket{y}{x}=y_j^*x_k\braket{e_j}{e_k}=y_j^*x_k\delta_{jk}=y_j^*x_j,
+\end{equation}
+che si può anche scrivere come $(y_jx_j^*)^*=\braket{x}{y}^*$, verificando quindi la prima proprietà.
+
+\section{Autovalori e autostati}
+Dopo aver inquadrato gli stati del sistema nello spazio di Hilbert con le dovute proprietà, passiamo a studiare le osservabili.
+Da un punto di vista prettamente pratico e non matematico possiamo definirle come degli apparecchi che agiscono sul sistema come delle \emph{scatole nere}, di cui non possiamo indagare il funzionamento; successivamente vedremo un modo di definirle anche matematicamente.
+Possiamo preoccuparci ora dell'\emph{effetto} che esse producono sul sistema: ad ogni osservabile è associata, chiaramente, una grandezza fisica del sistema, come l'energia, la posizione, eccetera, quindi agendo con un'osservabile sul sistema otteniamo un numero.
+Su \emph{come} sia fatto questo numero, però, c'è da discutere.
+Sappiamo bene che uno strumento di misura reale ci fornisce una misura con un numero di cifre inevitabilmente finito, quindi questa misura è un numero \emph{razionale}, e il numero di cifre è collegato alla precisione dello strumento.
+Possiamo immaginare di aumentare sempre di più questa precisione della misura, ad esempio utilizzando strumenti sempre più sofisticati: nella meccanica classica non si afferma l'esistenza di un limite da porre a questa precisione.
+Poich\'e il limite di una successione di numeri razionali è, in generale, un numero reale (dato che $\Q$ non è completo), se aumentiamo indefinitamente la precisione degli strumenti la misura, pur essendo un numero razionale, convergerà ad un numero reale; in effetti la meccanica classica studia i sistemi fisici tramite i numeri reali senza preoccuparsi di questo fatti.
+
+In meccanica quantistica, assumeremo che le osservabili, quindi i nostri strumenti di misura, restituiscano soltanto valori discreti (ma non c'è da preoccuparsi: lo spaziotempo è ancora considerato uno spazio continuo).
+Miglioriamo quindi la definizione precedente: diremo che $\xi$ è un'osservabile se è uno ``strumento di misura'' i cui risultati formano un insieme discreto $\{\xi_1,\xi_2,\dots,\xi_n,\dots\}$ (anche infinito).
+I valori $\xi_i$ sono detti \emph{autovalori} dell'osservabile $\xi$, e costituiscono quindi i \emph{possibili} risultati della misura.
+
+Torniamo all'esperimento con la lastra polaroid: l'osservabile è la lastra, e il risultato della misura è che il fotone ``passa'' o ``non passa'', e questi due risultati sono quindi gli autovalori.
+Associamo al passaggio del fotone l'autovalore 1 e al non passaggio l'autovalore 0.
+Non possiamo pretendere di predire il risultato della misura, in generale: sappiamo però che se il fotone è polarizzato linearmente lungo l'asse della lastra, sicuramente passerà, quindi in tale caso avremo con certezza l'autovalore 1.
+Analogamente se sappiamo che il fotone è polarizzato ortogonalmente all'asse della lastra, certamente avremo l'autovalore 0.
+
+Più in generale, esistono degli stati del sistema con questa caratteristica: chiamiamo \emph{autostato} un particolare stato del sistema in cui il risultato della misura è certo.
+Identificando lo stato con il corrispondente raggio in $\hilbert$, indicheremo con $\ket{\xi_i}$ tale raggio.
+Per la corrispondenza biunivoca tra i due elementi, però, spesso chiameremo (impropriamente) stati i raggi di $\hilbert$, per semplificare un poco la notazione.
+Indicheremo dunque con $\ket{\xi_i}$ l'autostato dell'osservabile $\xi$ relativo all'autovalore $\xi_i$.
+Si ha il seguente postulato.
+\begin{postulato}
+    Se si misura l'osservabile $\xi$ su un sistema e si ottiene la misura (ossia l'autovalore) $\xi_i$, allora subito dopo tale misura il sistema si troverà in un autostato di $\xi$ corrispondente all'autovalore $\xi_i$.
+\end{postulato}
+Misurando $\xi$ mentre il sistema è nello stato $\ket{\xi_i}$ siamo certi che otterremo l'autovalore $\xi_i$.
+Una volta compiuta la misura, inoltre, abbiamo rimosso ogni incertezza sullo stato attuale del sistema, perch\'e ora lo conosciamo, perciò continuando a misurare la medesima osservabile è chiaro che (almeno negli istanti successivi) otterremo sempre lo stesso risultato,
+In generale quindi non ci è dato sapere lo stato del sistema \emph{prima} della misura, ma sapremo in che stato si trova \emph{dopo} averla compiuta: questo è essenzialmente il motivo per cui, compiendo una misura, perturbiamo il sistema.
+
+Prendiamo stavolta due lastre polaroid, allineate lungo lo stesso asse di polarizzazione, e prendiamo gli autovalori 0 e 1 come prima.
+Se un fotone passa per le due lastre, è come se misurassimo due volte la sua polarizzazione, quindi rappresentano la stessa osservabile misurata una dopo l'altra.
+All'inizio, non sappiamo lo stato del fotone: quando esso passa per la prima lastra, però, può o passare o non passare.
+Se passa, cioè se otteniamo 1, il fotone risulta polarizzato lungo l'asse (chiamiamo questo stato $\ket{1}$), quindi certamente passerà anche per la seconda lastra.
+Quindi, ricapitolando, misurando il fotone otteniamo 1, dunque siamo sicuri che lo stato del fotone sia $\ket{1}$, che allora passerà anche per la seconda lastra, perch\'e si trova nell'autostato associato all'autovalore 1.
+Il discorso è analogo se il fotone non passa attraverso la prima lastra, anche se è una questione un po' delicata perch\'e per la seconda lastra non esiste nemmeno più il fotone da misurare; questo esperimento serve almeno per fissare le idee su questi concetti di base.
+
+Non sempre l'autostato di un autovalore è unico, ma possono esisterne anche di più, anche infiniti: in tal caso, la conoscenza dell'autovalore non determina ancora completamente lo stato del sistema.
+Distinguiamo quindi due tipi di osservabili:
+\begin{itemize}
+	\item quelle \emph{degeneri}, per cui eseguendo la misura non si conosce complessivamente lo stato del sistema (lo è la lastra polaroid: sappiamo la polarizzazione, ma non possiamo conoscere con questo esperiento la frequenza dei fotoni);
+	\item quelle \emph{non degeneri}, i cui autovalori determinano completamente lo stato del sistema (corrispondenza biunivoca tra autovalori e stati di $\hilbert$).
+\end{itemize}
+
+\section{Probabilità di transizione tra gli stati}
+Sappiamo che non possiamo predire il risultato di una misura, a meno che il sistema non sia in un certo autostato: negli altri casi possiamo però sapere la probabilità che un certo risultato si presenti rispetto agli altri.
+Il risultato dipenderà quindi sia dallo stato iniziale che da quello di arrivo: cerchiamo ora un metodo per calcolare la probabilità di passare da uno stato $\ket{x}$ allo stato $\ket{y}$.
+Questo valore è detto \emph{probabilità di transizione} (dal primo stato all'altro) e lo indicheremo con $P(\ket{x}\to\ket{y})$: esso è dato dal seguente postulato.
+\begin{postulato}
+    La probabilità di transizione da uno stato $\ket{x}$ a uno stato $\ket{y}$ è data da
+    \begin{equation}
+        P(\ket{x}\to\ket{y})=\frac{\abs{\braket{x}{y}}^2}{\braket{x}{x}\braket{y}{y}}.
+        \label{eq:probabilita-transizione}
+    \end{equation}
+\end{postulato}
+Verifichiamo che è una buona definizione: per cominciare, ci serve un numero reale, quindi prendiamo il prodotto scalare $\braket{x}{y}$ per il suo coniugato, ottenendo $P(\ket{x}\to\ket{y})=\abs{\braket{x}{y}}^2$.
+Sicuramente è anche un numero positivo, poich\'e tutti i termini coinvolti nel prodotto lo sono.
+Questo però non basta, perch\'e potremmo ottenere un numero maggiore di uno, mentre la probabilità deve essere in $[0,1]$: il denominatore $\braket{x}{x}\braket{y}{y}$ serve dunque a normalizzarla, poich\'e con la disuguaglianza di Schwarz abbiamo $\abs{\braket{x}{y}}^2\leq\braket{x}{x}\braket{y}{y}$ quindi $P(\ket{x}\to\ket{y})\le 1$.
+Ciò è equivalente a considerare la probabilità di transizione tra gli stati normalizzati $\braket{x}{x}^{-\frac12}\ket{x}$ e $\braket{y}{y}^{-\frac12}\ket{y}$.\footnote{
+    Possiamo trascurare la normalizzazione se assumiamo tutti gli stati normalizzati: questa assunzione è del tutto legittima, poich\'e sappiamo che se $\ket{x}$ rappresenta un certo stato fisico del sistema allora anche $\alpha\ket{x}$ lo rappresenta per qualsiasi $\alpha\in\C$.
+}
+In particolare, la probabilità è 1 se e solo se il sistema si trova già nello stato ``bersaglio''.
+Essa non dipende dal fattore scalare arbitrario nella corrispondenza tra stati fisici e vettori di $\hilbert$: se al posto di $\ket{x}$ e $\ket{y}$ prendiamo $a\ket{x}$ e $b\ket{y}$ per qualunque $a,b\in\C$, abbiamo
+\begin{equation}
+	P(a\ket{x}\to b\ket{y})=\frac{\abs{a}^2\abs{b}^2\abs{\braket{x}{y}}^2}{\abs{a}^2\braket{x}{x}\abs{y}^2\braket{y}{y}}=\frac{\abs{\braket{x}{y}}^2}{\braket{x}{x}\braket{y}{y}}=P(\ket{x}\to\ket{y}).
+\end{equation}
+Infine, questa probabilità è simmetrica, cioè $P(\ket{x}\to\ket{y})=P(\ket{y}\to\ket{x})$ come si verifica facilmente scambiando i due ket nella \eqref{eq:probabilita-transizione}.
+
+Prendiamo dunque un'osservabile non degenere $\xi$, e un generico stato $\ket{x}$.
+Non sappiamo quale sarà il risultato, ma ogni possibile autovalore $\xi_i$ dell'osservabile avrà una certa probabilità $P_i$ di accadere.
+Eseguendo una misura di $\xi$, la probabilità di trovare l'autovalore $\xi_i$ equivale alla probabilità di trovare, dopo la misura, il sistema nell'autostato $\ket{\xi_i}$, quindi è la probabilità di transizione tra $\ket{x}$ e questo autostato:
+\begin{equation}
+	P_i=\frac{\abs{\braket{\xi_i}{x}}^2}{\braket{\xi_i}{\xi_i}\braket{x}{x}}.
+\end{equation}
+Ovviamente ogni volta che compiamo la misura dobbiamo ottenere uno degli autovalori, qualunque esso sia, quindi $\sum_kP_k=1$ (gli indici $k$ possono anche essere infiniti).
+
+Se partiamo da un autostato $\ket{\xi_i}$, misurando $\xi$ otterremo sempre con certezza l'autovalore $\xi_i$, quindi la probabilità $P(\ket{\xi_i}\to\ket{\xi_i})$ vale 1.
+Come conseguenza abbiamo allora $P(\ket{\xi_i}\to\ket{\xi_k})=0$ per $i\neq k$, dato che la somma di tutte le probabilità è 1, ma allora
+\begin{equation}
+	P(\ket{\xi_i}\to\ket{\xi_k})=\frac{\abs{\braket{\xi_i}{\xi_k}}^2}{\braket{\xi_i}{\xi_i}\braket{\xi_k}{\xi_k}}=0 \iff \braket{\xi_i}{\xi_k}=0.
+	\label{eq:autostati-ortogonali}
+\end{equation}
+Troviamo allora che
+\begin{equation}
+	\braket{\xi_i}{\xi_k}=\delta_{ik}
+	\label{eq:autostati-ortonormali}
+\end{equation}
+cioè \emph{due autostati relativi a differenti autovalori sono ortonormali}.
+
+\section{Il postulato di Von Neumann}
+Abbiamo dimostrato che gli autostati di un'osservabile non degenere formano un insieme ortonormale.
+Esso è anche completo: infatti se esistesse un altro stato $\ket{\phi}$ ortogonale a tutti gli autostati $\ket{\xi_i}$, la probabilità di passare da uno qualunque di questi autostati a $\ket{\phi}$ sarebbe nulla, ma allora $\sum_i\abs{\braket{\xi_i}{\phi}}^2=0$ che è assurdo perch\'e deve essere 1.
+Quindi gli autostati (o meglio gli autovettori) di un'osservabile non degenere formano una \emph{base ortonormale} di $\hilbert$.
+Chiamiamo \emph{autospazio} relativo all'autovalore $\xi_i$ il sottospazio di $\hilbert$ costituito dagli autostati di tale autovalore.
+Se l'osservabile non è degenere, ad ogni autovalore corrisponde un unico autostato, quindi l'autospazio corrispondente ha dimensione 1 (ricordiamo che tutti gli autovettori multipli per uno scalare rappresentano il medesimo stato).
+Tutti questi autostati sono anche linearmente indipendenti, in quanto ortonormali, quindi gli autospazi di ciascun autovalore sono tra loro ortogonali (e, ancora, linearmente indipendenti).
+Allora detto $\hilbert_i$ l'autospazio dell'autovalore $\xi_i$, possiamo scomporre l'intero spazio $\hilbert$ come somma diretta
+\begin{equation}
+	\hilbert=\bigoplus_i\hilbert_i.
+\end{equation}
+
+Se quindi prendiamo una base di autostati $\{\ket{\xi_i}\}$, possiamo rappresentare ogni stato in termini di questi autostati come
+\begin{equation}
+	\ket{x}=\sum_ic_i\ket{\xi_i}
+\end{equation}
+dove i coefficienti $c_i\in\C$ devono soddisfare la condizione $\braket{x}{x}=\sum_ic_i^*c_i=\sum_i\abs{c_i}^2<+\infty$.
+Per l'ortonormalità della base possiamo quindi individuare tali coefficienti prendendo il prodotto scalare dello stato $\ket{x}$ con gli autostati, ossia
+\begin{equation}
+	\braket{\xi_k}{x}=\bra{\xi_k}\sum_ic_i\ket{xi_i}=\sum_ic_i\braket{\xi_k}{\xi_i}=\sum_ic_i\delta_{ik}=c_k,
+\end{equation}
+ma allora
+\begin{equation}
+	\ket{x}=\sum_i\braket{\xi_i}{x}\ket{\xi_i}=\sum_i\ket{\xi_i}\braket{\xi_i}{x}=\Big(\sum_i\ket{\xi_i}\bra{\xi_i}\Big)\ket{x}
+\end{equation}
+da cui ricaviamo che l'operatore $\sum_i\ket{\xi_i}\bra{\xi_i}$ è l'identità su $\hilbert$.
+In particolare, il singolo addendo $\ket{\xi_i}\bra{\xi_i}$ è un operatore di \emph{proiezione}, in quanto applicandolo due volte si ha
+\begin{equation}
+	\ket{\xi_i}\bra{\xi_i}\ket{\xi_i}\bra{\xi_i}=\ket{\xi_i}\braket{\xi_i}{\xi_i}\bra{\xi_i}=\ket{\xi_i}\bra{\xi_i}.
+\end{equation}
+Inoltre applicandolo ad un vettore si ottiene la sua componente nella direzione di $\ket{\xi_i}$, vale a dire la proiezione di $\ket{x}$ nell'autospazio $\hilbert_i$.
+Chiaramente sommando le proiezioni su tutti gli autospazi si ottiene il vettore di partenza, dunque si ha l'operatore identità: questa condizione indica la completezza della base degli autostati.
+
+I discorsi fatti finora valgono solo nel caso di osservabili non degeneri: nell'altro caso, sappiamo che ad un autovalore corrispondono più autostati, che chiaramente dovranno essere linearmente indipendenti (altrimenti rappresenterebbero lo stesso stato fisico).
+In questo caso non possiamo sapere in quale autostato si trovi il sistema, ma come al solito possiamo conoscere la probabilità che il sistema si trovi in uno o in un altro.
+Per semplicità, consideriamo il caso in cui esistano soltanto di autostati linearmente indipendenti relativi all'autovalore $\xi_1$ di $\xi$: chiamiamo tali autostati $\ket{\xi_1'}$ e $\ket{\xi_1''}$, e assumiamo che gli autovalori $\xi_k$ per $k>1$ non siano degeneri.
+Date queste ipotesi allora l'autospazio $\hilbert_1$ ha dimensione 2, ed è chiaramente ortogonale a tutti gli $\hilbert_k$ con $k>1$, quindi anche in questo caso tutti gli $\hilbert_i$ sono linearmente indipendenti e si può scrivere $\hilbert=\bigoplus_i\hilbert_i$.
+Possiamo comunque scegliere due vettori linearmente indipendenti da $\hilbert_1$ che insieme agli altri $\ket{\xi_k}$ (sempre $k>1$) formano ancora una base di $\hilbert$; la differenza con le osservabili non degeneri è che ora la base non è più unica, anche a meno di normalizzazioni dei vettori, questo perch\'e in $\hilbert_1$ esistono infinite coppie di vettori linearmente indipendenti anche normalizzati.\footnote{Un caso più ``quotidiano'' analogo a questo lo troviamo nelle basi di $\R$ e di $\R^2$: se consideriamo i vettori a meno di fattori scalari, allora in $\R$ la base può essere una sola (è l'unità) mentre in $\R^2$ ne troviamo infinite, ottenute ruotando la base canonica di un angolo qualsiasi.}
+
+Ad ogni modo, possiamo rappresentare anche in questo caso uno stato $\ket{x}$ in termini della base scelta: abbiamo $\ket{x}=c_1'\ket{\xi_1'}+c_1''\ket{\xi_1''}+\sum_{k>1}c_k\ket{\xi_k}$.
+Se abbiamo scelto una base ortonormale, avremo anche in questo caso partendo dallo stato $\ket{x}$ che assumiamo normalizzato, cos\`i come gli autostati, che
+\begin{equation}
+	\sum_iP_i=\sum_i\abs{\braket{\xi_i}{x}}^2=\sum_i\abs{c_i}^2=\abs{c_1'}^2+\abs{c_1''}^2+\sum_{k>1}\abs{c_k}^2=1,
+\end{equation}
+dunque per esclusione la probabilità di passare da $\ket{x}$ ad uno stato in $\hilbert_1$ è data da $P_1=1-\sum_{k>1}P_k=1-\sum_{k>1}\abs{c_k}^2=\abs{c_1'}^2+\abs{c_1''}^2$.
+Questo discorso è quindi riassunto nel \emph{postulato di Von Neumann}, che afferma
+\begin{postulato}
+	Se una misura di $\xi$ nello stato $\ket{x}$ risulta nell'autovalore $\xi_i$, allora lo stato dopo al misura è dato dalla proiezione di $\ket{x}$ nell'autospazio di $\xi_i$.
+\end{postulato}
+Nel caso precedente tale proiezione è proprio $c_1'\ket{\xi_1'}+c_1''\ket{\xi_1''}$, quindi la probabilità di trovare lo stato nell'autospazio $\hilbert_1$ è $\abs{c_1'}^2+\abs{c_1''}^2$.
+La probabilità di transizione, dunque, non dipende dalla base scelta per $\hilbert$ (come era lecito aspettarsi).
+
+\section{Osservabili e operatori}
+Chiamiamo $E_i$ l'operatore dato da $\ket{\xi_i}\bra{\xi_i}$, con $\xi_i$ autovalore di un'osservabile $\xi$ generica.
+Per le proprietà viste in precedenza, $E_i^2=E_i$ perch\'e è una proiezione, inoltre ogni stato si può scrivere come $\ket{x}=\sum_i\ket{\xi_i}\braket{\xi_i}{x}=\sum_iE_i\ket{x}$, se scegliamo gli autostati $\ket{\xi_i}$ in modo da avere una base ortonormale.
+Assumiamo $\ket{x}$ e gli autostati della base normalizzati: allora se l'osservabile non è degenere la probabilità $P_i$ di trovare l'autovalore $\xi_i$ è la probabilità di transizione da $\ket{x}$ a $\ket{\xi_i}$, data da
+\begin{equation}
+	P_i=\abs{\braket{x}{\xi_i}}^2=\braket{x}{\xi_i}\braket{x}{\xi_i}^*=\braket{x}{\xi_i}\braket{\xi_i}{x}=\bra{x}E_i\ket{x}.
+	\label{eq:probabilita-proiezione-non-degenere}
+\end{equation}
+Anche nel caso l'osservabile non sia degenere, il risultato non cambia, se prendiamo comunque la proiezione su ogni vettore della base: per linearità, la proiezione di $\ket{x}$ nell'autospazio è la somma delle proiezioni su ciascun vettore della base che appartiene a tale autospazio.
+Più praticamente, riprendendo l'autovalore $\xi_1$ visto in precedenza, e assumendo che esso abbia due autovettori linearmente indipendenti $\ket{\xi_1'}$ e $\ket{\xi_1''}$ ortonormali, allora
+\begin{equation}
+	P_1=\abs{\braket{x}{\xi_1'}}^2+\abs{\braket{x}{\xi_1''}}^2=\bra{x}E_1'\ket{x}+\bra{x}E_1''\ket{x}=\bra{x}(E_1'+E_1'')\ket{x}.
+	\label{eq:probabilita-proiezione-degenere}
+\end{equation}
+
+Se compiamo un numero $N$ di misure di $\xi$ sullo stato $\ket{x}$ (ovviamente non possiamo farlo consecutivamente: dobbiamo avere $N$ sistemi tutti nello stesso stato e compiere la misura si ciascuno di essi), misureremo ogni autovalore $\xi_i$ un certo numero $n_i$ di volte, con $\sum_in_i=N$.
+Possiamo allora definire il valore medio $\avg{\xi}$ dell'osservabile come
+\begin{equation}
+	\avg{\xi}=\frac1{N}\sum_in_i\xi_i
+	\label{eq:valore-medio-finito}
+\end{equation}
+e per $N\to+\infty$, cioè con un numero infinito di misure, il rapporto $n_i/N$ tende alla probabilità di trovare $\xi_i$, perciò
+\begin{equation}
+	\avg{\xi}=\sum_iP_i\xi_i
+	\label{eq:valore-medio}
+\end{equation}
+dove le $P_i$ sono definite come al solito finora.
+Se il sistema è nello stato $\ket{x}$, dunque, il valore medio è
+\begin{equation}
+	\avg{\xi}=\sum_i\xi_i\bra{x}E_i\ket{x}=\bra{x}\sum_iE_i\xi_i\ket{x}.
+\end{equation}
+Definiamo dunque l'\emph{operatore associato} all'osservabile $\xi$ come
+\begin{equation}
+	\op{\xi}=\sum_i\xi_iE_i.
+	\label{eq:definizione-operatore}
+\end{equation}
+Si ha dunque, se $\ket{x}$ è normalizzato, che $\avg{\xi}=\bra{x}\op{\xi}\ket{x}$, il quale viene infatti chiamato \emph{valore di aspettazione} dell'osservabile $\xi$ sullo stato $\ket{x}$.
+
+Osserviamo subito che gli operatori associati sono hermitiani, ossia $\adj{\op\xi}=\op\xi$: infatti data una base ortonormale di autostati anche degeneri $\{\ket{\xi_i}\}$ si ha
+\begin{equation}
+	\bra{x}\op{\xi}\ket{y}=\bra{x}\sum_i\xi_iE_i\ket{y}=\sum_i\xi_i\bra{x}E_i\ket{y}=\sum_i\xi_i\braket{x}{\xi_i}\braket{\xi_i}{y},
+\end{equation}
+e allo stesso tempo
+\begin{equation}
+	\bra{x}\adj{\op{\xi}}\ket{y}=\bra{y}\op{\xi}\ket{x}^*=\Big(\sum_i\xi_i\braket{y}{\xi_i}\braket{\xi_i}{x}\Big)^*=\sum_i\xi_i\big(\braket{y}{\xi_i}\braket{\xi_i}{x}\big)^*=\sum_i\xi_i\braket{x}{\xi_i}\braket{\xi_i}{y}
+\end{equation}
+($\sum_i\xi_i\in\R$ quindi è il coniugato di s\'e stesso) che è dunque uguale a $\bra{x}\op{\xi}\ket{y}$.
+Inoltre gli autovalori $\xi_i$, che avevamo definito come i possibili risultati della misura dell'osservabile, sono in realtà anche gli autovalori, nel senso matematico, dell'operatore, perch\'e
+\begin{equation}
+	\op{\xi}\ket{\xi_i}=\sum_k\xi_kE_k\ket{\xi_i}=\sum_k\xi_k\ket{\xi_k}\braket{\xi_k}{\xi_i}=\sum_k\xi_k\ket{\xi_k}\delta_{ik}=\xi_i\ket{\xi_i}.
+\end{equation}
+
+Vediamo due importanti proprietà degli operatori hermitiani:
+\begin{itemize}
+	\item i suoi autovalori sono tutti reali.
+		Se infatti $\op\xi\ket{\xi}=\xi\ket{\xi}$, in generale l'autovalore $\xi$ è complesso, ma in questo caso se moltiplichiamo a sinistra per il \emph{bra} $\bra{\xi}$ otteniamo $\bra{\xi}\op\xi\ket{\xi}=\xi\braket{\xi}{\xi}$, ma $\op\xi=\adj{\op\xi}$ quindi $\bra{\xi}\op\xi\ket{\xi}=\bra{\xi}\adj{\op\xi}\ket{\xi}=\bra{\xi}\op\xi\ket{\xi}^*=(\xi\braket{\xi}{\xi})^*$, ossia
+		\begin{equation}
+			(\xi\braket{\xi}{\xi})^*=\xi\braket{\xi}{\xi}\quad\then\quad\xi^*=\xi
+		\end{equation}
+		perch\'e $\braket{\xi}{\xi}\in\R$, ma allora $\xi\in\R$.
+	\item gli autospazi corrispondenti a differenti autovalori sono ortogonali.
+		Prendiamo due autovalori $\eta'$ e $\eta''$ (ovviamente $\eta'\neq\eta''$) dell'operatore $\op\eta$ hermitiano.
+		Prendiamo inoltre l'azione di $\op\eta$ su due autostati corrispondenti ai due autovalori, cioè $\op\eta\ket{\eta'}=\eta'\ket{\eta'}$ e $\op\eta=\eta''\ket{\eta''}$.
+		Moltiplicando a sinistra per rispettivamente per $\bra{\eta''}$ e $\bra{\eta'}$ otteniamo
+		\begin{equation}
+			\begin{cases}
+				\bra{\eta''}\op\eta\ket{\eta'}=\eta'\braket{\eta''}{\eta'}\\
+				\bra{\eta'}\op\eta\ket{\eta''}=\eta''\braket{\eta'}{\eta''}
+			\end{cases}
+			\quad\then\quad
+			\begin{cases}
+				\bra{\eta''}\op\eta\ket{\eta'}=\eta'\braket{\eta''}{\eta'}\\
+				\bra{\eta''}\op\eta\ket{\eta'}=\eta''^*\braket{\eta''}{\eta'}
+			\end{cases}
+		\end{equation}
+		ma gli autovalori sono reali quindi nella seconda $\eta''^*=\eta''$.
+		Allora sottraendo la seconda equazione dalla prima troviamo
+		\begin{equation}
+			(\eta'-\eta'')\braket{\eta''}{\eta'}=0
+		\end{equation}
+		ma se $\eta'\neq\eta''$ allora $\braket{\eta''}{\eta'}=0$, ossia i due autostati sono ortogonali.
+\end{itemize}
+
+È dunque vero che tutte le osservabili sono operatori hermitiani?
+Per quanto visto finora e per come abbiamo associato gli operatori alle osservabili, s\`i, è vero.
+Non è vero però il contrario: sappiamo che con gli autostati di un'osservabile, degenere o meno, possiamo costruire una base ortonormale dello spazio degli stati, ma ciò non è sempre possibile con gli operatori hermitiani.
+Se lo spazio $\hilbert$ fosse di dimensione finita, allora per il teorema spettrale ogni operatore hermitiano ammette un insieme di autovettori che forma una base dello spazio, ma questo non è più vero in dimensione infinita.
+Alcuni operatori infatti, pur essendo hermitiani, non possiedono abbastanza autovettori linearmente indipendenti da poter costruire una base: gli operatori per cui questo accade, invece, si dicono \emph{autoaggiunti}.
+Solo quest'ultimo tipo di operatori corrisponde ad un'osservabile; analogamente tutte le osservabili sono operatori autoaggiunti.
+
+\section{Osservabili compatibili}
+Consideriamo due osservabili $\xi$ e $\eta$ sullo stato $\ket{x}$ del sistema.
+Misuriamo $\xi$, e lo troviamo in un autostato $\ket{\xi_i}$; se misuriamo ora $\eta$, in generale, non potremo dire niente sul risultato.
+Troveremo però il sistema in un autostato $\ket{\eta_j}$: se lo stato precedente $\ket{\xi_i}$ fosse un autostato di $\eta$, allora $\op\eta\ket{\xi_i}=\eta_j\ket{\xi_i}$, quindi la misura non ha alterato il sistema, che rimane nello stesso stato.
+Lo stato $\ket{\xi_i}$ è dunque autostato sia di $\xi$ che di $\eta$: se di tali autostati se ne trovano abbastanza da formare una base, le due osservabili si dicono \emph{compatibili}.
+\begin{definizione} \label{d:osservabili-compatibili}
+	Due osservabili si dicono \emph{compatibili} se ammettono una base di autovettori simultanei.
+\end{definizione}
+Quindi preso un autostato qualunque, effettuando la misura di un'osservabile compatibile il nuovo stato è ancora un autostato della prima osservabile.
+
+Chiaramente per verificare la compatibilità è impensabile effettuare una misura su tutti gli autostati, che sono infiniti.
+Fortunatamente esiste una caratterizzazione di tipo algebrico che permette di verificarlo più semplicemente.
+Introduciamo innanzitutto il \emph{commutatore} tra due operatori, definito come
+\begin{equation}
+	[\op\xi,\op\eta]=\op\xi\op\eta-\op\eta\op\xi.
+	\label{eq:commutatore}
+\end{equation}
+Il risultato del commutatore è a sua volta un operatore, e come anche suggerisce il nome esso fornisce una ``misura'' di quanto gli operatori \emph{non} commutano (e in generale non è nullo).
+Le proprietà fondamentali del commutatore sono:
+\begin{itemize}
+	\item $[\op\eta,\op\xi]=-[\op\xi,\op\eta]$;
+	\item per $a,b\in\C$, $[\op\eta,a\op\xi+b\op\lambda]=a[\op\eta,\op\xi]+b[\op\eta,\op\lambda]$;
+	\item $[\op\eta,\op\xi\op\lambda]=\op\lambda[\op\eta,\op\xi]+[\op\eta,\op\lambda]\op\xi$.
+\end{itemize}
+Le prime due sono evidenti dalla definizione del commutatore; per la terza, si ha
+\begin{equation}
+	\begin{split}
+		[\op\eta,\op\xi\op\lambda]&=\op\eta\op\xi\op\lambda-\op\xi\op\lambda\op\eta=\\
+		&=\op\eta\op\xi\op\lambda-\op\xi\op\lambda\op\eta+\op\lambda\op\eta\op\xi-\op\lambda\op\eta\op\xi=\\
+		&=\op\lambda(\op\eta\op\xi-\op\xi\op\eta)+(\op\eta\op\lambda-\op\lambda\op\eta)\op\xi=\\
+		&=\op\lambda[\op\eta,\op\xi]+[\op\eta,\op\lambda]\op\xi.
+	\end{split}
+\end{equation}
+Prima di collegare il commutatore alla compatibilità tra le osservabili, dimostriamo il seguente lemma.
+\begin{lemma} \label{l:autostati-compatibili}
+	Date due osservabili $\xi$ ed $\eta$, se $[\op\xi,\op\eta]=0$ e $\ket{\xi'}$ è un autostato di $\xi$, allora $\op\eta\ket{\xi'}$ è ancora un autostato di $\xi$ con lo stesso autovalore.
+\end{lemma}
+\begin{proof}
+	Dato che le osservabili commutano, $\op\xi\op\eta\ket{\xi'}=\op\eta\op\xi\ket{\xi'}=\op\eta(\xi'\ket{\xi'})=\xi'\op\eta\ket{\xi'}$, ossia
+	\begin{equation}
+		\op\xi(\op\eta\ket{\xi'})=\xi'(\op\eta\ket{\xi'}).\qedhere
+	\end{equation}
+\end{proof}
+Questo lemma \emph{non} significa che $\op\eta\ket{\xi'}=\ket{\xi'}$!
+Ciò accade soltanto se $\xi$ non è degenere: in tal caso, $\op\eta\ket{\xi'}$ sarebbe un multiplo di $\ket{\xi'}$, ma ricordando che i vettori multipli per uno scalare rappresentano il medesimo stato fisico i due stati sono uguali.
+Vediamo dunque come la compatibilità tra due osservabili è legata al loro commutatore, partendo dal caso delle osservabili compatibili; in seguito affronteremo il caso generale.
+\begin{teorema} \label{t:osservabili-compatibili}
+	Due osservabili $\xi$ e $\eta$ sono compatibili se e solo se $[\op\xi,\op\eta]=0$.
+\end{teorema}
+\begin{proof}
+	Assumiamo le due osservabili compatibili.
+	Chiamiamo $\ket{\xi'\eta'}$ uno degli autostati della base in comune, che è tale per cui $\op\xi\ket{\xi'\eta'}=\xi'\ket{\xi'\eta'}$ e $\op\eta\ket{\xi'\eta'}=\eta'\ket{\xi'\eta'}$.
+	Ma allora $\op\xi\op\eta\ket{\xi'\eta'}=\op\xi(\op\eta\ket{\xi'\eta'})=\eta'\op\xi\ket{\xi'\eta'}=\eta'\xi'\ket{\xi'\eta'}$, e analogamente $\op\eta\op\xi\ket{\xi'\eta'}=\xi'\eta'\ket{\xi'\eta'}$, quindi $\op\xi\op\eta=\op\eta\op\xi$ su ogni autostato simultaneo.
+	Questi autostati, però, formano un insieme completo nonch\'e una base dello spazio, quindi per linearità questo vale pe ogni stato di $\hilbert$.
+	Allora $[\op\xi,\op\eta]=0$.
+
+	Partiamo ora da $[\op\xi,\op\eta]=0$, e consideriamo $\xi$ non degenere.
+	Se $\ket{\xi_i}$ è un autostato di $\xi$ con autovalore $\xi_i$, allora $\op\eta\ket{\xi_i}$ per il lemma precedente è ancora autostato di $\xi$.
+	La dimensione dell'autospazio di tale autovalore però è 1, poich\'e non è degenere, quindi questo nuovo autostato sarà un multiplo del precedente, cioè $\op\eta\ket{\xi_i}=c\ket{\xi_i}$ con $c\in\C$.
+	Ma allora $\ket{\xi_i}$ è un autostato di $\eta$.
+	Poich\'e questo vale per ogni autostato, e gli autostati di $\xi$ formano già una base, essi sono tutti anche autostati di $\eta$ quindi le due osservabili sono compatibili.
+
+	Prendiamo ora $\xi$ degenere, e assumiamo per semplicità che solo l'autovalore $\xi_1$ sia degenere.
+	Possiamo scomporre $\hilbert$ nella somma diretta $\hilbert_1\oplus\hilbert^\perp_1$: il primo termine è l'autospazio dell'autovalore $\xi_1$, il secondo è il suo complemento ortogonale, che è anche la somma dei restanti autospazi (ricordiamo che sono tutti ortogonali tra loro).
+	Se $\ket{x}\in\hilbert_1$, per il lemma precedente anche $\op\eta\ket{x}\in\hilbert_1$, perch\'e devono avere lo stesso autovalore di $\xi$.
+	Prendiamo un altro stato $\ket{y}$: abbiamo che se $\ket{y}\in\hilbert_1^\perp$ allora $\op\eta\ket{y}\in\hilbert_1^\perp$.
+	Infatti $\bra{x}\op\eta\ket{y}=\bra{y}\op\eta\ket{x}^*=0$, perch\'e $\ket{y}$ e $\op\eta\ket{x}$ appartengono a spazi ortogonali, dunque anche $\ket{x}$ e $\op\eta\ket{y}$ appartengono a spazi ortogonali.
+	In $\hilbert_1$ possiamo scegliere una base di autostati di $\eta$: essi saranno anche autostati di $\xi$ e avranno lo stesso autovalore, trovandoci nel medesimo autospazio.
+	Ripetendo per tutti gli autospazi restanti giungiamo a una base dello spazio degli stati, che è composta da autostati simultanei: ciò prova che le osservabili sono compatibili.
+\end{proof}
+Anche se il commutatore non è nullo, due osservabili possono comunque avere degli autostati simultanei: certamente non potranno essere abbastanza da formare una base.
+Un insieme di osservabili che commutano tra loro, e tali che nessun autovalore sia degenere, formano un \emph{sistema completo di osservabili}; se le prime due presentano ancora delle degenerazioni, si può continuare aggiungendo altre osservabili che commutano fino ad arrivare a un sistema completo.
+
+Con delle osservabili compatibili possiamo inoltre verificare se un'altra osservabile è degenere o meno, con il seguente teorema.
+\begin{teorema} \label{t:degenerazione}
+	Siano $\xi,\eta,\zeta$ tre osservabili tali che $[\op\xi,\op\eta]=[\op\xi,\op\zeta]=0$ e $[\op\eta,\op\zeta]\ne 0$.
+	Allora $\xi$ è degenere.
+\end{teorema}
+\begin{proof}
+	Se $\xi$ non fosse degenere, allora i suoi autostati formerebbero un insieme completo, e coinciderebbero sia con quelli di $\eta$ che con quelli di $\zeta$.
+	In tal caso però $\eta$ e $\zeta$ ammetterebbero un insieme completo di autostati simultanei (gli stessi di $\xi$, per transitività) cioè sarebbero compatibili, dunque per il teorema \ref{t:osservabili-compatibili} avremmo $[\op\eta,\op\zeta]=0$ che contraddice le ipotesi.
+	Allora $\xi$ deve essere degenere.
+\end{proof}
+
+\section{Indeterminazione nella misura}
+Come non ci annoiamo mai di ripetere, il risultato della misura di un'osservabile non può essere, in generale, previsto con certezza.
+L'unico caso in cui sappiamo che certamente otterremo un dato autovalore è se il sistema si trova nel corrispondente autostato.
+Se anche non possiamo conoscere il risultato, però, non significa che la misura darà risultati distribuiti senza criterio: ad esempio, se lo stato $\ket{x}$ del sistema è ``molto vicino'' ad un autostato $\ket{\xi_i}$ dell'osservabile $\xi$, ossia $\abs{\braket{x}{\xi_i}}^2\approx 1$ (prendendo i due stati normalizzati), allora la probabilità di ottenere proprio l'autovalore $\xi_i$ è più alta rispetto a quella di ottenere altri autovalori, e di conseguenza ci aspettiamo che l'indeterminazione nel risultato sia bassa.
+
+Dato uno stato ``di partenza'' $\ket{x}$ del sistema, e in seguito alla misura di $\xi$, sappiamo qual è il valore di aspettazione, ma possiamo anche chiederci come fluttua (statisticamente parlando) il risultato della misura attorno a questo valore.
+La quantità più naturale da scegliere a questo scopo è lo \emph{scarto quadratico medio}, che chiamiamo $\Delta_x\xi$, che sarà dunque
+\begin{equation}
+	\Delta_x\xi=\avg{(\xi-\avg{\xi})^2}=\sqrt{\avg{\xi^2}-\avg{\xi}^2}.
+	\label{eq:deviazione-standard}
+\end{equation}
+Elevando al quadrato, dunque, troviamo
+\begin{equation}
+	\Delta_x\xi^2=\avg{\xi^2}-\avg{\xi}^2=\bra{x}\op\xi^2\ket{x}-\bra{x}\op\xi\ket{x}^2.
+	\label{eq:varianza}
+\end{equation}
+Guardiamo al quadrato dell'operatore $\op\xi$: esso non è altro che $\op\xi$ applicato consecutivamente, perciò sugli autostati accade che
+\begin{equation}
+	\op\xi^2\ket{\xi_i}=\op\xi(\op\xi\ket{\xi_i})=\op\xi(\xi_i\ket{\xi_i})=\xi_i\op\xi\ket{\xi_i}=\xi_i^2\ket{\xi_i}
+\end{equation}
+quindi i suoi autovalori sono il quadrato dei corrispondenti autovalori dell'operatore originario, con i medesimi autostati.
+
+D'altro canto, nella \eqref{eq:deviazione-standard}, $(\xi-\avg{\xi})^2$ è ancora un'osservabile, e possiamo dunque scrivere il suo valore di aspettazione dallo stato $\ket{x}$ come $\bra{x}(\op\xi-\avg\xi)^2\ket{x}$, che a sua volta è esprimibile come\footnote{Rigorosamente, $\avg\xi$ non è un'osservabile n\'e un operatore, ma un numero reale. Possiamo considerarlo tale se supponiamo in realtà $\avg\xi=\avg\xi\op 1$, ossia come multiplo dell'identità, per cui sarebbe anche un operatore autoaggiunto.}
+\begin{equation}
+	\bra{x}(\op\xi-\avg\xi)^2\ket{x}=\bra{x}(\op\xi-\avg\xi)(\op\xi-\avg\xi)\ket{x}=\bra{x}\adj{(\op\xi-\avg\xi)}(\op\xi-\avg\xi)\ket{x}
+\end{equation}
+dato che l'operatore $\op\xi-\avg\xi$ che abbiamo introdotto è anch'esso hermitiano, poich\'e $\adj{(\op\xi-\avg\xi)}=\adj{\op\xi}-\adj{\avg\xi}=\op\xi-\avg\xi$.
+
+Possiamo quindi formulare il seguente teorema.
+\begin{teorema} \label{t:autostato-indeterminazione-nulla}
+	Dato uno stato $\ket{x}$ del sistema e un'osservabile $\xi$, $\Delta_x\xi=0$ se e solo se $\ket{x}$ è un autostato di $\xi$.
+\end{teorema}
+\begin{proof}
+	Se $\Delta_x\xi=0$, allora per quanto abbiamo visto prima $\bra{x}(\op\xi-\avg\xi)(\op\xi-\avg\xi)\ket{x}=0$, ma questo termine è anche la norma del vettore $(\op\xi-\avg\xi)\ket{x}$, che dunque è nullo poich\'e il prodotto scalare non è degenere.
+	Allora $(\op\xi-\avg\xi)\ket{x}=0$, vale a dire $\op\xi\ket{x}=\avg\xi\ket{x}$ cioè $\ket{x}$ è un autostato dell'osservabile (con autovalore $\avg\xi$).
+
+	Se invece partiamo dall'ipotesi che $\ket{x}$ sia autostato di $\xi$, allora (chiamiamo $\xi'$ il rispettivo autovalore) $\op\xi=\xi'\ket{x}$.
+	Per l'operatore $\op\xi^2$ si ha analogamente $\op\xi^2\ket{x}=\xi'^2\ket{x}$, e moltiplicando a sinistra le due equazioni per $\bra{x}$ otteniamo, supponendo $\ket{x}$ normalizzato,
+	\begin{gather}
+		\bra{x}\op\xi\ket{x}=\bra{x}\xi'\ket{x}=\xi'\braket{x}{x}=\xi'\\
+		\bra{x}\op\xi^2\ket{x}=\bra{x}\xi'^2\ket{x}=\xi'^2\braket{x}{x}=\xi'^2
+	\end{gather}
+	quindi $\Delta_x\xi^2=\bra{x}\op\xi^2\ket{x}-\bra{x}\op\xi\ket{x}^2=0$.
+\end{proof}
+Gli autostati dell'osservabile sono quindi gli stati di \emph{minima indeterminazione} del risultato della misura.
+
+In generale sappiamo che due osservabili non commutano, e il loro commutatore fornisce una stima di questo fatto: vediamo come tutto ciò si traduce nell'indeterminazione sulle misure.
+\begin{teorema} \label{t:indeterminazione}
+	Dato uno stato $\ket{x}$ e due osservabili $\xi$, $\eta$, il prodotto delle due indeterminazioni delle due misure è
+	\begin{equation}
+		\Delta_x\xi\Delta_x\eta\geq\frac12\abs{\bra{x}i[\op\xi,\op\eta]\ket{x}}.
+		\label{eq:indeterminazione}
+	\end{equation}
+\end{teorema}
+\begin{proof}
+	Costruiamo l'operatore $\op A=\op\xi+iz\op\eta$, con $z\in\R$: il suo aggiunto è $\adj{\op A}=\adj{\op\xi}-iz\adj{\op\eta}=\op\xi-iz\op\eta$.
+	Calcoliamo subito $\adj{\op A}\op A$, che vale
+	\begin{equation}
+		\adj{\op A}\op A=(\op\xi-iz\op\eta)(\op\xi+iz\op\eta)=\op\xi^2+z^2\op\eta^2-iz\op\eta\op\xi+iz\op\xi\op\eta=\op\xi^2+z^2\op\eta^2+iz[\op\xi,\op\eta].
+	\end{equation}
+	Assumiamo che lo stato $\ket{x}$ sia normalizzato, e calcoliamo la norma di $\op A\ket{x}$: prendendo una base ortonormale che include $\ket{x}$, l'insieme $\{\op E_i\}$ delle proiezioni sugli elementi della base è tale per cui $\sum_i\op E_i=\op 1$, quindi (possiamo assumere che $\ket{x}$ sia l'elemento della base con indice 1, perciò $E_1$ è la proiezione su $\ket{x}$)
+	\begin{equation}
+		\begin{split}
+			\bra{x}\adj{\op A}\op A\ket{x}&=\bra{x}\adj{\op A}\Big(\sum_i\op E_i\Big)\op A\ket{x}=\\
+			&=\sum_i\bra{x}\adj{\op A}\op E_i\op A\ket{x}=\\
+			&=\bra{x}\adj{\op A}\op E_1\op A\ket{x}+\sum_{i>1}\bra{x}\adj{\op A}\op E_i\op A\ket{x}=\\
+			&=\bra{x}\adj{\op A}\ket{x}\bra{x}\op A\ket{x}+\sum_{i>1}\bra{x}\adj{\op A}\op E_i\op A\ket{x},
+		\end{split}
+	\end{equation}
+	ma tutti gli addendi sono positivi, perch\'e corrispondono a $\big|\bra{e_i}\op A\ket{x}\big|^2$, dove $\ket{e_i}$ sono i vettori della base ortonormale considerata.
+	Possiamo quindi sottrarre tutti i termini per $i>1$, ottenendo
+	\begin{equation}
+		\bra{x}\adj{\op A}\op A\ket{x}\geq\bra{x}\adj{\op A}\ket{x}\bra{x}\op A\ket{x}
+	\end{equation}
+	I due fattori al secondo membro sono i valori di aspettazione di $\adj{\op A}\op A$	e $\op A$ rispettivamente, quindi dalla definizione di questi operatori troviamo
+	\begin{equation}
+		\avg{\xi^2}+z^2\avg{\eta^2}+iz\avg{[\xi,\eta]}\geq\avg{(\xi-iz\eta)}\avg{(\xi+iz\eta)}=\avg{\xi}^2+z^2\avg{\eta}^2
+	\end{equation}
+	e semplificando risulta
+	\begin{equation}
+		(\avg{\eta^2}-\avg{\eta}^2)z^2+iz\avg{[\xi,\eta]}+\avg{\xi^2}-\avg{\xi}^2\geq 0.
+	\end{equation}
+	Affinch\'e tale relazione valga per ogni $z\in\R$, il discriminante della forma quadratica deve essere negativo o nullo, quindi $\avg{i[\xi,\eta]}^2-4(\avg{\eta^2}-\avg{\eta}^2)(\avg{\xi^2}-\avg{\xi}^2)=\avg{i[\xi,\eta]}^2-4\Delta_x\xi^2\Delta_x\eta^2\leq 0$, che si riscrive come\footnote{La notazione usata per l'indeterminazione nelle osservabili è da intendersi come un oggetto unico, come il differenziale di una funzione, nel senso che $\Delta_x\xi^2=(\Delta_x\xi)^2$, e non è quindi l'indeterminazione di $\xi^2$ ma il quadrato dell'indeterminazione di $\xi$.}
+	\begin{equation}
+		\Delta_x\xi\Delta_x\eta\geq\frac12\avg{i[\xi,\eta]}=\frac12\abs{\bra{x}i[\op\xi,\op\eta]\ket{x}}.
+	\end{equation}
+\end{proof}
+Di conseguenza se misuriamo due osservabili su uno stato ed esse non sono compatibili non potremo mai determinarle con assoluta precisione, ma dobbiamo accettare inevitabilmente un'indeterminazione sui risultati.\footnote{La misura delle due osservabili deve essere svolta ``in rapida successione'', nel senso che la seconda deve essere svolta \emph{immediatamente} dopo la prima. Questo perch\'e uno stato non è necessariamente costante nel tempo, ma può evolvere, quindi potremmi trovarci a misurare due osservabili su stati \emph{differenti}, e in tal caso chiaramente questo teorema non si applica più.}
+Da questo deriva inoltre il famoso \emph{principio di indeterminazione di Heisenberg}, ad esempio per la coppia di osservabili posizione-impulso.
+
+La presenza di una $i$ nella \eqref{eq:indeterminazione} è dovuta al fatto che il commutatore non è hermitiano, cioè
+\begin{equation}
+	\adj{[\op\xi,\op\eta]}=\adj{(\op\xi\op\eta-\op\eta\op\xi)}=\adj{\op\eta}\adj{\op\xi}-\adj{\op\xi}\adj{\op\eta}=\op\eta\op\xi-\op\xi\op\eta=-[\op\xi,\op\eta],
+	\label{eq:commutatore-antihermitiano}
+\end{equation}
+quindi non può rappresentare un'osservabile, e il termine $\bra{x}[\op\xi,\op\eta]\ket{x}$ non avrebbe un senso fisico.
+Aggiungendo la $i$, come si può verificare facilmente, $i[\op\xi,\op\eta]$ è hermitiano, e automaticamente anche autoaggiunto perch\'e lo sono i due operatori.
+
+\section{Regole di quantizzazione}
+Per concludere i principi della meccanica quantistica, volgiamo l'attenzione alle osservabili della meccanica classica.
+Avevamo visto che tutte le osservabili sono delle funzioni della posizione $\vec q$ e del momento $\vec p$ (che a loro volta sono delle osservabili).
+Anche in meccanica quantistica le osservabili saranno funzioni generiche di posizione e momento, oltre che degli operatori autoaggiunti sullo spazio degli stati; in questo caso però posizione e momento, ossia gli operatori $\op q$ e $\op p$, fanno parte di un'algebra non commutativa, e questo porta ad alcuni cambiamenti.
+Ad esempio, passiamo dall'hamiltoniana classica $\ham=\frac1{2m}p^2+\frac{k}2q^2$ all'operatore hamiltoniano semplicemente definendolo come
+\begin{equation}
+	\op H=\frac1{2m}\op p^2+\frac{k}2\op q^2.
+	\label{eq:operatore-hamiltoniano}
+\end{equation}
+Il problema sorge quando nell'osservabile classica appaiono prodotti di $\vec q$ e $\vec p$, in quanto i corrispondenti operatori non commutano ($\op q\op p\neq\op p\op q$).
+Possiamo risolvere questa ambiguità ad esempio sostituendo $\vec q\vec p$ con l'operatore $\frac12(\op q\op p+\op p\op q)$, che è hermitiano.
+
+In generale, quindi, per completare il quadro delle osservabili ci occorre conoscere come ogni coppia di esse commuta, cioè il loro commutatore.
+Essendo tutte le osservabili funzioni di $\op q$ e $\op p$, si può vedere che è sufficiente conoscere i commutatori di questi due operatori: le regole di quantizzazione, note anche come \emph{relazioni canoniche di commutazione}, spiegano come questi si comportano.
+Dalle proprietà del commutatore, notiamo che tra esso e le parentesi di Poisson esiste una forte relazione algebrica: per questo motivo si postula che
+\begin{postulato}
+	I commutatori degli operatori di posizione e impulso sono proporzionali alle corrispondenti parentesi di Poisson classiche.
+\end{postulato}
+Per come sono definiti, le parentesi di Poisson coinvolgono derivate e somme, e hanno come risultato una funzione, mentre il commutatore riguarda semplicemente il prodotto dei due operatori e come risultato dà un altro operatore, quindi non possiamo postulare che i risultati siano i medesimi, ma solo proporzionali: vediamo ora come.
+Innanzitutto, siccome $\pois{q_i}{q_j}=0$ e $\pois{p_i}{p_j}=0$, si avrà anche
+\begin{equation}
+	[\op q_i,\op q_j]=0\quad\text{e}\quad[\op p_i,\op p_j]=0.
+\end{equation}
+La rimanente parentesi è $\pois{q_i}{p_j}=\delta_{ij}$: non possiamo semplicemente porre $[\op q_i,\op p_j]=\delta_{ij}$ (vale a dire $[\op q_i,\op p_j]=\delta_{ij}\op 1$), poich\'e il commutatore è antihermitiano, cioè $\adj{[\op q_i,\op p_j]}=-[\op q_i,\op p_j]$, ma allora risulterebbe $\adj{\delta_{ij}\op 1}=-\delta_{ij}\op 1$, che è falso perch\'e $\delta_{ij}\op 1$ è chiaramente hermitiano (è un multiplo reale dell'identità).
+Dobbiamo allora far s\`i che il risultato di $[\op q_i,\op p_j]$, oltre che multiplo dell'identità, sia anche antihermitiano: lo scalare $z$ per cui moltiplichiamo $\op 1$ deve essere quindi tale che $z^*=-z$.
+Questo succede se $z$ è immaginario puro, ossia se $z=ic$ con $c\in\R$.
+Allora $[\op q_i,\op p_j]=ic\delta_{ij}$.
+La costante $c$ di proporzionalità chiaramente non è ancora ben definita: la chiameremo $\hbar$, senza preoccuparci ora di quanto valga realmente.
+I tre commutatori fondamentali sono quindi
+\begin{equation}
+	[\op q_i,\op q_j]=0\qquad[\op p_i,\op p_j]=0\qquad[\op q_i,\op p_j]=i\hbar\delta_{ij}.
+	\label{eq:commutatori-fondamentali}
+\end{equation}
+Da queste regole deduciamo quindi che osservabili di posizione $\op q$ riferiti a gradi di libertà ($i$ e $j$) qualsiasi sono compatibili, e lo stesso per gli impulsi $\op p$; inoltre, anche posizione e impulso riferiti a gradi di libertà \emph{differenti} sono compatibili.
+Le osservabili di posizione e impulso di un medesimo grado di libertà invece non lo sono, perch\'e il loro commutatore non è nullo.
+Dal teorema \ref{t:indeterminazione} troviamo infine il principio di indeterminazione di Heisenberg, poich\'e se lo stato di partenza $\ket{x}$ è normalizzato allora
+\begin{equation}
+	\Delta q\Delta p\geq\frac12\abs{\bra{x}i[\op q,\op p]\ket{x}}=\frac12\abs{\bra{x}i^2\hbar\ket{x}}=\frac{\hbar}2\abs{\braket{x}{x}}=\frac{\hbar}2.
+	\label{eq:indeterminazione-heisenberg}
+\end{equation}
+

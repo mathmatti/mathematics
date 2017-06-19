@@ -1,0 +1,1325 @@
+\chapter{Misura e integrale di Lebesgue}
+Come misuriamo il ``volume'' di un insieme di $\R^n$?
+Partiamo dai più semplici, gli intervalli sulla retta reale: associamo in modo del tutto naturale ad un intervallo $I$ di estremi $a$ e $b$ la sua \emph{lunghezza}, che definiamo come $b-a$.
+Un passo ulteriore è la generalizzazione degli intervalli a dimensioni maggiori, ottenendo dei rettangoli, o anche \emph{iperrettangoli}: essi saranno individuati da due punti nello spazio, $\vec a=(a_1,\dots,a_n)$ e $\vec b=(b_1,\dots,b_n)$, e possiamo definire il volume di un iperrettangolo come il prodotto delle lunghezze $b_i-a_i$ di ciascun suo lato (preso singolarmente).
+Potremmo anche prendere intervalli non limitati, e dire che il loro volume è infinito.
+
+Come possiamo definire però il volume per insiemi che non sono intervalli?
+È facile estendere il risultato all'unione di intervalli, ma per un insieme qualunque è meno ovvio.
+Ad esempio, come misuriamo la lunghezza dell'insieme dei numeri razionali in $[0,1]$?
+Possiamo estendere questo concetto di ``volume'' per insiemi qualsiasi di $\R^n$?
+I modi di farlo esistono e sono tanti: la \emph{misura di Lebesgue} è uno di questi.
+Vedremo inoltre come questa \emph{teoria della misura} ci permetterà di ampliare anche la teoria dell'integrazione di Riemann: quest'ultima, pur comprendendo una vasta gamma di insiemi e funzioni, non è sufficiente a trattare facilmente ad esempio i limiti di successioni di funzioni, per funzioni sempre più irregolari.
+
+\section{Spazi di misura}
+Passiamo ad un livello più astratto, e vediamo come definire rigorosamente questo ``volume'': innanzitutto, è lecito aspettarsi che esso sia un numero reale e positivo o nullo, semmai anche infinito.
+Definiamo dunque una funzione che associ ad ogni insieme un numero in $[0,+\infty]$.
+Questi insiemi li peschiamo da una collezione di insiemi $\mathcal C$, che per il momento non definiamo: abbiamo dunque una funzione $\lambda\colon\mathcal C\to[0,+\infty]$.
+Vediamo man mano come definire bene $\mathcal C$ in modo da avere delle proprietà ottimali per il nostro concetto di volume.
+Per prima cosa, l'insieme vuoto avrà certamente un volume (che sarà chiaramente zero), dunque $\mathcal C$ lo dovrà includere.
+Ci aspettiamo inoltre che $\mathcal C$ sia chiusa rispetto alle operazioni ``di base'' dell'insiemistica, cioè l'unione, l'intersezione e il complemento; in sostanza, $\mathcal C$ dovrà essere un'\emph{algebra} di insiemi.
+\begin{definizione} \label{d:algebra}
+	Una collezione $\mathcal A$ di insiemi di $X$ è detta \emph{algebra} se:
+	\begin{itemize}
+		\item $\emptyset\in\mathcal A$;
+		\item se $A,B\in\mathcal A$ allora $A\cup B\in\mathcal A$;
+		\item se $A\in\mathcal A$ allora $\compl A\in\mathcal A$.
+	\end{itemize}
+\end{definizione}
+Due esempi facili di algebre, con $X=\R^n$, sono $\mathcal A=\{\emptyset,\R^n\}$ e l'insieme delle parti $\mathcal P(\R^n)$.
+Queste due sono rispettivamente la più piccola e la più grande algebra su $\R^n$, e sono solitamente chiamate \emph{algebre banali}.
+
+Ecco le proprietà principali che vogliamo che $\lambda$ abbia.
+\begin{enumerate}
+	\item Generalizza il volume: per un intervallo o iperrettangolo $I$, $\lambda(I)$ deve coincidere con il suo volume;
+	\item Monotonia: se $A\subseteq B\subseteq\R^n$, allora $\lambda(A)\leq\lambda(B)$;
+	\item Additiva numerabile: se $A$ e $B$ sono sottoinsiemi disgiunti di $\R^n$, allora $\lambda(A\cup B)=\lambda(A)+\lambda(B)$, e se $\{A_i\}$ è una famiglia di insiemi (anche infinita, purch\'e numerabile) tutti disgiunti allora $\lambda\big(\bigcup_{i\in\N}A_i\big)=\sum_{i\in\N}\lambda(A_i)$.
+\end{enumerate}
+Mentre le prima due sono del tutto plausibili, la terza può sembrare forse eccessiva.
+La ragione per richiederla è che l'additività \emph{finita} (cioè per un numero finito di insiemi) è troppo debole come proprietà per giustificare i passaggi al limite degli integrali di successioni che vogliamo studiare nella nuova teoria.
+D'altro canto, l'additività \emph{non numerabile} sarebbe eccessiva, perch\'e se la ammettessimo otterremmo che poich\'e un punto ha (come vedremo) un volume nullo, allora qualsiasi insieme di $\R^n$ avrebbe volume nullo.
+
+Quest'ultima proprietà ci porta dunque dalle algebre di insiemi alle cosiddette \emph{$\sigma$-algebre}.
+\begin{definizione} \label{d:sigma-algebra}
+	Una collezione $\mathfrak S$ di insiemi di $X$ è detta \emph{$\sigma$-algebra} se
+	\begin{itemize}
+		\item $\emptyset\in\mathfrak S$;
+		\item se $\{A_n\}$ con $n\in\N$ è una famiglia (al più numerabile) di insiemi di $\mathfrak S$, allora $\bigcup_{n\in\N}A_n\in\mathfrak S$;
+		\item se $A\in\mathfrak S$ allora $\compl A\in\mathfrak S$.
+	\end{itemize}
+\end{definizione}
+In pratica, una $\sigma$-algebra non è altro che un'algebra chiusa anche rispetto all'unione numerabile, la collezione $\mathcal C$ di insiemi su cui definire $\lambda$ sarà allora di questo tipo. Insieme alle altre proprietà desiderate, tale funzione $\lambda$ dovrà dunque essere ciò che rigorosamente si chiama \emph{misura}.
+\begin{definizione} \label{d:misura}
+	Sia $\mathfrak F$ una $\sigma$-algebra di sottoinsiemi di $X$.
+	Una funzione $\mu\colon\mathfrak F\to[0,+\infty]$ è detta \emph{misura} se:
+	\begin{enumerate}
+		\item $\mu(\emptyset)=0$;
+		\item presa una famiglia numerabile di insiemi tutti disgiunti $\{A_n\}_{n\in\N}$, risulta
+			\begin{equation}
+				\mu\Big(\bigcup_{n\in\N}A_n\Big)=\sum_{n\in\N}\mu(A_n).
+				\label{eq:sigma-addivita}
+			\end{equation}
+	\end{enumerate}
+\end{definizione}
+Chiamiamo inoltre $(X,\mathfrak F,\mu)$ \emph{spazio di misura}.
+L'immagine di $\mu$ non deve necessariamente essere tutto $[0,+\infty]$: un caso molto importante è quello in cui $\mu\colon\mathfrak F\to[0,1]$, per cui quindi $\mu(X)=1$.
+Questo tipo di misura è detto solitamente \emph{misura di probabilità}, mentre la $\sigma$-algebra $\mathfrak F$ rappresenta lo spazio degli eventi possibili.
+
+Sfortunatamente, non è possibile definire una tale funzione su tutto l'insieme delle parti di $\R^n$ in una maniera ragionevole.
+Questo inconveniente è al centro del paradosso di Banach-Tarski: essi mostrarono che in $\R^3$ o dimensioni maggiori si può suddividere una palla in un numero finito di pezzi e, tramite delle isometrie (ossia delle rototraslazioni), riassemblare i pezzi per ottenere una palla di volume \emph{qualunque}, ad esempio due palle ciascuna uguale a quella di partenza.
+Si giunge a situazioni assurde, come questa, in cui $\mu(A)=\mu(A)+\mu(A)$, senza che $\mu(A)$ sia nulla.
+La ``morale'' di tutto ciò è che esistono insiemi \emph{troppo irregolari} per definire una misura su tutti i sottoinsiemi di $\R^n$ che soddisfi tutte le proprietà elencate finora, e che sia invariante per traslazioni.
+Tra i rimedi applicabili possiamo abbandonare alcune proprietà, come l'additività numerabile o l'invarianza per isometrie: fare ciò porterebbe però ad una teoria poco intuitiva (come può il volume di un solido cambiare se lo si ruota?) o non sufficiente ai nostri bisogni.
+Invece, possiamo semplicemente definire la misura di Lebesgue, anzich\'e su tutto l'insieme delle parti, soltanto su un suo sottoinsieme: esso sarà tale da escludere quegli insiemi perversi che portano a risultati come questo paradosso, ma sarà comunque grande abbastanza da contenere tutti gli insiemi ``di uso quotidiano'' nell'analisi matematica.
+
+Esistono molte maniere di costruire la misura di Lebesgue, tutte le quali portano al medesimo risultato.
+Il nostro approccio segue la costruzione di Carath\'eodory: definiremo prima una \emph{misura esterna} su tutti i sottoinsiemi di $\R^n$ (che non godrà dell'addività numerabile), approssimandola con il volume degli iperrettangoli, dunque la restringeremo ad un opportuno sottoinsieme di $\mathcal P(\R^n)$ che soddisfi certe proprietà.
+
+\section{Misura esterna}
+\label{sec:misura-esterna}
+Siano $\vec a=(a_1,a_2,\dots,a_n)$ e $\vec b=(b_1,b_2,\dots,b_n)$ due punti in $\R^n$: l'iperrettangolo individuato dai due punti è il prodotto cartesiano dei vari intervalli chiusi $I=[a_1,b_1]\times[a_2,b_2]\times\dots\times[a_n,b_n]$.
+Esso è un insieme compatto, e indicheremo il suo volume con $\vol{I}$, che vale
+\begin{equation*}
+	\vol{I}=\prod_{i=1}^n(b_i-a_i).
+\end{equation*}
+\begin{definizione} \label{d:ricoprimento-lebesgue}
+	Sia $A\subseteq\R^n$.
+	Un insieme numerabile di intervalli compatti $\{I_k\}_{k\in K}$, con $K\subseteq\N$, si dice \emph{ricoprimento di Lebesgue} di $A$ se $A\subseteq\bigcup_{k\in K}I_k$.
+\end{definizione}
+Esiste sempre un ricoprimento di Lebesgue per ogni insieme: se prendiamo $I_{\vec m}=[m_1,m_1+1]\times[m_2,m_2+1]\times\dots\times[m_n,m_n+1]$ ossia l'ipercubo con un vertice in $\vec m\in\R^n$ e spigolo unitario, l'unione (numerabile) $\bigcup_{\vec m\in\Z^n}I_{\vec m}$ ricopre qualsiasi insieme di $\R^n$.
+Cominciamo a dare una prima approssimazione di quella che sarà la misura di un insieme.
+\begin{definizione} \label{d:misura-esterna}
+	Si definisce \emph{misura esterna} di un insieme $A\subseteq\R^n$ la quantità
+	\begin{equation*}
+		\mu^*(A)=\inf\bigg\{\sum_{k\in K}\vol{I_k}\colon\{I_k\}_{k\in K}\text{ è un ricoprimento di Lebesgue di }A\bigg\},
+	\end{equation*}
+	dove $K$ è un insieme numerabile.
+\end{definizione}
+Chiaramente $\mu^*$ è un numero reale, ma può anche essere infinito, come ad esempio la misura esterna di $\R$.
+Dunque possiamo dire che $\mu^*$ è una funzione che associa a un insieme di $\R^n$ (quindi a un elemento dell'insieme delle parti), un numero non negativo anche infinito: vale a dire, abbiamo una funzione $\mu^*\colon\mathcal P(\R^n)\to[0,+\infty]$.
+
+La misura esterna di un iperrettangolo di volume $\vol{I}$ è chiaramente $\vol{I}$ stesso, che è il più piccolo ricoprimento possibile.
+Infatti, per ogni iperrettangolo $I$ (non vuoto) ne esistono $\forall\epsilon>0$ altri due $H$ e $J$, con $H\subset\interior{I}\subset I\subset\interior{J}$ tali che $\vol{J}-\epsilon<\vol{I}<\vol{H}+\epsilon$.
+Dato un ricoprimento di Lebesgue $\{I_k\}_{k\in K}$ di $I$, prendiamo $\{J_k\}_{k\in K}$ tale che, per ogni $k\in K$, $I_k\subset\interior{J_k}$ e che $\vol{J_k}-\frac{\epsilon}{2^k}<\vol{I_k}$.
+Otteniamo che $I\subset\bigcup_{k\in K} I_k$, e allora anche $I\subset\bigcup_{k\in K}\interior{J_k}$.
+Però $I$ è compatto, perciò esiste un $N\in\N$ per cui $I\subset\bigcup_{k=1}^NI_k$.
+Allora\footnote{Sfruttiamo la disuguaglianza $\sum_{k=1}^N\frac1{2^k}=\sum_{k=0}^N\frac1{2^k}-1=2-\frac1{2^N}-1<1$ per ogni $N\in\N$.}
+\begin{equation}
+	\vol{I}\leq\sum_{k=1}^N\bigg(\vol{I_k}+\frac{\epsilon}{2^k}\bigg)<\epsilon+\sum_{k=1}^N\vol{I_k}
+\end{equation}
+e prendendo l'estremo inferiore tra tutti i ricoprimenti troviamo
+\begin{equation}
+	\vol{I}\leq\epsilon+\inf\sum_{k=1}^N\vol{I_k}=\epsilon+\mu^*(I)
+\end{equation}
+da cui $\vol{I}=\mu^*(I)$ per l'arbitrarietà di $\epsilon$.
+
+\begin{proprieta} \label{pr:misura-esterna}
+	La misura esterna soddisfa la seguenti proprietà: dati $A,B,A_k\in\R^n$ per $k\in K\subseteq\N$,
+	\begin{enumerate}
+		\item $\mu^*(\emptyset)=0$;
+		\item $\mu^*(A)\in[0,+\infty]$ per qualsiasi $A$;
+		\item è monotona, cioè se $A\subseteq B$ allora $\mu^*(A)\leq\mu^*(B)$;
+		\item è subadditiva (numerabile), cioè $\mu^*\big(\bigcup_{k\in K}A_k\big)\leq\sum_{k\in K}\mu^*(A_k)$.
+	\end{enumerate}
+\end{proprieta}
+\begin{proof}
+	\begin{enumerate}
+		\item Per ogni $\epsilon>0$ la famiglia $\{I\}=\{[0,\epsilon]^n\}$ (è composta da un solo iperrettangolo) è un ricoprimento di Lebesgue per l'insieme vuoto di $\R^n$.
+			Poich\'e il suo volume è $\epsilon^n$, l'estremo inferiore tra tutti gli $\epsilon$ positivi dà $\mu^*(\emptyset)=0$.
+		\item Per qualsiasi insieme $\{I_k\}_{k\in K}$ di iperrettangoli ($K$ numerabile), risulta ovviamente $0\leq\vol{I_k}<+\infty$, di conseguenza la somma di tutti i volumi è
+			\begin{equation}
+				0\leq\sum_{k\in K}\vol{I_k}\leq+\infty
+			\end{equation}
+			quindi anche prendendo l'estremo inferiore tra tutti i ricoprimenti di un qualsiasi $A$ si può avere $0\leq\mu^*(A)\leq+\infty$.
+		\item Se $A\subseteq B$ allora ogni ricoprimento di Lebesgue di $B$ lo è anche di $A$, quindi i due insiemi dei ricoprimenti $\{I^A\}$ di $A$ e $\{I^B\}$ di $B$ soddisfano sempre $\{I^A\}\subseteq\{I^B\}$ quindi l'estremo inferiore del primo (cioè $\mu^*(A)$) non può essere maggiore dell'estremo inferiore del secondo.
+		\item Se per qualche $k\in K$ si ha $\mu^*(A_k)=+\infty$ la proprietà è immediata, dunque sia $\mu^*(A_k)<+\infty$.
+			Dalla definizione della misura, $\forall\epsilon>0$ esiste un ricoprimento di Lebesgue $\{I^{(k)}_j\}_{j\in J}$ di $A_k$ tale per cui
+			\begin{equation}
+				\sum_{j\in J}\vol{I^{(k)}_j}<\mu^*(A_k)+\frac{\epsilon}{2^k}.
+			\end{equation}
+			Unendo tutti i ricoprimenti per ogni $k\in K$ si ottiene che l'insieme $\{I^{(k)}_j\}_{j\in J,k\in K}$ è un ricoprimento di $\bigcup_{k\in K}A_k$, dunque
+			\begin{equation}
+				\mu^*\bigg(\bigcup_{k\in K}A_k\bigg)\leq\sum_{k\in K}\sum_{j\in J}\vol{I^{(k)}_j}<\sum_{k\in K}\bigg[\mu^*(A_k)+\frac{\epsilon}{2^k}\bigg]<\epsilon+\sum_{k\in K}\mu^*(A_k),
+			\end{equation}
+			potendo scegliere l'ordine della somma (prima su $j$ poi su $k$ o viceversa) poich\'e tutti gli addendi sono positivi.
+			Per l'arbitrarietà di $\epsilon$, l'estremo inferiore si ottiene per $\epsilon=0$ da cui la tesi.\qedhere
+	\end{enumerate}
+\end{proof}
+Un insieme si dice di \emph{misura nulla} se la sua misura esterna è zero.
+\begin{esempio} \label{es:insiemi-misura-nulla}
+	Ecco alcuni esempi di tali insiemi.
+	\begin{enumerate}
+		\item Se $I$ è dato dal prodotto di vari intervalli $[a_i,b_i]$ con $i\in\{1,\dots,n\}$, e per almeno un $j$ si ha $a_j=b_j$, allora
+			\begin{equation}
+				\mu^*(I)=\prod_{i=1}^n(b_i-a_i)=(a_j-a_j)\prod_{\substack{i=1\\i\neq j}}^n(b_i-a_i)=0.
+			\end{equation}
+		\item Se $A\in\R^n$ è composto di un solo punto, cioè $A=\{\vec a\}$, può essere scritto come $A=[a_1,a_1]\times\dots\times[a_n,a_n]$ quindi per il punto precedente $\mu^*(\{\vec a\})=0$.
+		\item Un insieme $B$ finito o numerabile è l'unione numerabile di tanti punti, cioè $B=\bigcup_{j\in J}\{\vec b_j\}$ con $J\subseteq\N$, quindi per la subadditività della misura esterna e per il punto precedente risulta
+			\begin{equation}
+				\mu^*(B)=\mu^*\bigg(\bigcup_{j\in J}\{\vec b_j\}\bigg)\leq\sum_{j\in J}\mu^*(\{\vec b_j\})=0.
+			\end{equation}
+		\item L'insieme $\Q$ dei razionali è numerabile, quindi $\mu^*(\Q)=0$ cos\'i come $\mu^*(\Q^n)=0$, pur essendo densi in $\R$ e $\R^n$.
+		\item Ogni sottoinsieme di un insieme di misura nulla è a sua volta di misura nulla, per la monotonia della misura.
+		\item Il bordo $\boundary I$ di un iperrettangolo di $\R^n$ può essere scritto come l'unione delle sue $2n$ facce $F_i$, che sono a loro volta iperrettangoli degeneri (come nel primo di questi esempi), dunque
+			\begin{equation}
+				\mu^*(\boundary I)=\mu^*\bigg(\bigcup_{i=1}^{2n} F_i\bigg)\leq\sum_{i=1}^{2n}\mu^*(F_i)=0.
+			\end{equation}
+	\end{enumerate}
+\end{esempio}
+Esistono anche insiemi non numerabili ma di misura nulla, come l'insieme di Cantor, definito come limite per induzione di
+\begin{equation}
+	\begin{aligned}
+		C_0&=[0,1]\\
+		C_1&=\Big[0,\frac13\Big]\cup\Big[\frac23,1\Big]\\
+		C_2&=\Big[0,\frac19\Big]\cup\Big[\frac29,\frac13\Big]\cup\Big[\frac23,\frac79\Big]\cup\Big[\frac89,1\Big]\\
+		\dots
+	\end{aligned}
+\end{equation}
+sottraendo ad ogni passo un terzo dell'insieme precedente.
+Al generico $n$ si hanno dunque $2^n$ intervalli chiusi, disgiunti ciascuno di diametro $3^{-n}$ e inclusi nell'insieme $C_{n-1}$.
+L'insieme di Cantor è l'insieme che si ottiene con
+\begin{equation}
+	C=\bigcap_{n=1}^{+\infty}C_n.
+\end{equation}
+Non dimostriamo che non è numerabile; si può verificare che ogni punto di $C$ è un punto di accumulazione.
+Si può però vedere intuitivamente che la misura di $C_n$ è $2^n/3^n$, quindi
+\begin{equation}
+	\mu^*(C)\leq\mu^*(C_n)=\frac{2^n}{3^n}\to 0
+\end{equation}
+cioè l'insieme è di misura nulla.
+
+\section{Misura di Lebesgue}
+\label{sec:misura-lebesgue}
+Avendo approssimato il volume di un insieme con la misura esterna, dobbiamo trovare ora un criterio che ci permetta di capire quando un insieme si può misurare in modo che questa sua misura soddisfi tutte le proprietà che abbiamo elencato all'inizio del capitolo.
+Nella costruzione della misura di Lebesgue sviluppata da Carath\'eodory, consideriamo misurabili quegli insiemi che, in gergo, ``tagliano bene'' tutti gli insiemi di $\R^n$.
+\begin{definizione} \label{d:lebesgue-misurabile}
+	Un insieme $A\in\R^n$ si dice \emph{misurabile secondo Lebesgue} se vale la relazione
+	\begin{equation}
+		\mu^*(E)=\mu^*(A\cap E)+\mu^*(\compl A\cap E),
+		\label{eq:lebesgue-misurabile}
+	\end{equation}
+	per ogni insieme $E\in\R^n$.
+\end{definizione}
+Indicheremo la classe degli insiemi di $\R^n$ misurabili secondo Lebesgue con la scrittura $\mis(\R^n)$.
+\begin{definizione} \label{d:misura-lebesgue}
+	Si definisce \emph{misura di Lebesgue} la restrizione della misura esterna $\mu^*$ all'insieme $\mis(\R^n)$.
+\end{definizione}
+La misura di Lebesgue, che indicheremo con $\mu$, coincide (quando è definita) con la misura esterna definita nella \ref{d:misura-esterna}, quindi la definizione rimane la stessa, e ovviamente ne eredita le proprietà già dimostrate.
+D'ora in poi con \emph{misurabile} intenderemo sempre misurabile secondo Lebesgue, e con \emph{misura} la misura di Lebesgue, dove non si presenteranno ambiguità.
+\begin{proprieta} \label{pr:complementare-misurabile}
+	Un insieme $A\in\R^n$ è misurabile se e solo se lo è il suo complementare.
+\end{proprieta}
+\begin{proof}
+	Usando direttamente la \eqref{eq:lebesgue-misurabile} abbiamo che $\compl A$ è misurabile se
+	\begin{equation}
+		\mu^*(B)=\mu^*(B\cap\compl A)+\mu^*\big(B\cap\compl{(\compl A)}\big),
+	\end{equation}
+	per ogni $B\in\R^n$.
+Poich\'e $\compl{(\compl A)}=A$, si ha esattamente la stessa equazione per $A$ anzich\'e per $\compl A$.
+\end{proof}
+Un esempio immediato: l'insieme vuoto è misurabile, perch\'e per ogni $A\subseteq\R^n$ si ha $\mu^*(A\cap\emptyset)+\mu^*(A\cap\compl{\emptyset})=\mu^*(A\cap\R^n)=\mu^*(A)$; di conseguenza lo è anche $\R^n$, in quanto suo complementare.
+\begin{osservazione}
+	Per dimostrare l'uguaglianza \eqref{eq:lebesgue-misurabile} per un insieme $A$ si è soliti dimostrare che vale sia $\mu^*(E)\geq\mu^*(A\cap E)+\mu^*(\compl A\cap E)$ che $\mu^*(E)\leq\mu^*(A\cap E)+\mu^*(\compl A\cap E)$ $\forall E\subseteq\R^n$.
+	Per qualsiasi $E\in\R^n$, però, vale $E=(E\cap A)\cup(E\cap\compl A)$, dunque per la subadditività della misura esterna si ha sempre $\mu^*(E)\leq\mu^*(E\cap A)+\mu^*(E\cap\compl A)$, questo indipendentemente che $A$ sia misurabile o meno.
+	Quindi per dimostrare la \eqref{eq:lebesgue-misurabile}  ci basterà dimostrare soltanto che
+	\begin{equation}
+		\mu^*(E)\geq\mu^*(E\cap A)+\mu^*(E\cap\compl A).
+	\end{equation}
+\end{osservazione}
+\begin{proprieta} \label{pr:misura-nulla}
+	Ogni insieme $Z\in\R^n$ tale che $\mu^*(Z)=0$ è misurabile, e la sua misura di Lebesgue è nulla.
+\end{proprieta}
+\begin{proof}
+	Poich\'e $E\cap\compl Z\subseteq E$, per la monotonia della misura esterna abbiamo
+	\begin{equation}
+		\mu^*(E)\geq\mu^*(E\cap\compl Z).
+	\end{equation}
+	Allo stesso modo, $E\cap Z\subseteq Z$, quindi $\mu^*(E\cap Z)\leq\mu^*(Z)$, ma $\mu^*(Z)=0$ per ipotesi, dunque anche $\mu^*(E\cap Z)=0$.
+	Allora aggiungiamo $0=\mu^*(E\cap Z)$ alla disequazione precedente, che ovviamente rimane vera: risulta quindi
+	\begin{equation}
+		\mu^*(E)\geq\mu^*(E\cap Z)+\mu^*(E\cap\compl Z)
+	\end{equation}
+	e ciò prova che $Z$ è misurabile.
+	Segue immediatamente che $\mu(Z)=\mu^*(Z)=0$.
+\end{proof}
+Non dimostriamo il seguente risultato, anch'esso decisamente intuitivo.
+\begin{proprieta} \label{pr:misura-iperrettangolo}
+	Ogni iperrettangolo, prodotto di intervalli compatti, è misurabile, e la sua misura coincide con il suo volume.
+\end{proprieta}
+Passiamo ora a dimostrare come si comporta la misura di Lebesgue rispetto alle operazioni insiemistiche, cioè il complementare di un insieme, la sottrazione e le unioni e intersezioni (anche infinite, purch\'e numerabili).
+\begin{proprieta} \label{pr:misura-unione-intersezione}
+	Siano $A,B\in\mis(\R^n)$:
+	\begin{enumerate}
+		\item $A\cup B$, $A\cap B$ e $A\setminus B$ sono misurabili;
+		\item se $A\cap B=\emptyset$, allora $\mu(A\cup B)=\mu(A)+\mu(B)$;
+		\item se $B\subseteq A$ e $\mu(B)<+\infty$, allora $\mu(A\setminus B)=\mu(A)-\mu(B)$.
+	\end{enumerate}
+\end{proprieta}
+\begin{proof}
+	\begin{enumerate}
+		\item Dimostriamo che l'unione è misurabile: preso un qualunque $E\in\R^n$, applicando la \eqref{eq:lebesgue-misurabile} ad $A$ abbiamo
+			\begin{equation}
+				\mu^*(E)=\mu^*(E\cap A)+\mu^*(E\cap\compl A).
+			\end{equation}
+			Anche $B$ è misurabile, e certamente $E\cap\compl A$ è un insieme di $\R^n$, quindi applicando ancora la definizione a questo insieme troviamo
+			\begin{equation}
+				\mu^*(E\cap\compl A)=\mu^*(E\cap\compl A\cap B)+\mu^*(E\cap\compl A\cap\compl B),
+			\end{equation}
+			e sostituendo nella prima si ha
+			\begin{equation}
+				\mu^*(E)=\mu^*(E\cap A)+\mu^*(E\cap\compl A\cap B)+\mu^*(E\cap\compl A\cap\compl B).
+				\label{eq:dim-unione-misurabile}
+			\end{equation}
+			Notiamo che nell'ultimo termine abbiamo già $\compl A\cap\compl B=\compl{(A\cup B)}$: dovremmo quindi ottenere $A\cup B$ dai due restanti.
+			Per la proprietà distributiva dell'unione rispetto all'intersezione abbiamo che
+			\begin{equation}
+				(E\cap A)\cup(E\cap\compl A\cap B)=E\cap\big[A\cup(\compl A\cap B)\big]=E\cap\big[(A\cup\compl A)\cap(A\cup B)\big]=E\cap(A\cup B),
+			\end{equation}
+			dunque per la subadditività della misura esterna $\mu^*(E\cap A)+\mu^*(E\cap\compl A\cap B)\geq\mu^*\big(E\cap(A\cup B)\big)$.
+			Sostituendo nella \eqref{eq:dim-unione-misurabile} troviamo allora che
+			\begin{equation}
+				\mu^*(E)\geq\mu^*\big(E\cap(A\cup B)\big)+\mu^*\big(E\cap\compl{(A\cup B)}\big),
+			\end{equation}
+			e ciò prova che $A\cup B$ è misurabile.
+			
+			Dalla proprietà \ref{pr:complementare-misurabile} sappiamo che $\compl A$ e $\compl B$ sono misurabili, e per quanto appena visto lo è anche $\compl A\cup\compl B$.
+			Ma $\compl A\cup\compl B=\compl{(A\cap B)}$ quindi anche $A\cap B$ sempre per la proprietà \ref{pr:complementare-misurabile} è misurabile.
+
+			Infine, anche $A\setminus B$ è misurabile, in quanto $A\setminus B=A\cap\compl B$ quindi è misurabile.
+		\item Poich\'e $A,B\in\mis(\R^n)$, $A\cup B$ è misurabile dunque $\mu(A\cup B)=\mu^*(A\cup B)$.
+			Usiamo questo insieme (che ovviamente è sottoinsieme di $\R^n$) nella \eqref{eq:lebesgue-misurabile} con $A$, anch'esso misurabile, per cui
+			\begin{equation}
+				\begin{split}
+					\mu(A\cup B)=\mu^*(A\cup B)&=\mu^*\big((A\cup B)\cap A\big)+\mu^*\big((A\cup B)\cap\compl A\big)=\\
+					&=\mu^*\big((A\cap A)\cup(A\cap B)\big)+\mu^*\big((A\cup B)\setminus A\big),
+				\end{split}
+			\end{equation}
+			e dato che $A\cap A=A$, $A\cap B=\emptyset$ e $(A\cup B)\setminus A=B$ troviamo che
+			\begin{equation}
+				\mu(A\cup B)=\mu^*(A\cup B)=\mu^*(A)+\mu^*(B)=\mu(A)+\mu(B).
+			\end{equation}
+		\item Poich\'e $B\subseteq A$, vale ovviamente $A=(A\setminus B)\cup B$.
+			Gli insiemi $A\setminus B$ e $B$ hanno intersezione vuota, perciò per il punto precedente
+			\begin{equation}
+				\mu(A)=\mu(A\setminus B)+\mu(B)
+			\end{equation}
+			da cui la tesi.\qedhere
+	\end{enumerate}
+\end{proof}
+Per induzione, segue immediatamente da questo teorema che l'unione e intersezione \emph{finite} di insiemi sono ancora insiemi misurabili, e che la misura è additiva se tutti gli insiemi sono disgiunti.
+\begin{proprieta} \label{pr:additivita-numerabile-lebesgue}
+	Sia $\{A_n\}_{n\in\N}$ una famiglia di insiemi misurabili di $\R^n$.
+	Allora l'unione e l'intersezione (numerabili) $\bigcup_{n=1}^{+\infty}A_n$ e $\bigcap_{n=1}^{+\infty}A_n$ sono insiemi misurabili.
+	Se inoltre $A_i\cap A_j=\emptyset$ per ogni $i\neq j$, allora
+	\begin{equation}
+		\mu\bigg(\bigcup_{n=1}^{+\infty}A_n\bigg)=\sum_{n=1}^{+\infty}\mu(A_n).
+		\label{eq:additivita-numerabile-lebesgue}
+	\end{equation}
+\end{proprieta}
+\begin{proof}
+	Notiamo innanzitutto che possiamo considerare gli insiemi $A_n$ mutualmente disgiunti, senza perdere generalità: se già non lo fossero, ci basterebbe prendere la famiglia $\{B_n\}_{n\in\N}$ dove
+	\begin{equation}
+		B_1=A_1,\ B_2=A_2\setminus A_1, B_3=A_3\setminus(A_2\cup A_1),\dots,B_m=A_m\setminus(A_1\cup\dots\cup A_{m-1}),
+	\end{equation}
+	che sono per costruzione mutualmente disgiunti, e tali che
+	\begin{equation}
+		\bigcup_{n=1}^{+\infty}B_n=\bigcup_{n=1}^{+\infty}A_n
+	\end{equation}
+	quindi si perviene agli stessi risultati.
+	Consideriamo dunque $A_j\cap A_i=\emptyset$ per ogni $i\neq j$.
+
+	Definiamo $F_k\defeq\bigcup_{n=1}^kA_n$, per $k\in\N$, che è misurabile per quanto visto nella proprietà \ref{pr:misura-unione-intersezione}.
+	Per la \eqref{eq:lebesgue-misurabile} applicata ad $A_k$, che è misurabile per ipotesi, abbiamo $\forall k\in\N$
+	\begin{equation}
+		\begin{split}
+			\mu^*(E\cap F_k)&=\mu^*\big( (E\cap F_k)\cap A_k\big)+\mu^*\big( (E\cap F_k)\cap\compl{A_k}\big)=\\
+			&=\mu^*\big(E\cap(F_k\cap A_k)\big)+\mu^*\big(E\cap (F_k\setminus A_k)\big)=\\
+			&=\mu^*(E\cap A_k)+\mu^*(E\cap F_{k-1}).
+		\end{split}
+	\end{equation}
+	per qualsiasi $E\subseteq\R^n$.
+	Iterando il procedimento con $F_{k-1}$, anch'esso ovviamente misurabile, otteniamo che $\mu^*(E\cap F_{k-1})=\mu^*(E\cap A_{k-1})+\mu^*(E\cap F_{k-2})$.
+	Continuiamo dunque in questo modo fino ad esaurire gli $A_n$, arrivando a $\mu^*(E\cap F_2)=\mu^*(E\cap A_2)+\mu^*(E\cap F_1)$, ma $F_1=A_1$ quindi alla fine
+	\begin{equation}
+		\mu^*(E\cap F_k)=\sum_{n=1}^k\mu^*(E\cap A_n).
+	\end{equation}
+	Passiamo a calcolare $\mu^*(E\cap\compl{F_k})$.
+	Definiamo $F\defeq\bigcup_{n=1}^{+\infty}A_n$: poich\'e $F_k\subseteq F$, passando ai complementari risulta $\compl {F_k}\supseteq\compl F$, e intersecandoli entrambi con un $E\in\R^n$ qualsiasi allora $E\cap\compl F\subseteq E\cap\compl{F_k}$; per la monotonia della misura esterna quindi troviamo $\mu^*(E\cap\compl F)\leq\mu^*(E\cap\compl{F_k})$, di conseguenza per ogni $E\subset\R^n$ vale
+	\begin{equation}
+		\begin{split}
+			\mu^*(E)&=\mu^*(E\cap F_k)+\mu^*(E\cap\compl{F_k})\geq\\
+			&\geq\mu^*(E\cap F_k)+\mu^*(E\cap\compl F)=\\
+			&=\sum_{n=1}^k\mu^*(E\cap A_n)+\mu^*(E\cap\compl F)
+		\end{split}
+	\end{equation}
+	Poich\'e ciò vale $\forall k\in\N$, passando al limite per $k\to+\infty$ per il teorema di permanenza del segno continua a valere la disuguaglianza, cioè
+	\begin{equation}
+		\mu^*(E)\geq\sum_{n=1}^{+\infty}\mu^*(E\cap A_n)+\mu^*(E\cap\compl F).
+		\label{eq:dim-additivita-numerabile}
+	\end{equation}
+	Per la subadditività numerabile, inoltre, abbiamo che
+	\begin{equation}
+		E\cap F=E\cap\bigg(\bigcup_{n=1}^{+\infty}A_n\bigg)=\bigcup_{n=1}^{+\infty}(E\cap A_n)\quad\then\quad\mu^*(E\cap F)\leq\sum_{n=1}^{+\infty}\mu^*(E\cap A_n),
+	\end{equation}
+	dunque
+	\begin{equation}
+		\mu^*(E)\geq\mu^*(E\cap F)+\mu^*(E\cap\compl F)
+	\end{equation}
+	perciò $F$ è misurabile.
+	Per la seconda parte della tesi, prendiamo nella \eqref{eq:dim-additivita-numerabile} proprio l'insieme $F$ al posto di $E$, per cui $\mu(F)=\mu^*(F)$ essendo misurabile:
+	\begin{equation}
+		\mu(F)=\mu^*(F)=\sum_{n=1}^{+\infty}\mu^*(F\cap A_n)+\mu^*(F\cap\compl F).
+	\end{equation}
+	Poich\'e $F\cap A_n=A_n$ e $F\cap\compl F=\emptyset$, otteniamo
+	\begin{equation}
+		\mu(F)=\mu\bigg(\bigcup_{n=1}^{+\infty}A_n\bigg)=\sum_{n=1}^{+\infty}\mu(A_n).
+	\end{equation}
+
+	Dimostrato il caso dell'unione, è immediato verificare anche la tesi per l'intersezione dato che
+	\begin{equation}
+		\bigcap_{n=1}^{+\infty}A_n=\compl{\bigg(\bigcup_{n=1}^{+\infty}\compl{A_n}\bigg)}.\qedhere
+	\end{equation}
+\end{proof}
+
+Concludiamo la serie di teoremi con un corollario sulle successioni di insiemi monotone, da intendersi rispetto alle operazioni di inclusione: diremo che una successione $\{A_k\}_{k\in\N}$ di insiemi è \emph{crescente} se $A_k\subseteq A_{k+1}$ per ogni $k$, e analogamente diremo che è \emph{decrescente} se $A_k\supseteq A_{k+1}$.
+\begin{corollario} \label{cor:misura-successioni-insiemi}
+	Sia $\{A_k\}_{k\in\N}$ una successione di insiemi misurabili:
+	\begin{itemize}
+		\item se la successione è crescente, allora
+			\begin{equation}
+				\mu\bigg(\bigcup_{k=1}^{+\infty}A_k\bigg)=\lim_{k\to+\infty}\mu(A_k);
+			\end{equation}
+		\item se la successione è decrescente, allora
+			\begin{equation}
+				\mu\bigg(\bigcap_{k=1}^{+\infty}A_k\bigg)=\lim_{k\to+\infty}\mu(A_k).
+			\end{equation}
+	\end{itemize}
+\end{corollario}
+
+Raggiunta la fine di questa sezione, abbiamo dimostrato le proprietà che rendono la classe degli insiemi di $\R^n$ misurabili una \emph{$\sigma$-algebra}.
+Per quanto detto finora, la terna $\big(\R^n,\mis(\R^n),\mu\big)$ è dunque uno spazio di misura.
+
+\section{Caratterizzazione degli insiemi misurabili}
+\label{sec:caratterizzazione-insiemi-misurabili}
+Come sono fatti questi insiemi misurabili? Sappiamo bene la loro definizione, ma come li possiamo collegare alle caratteristiche che già conosciamo sui vari insiemi aperti, chiusi e compatti?
+\begin{teorema}
+	Ogni insieme aperto, chiuso o compatto di $\R^n$ è misurabile, e la misura di un insieme compatto è sempre finita.
+\end{teorema}
+\begin{proof}
+	Se $A\in\R^n$ è aperto, allora esiste sempre una famiglia di intervalli compatti, o iperrettangoli, $\{I_k\}_{k\in\N}$ separati, cioè per cui
+	\begin{equation*}
+		\interior{I_i}\cap\interior{I_j}=\emptyset\text{ per }i\neq j,\text{ e tali che }\bigcup_{k\in\N}I_k=A.
+	\end{equation*}
+	Segue dalla proprietà additiva \ref{pr:additivita-numerabile-lebesgue} che $A$ è misurabile in quanto unione numerabile di insiemi misurabili.
+
+	Un insieme chiuso, in quanto complementare di un aperto, è anch'esso misurabile.
+	Infine un insieme compatto $K$ in $\R^n$ è chiuso e limitato, quindi è certamente misurabile.
+	Per la limitatezza inoltre si può sempre contenere in un iperrettangolo $\mathcal I$, per cui $\mu(K)\leq\mu(\mathcal I)<+\infty$.
+\end{proof}
+
+Dalle proprietà di base degli insiemi aperti e chiusi (teoremi \ref{t:unione-intersezione-aperti} e \ref{t:unione-intersezione-chiusi}) avevamo trovato che l'unione numerabile di insiemi aperti è aperta, e l'intersezione numerabile di chiusi è chiusa.
+Rimangono esclusi l'intersezione numerabile di aperti e l'unione numerabile di chiusi, che in generale non sono n\'e aperti n\'e chiusi.
+Questi tipi di insiemi hanno un ruolo nella teoria della misura: formalizziamo quindi la definizione e vediamone le applicazioni.
+\begin{definizione} \label{d:gdelta-fsigma}
+	Un insieme $G\subset\R^n$ si dice di tipo $G_\delta$ se è risultato di un'intersezione numerabile di insiemi aperti, ossia se $G=\bigcap_{n\in\N}A_n$ con $A_n$ aperto per ogni $n$.
+	Un insieme $F\subset\R^n$ si dice di tipo $F_\sigma$ se è risultato di un'unione numerabile di insiemi chiusi, cioè se $F=\bigcup_{n\in\N}C_n$ con $C_n$ chiuso per ogni $n$.
+\end{definizione}
+Gli insiemi di queste classi sono ovviamente misurabili, ma gli insiemi $G_\delta$ non sono necessariamente aperti, come i $F_\sigma$ non sono necessariamente chiusi; però ogni aperto di $\R^n$ è di tipo $F_\sigma$, mentre ogni chiuso è di tipo $G_\delta$.
+Si verifica facilmente inoltre che il complementare di un insieme $G_\delta$ è un insieme $F_\sigma$, e viceversa.
+\begin{lemma} \label{l:aperti-chiusi-poco-differenti}
+	Sia $A\in\mis(\R^n)$ e $\epsilon>0$ arbitrario: allora
+	\begin{itemize}
+		\item esiste un insieme $U$ aperto (in dipendenza da $\epsilon$) tale per cui $A\subset U$ e $\mu(U\setminus A)<\epsilon$;
+		\item esiste un insieme $F$ chiuso (sempre in dipendenza da $\epsilon$) per il quale $F\subset A$ e $\mu(A\setminus F)<\epsilon$.
+	\end{itemize}
+\end{lemma}
+\begin{teorema} \label{t:gdelta-fsigma-misurabili}
+	Un qualsiasi insieme $E\subseteq\R^n$ è misurabile se e solo se
+	\begin{itemize}
+		\item esistono un insieme $G$ di tipo $G_\delta$ e un insieme $Z$ di misura nulla tali che $E=G\setminus Z$;
+		\item esistono un insieme $F$ di tipo $F_\sigma$ e un insieme $Z$ di misura nulla tali che $E=F\cup Z$.
+	\end{itemize}
+\end{teorema}
+\begin{proof}
+	Dimostriamo innanzitutto che sia condizione necessaria per la misurabilità.
+	Scegliamo $\epsilon=\frac1{k}$: per il lemma precedente \ref{l:aperti-chiusi-poco-differenti} troviamo per ogni tale $\epsilon$ un insieme $G_k\supset E$ tale che $\mu(G_k\setminus E)<\frac1{k}$.
+	Individuiamo cos\`i una ``successione'' di insiemi $\{G_k\}_{k=1}^{+\infty}$ con le proprietà trovate.
+	Definiamo $G\defeq\bigcap_{k\in\N}G_k$ e $Z=G\setminus E$.
+	Per come sono costruiti, $G$ e $Z$ sono misurabili; inoltre risulta $Z\cup E=(G\setminus E)\cup E=G$, perciò sottraendo $Z$ si ha $E=G\setminus Z$.
+	La misura di $Z$ è quindi
+	\begin{equation}
+		\mu(Z)=\mu(G\setminus E)=\mu\Bigg(\bigg(\bigcap_{k\in\N}G_k\bigg)\setminus E\Bigg)=\mu\bigg(\bigcap_{k\in\N}(G_k\setminus E)\bigg),
+	\end{equation}
+	e poich\'e $G_k\setminus E\supseteq G_{k+1}\setminus E$ possiamo applicare il corollario \ref{cor:misura-successioni-insiemi}, per cui	
+	\begin{equation}
+		\mu(Z)=\mu\bigg(\bigcap_{k\in\N}(G_k\setminus E)\bigg)=\lim_{k\to+\infty}\mu(G_k\setminus E)<\lim_{k\to+\infty}\frac1{k}=0.
+	\end{equation}
+
+	Per la seconda parte della tesi, se $E=G\setminus Z$ è misurabile lo è anche il suo complementare, che è $\compl{E}=\compl{(G\cap\compl{Z})}=\compl{G}\cup Z$, ma $\compl{G}$ è di tipo $F_\sigma$, poich\'e complementare di $G$ che è di tipo $G_\delta$ (l'insieme $\compl{G}$ è l'equivalente di $F$ nella tesi).
+	
+	Dimostriamo infine che sia anche condizione sufficiente.
+	Se può essere scritto $E=G\setminus Z$ con $G$ e $Z$ come definiti nell'enunciato, abbiamo che l'insieme $G$ è misurabile perché di tipo $G_\delta$ e l'insieme $Z$ è misurabile perché di misura, e quindi misura esterna, nulla. Di conseguenza l'insieme $E$ è la differenza di due insiemi misurabili, che è sempre misurabile. Lo stesso discorso vale per l'unione nel secondo punto della tesi.
+\end{proof}
+\begin{teorema}
+	Un insieme $A\subseteq\R^n$ è misurabile se e solo se $\forall\epsilon>0$ esistono un insieme $F$ chiuso ed un insieme $U$ aperto tali che $F\subseteq A\subseteq U$ e $\mu(U\setminus F)<\epsilon$.
+\end{teorema}
+\begin{proof}
+	Dati $A$ misurabile e $\epsilon>0$, per il lemma \ref{l:aperti-chiusi-poco-differenti} esistono sempre $U$ aperto e $F$ chiuso per i quali $\mu(A\setminus F)<\epsilon$ e $\mu(U\setminus A)<\epsilon$ per qualsiasi scelta di $\epsilon>0$.
+	Poich\'e $(U\setminus A)\cup(A\setminus F)=U\setminus F$, per la subadditività della misura risulta $\mu(U\setminus F)\leq\mu(U\setminus A)+\mu(A\setminus F)$, perciò $\mu(U\setminus F)<2\epsilon$ da cui la tesi per l'arbitrarietà di $\epsilon$.
+
+	Partiamo ora dall'ipotesi $\mu(U\setminus F)<\epsilon$, con $F\subseteq A\subseteq U$.
+	Scelto $\epsilon=\frac1{n}$ con $n\in\N$, per ciascun tale $\epsilon$ individuiamo un $F_n$ chiuso e un $U_n$ aperto tali che $F_n\subseteq A\subseteq U_n$ e $\mu(U_n\setminus F_n)<\frac1{n}$, per cui avremo due successioni di insiemi $\{F_n\}_{n=1}^{+\infty}$ tutti chiusi e $\{U_n\}_{n=1}^{+\infty}$ tutti aperti.
+	Definiamo $H\defeq\bigcap_{n\in\N}U_n$, che è di tipo $G_\delta$, e $K\defeq\bigcup_{n\in\N}F_n$, che è di tipo $F_\sigma$.
+	Calcoliamo la misura esterna di $M\defeq H\setminus A$ per provare che è nulla: per il teorema \ref{t:gdelta-fsigma-misurabili} si avrebbe cos\`i che $A$ è misurabile, poich\'e se $M=H\setminus A$ allora $M\cup A=H$ e $A=H\setminus M$.
+	Risulta, dato che $M$ è misurabile, $\mu(M)=\mu^*(M)=\mu^*(H\setminus A)$.
+	Ponendo $K$ al posto di $A$, stiamo sottraendo a $H$ un insieme più piccolo (ottenendo come risultato un insieme più grande), perch\'e se $F_n\subseteq A$ $\forall n\in\N$ allora $\bigcup_{n\in\N}F_n=K\subseteq A$, dunque $H\setminus A\subseteq H\setminus K$ e per la monotonia della misura
+	\begin{equation}
+		\mu(M)\leq\mu^*(H\setminus K).
+	\end{equation}
+	Per lo stesso discorso, ora, dato che per ogni $n\in\N$ vale $H=\bigcap_{n\in\N}U_n\subseteq U_n$, allora $H\setminus K\subseteq U_n\setminus K$.
+	Ulteriormente $\forall n\in\N$ si ha $F_n\subseteq\bigcup_{n\in\N}F_n=K$ quindi $U_n\setminus K\subseteq U_n\setminus F_n$.
+	Abbiamo trovato allora, per la monotonia di $\mu^*$, che
+	\begin{equation}
+		\mu(M)\leq\mu^*(H\setminus K)\leq\mu^*(U_n\setminus F_n)
+	\end{equation}
+	ma per ogni $n\in\N$ $\mu^*(U_n\setminus F_n)=\mu(U_n\setminus F_n)<\frac1{n}$ quindi
+	\begin{equation}
+		\mu(M)\leq\mu(U_n\setminus F_n)<\frac1{n}
+	\end{equation}
+	e la tesi segue prendendo il limite per $n\to+\infty$.
+\end{proof}
+
+\section{Funzioni misurabili}
+\label{sec:funzioni-misurabili}
+\begin{definizione} \label{d:funzione-misurabile}
+	Dato un insieme $A\in\mis(\R^n)$, una funzione $f\colon A\to\Rex$ si dice \emph{misurabile} (su $A$) se l'insieme $\{\vec x\in A\colon f(\vec x)<c\}$ è misurabile per qualsiasi $c\in\Rex$.
+\end{definizione}
+Osserviamo che la scelta del segno $<$ è del tutto arbitraria ai fini della definizione: mostriamo che se $\{\vec x\in A\colon f(\vec x)<c\}$ è misurabile, allora anche gli insiemi $\{\vec x\in A\colon f(\vec x)\leq c\}$, $\{\vec x\in A\colon f(\vec x)>c\}$ e $\{\vec x\in A\colon f(\vec x)\geq c\}$ lo sono.
+Per brevità spesso sottintenderemo l'insieme di appartenenza di $\vec x$, scrivendo ad esempio soltanto $\{f(\vec x)<c\}$.
+\begin{itemize}
+	\item Se $c\in\R$ possiamo scrivere $\{f(\vec x)\leq c\}$ come $\bigcap_{k=1}^{+\infty}\{f(\vec x)<c+\frac1{k}\}$, che è un insieme di tipo $G_\delta$ e dunque misurabile.
+		Se $c=+\infty$, $\{f(\vec x)\leq c\}=A$ che è misurabile.
+		Se $c=-\infty$, infine, scriviamo $\{f(\vec x)\leq c\}=\bigcap_{k=1}^{+\infty}\{f(\vec x)<-k\}$ che è ancora di tipo $G_\delta$ quindi misurabile.
+	\item $\{f(\vec x)>c\}=A\setminus\{f(\vec x)\leq c\}$ quindi è misurabile essendo la differenza di insiemi misurabili.
+	\item Per $c\in\R$, $\{f(\vec x)\geq c\}=\bigcap_{k=1}^{+\infty}\{f(\vec x)>c+\frac1{k}\}$, quindi è di tipo $G_\delta$, e misurabile.
+		Se $c=+\infty$, $\{f(\vec x)\geq c\}=\bigcap_{k=1}^{+\infty}\{f(\vec x)>k\}$ che è ancora $G_\delta$, quindi misurabile.
+		Se $c=-\infty$, $\{f(\vec x)\geq c\}=A$ che è misurabile.
+	\item $\{f(\vec x)<c\}=A\setminus\{f(\vec x)\geq c\}$ quindi è misurabile come differenza di insiemi misurabili.
+\end{itemize}
+Le quattro definizioni sono quindi in realtà del tutto intercambiabili.
+Passiamo ora a considerare gli insiemi \emph{di livello} della funzione.
+\begin{teorema} \label{t:insiemi-livello-funzione-misurabile}
+	Sia $f\colon A\to\Rex$ misurabile, con $A\in\mis(\R^n)$.
+	Allora per ogni $c\in\Rex$ l'insieme $\{\vec x\in A\colon f(\vec x)=c\}$ è misurabile.
+\end{teorema}
+\begin{proof}
+	Individuiamo tre casi: se $c\in\R$, abbiamo che $\{f(\vec x)=c\}=\{f(\vec x)\geq c\}\cap\{f(\vec x)\leq c\}$ ed è quindi misurabile.
+	Se $c=+\infty$, $\{f(\vec x)=c\}=\bigcap_{k=1}^{+\infty}\{f(\vec x)\geq k\}$ mentre per $c=-\infty$ $\{f(\vec x)=c\}=\bigcap_{k=1}^{+\infty}\{f(\vec x)\leq -k\}$ dunque sono entrambi insiemi di tipo $G_\delta$, perciò misurabili.
+\end{proof}
+Come ci si può aspettare, non tutte le funzioni sono misurabili.
+Non dobbiamo sforzarci troppo per trovarne una: se $E\notin\mis(\R^n)$, la funzione caratteristica di tale insieme non è misurabile, perch\'e l'insieme di livello $\{x\in E\colon \chi_E(\vec x)=1\}$ è proprio l'insieme $E$.
+Se dunque $\chi_E$ fosse misurabile, per questo teorema dovrebbe esserlo anche l'insieme di livello, cosa che abbiamo visto non essere vera: allora $\chi_E$ non è misurabile.
+
+\begin{teorema} \label{t:funzioni-continue-misurabili}
+	Sia $A\in\mis(\R^n)$ e $f\colon A\to\R$.
+	Se $f$ è continua in $A$ allora è misurabile.
+\end{teorema}
+\begin{proof}
+	L'insieme $\{\vec x\in A\colon f(\vec x)<c\}$ è aperto in quanto controimmagine dell'insieme aperto $(-\infty,c)$ attraverso funzione continua, dunque è misurabile, perciò è misurabile anche $f$.
+\end{proof}
+\begin{osservazione} \label{o:funzione-misurabile-su-insieme-nullo}
+	Se $A\in\mis(\R^n)$ è di misura nulla, qualsiasi funzione $f\colon A\to\Rex$ è misurabile.
+\end{osservazione}
+\begin{proof}
+	Prendiamo infatti per un $c\in\Rex$ qualsiasi l'insieme $Z_c=\{\vec x\in A\colon f(\vec x)<c\}$.
+	Poich\'e esso è incluso in $A$, risulta $\mu^*(Z_c)\leq\mu^*(A)=\mu(A)=0$, dunque $Z_c$ è misurabile per ogni $c\in\Rex$, ed è quindi misurabile $f$.
+\end{proof}
+Il seguente teorema ci permette di stabilire la misurabilità di una funzione a partire dalle sue restrizioni ad insiemi minori e viceversa.
+\begin{teorema} \label{t:funzione-misurabile-restrizioni}
+	Sia $f\colon A\to\Rex$ con $A=A_1\cup A_2$ dove $A_1$ e $A_2$ sono misurabili.
+	Allora $f$ è misurabile se e solo se $f|_{A_1}$ e $f|_{A_2}$ lo sono.
+\end{teorema}
+\begin{proof}
+	Sia $f$ misurabile: per ogni $c\in\Rex$, l'insieme $\{\vec x\in A_1\colon f|_{A_1}<c\}=\{\vec x\in A\colon f(\vec x)<c\}\cap A_1$ è misurabile come intersezione di insiemi misurabili, dunque $f|_{A_1}$ è misurabile, e lo stesso per $f|_{A_2}$.
+
+	Siano ora le due restrizioni misurabili: allora $\forall c\in\Rex$ $\{\vec x\in A_1\colon f|_{A_1}(\vec x)<c\}$ e $\{\vec x\in A_2\colon f|_{A_2}(\vec x)<c\}$ sono misurabili, e lo è la loro unione, ma
+	\begin{equation}
+		\begin{aligned}
+			&\{\vec x\in A_1\colon f|_{A_1}(\vec x)<c\}\cup\{\vec x\in A_2\colon f|_{A_2}(\vec x)<c\}=\\
+			&=\big(\{\vec x\in A\colon f(\vec x)<c\}\cap A_1\big)\cup\big(\{\vec x\in A\colon f(\vec x)<c\}\cap A_2\big)=\\
+			&=\{\vec x\in A\colon f(\vec x)<c\}\cap(A_1\cup A_2)=\\
+			&=\{\vec x\in A\colon f(\vec x)<c\}\cap A=\\
+			&=\{\vec x\in A\colon f(\vec x)<c\}
+		\end{aligned}
+	\end{equation}
+	per ogni $c\in\Rex$, quindi anche $f$ è misurabile.
+\end{proof}
+Introduciamo inoltre un tipo di uguaglianza all'interno dello spazio delle funzioni misurabili: diciamo che una proprietà è verificata \emph{quasi ovunque} (spesso abbreviato con q.o.) in un certo insieme $A$ se il sottoinsieme $B\subset A$ in cui non si verifica ha misura nulla.
+Ad esempio, se diciamo che $f=g$ quasi ovunque in $A$, detto $Z$ l'insieme di punti $\vec x$ tali per cui $f(\vec x)\ne g(\vec x)$, allora $\mu(Z\cap A)=0$.
+\begin{teorema} \label{t:misurabile-qo}
+	Siano $f,g\colon A\to\Rex$, con $A\in\mis(\R^n)$, tali che $f(\vec x)=g(\vec x)$ per ogni $\vec x\in A\setminus Z$ dove $\mu(Z)=0$.
+	Allora $f$ è misurabile se e solo se lo è $g$.
+\end{teorema}
+\begin{proof}
+	Sia $f$ misurabile: poniamo $B=A\setminus Z$, da cui $A=B\cup Z$.
+	Sappiamo che $g|_Z$ è misurabile come visto nell'osservazione \ref{o:funzione-misurabile-su-insieme-nullo} poich\'e $\mu(Z)=0$.
+	D'altra parte $g|_{B}=f|_{B}$ per ipotesi, dunque se $f$ è misurabile lo è anche $g|_B$.
+	Per il teorema \ref{t:funzione-misurabile-restrizioni} $g$ è misurabile.
+	Se partiamo dalla misurabilità di $g$ anzich\'e da quella di $f$ la dimostrazione è del tutto analoga.
+\end{proof}
+Altri esempi di proprietà che posso verificarsi quasi ovunque sono la convergenza puntuale di una successione di funzioni, o il segno di una funzione.
+Mostriamo ora con le seguenti proprietà che operando con funzioni misurabili (anche attraverso limiti ed estremi superiori e inferiori) otteniamo ancora una funzione misurabile, con un'eccezione solo per la composizione.
+\begin{lemma}
+	Siano $f,g\colon A\to\Rex$, con $A\in\mis(\R^n)$, due funzioni misurabili.
+	Allora l'insieme $\{\vec x\in A\colon f(\vec x)>g(\vec x)\}$ è misurabile.
+\end{lemma}
+\begin{proof}
+	Sia $E=\{\vec x\in A\colon f(\vec x)>g(\vec x)\}$, che è tale per cui $E\subseteq A$.
+	Preso $\vec x\in E$, $f(\vec x)>g(\vec x)$ quindi per la densità dei razionali nei reali possiamo individuare un numero $r\in\Q$ tale che $f(\vec x)>r>g(\vec x)$.
+	Allora $\vec x\in\{\vec x\in E\colon f(\vec x)>r\}\cap\{\vec x\in E\colon g(\vec x)<r\}$, dunque
+	\begin{equation}
+		E=\bigcup_{r\in\Q}\big(\{\vec x\in E\colon f(\vec x)>r\}\cap\{\vec x\in E\colon g(\vec x)<r\}\big)
+	\end{equation}
+	che è quindi misurabile in quanto unione di aperti.
+\end{proof}
+Nella prossima proprietà, trattando le operazioni aritmetiche tra funzioni, prenderemo come loro codominio soltanto $\R$ e non tutto $\Rex$, in modo da evitare forme come $\infty-\infty$ o $\infty/\infty$ che non possiamo determinare.
+\begin{proprieta} \label{pr:operazioni-funzioni-misurabili}
+	Se le funzioni $f,g\colon A\to\R$, con $A\in\mis(\R^n)$, sono misurabili in $A$, allora anche le funzioni $\lambda f$ (con $\lambda\in\R$), $f+g$, $fg$ e $f/g$ (se $g\neq0$ in $A$) lo sono.
+\end{proprieta}
+\begin{proof}
+	\begin{itemize}
+		\item Se $\lambda>0$, l'insieme $\{\vec x\in A\colon \lambda f(\vec x)<c\}$ equivale per ogni $c\in\R$ a $\{\vec x\in A\colon f(\vec x)<c/\lambda\}$ che è misurabile per la misurabilità di $f$.
+			Se $\lambda=0$ è invece equivalente all'insieme $\{\vec x\in A\colon 0<c\}$ che è o tutto $A$ se $c>0$ o l'insieme vuoto se $c\leq 0$, e in entrambi i casi sono insiemi misurabili.
+			Se $\lambda<0$ è equivalente a $\{\vec x\in A\colon f(\vec x)>\frac{c}{\lambda}\}$ che è ancora misurabile come nel primo caso.
+		\item L'insieme $\{\vec x\in A\colon (f+g)(\vec x)<c\}$ equivale a $\{\vec x\in A\colon f(\vec x)<c-g(\vec x)\}$.
+			Chiamiamo $c-g(\vec x)=h(\vec x)$, e per il lemma precedente l'insieme $\{\vec x\in A\colon f(\vec x)<h(\vec x)\}$ è misurabile, quindi lo è $f+g$.
+		\item Mostriamo prima che $f^2$ è misurabile, ossia che $\{\vec x\in A\colon f^2<c\}$ lo è per ogni $c\in\Rex$.
+			Se $c\geq 0$, è equivalente a $\{\vec x\in A\colon f(\vec x)>\sqrt{c}\}\cup\{\vec x\in A\colon f(\vec x)<-\sqrt{c}\}$ che è misurabile come unione di misurabili.
+			Se $c<0$, chiaramente $\{\vec x\in A\colon [f(\vec x)]^2>c\}=A$ quindi è ancora misurabile.
+			Dunque, poich\'e $(f+g)^2-(f-g)^2=f^2+g^2+2fg-f^2-g^2+2fg=4fg$, abbiamo $fg=\frac14[(f+g)^2-(f-g)^2]$ quindi è misurabile.
+		\item Definiamo gli insiemi $A_+\defeq\{\vec x\in A\colon g(\vec x)>0\}$ e $A_-\defeq\{\vec x\in A\colon g(\vec x)<0\}$.
+			Dato che per ipotesi $g\ne 0$ in $A$, si ha $A_+\cup A_-=A$.\footnote{
+				Ovviamente $A_+$ e $A_-$ sono misurabili: se per assurdo infatti non lo fossero, poich\'e $A_+\cap A_-=\emptyset$ e $A_+\cup A_-=A$ nemmeno $A$ lo sarebbe.
+			}
+			Restringiamo $g$ alla funzione $\tilde g_+\colon A_+\to\R$, tale ovviamente che $\tilde g_+(\vec x)=g(\vec x)$ (e quindi $f/{\tilde g_+}=f/g$) $\forall\vec x\in A_+$.
+			Tale funzione $\tilde g_+$ è misurabile per il teorema \ref{t:funzione-misurabile-restrizioni}.
+			Ora, per valutare l'insieme $E\defeq\{\vec x\in A_+\colon f(\vec x)/{\tilde g_+(\vec x)}<c\}$ distinguiamo quattro casi:
+			\begin{itemize}
+				\item se $c\in\R$, allora $f/{\tilde g_+}<c$ equivale a $f<c\tilde g_+$ ossia $f-c\tilde g_+<0$, e l'insieme $\{\vec x\in A_+\colon f(\vec x)-c\tilde g_+(\vec x)<0\}$ è misurabile poich\'e $f$ e $\tilde g_+$ lo sono.
+				\item se $c=+\infty$, $f/{\tilde g_+}<+\infty$ equivale a $f<+\infty$, perciò $\{\vec x\in A_+\colon f(\vec x)<+\infty\}=A_+$ ed è quindi misurabile.
+				\item se $c=-\infty$, allora $f/{\tilde g_+}<-\infty$ equivale a $f<-\infty$ e $\{\vec x\in A_+\colon f(\vec x)<-\infty\}=\emptyset$ che è misurabile.
+			\end{itemize}
+			In conclusione, per qualsiasi $c\in\Rex$ l'insieme $E$ prima definito è misurabile, vale a dire che $f/{\tilde g_+}$ lo è in $A_+$.
+			Lo stesso argomento si applica se anzich\'e $\tilde g_+$ prendiamo la restrizione $\tilde g_-=g|_{A_-}$, con qualche semplice modifica al verso delle disuguaglianze, quindi anch'essa è misurabile.
+			Abbiamo dunque che $f/{\tilde g_+}$ è misurabile in $A_+$ e $f/{\tilde g_-}$ lo è in $A_-$: per il teorema \ref{t:funzione-misurabile-restrizioni} allora $f/g$ è misurabile in $A$.\qedhere
+	\end{itemize}
+\end{proof}
+\begin{proprieta} \label{pr:estremi-successioni-funzioni-misurabili}
+	Sia $\{f_k\}_{k\in\N}$ una successione di funzioni misurabili su $A\in\mis(\R^n)$.
+	Allora sono misurabili le funzioni $\inf_{k\in\N}f_k$, $\sup_{k\in\N}f_k$, $\liminf_{k\to+\infty}f_k$ e $\limsup_{k\to+\infty}f_k$.
+\end{proprieta}
+\begin{proof}
+	Poich\'e $\mis(\R^n)$ è una $\sigma$-algebra, e
+	\begin{equation}
+		\bigg\{\vec x\in A\colon \sup_{k\in\N}f_k(\vec x)>c\bigg\}=\bigcup_{k\in\N}\{\vec x\in A\colon f_k(\vec x)>c\},
+	\end{equation}
+	$\sup_{k\in\N}f_k$ è misurabile in $A$.
+	Anche l'estremo inferiore è misurabile in $A$ perch\'e $\inf_{k\in\N}f_k=-\sup_{k\in\N}(-f_k)$.
+
+	Per i due limiti abbiamo infine
+	\begin{equation}
+		\liminf_{k\to+\infty}f_k=\sup_{j\in\N}\big(\inf_{k\geq j}f_k\big)\qtext{e}\limsup_{k\in\N}f_k=\inf_{j\in\N}\big(\sup_{k\geq j}f_k\big)
+	\end{equation}
+	dunque anch'essi sono misurabili.
+\end{proof}
+Da queste proprietà segue immediatamente che se una successione di funzioni misurabili in un insieme $A$ converge puntualmente, la funzione limite è anch'essa misurabile in $A$, poich\'e il limite superiore e inferiore (che sono misurabili) coincidono e sono uguali al limite.
+Questo vale anche se la convergenza è quasi ovunque, in virtù del teorema \ref{t:misurabile-qo}.
+
+Data una funzione $f$ misurabile, inoltre, per quest'ultimo teorema la sua parte positiva e la sua parte negativa sono misurabili, in quanto $f^+=\max\{f,0\}$ e $f^-=\max\{-f,0\}$, cos\'i come lo è il suo modulo $\abs{f}=f^+-f^-$ come somma di funzioni misurabili.
+\begin{proprieta} \label{pr:composizione-funzioni-misurabili}
+	Sia $f\colon A\to\R$, con $A\in\mis(\R^n)$, misurabile in $A$.
+	Se $g\colon B\to\R$, con $f(A)\subset B\subset\R$, è continua in $B$, allora $g\circ f\colon A\to\R$ è misurabile.
+\end{proprieta}
+\begin{proof}
+	L'insieme $\{\vec x\in A\colon (g\circ f)(\vec x)<c\}$ è la controimmagine dell'intervallo $(-\infty,c)$, cioè equivale a $(g\circ f)^{-1}\big( (-\infty,c)\big)=f^{-1}\big[g^{-1}\big((-\infty,c)\big)\big]$ per ogni $c\in\R$.
+	Per la continuità di $g$, l'insieme $g^{-1}\big( (-\infty,c)\big)$ è aperto perch\'e controimmagine di un aperto, dunque possiamo esprimerlo come unione numerabile di intervalli compatti:
+	\begin{equation}
+		g^{-1}\big( (-\infty,c)\big)=\bigcup_{n\in\N}[a_n,b_n],
+	\end{equation}
+	perciò prendendo la controimmagine di $f$ abbiamo
+	\begin{equation}
+		\begin{split}
+			\{\vec x\in A\colon (g\circ f)(\vec x)<c\}&=f^{-1}\Big((g^{-1}\big( (-\infty,c)\big)\Big)=\\
+			&=f^{-1}\bigg(\bigcup_{n\in\N}[a_n,b_n]\bigg)=\\
+			&=\bigcup_{n\in\N}f^{-1}\big([a_n,b_n]\big)=\\
+			&=\bigcup_{n\in\N}\big(\{\vec x\in A\colon f(\vec x)\geq a_n\}\cup\{\vec x\in A\colon f(\vec x)\leq b_n\}\big)
+		\end{split}
+	\end{equation}
+	che è un insieme misurabile, quindi $g\circ f$ è misurabile.
+\end{proof}
+Una facile conseguenza di questa proprietà è che se $A\in\mis(\R^n)$ e $f\colon A\to\R$ è misurabile, allora lo è anche $\abs{f}^p$ per ogni $p>0$.
+Infatti basta vederla come composizione $g\circ f$ dove $g\colon\R\to\R$ è definita come
+\begin{equation}
+	g(x)=
+	\begin{cases}
+		(-x)^p & x<0\\
+		x^p    & x\ge 0
+	\end{cases}
+\end{equation}
+che è evidentemente continua in tutto $\R$.
+\begin{osservazione} \label{o:funzione-caratteristica-misurabile}
+	La funzione caratteristica di un insieme $A$ è misurabile se e solo se $A$ è misurabile.
+\end{osservazione}
+\begin{proof}
+	Prendiamo $\chi_A\colon\R^n\to\{0,1\}$.
+	Se $c>1$, risulta $\{\vec x\in \R^n\colon\chi_A(\vec x)<c\}=\R^n$.
+	Se $0<c\leq1$, $\{\vec x\in \R^n\colon \chi_A(\vec x)<c\}=\compl A$, poich\'e $\chi_A(\vec x)=0$ se $\vec x\notin A\then\vec x\in\compl A$.
+	Se $c\leq 0$ infine $\{\vec x\in R^n\colon \chi_A(\vec x)<c\}=\emptyset$.
+	In tutti i tre i casi gli insiemi sono misurabili, dunque anche $\chi_A$ lo è.
+
+	D'altro canto, se $\chi_A$ è misurabile, allora per il teorema \ref{t:insiemi-livello-funzione-misurabile} è misurabile l'insieme $\{\vec x\in\R^n\colon \chi_A(\vec x)=1\}=A$.
+\end{proof}
+
+\section{Integrale di Lebesgue}
+Prima di definire l'integrale, ci serve prima capire come approssimare le funzioni misurabili con un tipo particolare di funzioni, dette \emph{semplici}.
+\begin{definizione} \label{d:funzione-semplice}
+	Una funzione $f\colon\R^n\to\R$ è detta \emph{semplice} se assume un numero finito di valori $\{c_1,\dots,c_p\}\subset\R$ con $p\in\N$ (finito) e $c_i\neq c_j$ se $i\neq j$.
+\end{definizione}
+Le funzioni semplici possono essere rappresentate in quella che è detta \emph{forma canonica} come una somma finita di funzioni caratteristiche: infatti se poniamo $A_i$ come la controimmagine di $c_i$ attraverso $f$, ossia $A_i=f^{-1}(\{c_i\})$ per ciascun $i\in\{1,\dots,p\}$, allora si deve avere necessariamente $A_i\cap A_j=\emptyset$ per $i\neq j$, poich\'e $f$ (è una funzione!) può avere solo un'immagine per ogni $\vec x\in\R^n$.
+In tale insieme $A_i$ la $f$ corrisponde alla funzione $c_i\chi_{A_i}$, quindi possiamo rappresentare la funzione semplice come
+\begin{equation}
+	f=\sum_{i=1}^pc_i\chi_{A_i},
+	\label{eq:rappresentazione-canonica-funzione-semplice}
+\end{equation}
+ossia come combinazione lineare di funzioni semplici, dove tutti gli insiemi $A_i$ sono mutualmente disgiunti e tali che $\bigcup_{i=1}^pA_i=\R^n$.
+Chiaramente una funzione semplice è misurabile se tutti gli $A_i$ sono insiemi misurabili.
+Una funzione semplice può essere definita anche solo su un sottoinsieme di $\R^n$, se essa è nulla al di fuori di tale sottoinsieme.
+
+\begin{teorema} \label{t:funzione-semplice-misurabile}
+	Sia $A\in\mis(\R^n)$: ogni funzione misurabile $f\colon A\to\Rex$ è il limite puntuale di una successione di funzioni semplici misurabili su $A$.
+	Inoltre, se $f$ non è negativa su $A$, tale successione può essere scelta non negativa e crescente.
+\end{teorema}
+\begin{proof}
+	Mostriamo prima che, posto vero il secondo punto, il primo ne è una conseguenza: poi dimostreremo il secondo punto.
+	Dividiamo la funzione $f$, misurabile, in parte positiva e negativa, $f=f^+-f^-$: entrambe sono non negative e misurabili.
+	Per il secondo punto, esistono dunque due successioni di funzioni semplici, che chiamiamo $\{s^+_k\}_{k\in\N}$ e $\{s^-_k\}_{k\in\N}$, crescenti e per le quali
+	$s^+_k\to f^+$ e $s^-_k\to f^-$.
+	Ma allora prendendo la loro differenza si ha una nuova successione, $s^+_k-s^-_k$, che converge a $f^+-f^-=f$ per $k\to+\infty$.
+
+	Dimostriamo ora il secondo punto: sia $f$ non negativa e misurabile su $A$.
+	Suddividiamo il codominio di $f$, ossia $[0,+\infty]$, in $4^k+1$ intervalli della forma
+	\begin{equation*}
+		B^j_k\defeq\Big[\frac{j-1}{2^k},\frac{j}{2^k}\Big]\text{ per ogni }j=1,\dots,4^k
+	\end{equation*}
+	e poniamo $B_k^{4^k+1}\defeq[2^k,+\infty]$.
+	Definiamo inoltre $A_k^j\defeq f^{-1}(B^j_k)$ per ogni $j=1,\dots,4^k+1$: essendo controimmagini (tramite una funzione misurabile) di intervalli, che sono insiemi misurabili, questi $A^j_k$ sono tutti misurabili.
+	Su questi insiemi approssimiamo $f$ per difetto, ossia poniamo
+	\begin{equation}
+		c^j_k=
+		\begin{cases}
+			\frac{j-1}{2^k} &j=1,\dots,4^k\\
+			2^k &j=4^k+1
+		\end{cases}.
+	\end{equation}
+	Prendiamo dunque la funzione
+	\begin{equation}
+		s_k=\sum_{j=1}^{4^k}c^j_k\chi_{A^j_k}+c^{4^k+1}_k\chi_{A^{4^k+1}_k},
+	\end{equation}
+	che chiaramente è una funzione semplice e non negativa.
+	Essa inoltre non è decrescente, dato che ogni coefficiente $c^j_k$ è crescente, quindi $0\leq s_k\leq s_{k+1}\leq f$ in $A$.
+	Verifichiamo infine che converge: se $f=+\infty$, allora $s_k(\vec x)=2^k$ è la successione convergente a $f$.
+	Se invece $f<+\infty$, allora $0\leq f(\vec x)-s_k(\vec x)\leq \frac1{2^k}\to 0$ dunque $s_k$ converge puntualmente a $f$ in $A$.
+\end{proof}
+
+Possiamo finalmente dare la definizione di integrale di Lebesgue: lo faremo in ``tre pezzi'', cominciando dall'integrale per le funzioni semplici, proseguendo con l'integrale per funzioni misurabili non negative, e infine per funzioni misurabili qualunque.
+Indicheremo, nella forma più generale, l'integrale di una funzione $f$ su un insieme $E$ con il simbolo $\int_Ef\,\dd\mu$, tralasciando la variabile $\vec x\in E$; il simbolo $\mu$ sottolinea che l'integrazione è svolta rispetto alla misura $\mu$ di Lebesgue.
+Definiamo inoltre convenzionalmente $0\cdot\infty=0$.
+\begin{definizione} \label{d:integrale-lebesgue-funzioni-semplici}
+	Sia $s\colon\R^n\to[0,+\infty)$ una funzione semplice e misurabile.
+	Data la sua rappresentazione canonica $s=\sum_{j=1}^p c_j\chi_{E_j}$ con $E_j\in\mis(\R^n)$ e $c_j\in\R$ e	$c_i\neq c_j$ per $i\neq j$, definiamo l'integrale di Lebesgue di $s$ su $\R^n$ come
+	\begin{equation}
+		\int_{\R^n}s\,\dd\mu\defeq \sum_{j=1}^pc_j\mu(E_j).
+		\label{eq:integrale-lebesgue-funzioni-semplici}
+	\end{equation}
+	Definiamo inoltre l'integrale di $s$ su $A\in\mis(\R^n)$ come
+	\begin{equation}
+		\int_As\,\dd\mu\defeq \sum_{j=1}^pc_j\mu(E_j\cap A).
+	\end{equation}
+\end{definizione}
+Esso è un numero in $[0,+\infty]$, dato che un $E_j$ potrebbe avere misura infinita.
+Con la convenzione introdotta prima di questa definizione abbiamo inoltre che se $c_i=0$, allora $c_i\mu(E_i)=0$ indipendentemente dalla misura di $E_i$.
+
+Un primo esempio immediato è la funzione di Dirichlet $\chi_{\Q}$: il suo integrale in $[0,1]$ è
+\begin{equation*}
+	\int_{[0,1]}\chi_{\Q}(x)\dd x=1\cdot\mu\big(\Q\cap[0,1]\big)+0\cdot\mu\big( (\R\setminus\Q)\cap[0,1]\big)
+\end{equation*}
+ma l'insieme $\Q\cap[0,1]$ ha misura nulla, dunque l'integrale è nullo.
+
+Possiamo subito dimostrare alcune proprietà dell'integrale per funzioni semplici.
+\begin{teorema} \label{t:integrale-funzioni-semplici-additivita-numerabile-insieme}
+	Sia $s\colon A\to\R$ una funzione semplice e $A=\bigcup_{i=1}^{+\infty}A_i$, con $A_i\in\mis(\R^n)$ $\forall i\in\N$ e $A_i\cap A_j=\emptyset$ per $i\neq j$.
+	Allora
+	\begin{equation}
+		\int_As\,\dd\mu=\sum_{i=1}^{+\infty}\int_{A_i}s\,\dd\mu
+		\label{eq:integrale-funzioni-semplici-additivita-numerabile-insieme}
+	\end{equation}
+\end{teorema}
+\begin{proof}
+	Prendiamo la rappresentazione canonica di $s$ come $\sum_{j=1}^nc_j\chi_{B_j}$, con $B_j=\{\vec x\in\R^n\colon s(\vec x)=c_j\}$.
+	Dalla definizione \ref{d:integrale-lebesgue-funzioni-semplici} di integrale abbiamo $\int_As\,\dd\mu=\sum_{j=1}^nc_j\mu(B_j\cap A)$, dunque per l'additività della misura
+	\begin{equation}
+		\int_As\,\dd\mu=\sum_{j=1}^n\sum_{i=1}^{+\infty}c_j\mu(B_j\cap A_i)=\sum_{i=1}^{+\infty}\sum_{j=1}^nc_j\mu(B_j\cap A_i)=\sum_{i=1}^{+\infty}\int_{A_i}s\,\dd\mu.\qedhere
+	\end{equation}
+\end{proof}
+\begin{teorema} \label{t:integrale-funzioni-semplici-linearita}
+	Siano $s,t\colon\R^n\to\R$ due funzioni semplici e $E\in\mis(\R^n)$: allora
+	\begin{equation}
+		\int_E(s+t)\dd\mu=\int_Es\,\dd\mu+\int_Et\,\dd\mu.
+		\label{eq:integrale-funzioni-semplici-linearita}
+	\end{equation}
+\end{teorema}
+\begin{proof}
+	Siano $s=\sum_{i=1}^pc_i\chi_{A_i}$ e $t=\sum_{j=1}^qd_j\chi_{B_j}$ le rappresentazioni canoniche delle due funzioni, con $A_i$ e $B_j$ definiti come al solito come le controimmagini di $c_i$ e $d_j$ rispettivamente.
+	Risulta $\bigcup_{i=1}^pA_i=\bigcup_{j=1}^{q}B_j=\R^n$.
+	Ma allora dal teorema precedente possiamo scrivere
+	\begin{equation}
+		\begin{split}
+			\int_E(s+t)\dd\mu&=\sum_{i=1}^p\sum_{j=1}^q\int_{E\cap A_i\cap B_j}(s+t)\dd\mu=\\
+			&=\sum_{i=1}^p\sum_{j=1}^q(c_i+d_j)\mu(E\cap A_i\cap B_j)=\\
+			&=\sum_{i=1}^pc_i\sum_{j=1}^q\mu(E\cap A_i\cap B_j)+\sum_{i=1}^p\sum_{j=1}^qd_j\mu(E\cap A_i\cap B_j)=\\
+			&=\sum_{i=1}^pc_i\sum_{j=1}^q\mu(E\cap A_i\cap B_j)+\sum_{j=1}^qd_j\sum_{i=1}^p\mu(E\cap A_i\cap B_j)=\\
+			&=\sum_{i=1}^pc_i\mu(E\cap A_i)+\sum_{j=1}^qd_j\mu(E\cap B_j)=\\
+			&=\int_Es\,\dd\mu+\int_Et\,\dd\mu.\qedhere
+		\end{split}
+	\end{equation}
+\end{proof}
+
+Generalizziamo quindi l'integrale a funzioni misurabili non negative.
+\begin{definizione} \label{d:integrale-lebesgue-funzioni-nonnegative}
+	Sia $f\colon A\to[0,+\infty]$ misurabile con $A\in\mis(\R^n)$.
+	L'integrale di Lebesgue di $f$ su $A$ è definito come
+	\begin{equation}
+		\int_Af\,\dd\mu\defeq \sup_{s\in\mathcal S_f}\int_As\,\dd\mu,
+		\label{eq:integrale-lebesgue-funzioni-nonnegative}
+	\end{equation}
+	dove $\mathcal S_f$ è l'insieme delle funzioni semplici misurabili per le quali $0\leq s(\vec x)\leq f(\vec x)$ $\forall\vec x\in A$.
+\end{definizione}
+Anche in questo caso l'integrale è un numero in $[0,+\infty]$.
+Nei casi ``limite'' abbiamo che:
+\begin{itemize}
+	\item se $\mu(A)=0$, l'integrale sarà sempre nullo.
+		Infatti per qualsiasi $f\geq 0$ misurabile, per ogni $s\in\mathcal S_f$ si ha
+		\begin{equation}
+			0\leq \sum_{j=1}^nc_j\mu(E_j\cap A)
+		\end{equation}
+		ma $E_j\cap A$ è un sottoinsieme di $A$ quindi $\mu(E_j\cap A)\leq\mu(A)=0$ per ogni $j\in\{1,\dots,n\}$.
+	\item se $f$ è identicamente nulla su $A$ vale lo stesso discorso, perch\'e in questo caso l'unica funzione semplice misurabile $s$ per cui $0\leq s\leq f$ in $A$ è anch'essa identicamente nulla, quindi $\int_Af\,\dd\mu=\int_As\,\dd\mu=0\mu(A)=0$ con la convenzione adottata.
+\end{itemize}
+In generale, invece, se $f$ è limitata superiormente e la misura di $A$ è finita allora l'integrale è finito, perch\'e per ogni $s\in\mathcal S_f$
+\begin{equation}
+	\int_Af\,\dd\mu\leq\max_{\vec x\in A}f(\vec x)\sum_{j=1}^n\mu(A\cap E_j)=\max_{\vec x\in A}f(\vec x)\mu(A)<+\infty.
+\end{equation}
+
+Concludiamo quindi con l'ultima definizione.
+\begin{definizione} \label{d:integrale-lebesgue-funzioni-qualunque}
+	Sia $f\colon A\to\R$ misurabile, con $A\in\mis(\R^n)$.
+	Essa si dice integrabile secondo Lebesgue su $A$ se esiste \emph{finito} almeno uno degli integrali della parte positiva o negativa, ossia uno tra
+	\begin{equation*}
+		\int_Af^+\dd\mu\text{ e }\int_Af^-\dd\mu.
+	\end{equation*}
+	In tal caso, l'integrale di Lebesgue di $f$ su $A$ è definito come
+	\begin{equation}
+		\int_Af\,\dd\mu=\int_Af^+\dd\mu-\int_Af^-\dd\mu.
+		\label{eq:integrale-lebesgue-funzioni-qualunque}
+	\end{equation}
+\end{definizione}
+In questo caso l'integrale è un numero di $\Rex$, ma esiste certamente in quanto si evita la forma indeterminata $+\infty-\infty$, dato che uno dei due addendi sicuramente è finito.
+Una funzione non negativa è sempre integrabile su qualunque insieme, perch\'e qualunque sia il valore di $f^+$ il suo integrale della parte negativa sarà sempre nullo.
+\begin{definizione} \label{d:funzione-sommabile}
+	Una funzione $f$ si dice \emph{sommabile} sull'insieme $A$ se entrambi gli integrali $\int_Af^+\dd\mu$ e $\int_Af^-\dd\mu$ sono finiti.\footnote{L'uso di questi due termini non sempre è inteso allo stesso modo: si possono trovare testi in cui ``integrabile'' significa quello che qui intendiamo come sommabile, e si indica che ``esiste l'integrale di Lebesgue'' quando qui diciamo che è integrabile.}
+\end{definizione}
+In questo caso l'integrale è un numero finito, e ovviamente una funzione sommabile è integrabile ma non viceversa.
+Notiamo inoltre che la sommabilità di $f$ è equivalente a quella di $\abs{f}$, perciò per verificare se $f$ è sommabile basta studiare il suo valore assoluto.
+Indicheremo che una funzione $f$ è sommabile nell'insieme $E$ con la scrittura $f\in\leb{E}$.
+L'integrale si può anche indicare esplicitando le varie coordinate, e con uno o più simboli di integrale, come in
+\begin{equation*}
+	\int_Af(x_1,\dots,x_n)\dd x_1\cdots\dd x_n,\quad \iint_Af(x,y)\dd x\dd y,\quad \idotsint_Af(x_1,\dots,x_n)\dd x_1\cdots\dd x_n.
+\end{equation*}
+
+Come ci si può aspettare, l'integrale di Lebesgue gode delle stesse proprietà dell'integrale di Riemann: si tratta ora di dimostrarle nuovamente in luce della nuova teoria.
+Lasceremo sottinteso d'ora in poi che $\mathcal S_f$ è l'insieme delle funzioni semplici $s$ tali che $0\leq s\leq f$ nell'insieme dato.
+\begin{proprieta} \label{pr:integrale-lebesgue}
+	Siano $f,g\colon\R^n\to\Rex$ misurabili, e $A\in\mis(\R^n)$.
+	\begin{enumerate}
+		\item $\int_Af\,\dd\mu=\int_{\R^n}f\chi_A\dd\mu$.
+		\item Se $f(\vec x)\leq g(\vec x)$ per ogni $\vec x\in A$, allora $\int_A f\,\dd\mu\leq\int_Ag\,\dd\mu$.
+		\item Se $f(\vec x)\geq 0$ per ogni $\vec x\in A$ e $c\in[0,+\infty)$, allora $\int_Acf\,\dd\mu=c\int_Af\,\dd\mu$, e se $f\in\leb{A}$ e $c\in\R$, allora $cf\in\leb{A}$.
+		\item Per $E\subseteq A$ misurabile, $\int_Ef\,\dd\mu\leq\int_Af\,\dd\mu$.
+	\end{enumerate}
+\end{proprieta}
+\begin{proof}
+	\begin{enumerate}
+		\item Poich\'e $\int_Af\,\dd\mu=\sup_{s\in\mathcal S_f}\int_As\,\dd\mu$, esso è anche uguale a $\sup\int_{\R^n}s\,\dd\mu$ per $0\leq s\leq f\chi_A$ in $A$, quindi è uguale a $\int_{\R^n}f\chi_A\dd\mu$.
+		\item Dato che $0\leq s\leq f\leq g$ in $A$, risulta $\mathcal S_f\subseteq\mathcal S_g$, quindi
+			\begin{equation}
+				\int_Af\dd\mu=\sup_{s\in\mathcal S_f}\int_As\,\dd\mu\leq\sup_{s\in\mathcal S_g}\int_As\,\dd\mu=\int_Ag\,\dd\mu.
+			\end{equation}
+		\item Se $c=0$ la tesi è ovvia, quindi prendiamo $c\in(0,+\infty)$.
+			Risulta
+			\begin{multline}
+				\int_Acf\,\dd\mu=\sup_{s\in\mathcal S_{cf}}\int_As\,\dd\mu=\sup_{t\in\mathcal S_f}\int_Act\,\dd\mu=\\
+				=\sup\sum_{j=1}^ncb_j\mu(A_j)=c\sup\sum_{j=1}^nb_j\mu(A_j)=c\sup_{t\in\mathcal S_f}\int_At\,\dd\mu=c\int_Af\,\dd\mu,
+			\end{multline}
+			dove $\sum_{j=1}^nb_j\chi_{A_j}$ è la rappresentazione canonica delle funzioni semplici $t$.
+			A questo punto, per una generica funzione $f$ misurabile otteniamo $cf=c(f^+-f^-)=cf^+-cf^-$ da cui
+			\begin{equation}
+				\int_Acf\,\dd\mu=c\int_Af^+\dd\mu-c\int_Af^-\dd\mu=c\int_Af\,\dd\mu.
+			\end{equation}
+			È evidente a questo punto che se $f\in\leb{A}$ il suo integrale esiste finito, dunque è finito anche l'integrale di $cf$, che quindi è a sua volta sommabile.
+			La proprietà vale anche, ovviamente se $c<0$: basta ricordarsi che $f=f^+-f^-$ dunque $cf=cf^+-cf^-$ e applicare quanto detto alla parte positiva e negativa, che sono entrambe funzioni non negative.
+		\item Si ha che $0\leq f\chi_E\leq f$ in $A$, perciò per il secondo punto
+			\begin{equation}
+				\int_Ef\,\dd\mu=\int_Af\chi_E\dd\mu\leq \int_Af\,\dd\mu.\qedhere
+			\end{equation}
+	\end{enumerate}
+\end{proof}
+Tra le proprietà principali manca la linearità dell'integrale, che finora abbiamo dimostrato solo per le funzioni semplici.
+Per dimostrarla ci serve però il teorema della convergenza monotona, questo punto sarà quindi trattato successivamente.
+
+Come avevamo anticipato all'inizio del capitolo, uno dei motivi principali che hanno portato allo sviluppo dell'integrale di Lebesgue è giustificare il passaggio al limite nell'integrale con ipotesi meno restrittive che con l'integrale di Riemann.
+Passiamo dunque ad elencare i teoremi più importanti in questo ambito, che ci permetteranno lo scambio tra limite e integrale con solamente la convergenza puntuale e qualche altra ipotesi più semplice da verificare.
+\begin{teorema}[Beppo Levi; della convergenza monotona] \label{t:convergenza-monotona}
+	Sia $\{f_n\}_{n=1}^{+\infty}$ una successione di funzioni con $f_n\colon A\to[0,+\infty)$ e $A\in\mis(\R^n)$.
+	Se la successione è crescente, cioè $f_n(\vec x)\leq f_{n+1}(\vec x)$ $\forall\vec x\in A$, e converge puntualmente in $A$ alla funzione $f$, allora
+	\begin{equation}
+		\lim_{n\to+\infty}\int_Af_n\dd\mu=\int_Af\,\dd\mu
+		\label{eq:convergenza-monotona}
+	\end{equation}
+\end{teorema}
+\begin{proof}
+	Per la monotonia dell'integrale (proprietà \ref{pr:integrale-lebesgue}, punto 2) si ha $\int_Af_n\dd\mu\leq\int_Af_{n+1}\dd\mu$, dunque la successione degli integrali è anch'essa monotona crescente, quindi ammette limite per $n\to+\infty$.
+	Allo stesso tempo, $f_n\leq f$ per ogni $n\in\N$: allora per il teorema di permanenza del segno
+	\begin{equation*}
+		\lim_{n\to+\infty}\int_Af_n\dd\mu\leq\int_Af\,\dd\mu.
+	\end{equation*}
+	Sia ora $s\in\mathcal S_f$, e definiamo $A_n\defeq\{\vec x\colon f_n(\vec x)\geq \alpha s(\vec x)\}$ con $0<\alpha<1$.
+	Tutti i punti $f_n(\vec x)$ saranno definitivamente ``al di sopra'' di $\alpha s$, dato che $A_n\subseteq A_{n+1}$ da cui $\bigcup_{n=1}^{+\infty}A_n=A$.
+	Allora risulta
+	\begin{equation}
+		\int_Af_n\dd\mu\geq\int_{A_n}f_n\,\dd\mu\geq\alpha\int_{A_n}s\,\dd\mu=\sum_{i=1}^n\alpha\int_{A_i\setminus A_{i-1}}s\,\dd\mu.	
+	\end{equation}
+	in quanto ogni $i>j$ si ha $(A_i\setminus A_{i-1})\cap(A_j\setminus A_{j-1})=\emptyset$, poich\'e $A_j\setminus A_{j-1}\subseteq A_{i-1}$. Passando al limite,
+	\begin{equation}
+		\lim_{n\to+\infty}\sum_{i=1}^n\alpha\int_{A_i\setminus A_{i-1}}s\,\dd\mu=\sum_{i=1}^{+\infty}\alpha\int_{A_i\setminus A_{i-1}}s\,\dd\mu=\alpha\int_As\,\dd\mu
+	\end{equation}
+	per ciascuna $s\leq f$ in $A$.
+	Per $\alpha\to 1^-$, si ottiene dunque
+	\begin{equation}
+		\lim_{n\to+\infty}\int_Af_n\dd\mu\geq\int_As\,\dd\mu,
+	\end{equation}
+	ma allora se è maggiore di tutti gli integrali per ogni $s\in\mathcal S_f$ è anche maggiore dell'estremo superiore, e per la definizione dell'integrale otteniamo quindi
+	\begin{equation}
+		\lim_{n\to+\infty}\int_Af_n\dd\mu\geq\sup_{s\in\mathcal S_f}\int_As\,\dd\mu=\int_Af\,\dd\mu.
+	\end{equation}
+	Abbiamo trovato che il limite dell'integrale della successione non è maggiore dell'integrale del limite, ma non è nemmeno minore: allora
+	\begin{equation}
+		\lim_{n\to+\infty}\int_Af_n\dd\mu=\int_Af\,\dd\mu.\qedhere
+	\end{equation}
+\end{proof}
+Completiamo subito, dunque, la dimostrazione della linearità dell'integrale: ci manca da dimostrare che l'integrale della somma è la somma degli integrali (il resto è dimostrato nel punto 3 della \ref{pr:integrale-lebesgue}).
+\begin{proprieta} \label{pr:linearita-integrale-lebesgue}
+	Siano $f,g\colon A\to[0,+\infty]$ misurabili con $A\in\mis(\R^n)$.
+	Vale l'equazione
+	\begin{equation}
+		\int_A(f+g)\dd\mu=\int_Af\,\dd\mu+\int_Ag\,\dd\mu.
+		\label{eq:linearita-integrale-lebesgue}
+	\end{equation}
+\end{proprieta}
+\begin{proof}
+	Per la misurabilità delle due funzioni possiamo sempre trovare due successioni di funzioni semplici, $s_n$ e $t_n$, monotone crescenti e convergenti a $f$ e $g$ rispettivamente.
+	Anche il limite della loro somma esiste, e chiaramente vale $\lim_{n\to+\infty}(s_n+t_n)=f+g$.
+	Allora
+	\begin{equation}
+		\int_A(f+g)\dd\mu=\lim_{n\to+\infty}\int_A(s_n+t_n)\dd\mu=\lim_{n\to+\infty}\bigg(\int_As_n\dd\mu+\int_At_n\dd\mu\bigg)
+	\end{equation}
+	per il teorema \ref{t:integrale-funzioni-semplici-linearita}, dunque per il teorema della convergenza monotona risulta
+	\begin{equation}
+		\lim_{n\to+\infty}\bigg(\int_As_n\dd\mu+\int_At_n\dd\mu\bigg)=\int_Af\,\dd\mu+\int_Ag\,\dd\mu.\qedhere
+	\end{equation}
+\end{proof}
+
+Nonostante il teorema di Beppo-Levi sia detto ``della convergenza monotona'', le ipotesi ammettono in realtà solo le successioni crescenti.
+Con la seguente osservazione e una piccola ipotesi in più estendiamo la validità di questo teorema anche alle successioni decrescenti.
+\begin{osservazione} \label{o:convergenza-monotona-decrescente}
+	Sia $\{f_n\}_{n=1}^{+\infty}$ una successione di funzioni con $f_n\colon A\to[0,+\infty)$ e $A\in\mis(\R^n)$, tale che $\int_Af_1\,\dd\mu<+\infty$.
+	Se la successione è monotona decrescente, cioè $f_n(\vec x)\ge f_{n+1}(\vec x)$ $\forall\vec x\in A$, e converge puntualmente in $A$ alla funzione $f$, allora
+	\begin{equation}
+		\lim_{n\to+\infty}\int_Af_n\,\dd\mu=\int_Af\,\dd\mu.
+	\end{equation}
+\end{osservazione}
+\begin{proof}
+	Definiamo la successione $g_n\defeq f_1-f_n$: dato che $\{f_n\}$ è monotona decrescente, il cambio di segno in $f_n$ fa s\`i che $g_n$ sia monotona crescente; inoltre poich\'e $f_1\ge f_n$ abbiamo anche che $f_1-f_n\ge 0$ $\forall n\in\N$.
+	Possiamo dunque applicare il teorema della convergenza monotona a $\{g_n\}$, ottenendo
+	\begin{equation}
+		\lim_{n\to+\infty}\int_A(f_1-f_n)\,\dd\mu=\int_A\lim_{n\to+\infty}(f_1-f_n)\,\dd\mu
+	\end{equation}
+	la quale evidentemente, dato che $f_1$ è indipendente dal limite, per la linearità dell'integrale equivale a
+	\begin{equation}
+		\int_Af_1\,\dd\mu-\lim_{n\to+\infty}\int_Af_n\,\dd\mu=\int_Af_1\,\dd\mu-\int_A\lim_{n\to+\infty}f_n\,\dd\mu.
+	\end{equation}
+	La finitezza dell'integrale in $A$ di $f_1$ ci permette infine di cancellare tale termine da entrambi i membri, ottenendo
+	\begin{equation}
+		\lim_{n\to+\infty}\int_Af_n\,\dd\mu=\int_A\lim_{n\to+\infty}f_n\,\dd\mu.\qedhere
+	\end{equation}
+\end{proof}
+\begin{corollario} \label{cor:serie-integrali}
+	Sia $\{f_n\}_{n=1}^{+\infty}$ una successione di funzioni $f_n\colon A\to[0,+\infty]$ con $A$ misurabile: allora
+	\begin{equation}
+		\int_A\sum_{n=1}^{+\infty}f_n\dd\mu=\sum_{n=1}^{+\infty}\int_Af_n\dd\mu.
+		\label{eq:serie-integrali}
+	\end{equation}
+\end{corollario}
+\begin{proof}
+	Poich\'e ogni $f_n$ non è negativa, la successione delle somme parziali $s_k=\sum_{n=1}^kf_n$ è monotona crescente, e ammette anche il limite per $n\to+\infty$ (eventualmente infinito).
+	Per il teorema della convergenza monotona allora
+	\begin{equation}
+		\int_A\sum_{n=1}^{+\infty}f_n\dd\mu=\int_A\lim_{k\to+\infty}\sum_{n=1}^kf_n\dd\mu=\lim_{k\to+\infty}\int_A\sum_{n=1}^kf_n\dd\mu=\lim_{k\to+\infty}\sum_{n=1}^k\int_Af_n\dd\mu=\sum_{n=1}^{+\infty}\int_Af_n\dd\mu.\qedhere
+	\end{equation}
+\end{proof}
+\begin{corollario}
+	Sia $f\colon\R^n\to[0,+\infty]$ misurabile, e $\{A_n\}_{n=1}^{+\infty}$ una successione di insiemi misurabili.
+	Detto $A\defeq\bigcup_{n=1}^{+\infty}A_n$, risulta
+	\begin{enumerate}
+		\item se $A_i\cap A_j=\emptyset$ per $i\neq j$, $\int_Af\,\dd\mu=\sum_{i=1}^{+\infty}\int_{A_i}f\,\dd\mu$;
+		\item se $A_n\subseteq A_{n+1}$ per ogni $n\in\N$, $\int_Af\,\dd\mu=\lim_{n\to+\infty}\int_{A_n}f\,\dd\mu$;
+		\item se $A_n\supseteq A_{n+1}$ per ogni $n\in\N$, detto $B=\bigcap_{n=1}^{+\infty}A_n$, se $\int_{A_1}f\,\dd\mu<+\infty$ allora $\int_Bf\,\dd\mu=\lim_{n\to+\infty}\int_{A_n}f\,\dd\mu$.
+	\end{enumerate}
+\end{corollario}
+\begin{proof}
+	\begin{enumerate}
+		\item Poich\'e gli $A_i$ sono mutualmente disgiunti, definiamo una successione $\{f_n\}_{n=1}^{+\infty}$ come $f_n=f\chi_{A_n}$.
+			Per il corollario precedente allora
+			\begin{equation}
+				\int_Af\,\dd\mu=\int_A\sum_{n=1}^{+\infty}f_n\dd\mu=\sum_{n=1}^{+\infty}\int_Af_n\dd\mu=\sum_{n=1}^{+\infty}\int_{A_n}f\,\dd\mu.
+			\end{equation}
+		\item Definiamo ancora $f_n=f\chi_{A_n}$: poich\'e $A_n\subseteq A_{n+1}$, risulta $f_n\leq f_{n+1}$ in $A$ dunque la $\{f_n\}_{n=1}^{+\infty}$ è una successione monotona crescente.
+			Per il teorema della convergenza monotona allora
+			\begin{equation}
+				\int_Af\,\dd\mu=\lim_{n\to+\infty}\int_Af_n\dd\mu=\lim_{n\to+\infty}\int_{A_n}f\,\dd\mu.
+			\end{equation}
+		\item Definendo $f_n\defeq f\chi_{A_n}$ abbiamo evidentemente $f_n\ge f_{n+1}$ per ogni $n\in\N$, quindi la $\{f_n\}$ è una successione monotona decrescente, tale che $f\chi_B=\lim_{n\to+\infty}f_n$.
+			Dato che $\int_Af_1\,\dd\mu$ è finito, in virtù dell'osservazione \ref{o:convergenza-monotona-decrescente} risulta
+			\begin{equation}
+				\int_Bf\,\dd\mu=\int_Af\chi_B\,\dd\mu=\int_A\lim_{n\to+\infty}f_n\,\dd\mu=\lim_{n\to+\infty}\int_Af_n\,\dd\mu=\lim_{n\to+\infty}\int_{A_n}f\,\dd\mu.\qedhere
+			\end{equation}
+	\end{enumerate}
+\end{proof}
+
+\begin{lemma}[Fatou] \label{l:fatou}
+	Sia $\{f_n\}_{n=1}^{+\infty}$ una successione di funzioni $f_n\colon A\to[0,+\infty]$ con $A\in\mis(\R^n)$.
+	Vale la relazione
+	\begin{equation}
+		\int_A\liminf_{n\to+\infty}f_n\dd\mu\leq\liminf_{n\to+\infty}\int_Af_n\dd\mu.
+		\label{eq:fatou}
+	\end{equation}
+\end{lemma}
+\begin{proof}
+	Chiamiamo $g_n\defeq\inf_{k\geq n}f_k$ per $n\in\N$: essa è chiaramente una successione crescente, perch\'e restringendo ad ogni $n$ l'insieme delle $f_k$ da cui prendere l'estremo inferiore, esso non può certamente diminuire.
+	Per come è definita, inoltre, $\lim_{n\to+\infty}g_n=\liminf_{n\to+\infty}f_n$.
+	Per la monotonia dell'integrale, dato che $g_n\leq f_k$ in $A$ per ogni $k\geq n$, risulta
+	\begin{equation}
+		\int_Ag_n\dd\mu\leq\int_Af_k\dd\mu
+	\end{equation}
+	sempre per ogni $k\geq n$.
+	Prendendo l'estremo inferiore rispetto a $k$ dei due membri (il primo membro non dipende da $k$ quindi rimane cos\'i com'è), e passando poi al limite per $n\to+\infty$, abbiamo
+	\begin{equation}
+		\lim_{n\to+\infty}\int_Ag_n\dd\mu\leq\lim_{n\to+\infty}\inf_{k\geq n}\int_Af_k\dd\mu=\liminf_{n\to+\infty}\int_Af_n\dd\mu.
+	\end{equation}
+	Applicando infine il teorema della convergenza monotona al primo membro troviamo
+	\begin{equation}
+		\int_A\lim_{n\to+\infty}g_n\dd\mu=\int_A\liminf_{n\to+\infty}f_n\dd\mu\leq\liminf_{n\to+\infty}\int_Af_n\dd\mu.\qedhere
+	\end{equation}
+\end{proof}
+Con questo lemma abbiamo tolto l'ipotesi di monotonia della successione, ottenendo però una disuguaglianza e non più un'uguaglianza.
+Notiamo inoltre che nel lemma di Fatou non è nemmeno richiesta la convergenza puntuale della successione.
+La monotonia è un'ipotesi essenziale in questi casi: guardiamo ad esempio alla successione di $f_n\colon\R\to[0,+\infty)$ definita come $f_n=\frac1{n}\chi_{[0,n]}$.
+Il limite puntuale (ma anche uniforme) è certamente la funzione nulla, ma la convergenza non è monotona, e infatti abbiamo
+\begin{gather*}
+	\lim_{n\to+\infty}\int_{\R}f_n(x)\,\dd x=\lim_{n\to+\infty}1\\
+	\int_{\R}\lim_{n\to+\infty}f_n(x)\,\dd x=\int_A0\,\dd x=0.
+\end{gather*}
+
+\begin{osservazione}
+	Poich\'e, per $f\colon A\to[0,+\infty]$ misurabile e $A,Z\in\mis(\R^n)$ con $\mu(Z)=0$, risulta
+	\begin{equation*}
+		\int_{A\cup Z}f\,\dd\mu=\int_Af\,\dd\mu=\int_{A\setminus Z}f\,\dd\mu,
+	\end{equation*}
+nei risultati visti finora possiamo senza problemi sostituire alle condizioni che valgono in tutto l'insieme $A$ il meno restrittivo ``quasi ovunque in $A$''.
+	Ad esempio nel teorema di Beppo Levi la convergenza può essere monotona anche solo quasi ovunque, ossia se l'insieme $Z_n=\{\vec x\in A\colon f_n(\vec x)>f_{n+1}(\vec x)\}$ ha misura nulla, ma il risultato sarà lo stesso.
+	Si noti che $Z_n$ non deve necessariamente essere uguale al suo successivo $Z_{n+1}$ affinch\'e questo valga: tutti questi $Z_i$ sono infatti di misura nulla, e in quanto numerabili anche la loro unione $\bigcup_{i=1}^{+\infty}Z_i$ lo è.
+\end{osservazione}
+Concludiamo infine la trattazione dei limiti con gli integrali con il seguente risultato.
+\begin{teorema}[Lebesgue; della convergenza dominata] \label{t:convergenza-dominata}
+	Sia $\{f_n\}_{n\in\N}$ una successione di funzioni sommabili su $A\subseteq\R^n$.
+	Se esiste quasi ovunque in $A$ il limite puntuale $f$ della successione, ed esiste una funzione $g\colon A\to\R$ sommabile tale che $\abs{f_n(\vec x)}\leq g(\vec x)$ $\forall n\in\N$ e quasi ovunque in $A$, allora
+	\begin{equation}
+		\lim_{n\to+\infty}\int_A\abs{f_n-f}\dd\mu=0
+		\label{eq:convergenza-dominata}
+	\end{equation}
+\end{teorema}
+\begin{proof}
+	Poich\'e $g$ maggiora ogni termine della successione indipendentemente da $n\in\N$, per il teorema di permanenza del segno avremo anche $f\leq g$, quindi $\abs{f_n-f}\leq\abs{f_n}+\abs{f}\leq 2g$ quasi ovunque in $A$.
+	Se prendiamo la successione $2g-\abs{f_n-f}$, applicando ad essa il lemma di Fatou troviamo
+	\begin{equation}
+		\int_A\liminf_{n\to+\infty}(2g-\abs{f_n-f})\dd\mu\leq\liminf_{n\to+\infty}\int_A(2g-\abs{f_n-f})\dd\mu,
+		\label{eq:dim-lebesgue1}
+	\end{equation}
+	ma poich\'e $f_n\to f$ quasi ovunque, $\abs{f_n-f}\to 0$ cioè anche $\liminf_{n\to+\infty}\abs{f_n-f}=0$.
+	Allora $\liminf_{n\to+\infty}(2g-\abs{f_n-f})=2g-\liminf_{n\to+\infty}\abs{f_n-f}=2g$, dunque la \eqref{eq:dim-lebesgue1} diventa
+	\begin{equation}
+		\int_A2g\,\dd\mu\leq\liminf_{n\to+\infty}\int_A(2g-\abs{f_n-f})\dd\mu=\int_A2g\,\dd\mu-\limsup_{n\to+\infty}\int_A\abs{f_n-f}\dd\mu
+	\end{equation}
+	ma allora $\limsup_{n\to+\infty}\int_A\abs{f_n-f}\dd\mu\leq 0$.
+	Poich\'e l'integranda è positiva o nulla, chiaramente tale limite non potrà essere negativo, ma allora è nullo, perciò
+	\begin{equation}
+		0\leq\lim_{n\to+\infty}\int_A\abs{f_n-f}\dd\mu\leq\limsup_{n\to+\infty}\int_A\abs{f_n-f}\dd\mu=0.\qedhere
+	\end{equation}
+\end{proof}
+Poich\'e stiamo considerando il limite della successione, come al solito ci interessa sapere soltanto il suo comportamento per $n$ che tende all'infinito, quindi non è strettamente necessario che le $f_n$ siano sommabili \emph{per ogni} $n$: basta ai fini del teorema che lo siano almeno definitivamente.
+È importante però che la maggiorante sommabile $g$ sia indipendente da $n$.
+\begin{osservazione} \label{o:convergenza-dominata}
+	Poich\'e per le note proprietà degli integrali
+	\begin{equation*}
+		\abs[\bigg]{\int_Af_n\dd\mu-\int_Af\,\dd\mu}=\abs[\bigg]{\int_A(f_n-f)\dd\mu}\leq\int_A\abs{f_n-f}\dd\mu,
+	\end{equation*}
+	da questo teorema si ha anche che
+	\begin{equation}
+		\lim_{n\to+\infty}\abs[\bigg]{\int_Af_n\dd\mu-\int_Af\,\dd\mu}=0
+	\end{equation}
+	cioè possiamo scambiare limite e integrale.
+\end{osservazione}
+
+\subsection*{Confronto con l'integrale di Riemann}
+Giunti alla fine della costruzione della teoria dell'integrazione, cosa rimane della teoria di Riemann?
+Possiamo usare quanto imparato in quel caso anche con l'integrale di Lebesgue?
+Vediamo ora come integrare il lavoro svolto per le due teorie. %PUN INTENDED.
+
+Innanzitutto, partiamo dal caso ovvio: tutte le funzioni integrabili secondo Riemann (in senso proprio) lo sono anche secondo Lebesgue.
+\begin{teorema} \label{t:integrale-riemann-lebesgue}
+	Se $f\colon[a,b]\to\R$ è integrabile secondo Riemann, allora è anche misurabile e sommabile in $[a,b]$, e gli integrali secondo Riemann e Lebesgue coincidono.
+\end{teorema}
+Di conseguenza, $\rie{[a,b]}\subset\leb{[a,b]}$, con un'inclusione stretta, dato che esistono funzioni integrabili secondo Lebesgue in un intervallo compatto, ma non secondo Riemann.
+Diverso è il discorso se si passa agli integrali generalizzati, lasciando gli intervalli compatti come insieme di integrazione.
+In questo caso il discorso è più complicato: esistono funzioni integrabili in senso improprio, ma non secondo Lebesgue nel medesimo insieme.
+Il seguente teorema collega i due integrali sotto l'ipotesi che la funzione non cambi segno.
+\begin{teorema} \label{t:integrale-improprio-lebesgue}
+	Se $f\colon[a,+\infty)\to\R$ ha segno costante in $[a,+\infty)$ ed è integrabile secondo Riemann in intervalli del tipo $[a,M]$ per ogni $M>a$, allora $f$ è misurabile in $[a,+\infty)$ e gli integrali improprio e di Lebesgue coincidono.
+	In particolare, se l'integrale improprio converge allora $f$ è sommabile in tale intervallo.
+\end{teorema}
+Il teorema è ovviamente equivalente anche per intervalli del tipo $(-\infty,a]$.
+
+Prendiamo una funzione che \emph{non} ha segno costante, come $\frac{\sin x}{x}$: essa è integrabile in senso improprio in $[\pi,+\infty)$, ma non è integrabile secondo Lebesgue.
+Calcoliamo l'integrale di Riemann:
+\begin{multline}
+	\int_\pi^{+\infty}\frac{\sin x}{x}\,\dd x=\lim_{M\to+\infty}\int_\pi^M\frac{\sin x}{x}\,\dd x=\lim_{M\to+\infty}\bigg[-\frac{\cos x}{x}\Big|_\pi^M-\int_\pi^M\frac{\cos x}{x^2}\,\dd x\bigg]=\\
+	=\lim_{M\to+\infty}\bigg(\frac{-\cos M}{M}-\frac1{M}-\int_\pi^M\frac{\cos x}{x^2}\,\dd x\bigg)=-\int_\pi^{+\infty}\frac{\cos x}{x^2}\,\dd x,
+\end{multline}
+che converge ad un valore finito poich\'e l'integranda è minore in modulo di $1/x^2$.
+Per l'integrale di Lebesgue, calcoliamolo per la parte positiva: essa vale $\frac{\sin x}{x}$ in $[2k\pi,\pi+2k\pi]$ per $k\in\N$, e zero altrove. 
+Allora l'integrale è
+\begin{equation}
+	\int_\pi^{+\infty}\max\Big\{\frac{\sin x}{x},0\Big\}\,\dd x=\sum_{k=1}^{+\infty}\int_{2k\pi}^{(1+2k)\pi}\frac{\sin x}{x}\,\dd x.
+\end{equation}
+Calcoliamo in uno degli intervalli: dato che in $[2k\pi,(1+2k)\pi]$ si ha chiaramente $\abs{x}\leq(1+2k)\pi$, risulta
+\begin{equation*}
+	\frac1{\abs{x}}\geq\frac1{(1+2k)\pi},
+\end{equation*}
+ma allora (tenendo conto che $x>0$) otteniamo
+\begin{equation}
+	\int_{2k\pi}^{(1+2k)\pi}\frac{\sin x}{x}\,\dd x\geq\frac1{(1+2k)\pi}\int_{2k\pi}^{(1+2k)\pi}\sin x\,\dd x.
+\end{equation}
+Per la periodicità del seno, l'ultimo integrale vale 2 indipendentemente da $k$.
+Di conseguenza l'integrale della parte positiva diventa maggiore di
+\begin{equation*}
+	\sum_{k=1}^{+\infty}\frac2{(1+2k)\pi},
+\end{equation*}
+che però è una serie divergente: allora l'integrale della parte positiva è $+\infty$.
+Analogamente possiamo dimostrare che anche la parte negativa ha integrale $+\infty$: la funzione non è dunque integrabile secondo Lebesgue.
+
+\section{Integrali multipli}
+Occupiamoci ora delle tecniche per passare da un integrale \emph{multiplo}, ossia dove l'insieme di integrazione è in $\R^n$ con $n\geq 2$ (quindi in più variabili), ad un integrale in una sola dimensione a cui possiamo applicare le note formule per risolverlo.
+Queste sono chiamate \emph{formule di riduzione}, in quando permettono di ``ridurre la dimensione'' dell'integrale.
+
+\begin{teorema}[Fubini] \label{t:fubini}
+	Sia $f\in\leb{\R^n}$, con $n=m+k$ ($m,k\geq 1$).
+	Detto $(\vec x,\vec y)\in\R^n$ come definito prima, allora:
+	\begin{itemize}
+		\item per quasi ogni $\vec x\in\R^m$, la funzione $\vec y\mapsto f(\vec x,\vec y)\colon\R^k\to\R$ è sommabile in $\R^k$, e lo stesso per $\vec x\mapsto f(\vec x,\vec y)$;\footnote{Con \emph{per quasi ogni $\vec x\in\R^m$} intendiamo \emph{quasi ovunque in $\R^m$}: usiamo questa scrittura per specificare la variabile $\vec x$ a cui applicare la proprietà.}
+		\item le funzioni
+			\begin{equation*}
+				\vec x\mapsto\int_{\R^k}f(\vec x,\vec y)\,\dd\vec y\qtext{e}\vec y\mapsto\int_{\R^m}f(\vec x,\vec y)\,\dd\vec x
+			\end{equation*}
+			sono sommabili in $\R^m$ e $\R^k$ rispettivamente;
+		\item si ha
+			\begin{equation*}
+				\int_{\R^m}\bigg[\int_{\R^k}f(\vec x,\vec y)\,\dd\vec y\bigg]\dd\vec x=\int_{\R^k}\bigg[\int_{\R^m}f(\vec x,\vec y)\,\dd\vec x\bigg]\dd\vec y.
+			\end{equation*}
+	\end{itemize}
+\end{teorema}
+Grazie a questo teorema possiamo dunque scomporre l'integrale multiplo in una serie di integrali \emph{iterati}, ossia da risolvere una variabile alla volta.
+Chiaramente si scompongono gli integrali fino ad arrivare ad integrali in una dimensione: detto ad esempio $\vec z=(z_1,\dots,z_n)\in\R^n$ si ha
+\begin{equation*}
+	\int_{\R^n}f(\vec z)\,\dd\vec z=\int_\R\bigg[\int_\R\bigg[\cdots\int_\R\bigg[\int_\R f(\vec z)\,\dd z_1\bigg]\dd z_2\bigg]\cdots\dd z_{n-1}\bigg]\dd z_n
+\end{equation*}
+che si calcola risolvendo man mano tutti gli integrali partendo dal più interno; non importa inoltre l'ordine in cui lo si scompone.
+
+Tra le tecniche di riduzione più usate in $\R^3$ ci sono l'integrazione \emph{per fili} o \emph{per strati}: come suggerisce il nome, la prima consiste nel fissare prima due variabili, e integrare prima lungo una sola variabile, poi nelle altre due; la seconda invece fa l'opposto, ossia fissa una variabile e integra prima sulle altre due, in un certo senso calcolando la misura della ``fetta'' di volume ottenuta tagliandolo lungo la variabile fissata.
+Vediamo che queste sezioni che si ottengono tagliando l'insieme di integrazione sono misurabili.
+\begin{lemma} \label{l:sezioni-misurabili}
+	Sia $A\in\mis(\R^n)$, con $\R^n=\R^m\times\R^k$.
+	Detto $A(\vec x)$, per $\vec x\in\R^m$, l'insieme $\{\vec y\in\R^k\colon(\vec x,\vec y)\in A\}$, allora anche $A(\vec x)\in\mis(\R^k)$ per quasi ogni $\vec x\in\R^m$.
+\end{lemma}
+\begin{proof}
+	Se prendiamo la funzione caratteristica $\chi_A$, essa è misurabile perch\'e lo è $A$, dunque sono misurabili anche le funzioni $\vec x\mapsto\chi_A(\vec x,\vec y)$ e $\vec y\mapsto\chi_A(\vec x,\vec y)$ quasi ovunque, rispettivamente, in $\R^k$ e $\R^m$.
+	Allora anche l'insieme di arrivo $\{\vec y\in\R^k\colon\chi_A(\vec x,\vec y)=1\}$, che è proprio $A(\vec x)$, lo è.
+\end{proof}
+Potendo restringere una funzione definita in tutto $\R^n$ ad un sottoinsieme $A\subset\R^n$ moltiplicandola per la funzione caratteristica di $A$, possiamo passare facilmente dal teorema di Fubini in tutto lo spazio ad un teorema solo in un dato insieme.
+\begin{teorema} \label{t:fubini2}
+	Siano $A\in\mis(\R^n)$, $\R^n=\R^m\times\R^k$ e $f\colon A\to\Rex$.
+	Allora $f$ è misurabile sulle sezioni $A(\vec x)$, come definite prima, quasi ovunque in $\R^m$.
+	Inoltre se $f\in\leb{A}$ allora $\vec y\mapsto f(\vec x,\vec y)$ è a sua volta sommabile su $A(\vec x)$ quasi ovunque in $\R^k$, e $\vec x\mapsto\int_{A(\vec x)}f(\vec x,\vec y)\,\dd\vec y$ è sommabile in $\R^m$.
+	Infine si può scomporre l'integrale come
+	\begin{equation}
+		\int_Af(\vec x,\vec y)\,\dd\vec x\,\dd\vec y=\int_{\R^m}\bigg[\int_{A(\vec x)}f(\vec x,\vec y)\,\dd\vec y\bigg]\dd\vec x.
+	\end{equation}
+\end{teorema}
+Anche in questo caso ovviamente si possono scambiare i ruoli delle due variabili ottenendo lo stesso risultato.
+
+Se la funzione non è sommabile, tutto può accadere.
+Prendiamo ad esempio $f\colon E\defeq(0,1]\times(0,1]\to\R$ definita come
+\begin{equation*}
+	f(x,y)=
+	\begin{dcases}
+		-\frac1{y^2} &y\geq x\\
+		\frac1{x^2} &0<y<x.
+	\end{dcases}
+\end{equation*}
+Se separiamo le variabili, otteniamo
+\begin{equation}
+	\int_Ef(x,y)\,\dd x\,\dd y=\int_0^1\bigg(\int_0^x\frac1{x^2}\,\dd y+\int_x^1-\frac1{y^2}\,\dd y\bigg)\dd x=\int_0^1\bigg(\frac1{x}+\frac1{y}\bigg|_x^1\bigg)\dd x=\int_0^1\bigg(\frac1{x}+1-\frac1{x}\bigg)\dd x=1,
+\end{equation}
+ma allo stesso tempo, scambiando l'ordine,
+\begin{equation}
+	\int_0^1\bigg[\int_0^1f(x,y)\,\dd x\bigg]\dd y=-1
+\end{equation}
+e i risultati non coincidono proprio perch\'e $f$ non è sommabile in $E$.
+
+Prendiamo invece la funzione $f\colon\R^2\to\R$ definita, per $k\in\Z$, come
+\begin{equation*}
+	f(x,y)=
+	\begin{cases}
+		1 &(x,y)\in(k,k+1)\times(k,k+1)\\
+		-1 &(x,y)\in(k,k+1)\times(-k-1,-k)\\
+		0 &\text{altrove}
+	\end{cases}.
+\end{equation*}
+Se separiamo le variabili, essendo una funzione dispari l'integrale è nullo sia integrando prima in $x$ sia integrando prima in $y$, quindi coincidono.
+Come si può chiaramente vedere, però, sia la parte positiva sia quella negativa sono funzioni costanti su intervalli illimitati, quindi l'integrale di entrambi vale $+\infty$: ma allora la $f$ non è nemmeno integrabile!
+
+Se la funzione ha segno costante, vediamo che questo non può accadere.
+\begin{teorema}[Tonelli] \label{t:tonelli}
+	Data $f\colon\R^n\to[0,+\infty]$ misurabile, con $\R^n=\R^m\times\R^k$, allora la funzione $\vec x\mapsto\int_{\R^k}f(\vec x,\vec y)\,\dd\vec y$, definita quasi ovunque da $\R^m$ a $\R$, è misurabile, e lo stesso per la $\vec y\mapsto\int_{\R^m}f(\vec x,\vec y)\,\dd\vec x$ da $\R^k$ a $\R$, e si può scambiare l'ordine di integrazione.
+\end{teorema}
+Se dobbiamo integrare una funzione, se essa è sommabile o non negativa in partenza, possiamo direttamente applicare il teorema di Fubini o di Tonelli.
+Se ciò non accade, possiamo comunque sfruttarli nel seguente metodo.
+\begin{enumerate}
+	\item Si calcola l'integrale del modulo della funzione: dato che è sempre positivo o nullo, per calcolare questo integrale si può usare il teorema di Tonelli;
+	\item Se tale integrale è finito, significa che la funzione è sommabile, quindi possiamo calcolare l'integrale della funzione di partenza separando le variabili con il teorema di Fubini.
+\end{enumerate}
+
+Verificato quando è possibile scambiare l'ordine di integrazione e ridurre l'integrale, certe volte ci si trova ad integrare una funzione in un cerchio, in una sfera, o in altri insiemi dotati di particolari simmetrie.
+Risulterebbe comodo, ad esempio, nei primi due casi, porsi in un sistema di coordinate polari (piane o sferiche) per svolgere i nostri calcoli.
+Vediamo ora quando è possibile applicare questi cambiamenti di coordinate.
+\begin{teorema}
+	Sia $U\subset\R^n$ compatto e $\vec F\colon U\to\R^p$, con $p\geq n$, che sia lipschitziana su ogni sottoinsieme compatto di $U$.\footnote{Ricordiamo che una funzione $\vec f$ è lipschitziana in un insieme $A$ se vale $\norm{\vec f(\vec x)-\vec f(\vec y)}\leq c\norm{\vec x-\vec y}$ per ogni $\vec x,\vec y\in A$ e un $c\in\R$.}
+	Allora per ogni $A\subseteq U$ misurabile vale che
+	\begin{itemize}
+		\item $\vec F(A)$ è misurabile in $\R^p$;
+		\item se $p>n$, allora $\mu\big(\vec F(A)\big)=0$ in $\R^p$.
+	\end{itemize}
+\end{teorema}
+
+Tra le trasformazioni tra due aperti di $\R^n$ avevamo visto i diffeomorfismi, ossia delle trasformazioni biunivoche, differenziabili e con inversa differenziabile. La jacobiana di un diffeomorfismo non è mai singolare, quindi, per definizione.
+Inoltre, essendo differenziabile, possiamo scrivere lo sviluppo al primo ordine in ogni punto $\vec x_0$ dell'insieme di partenza
+\begin{equation}
+	\vec g(\vec x)=\vec g(\vec x_0)+\jac\vec g(\vec x_0)(\vec x-\vec x_0)+o(\norm{\vec x-\vec x_0}).
+\end{equation}
+Possiamo dunque approssimare linearmente nell'intorno di $\vec x_0$ il diffeomorfismo con una mappa affine (ossia lineare a meno di una costante, che qui è $\vec g(\vec x_0)$) rappresentata dalla matrice jacobiana.
+Abbiamo inoltre il seguente teorema.
+\begin{teorema} \label{t:diffeomorfismo-globale}
+	Una funzione $\vec g\colon U\to V$, con $U,V$ aperti in $\R^n$, biunivoca e tale che $\vec g\in\cont[1]{U}$ e $\det\jac\vec g(\vec x)\neq 0$ per ogni $\vec x\in U$, è un diffeomorfismo \emph{globale} tra $U$ e $V$.
+\end{teorema}
+La proprietà di non singolarità della jacobiana è solamente locale, quindi da sola non basta ad affermare che il diffeomorfismo sia anche globale: serve anche provarne la biunivocità.
+\begin{teorema} \label{t:diffeomorfismo-misurabilita-insieme}
+	Siano $U,V\subseteq\R^n$ aperti e $\vec g\colon U\to V$ un diffeomorfismo globale tra essi.
+	Allora un insieme $B\subseteq V$ è misurabile se e solo se $\vec g^{-1}(B)\subseteq U$ lo è.
+\end{teorema}
+\begin{teorema} \label{t:composizione-diffeomorfismo-misurabile}
+	Siano $U,V\subseteq\R^n$ aperti e $\vphi\colon U\to V$ un diffeomorfismo globale tra essi.
+	Sia $B\subseteq V$ misurabile, e $A\defeq\vphi^{-1}(B)$, e $f\colon V\to\Rex$ e $g\defeq f\circ\vphi\colon U\to\Rex$.
+	Allora:
+	\begin{itemize}
+		\item $f$ è misurabile in $V$ se e solo se lo è $g$ in $U$;
+		\item $f$ è sommabile in $B$ se e solo se lo è $g\abs{\det\jac\vphi}$ in $A$, e inoltre vale
+			\begin{equation}
+				\int_Bf(\vec y)\,\dd\vec y=\int_Ag(\vec x)\abs{\det\jac\vphi(\vec x)}\dd\vec x=\int_A(f\circ\vphi)(\vec x)\abs{\det\jac\vphi(\vec x)}\dd\vec x;
+			\end{equation}
+		\item se $f\geq 0$ in $V$, allora
+			\begin{equation}
+				\int_Bf(\vec y)\,\dd\vec y<+\infty\text{ se e solo se }\int_A(f\circ\vphi)(\vec x)\abs{\det\jac\vphi(\vec x)}\dd\vec x<+\infty.
+			\end{equation}
+	\end{itemize}
+\end{teorema}
+Questo risultato mostra come cambia la misura di integrazione con un cambiamento di coordinate (il diffeomorfismo): in particolare, se la trasformazione è lineare, la jacobiana sarà costante, di conseguenza avremmo $\mu(B)=\mu\big(\vphi(A)\big)=\abs{\det\jac\vphi}\mu(A)$.
+Possiamo vedere $\dd\vec y$ ad esempio come un ``elemento infinitesimo di volume'' (o di area), e il risultante $\abs{\det\jac\vphi(\vec x)}\dd\vec x$ come il medesimo elemento di volume visto nelle nuove coordinate.
+
+\begin{esempio} \label{es:jacobiano-coordinate-polari}
+	Prendiamo le coordinate polari in $\R^2$: possiamo passare a queste dalle coordinate cartesiane ortogonali con la trasformazione
+	\begin{equation}
+		\begin{pmatrix}
+			x\\y
+		\end{pmatrix}
+		=\vec g
+		\begin{pmatrix}
+			\rho\\\theta
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			\rho\cos\theta\\\rho\sin\theta
+		\end{pmatrix},
+	\end{equation}
+	ma affinch\'e sia un diffeomorfismo dobbiamo prendere degli insiemi di partenza e di arrivo \emph{aperti} e in modo che $\vec g$ sia biunivoca.
+	Prendiamo dunque $U=(0,+\infty)\times(0,2\pi)$ e $V=\R^2\setminus\{(x,0)\in\R^2\colon x\geq 0\}$: abbiamo che $\vec g\colon U\to V$ è biunivoca.
+	Questa trasformazione in realtà lascia ``scoperto'' il semiasse positivo delle ascisse, che non è incluso in $V$ (e chiaramente non ha una controimmagine in $U$): ai fini dell'integrazione in $\R^2$, però, questa esclusione non porta ad alcun cambiamento, perch\'e tale semiretta ha misura nulla in $\R^2$ quindi non influisce sull'integrale.
+	Il determinante della jacobiana di $\vec g$ è inoltre
+	\begin{equation}
+		\det\jac\vec g(\rho,\theta)=
+		\begin{vmatrix}
+			\cos\theta &-\rho\sin\theta\\
+			\sin\theta &\rho\cos\theta
+		\end{vmatrix}
+		=\rho
+	\end{equation}
+	che per come è definito $U$ è compreso in $(0,+\infty)$ quindi non è mai nullo.
+\end{esempio}
+\begin{esempio} \label{es:composizione-polari-traslazione}
+	Le coordinate polari sono naturalmente centrate nell'origine degli assi, ma potrebbe servirci centrarle in un altro punto nel piano, quindi dobbiamo comporre la trasformazione in polari con una traslazione: la traslazione è ovviamente un diffeomorfismo tra tutto $\R^2$ e se stesso, e ha come jacobiana l'identità.
+	Usiamo ancora $\vec g$ per la trasformazione in coordinate polari e chiamiamo $\vec t$ la traslazione.
+	Si può vedere facilmente che $\jac\vec t(x,y)$ è la matrice identità per ogni $(x,y)\in\R^2$.
+	Ricordandoci che componendo due funzioni la jacobiana della risultante è il prodotto delle due jacobiane delle funzioni di partenza, risulta
+	\begin{equation}
+		\jac(\vec g\circ\vec t)=\jac\vec g\jac\vec t=\jac\vec g\quad\then\quad\det\jac(\vec g\circ\vec t)=\rho
+	\end{equation}
+	anche in questo caso.
+\end{esempio}
+Più in generale, usando la formula di Binet dei determinanti troviamo che componendo due diffeomorfismi, il determinante della jacobiana della trasformazione risultante non è altro che il prodotto dei determinanti dei singoli diffeomorfismi; inoltre anche se scambiando l'ordine della composizione la jacobiana ``finale'' potrebbe cambiare, non varia invece il suo determinante.

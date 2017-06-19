@@ -1,0 +1,211 @@
+\chapter{Evoluzione temporale}
+Poich\'e finora ci siamo interessati degli stati di equilibrio dei sistemi  e delle loro energie, ci è servito studiare soltanto una descrizione indipendente dal tempo.
+Per analizzare i fenomeni dinamici e variabili nel tempo, però, ci occorre capire come gli stati dei sistemi quantistici evolvono nel tempo: dato uno stato $\ket{\psi(0)}$ noto ad un certo istante iniziale di tempo, come determinare la sua evoluzione $\ket{\psi(t)}$ ad un generico istante?
+A questo risponde l'ultimo postulato della teoria quantistica che incontriamo.
+\begin{postulato}
+    L'evoluzione nel tempo di uno stato $\ket{\psi}$ è unitaria ed è dettata dall'equazione
+    \begin{equation}
+        i\hbar\drp{}{t}\ket{\psi}=\op H\ket{\psi}.
+        \label{eq:schroedinger-dipendente-dal-tempo}
+    \end{equation}
+\end{postulato}
+Questa equazione è nota come \emph{equazione di Schr\"odinger dipendente dal tempo}, e in effetti vedremo che per gli autostati dell'hamiltoniano si riduce all'equazione di Schr\"odinger già vista in precedenza (che è \emph{indipendente} dal tempo).
+
+Partiamo però da un caso più semplice, che è quello in cui l'operatore hamiltoniano non dipende esplicitamente dal tempo.
+Nella meccanica classica l'evoluzione temporale è descritta dall'evoluzione delle coordinate canoniche nello spazio delle fasi secondo le equazioni di Hamilton; in meccanica quantistica, essa è descritta da un opportuno \emph{operatore di evoluzione temporale}, che indicheremo con $\op U(t,t_0)$, per il quale $\ket{\psi(t)}=\op U(t,t_0)\ket{\psi(0)}$.
+L'operatore $\op U(t,t_0)$ deve rispettare tre principali proprietà:
+\begin{itemize}
+	\item deve essere unitario, in modo che si conservi la probabilità: se $\adj{\op U(t,t_0)}=U(t,t_0)^{-1}$ allora $\braket{\psi(t)}{\psi(t)}=\bra{\psi(0)}\adj{\op U(t,t_0)}\op U(t,t_0)\ket{\psi(0)}=\braket{\psi(0)}{\psi(0)}$;
+	\item deve essere continuo e ridursi all'identità per $t\to t_0$, ossia $U(t_0,t_0)=1$;
+	\item si compone con la regola $\op U(t_2,t_1)\op U(t_1,t_0)=\op U(t_2,t_0)$, in modo che se facciamo evolvere il sistema da un tempo $t_0$ a $t_1$ e successivamente da $t_1$ a $t_2$, otteniamo lo stesso risultato che se lo facessimo evolvere direttamente da $t_0$ e $t_2$.
+\end{itemize}
+
+Da qui in poi assumiamo che l'hamiltoniano non sia esplicitamente dipendente dal tempo, come sarà il caso in tutti gli esempi che vedremo.
+Seguendo l'esempio della meccanica classica, assumiamo anche qui che l'hamiltoniano sia il generatore delle traslazioni temporali infinitesime.
+Dato che l'argomento dell'esponenziale deve essere adimensionale, dobbiamo dividere $\op Ht$ per un'opportuna costante: essa è ancora $\hbar$, e l'operatore $\op U(t,t_0)$ è dato dalla formula\footnote{Non mostriamo qui le ragioni per cui la costante dimensionale debba essere proprio la stessa $\hbar$ usata finora.}
+\begin{equation}
+	\op U(t,t_0)=\exp\bigg[-\frac{i}{\hbar}\op H(t-t_0)\bigg]
+	\label{eq:operatore-evoluzione-temporale}
+\end{equation}
+che mostra come il sistema dipenda in realtà solamente dal tempo trascorso $t-t_0$ (sempre se $\op H$ è indipendente dal tempo) e non dagli specifici istanti di tempo.
+Possiamo indicare direttamente con $t$ il tempo trascorso, oppure porre $t_0=0$, ottenendo
+\begin{equation}
+	\op U(t)=\exp\bigg(-\frac{i}{\hbar}\op Ht\bigg).
+\end{equation}
+L'operatore di evoluzione temporale commuta dunque con l'hamiltoniano.
+Nel caso di una dipendenza esplicita dal tempo dell'hamiltoniano, non esiste in generale una formula per $\op U(t,t_0)$, ed esso non commuta necessariamente con $\op H(t)$.
+
+Per studiare come uno stato varia nel tempo consideriamo la sua derivata temporale all'istante $t$, passando alla derivata di $\op U(t)$, possiamo ottenere l'equazione differenziale
+\begin{equation}
+	\drp{}{t}\ket{\psi(t)}=\drp{}{t}\op U(t)\ket{\psi(0)}=-\frac{i}{\hbar}\op H\op U(t)\ket{\psi(0)}=-\frac{i}{\hbar}\op H\ket{\psi(t)}\quad\longrightarrow\quad \op H=i\hbar\drp{}{t}.
+\end{equation}
+Nel caso in cui anche l'hamiltoniano dipenda dal tempo, l'equazione si generalizza nella forma
+\begin{equation}
+	i\hbar\drp{}{t}\op U(t)=\op H(t)\op U(t)
+	\label{eq:schrodinger-tempo}
+\end{equation}
+che non è altro che la \eqref{eq:schroedinger-dipendente-dal-tempo} applicata all'operatore $U(t)$ anzich\'e allo stato.
+Nella rappresentazione delle coordinate troviamo l'equazione differenziale per la funzione d'onda, che è $\bra{q}i\hbar\drp{}{t}\ket{\psi(t)}=\bra{q}\op H(t)\ket{\psi(t)}$, da cui
+\begin{equation}
+	i\hbar\drp{}{t}\psi(q,t)=H\psi(q,t)
+	\label{eq:schrodinger-tempo-coordinate}
+\end{equation}
+dove $H$ nell'equazione si riferisce all'operatore di $\leb[2]{\R}$ corrispondente all'hamiltoniano.
+
+\section{Stati stazionari}
+Esistono degli stati \emph{stazionari}, che non dipendono dal tempo?
+Chiedere che $\ket{\psi(t)}$ sia uguale a $\ket{\psi(0)}$ è eccessivo, perch\'e allora $\ket{\psi(0)}$ sarebbe un autostato di $\op U(t)$ con autovalore 1, ossia
+\begin{equation}
+	\ket{\psi(0)}=e^{-\frac{i}{\hbar}\op Ht}\ket{\psi(0)}=\sum_{k=0}^{+\infty}\frac1{k!}\bigg(-\frac{i}{\hbar}\op Ht\bigg)^k\ket{\psi(0)}=\ket{\psi(0)}+\sum_{k=1}^{+\infty}\frac1{k!}\bigg(-\frac{i}{\hbar}\op Ht\bigg)^k\ket{\psi(0)}
+\end{equation}
+che vale a dire che $\ket{\psi(0)}$ è un autostato di $\op H$ con autovalore nullo, situazione impossibile per uno stato fisico.
+Sappiamo però che due vettori multipli per uno scalare rappresentano lo stesso stato fisico, perciò anche se $\op U(t)\ket{\psi(0)}=c(t)\ket{\psi(0)}$ lo stato fisico rimane invariato, come vogliamo.
+Oltre ad apparire nell'espressione dell'operatore $\op U(t)$, l'hamiltoniano gioca un ruolo cruciale nell'evoluzione temporale, come spiegato nel seguente teorema.
+\begin{teorema} \label{t:autostati-hamiltoniano-stazionari}
+	Uno stato è stazionario se e solo se è un autostato dell'hamiltoniano.
+\end{teorema}
+\begin{proof}
+	Sia $\ket{\psi(0)}$ un autostato di $\op H$: allora $\op H\ket{\psi(0)}=E\ket{\psi(0)}$ per un certo $E\in\R$.
+	Sviluppando in serie l'esponenziale, ogni termine ha una potenza di $\op H$ e chiaramente $\op H^k\ket{\psi(0)}=E^k\ket{\psi(0)}$, quindi $\op U(t)\ket{\psi(0)}=\exp\big(-\frac{i}{\hbar}\op Ht\big)\ket{\psi(0)}=\exp\big(-\frac{i}{\hbar}Et\big)\ket{\psi(0)}$.
+
+	Sia ora $\ket{\psi(0)}$ uno stato stazionario, per cui esiste una funzione $c(t)$ tale che $\ket{\psi(t)}=c(t)\ket{\psi(0)}$.
+	Allora dall'equazione \eqref{eq:schrodinger-tempo} applicata a $\ket{\psi(0)}$ troviamo
+	\begin{equation}
+		i\hbar\dot{c}(t)\ket{\psi(0)}=c(t)\op H\ket{\psi(0)}\quad\longrightarrow\quad i\hbar\frac{\dot{c}(t)}{c(t)}\ket{\psi(0)}=\op H\ket{\psi(0)}.
+	\end{equation}
+	Ora, se $\op H$ non dipende dal tempo, anche il primo membro è una costante.
+	Poniamo dunque porre $E\defeq i\hbar\frac{\dot{c}(t)}{c(t)}$ ottenendo l'equazione differenziale $\dot{c}(t)=-\frac{i}{\hbar}Ec(t)$.
+	La condizione iniziale è $c(0)=1$, dato che deve valere evidentemente $\ket{\psi(0)}=c(0)\ket{\psi(0)}$.
+	Troviamo di conseguenza la soluzione $c(t)=\exp\big(-\frac{i}{\hbar}Et\big)$, vale a dire $\ket{\psi(0)}$ è un autostato di $\op H$ come si può vedere ricalcando il ragionamento della prima parte della dimostrazione.
+\end{proof}
+
+Conoscendo lo spettro dell'hamiltoniano e i suoi autostati $\ket{E_n}$, potremmo sviluppare lo stato in questa base scrivendo
+\begin{equation}
+	\ket{\psi(0)}=\sum_{n=0}^{+\infty}\ket{E_n}\braket{E_n}{\psi(0)}=\sum_{n=0}^{+\infty}a_n\ket{E_n}
+\end{equation}
+da cui ricaviamo
+\begin{equation}
+	\ket{\psi(t)}=\op U(t)\sum_{n=0}^{+\infty}a_n\ket{E_n}=\sum_{n=0}^{+\infty}a_n\op U(t)\ket{E_n}=\sum_{n=0}^{+\infty}a_ne^{-\frac{i}{\hbar}E_nt}\ket{E_n},
+\end{equation}
+quindi i coefficienti dello sviluppo nella base di autostati di $\op H$ evolvono secondo l'equazione $a_n(t)=a_n(0)\exp\big(-\frac{i}{\hbar}E_nt\big)$, poich\'e gli autostati sono stazionari.
+
+\section{Evoluzione delle osservabili}
+Finora abbiamo visto gli stati variare nel tempo, mentre le osservabili rimangono costanti: è lo \emph{schema di Schr\"odinger}.
+Potremmo invece lasciare fissati gli stati e far variare, secondo le medesime equazioni, le osservabili, seguendo invece lo \emph{schema di Heisenberg}.
+Possiamo individuare delle osservabili i cui valori medi rimangono costanti?
+Il valore medio, come funzione del tempo, è ancora definito come $\avg{\xi(t)}=\bra{\psi(t)}\op\xi\ket{\psi(t)}$.
+Calcolando la sua derivata rispetto al tempo e uguagliandola a zero troviamo, dato che $\bra{\psi(0)}$ e $\ket{\psi(0)}$ sono costanti,
+\begin{multline}
+	0=\drp{}{t}[\adj{\op U}(t)\op\xi\op U(t)]=\bigg(\drp{}{t}\adj{\op U}(t)\bigg)\op\xi\op U(t)+\adj{\op U}(t)\op\xi\drp{}{t}\op U(t)=\\
+	=\frac{i}{\hbar}\big[\adj{\op U}(t)\op H\op\xi\op U(t)-\adj{\op U}(t)\op\xi\op H\op U(t)\big]=\frac{i}{\hbar}\adj{\op U}(t)[\op H,\op\xi]\op U(t)
+\end{multline}
+ossia $[\op H,\op\xi]=0$.
+Dunque $\op\xi$ è una ``costante del moto'' se commuta con $\op H$: in questo caso sono compatibili (se $\op H$ non è degenere) e possiamo scegliere una base di autostati simultanei, che sono quindi autostati di $\op\xi$ stazionari.
+
+Nell'equazione $\bra{\psi(t)}\op\xi\ket{\psi(t)}=\bra{\psi(0)}\adj{\op U}(t)\op\xi\op U(t)\ket{\psi(0)}$ possiamo definire l'operatore variabile nel tempo $\op\xi(t)\defeq\adj{\op U}(t)\op\xi\op U(t)$ ottenendo $\bra{\psi(t)}\op\xi\ket{\psi(t)}=\bra{\psi(0)}\op\xi(t)\ket{\psi(0)}$.
+Se $\op\xi$ è hermitiano chiaramente lo è anche $\op\xi(t)$, inoltre vale ancora
+\begin{equation}
+	\drp{}{t}\op\xi(t)=\frac{i}{\hbar}\adj{\op U}(t)[\op H,\op\xi]\op U(t)=\frac{i}{\hbar}[\op H,\op\xi(t)],
+	\label{eq:evoluzione-osservabili-heisenberg}
+\end{equation}
+detta \emph{equazione di Heisenberg}.
+A meno del fattore $i/\hbar$, questa equazione non è altro che la già nota relazione in meccanica classica per l'evoluzione temporale delle osservabili $\dot{f}=\{f,H\}$.
+
+Ad esempio, prendiamo l'hamiltoniano $\op H=\frac1{2m}\op p^2+V(\op q)$ di una particella soggetta, in una dimensione, ad un generico potenziale $V(q)$.
+L'evoluzione della posizione è
+\begin{equation}
+	\drp{}{t}\op q(t)=\frac{i}{\hbar}[\op H,\op q]=\frac{i}{2\hbar m}[\op p^2,\op q]=\frac{i\op p}{\hbar m}[\op p,\op q]=\frac{\op p}{m},
+\end{equation}
+mentre quella degli impulsi è
+\begin{equation}
+	\drp{}{t}\op p(t)=\frac{i}{\hbar}[\op H,\op p]=\frac{i}{\hbar}[V(\op q),\op p]=-\drp{V}{q}(\op q).
+\end{equation}
+Notare la forte somiglianza di queste due equazioni con quelle di Hamilton in meccanica classica.
+
+\section{Corrente di probabilità}
+Dato che l'equazione di Schr\"odinger non dipendente dal tempo è a coefficienti reali, se $\psi$ è una sua soluzione anche la coniugata $\psi^*$ lo è, ossia $\psi$ e $\psi^*$ soddisfano le equazioni
+\begin{equation}
+	-\frac{\hbar^2}{2m}\lap\psi(\vec x)+\big[V(\vec x)-E\big]\psi(\vec x)=0\qeq	-\frac{\hbar^2}{2m}\lap\psi^*(\vec x)+\big[V(\vec x)-E\big]\psi^*(\vec x)=0.
+\end{equation}
+Moltiplicando (a sinistra) la prima per $\psi^*$, la seconda per $\psi$ e sottraendole otteniamo allora
+\begin{equation}
+	-\frac{\hbar^2}{2m}\big[\psi^*(\vec x)\lap\psi(\vec x)-\psi(\vec x)\lap\psi^*(\vec x)\big]=0
+\end{equation}
+da cui
+\begin{equation}
+	0=-\frac{\hbar^2}{2m}\psi^*(\vec x)\lap\psi(\vec x)-\psi(\vec x)\lap\psi^*(\vec x)=-\frac{\hbar^2}{2m}\div\big(\psi^*(\vec x)\grad\psi(\vec x)-\psi(\vec x)\grad\psi^*(\vec x)\big).
+\end{equation}
+Definiamo dunque la \emph{corrente di probabilità} $\vec J(\vec x)$ come la quantità
+\begin{equation}
+	\vec J(\vec x)=-\frac{i\hbar}{2m}\big(\psi^*(\vec x)\grad\psi(\vec x)-\psi(\vec x)\grad\psi^*(\vec x)\big)
+	\label{eq:corrente-probabilita}
+\end{equation}
+che in questo caso soddisfa l'equazione di continuità $\div\vec J(\vec x)=0$.
+
+La corrente di probabilità $\vec J$ si definisce allo stesso modo anche per sistemi variabili nel tempo, secondo l'equazione \eqref{eq:schrodinger-tempo-coordinate}, con le $\psi$ e $\psi^*$ ovviamente a loro volta dipendenti dal tempo.
+In tal caso si dimostra che la corrente di probablità soddisfa l'equazione
+\begin{equation}
+	\div\vec J(\vec x,t)+\drp{\rho}{t}(\vec x,t)=0,
+	\label{eq:continuita-corrente-probabilita}
+\end{equation}
+dove $\rho(\vec x,t)=\abs{\psi(\vec x,t)}^2$, che è la versione più generale dell'equazione di continuità precedente.
+Se in particolare $\psi(\vec x,t)$ è un'autofunzione dell'hamiltoniano $\psi_n(\vec x)e^{-iE_nt/\hbar}$, allora $\vec J(\vec x,t)=0$ e la densità di probabilità $\rho$ si conserva nel tempo, come abbiamo già visto.
+
+\section{Teorema di Ehrenfest}
+Nel caso classico abbiamo il teorema del viriale che lega i valori medi nel tempo dell'energia cinetica e potenziale.
+Ai fini della dimostrazione è necessario il seguente risultato.
+\begin{teorema}[Eulero] \label{t:eulero-funzioni-omogenee}
+	Se $f\colon\R^n\to\R$ è una funzione omogenea sufficientemente liscia di grado $k$, ossia $f(\lambda\vec x)=\lambda^kf(\vec x)$, allora
+	\begin{equation}
+		\sum_{i=1}^nx_i\drp{V}{x_i}(\vec x)=kV(\vec x).
+		\label{eq:eulero-funzioni-omogenee}
+	\end{equation}
+\end{teorema}
+\begin{proof}
+	Derivando l'identità $f(\lambda\vec x)=\lambda^kf(\vec x)$ rispetto alla componente $i$-esima troviamo $\lambda\drp{f}{x_i}(\lambda\vec x)=\lambda^k\drp{f}{x_i}(\vec x)$ ossia
+	\begin{equation}
+		\drp{f}{x_i}(\lambda\vec x)\lambda^{k-1}f(\vec x).
+	\end{equation}
+	Sommando su tutte le componenti
+	\begin{equation}
+		\sum_{i=1}^nx_i\drp{f}{x_i}(\lambda\vec x)=k\lambda^{k-1}f(\vec x)
+	\end{equation}
+	e basta prendere $\lambda=1$ per ottenere la \eqref{eq:eulero-funzioni-omogenee}.
+\end{proof}
+
+\begin{teorema}[del viriale] \label{t:viriale}
+	Se il potenziale $V$ di un sistema è una funzione omogenea di grado $k$, allora $k\avg{V}=2\avg{T}$.
+\end{teorema}
+\begin{proof}
+	Prendiamo la parentesi di Poisson $\pois{\sum_iq_ip_i}{\ham}$: risulta
+	\begin{equation}
+		\sum_i\pois{q_ip_i}{\ham}=\sum_i\big(q_i\pois{p_i}{\ham}+\pois{q_i}{\ham}p_i\big)=\sum_i\bigg(-q_i\drp{\ham}{q_i}+p_i\drp{\ham}{p_i}\bigg)=-kV+2T
+	\end{equation}
+	sfruttando le equazioni canoniche di Hamilton e il fatto che $T$ è omogenea di grado $2$ mentre $V$ lo è di grado $k$.
+	Integrando su un periodo risulta
+	\begin{equation}
+		0=\frac1{T}\int_0^T\drv{}{t}\bigg(\sum_iq_ip_i\bigg)\,\dd t=\frac1{T}\int_0^T\pois{\sum_iq_ip_i}{\ham}\,\dd t=-k\avg{V}+2\avg{T}
+	\end{equation}
+	da cui $k\avg{V}=2\avg{T}$.
+\end{proof}
+
+Nei sistemi quantistici, l'analogo del teorema del viriale è dato dal teorema di Ehrenfest.
+Anche la dimostrazione è molto simile, ma è svolta considerando soltanto gli autostati dell'hamiltoniano.
+\begin{teorema}[Ehrenfest] \label{t:ehrenfest}
+	Sia $\ket{E}$ un autostato dell'hamiltoniano, tale che $\op H\ket{E}=E\ket{E}$.
+	Se il potenziale $V$ è una funzione di $\op q$ omogenea di grado $k$ allora
+	\begin{equation}
+		k\bra{E}V(\op q)\ket{E}=2\bra{E}T(\op p)\ket{E}
+		\label{eq:ehrenfest}
+	\end{equation}
+	dove $T$ è l'energia cinetica, come funzione di $\op p$ omogenea di grado 2.
+\end{teorema}
+\begin{proof}
+	Abbiamo già visto che per un qualsiasi operatore $\op\xi$ si ha $\ket{E}[\op\xi,\op H]\ket{E}=0$.
+	Ponendo $\op\xi=\sum_i\op q_i\op p_i$ allora risulta
+	\begin{equation}
+		0=\sum_i\bra{E}[\op q_i\op p_i,\op H]\ket{E}=\sum_i\bra{E}\op q_i[\op p_i,\op H]+[\op q_i,\op H]\op p_i\ket{E}=\bra{E}-kV(\op q)+2T(\op p)\ket{E}
+	\end{equation}
+	da cui la tesi.
+\end{proof}
+

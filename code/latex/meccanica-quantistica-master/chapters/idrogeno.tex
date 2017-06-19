@@ -1,0 +1,441 @@
+\chapter{L'atomo di idrogeno}
+In questo capitolo affrontiamo finalmente uno dei problemi ``classici'' completamente risolubili della meccanica quantistica, lo studio dello spettro dell'atomo di idrogeno.
+Cominciamo dal problema base del problema a due corpi.
+
+\section{Il problema a due corpi}
+Affrontiamo per ora il problema nella visione della meccanica classica.
+Prendiamo un sistema composto da due corpi, a cui assegnamo le coordinate canoniche $(\vec x_1,\vec p_1)$ e $(\vec x_2,\vec p_2)$, legati da un potenziale di interazione $V(\norm{\vec x_1-\vec x_2})$.
+Il sistema è descritto dalla funzione hamiltoniana
+\begin{equation}
+	\mathcal H=\frac{\vec p_1^2}{2m_1}+\frac{\vec p_2^2}{2m_2}+V(\norm{\vec x_1-\vec x_2})
+	\label{eq:hamiltoniana-due-corpi}
+\end{equation}
+ma è più conveniente passare con una trasformazione canonica al sistema del centro di massa, studiando cos\`i il moto del centro di massa e della distanza tra i due corpi
+\begin{equation}
+	\vec X\defeq\frac{m_1\vec x_1+m_2\vec x_2}{m_1+m_2}\qeq\vec x\defeq\vec x_1-\vec x_2.
+	\label{eq:coordinate-moto-relativo}
+\end{equation}
+Gli impulsi coniugati risultano essere
+\begin{equation}
+	\vec P=\vec p_1+\vec p_2\qeq\vec p=\frac{m_2\vec p_1-m_1\vec p_2}{m_1+m_2}
+	\label{eq:impulsi-moto-relativo}
+\end{equation}
+per cui introducendo la massa totale $M\defeq m_1+m_2$ e la massa ridotta $\mu\defeq\frac{m_1m_2}{m_1+m_2}$ abbiamo l'hamiltoniana
+\begin{equation}
+	\mathcal H=\frac{\vec P^2}{2M}+\frac{\vec p^2}{2\mu}+V(\norm{\vec x})
+	\label{eq:hamiltoniana-moto-relativo}
+\end{equation}
+evidentemente scomponibile come somma di due hamiltoniane distinte, una per il centro di massa (nelle coordinate $\vec X,\vec P$) e una del moto relativo dei due corpi (nelle coordinate $\vec x,\vec p$), che commutano.
+La prima delle due tra l'altro è l'hamiltoniana di una particella libera: essendo $\vec X$ ciclica l'impulso totale $\vec P$ si conserva.
+Possiamo dunque studiare il problema separatamente, e d'ora in poi ci interessiamo soltanto al moto relativo.
+Per quanto riguarda la massa ridotta, se uno dei due corpi ha massa molto minore possiamo trascurare quest'ultima: è il caso (che studieremo) del sistema protone-elettrone, in cui $m_e\ll m_p$, e potremo approssimare $\mu\approx m_p$.
+Inoltre il potenziale $V(\norm{\vec x})$ è centrale, quindi il momento angolare si conserva e $\{H,\vec L\}=0$: possiamo quindi decomporre il termine $\vec p^2$ come $\vec p^2=p_r^2+\frac{L^2}{r^2}$ ottenendo l'hamiltoniana
+\begin{equation}
+	\mathcal H=\frac{p_r^2}{2\mu}+\frac{L^2}{2\mu r^2}+V(r)
+	\label{eq:hamiltoniana-radiale}
+\end{equation}
+in cui entrambe le variabili angolari sono cicliche.
+Possiamo ulteriormente semplificare la funzione accorpando il termine $\frac{L^2}{2\mu r^2}$, che dipende solo dalla posizione, nel potenziale, formando cos\`i il \emph{potenziale efficace} $V_\textup{eff}(r)$.
+Ci siamo ridotti quindi a un problema unidimensionale nella variabile $r$, con l'unico accorgimento che essa non varia in $\R$ ma in $[0,+\infty)$.
+
+Applicando quando ricavato al caso quantistico, in dimensione $d=3$ l'operatore $\op{\vec p}^2$ è scritto in rappresentazione di Schr\"odinger delle coordinate, secondo la \eqref{eq:laplaciano-momento-angolare}, come
+\begin{equation}
+	-\hbar^2\frac1{r^2}\drp{}{r}r^2\drp{}{r}=-\frac{\hbar^2}{r^2}\bigg(2r\drp{}{r}+r^2\ddrp{}{r}\bigg)=-\hbar^2\bigg(\frac2{r}\drp{}{r}+\ddrp{}{r}\bigg).
+\end{equation}
+Con l'uguaglianza $p_r^2=\frac1{r}p_r^2r$ possiamo infine riscrivere l'equazione di Schr\"odinger in questa rappresentazione come
+\begin{equation}
+	-\frac{\hbar^2}{2\mu}\frac1{r}\ddrp{}{r}\big(r\psi(r,\phi,\theta)\big)+\frac{\hbar^2l(l+1)}{r^2}\psi(r,\phi,\theta)+V(r)\psi(r,\phi\theta)=E\psi(r,\phi,\theta).
+	\label{eq:schrodinger-moto-relativo}
+\end{equation}
+La ciclicità delle variabili angolari ci permette di fattorizzare la funzione d'onda in una parte radiale $R(r)$ e una angolare $Y(\phi,\theta)$.
+Sappiamo dal capitolo precedente che la parte radiale $R$ soddisfa un'equazione dipendente dall'energia $E$ del sistema e dal numero quantico $l$ associato all'autovalore di $\op L^2$, mentre la parte angolare $Y$ soddisfa due equazioni dipendenti dall'autovalore $m$ di $\op L_3$ e da $l$.
+Identifichiamo dunque le soluzioni accettabili della \eqref{eq:schrodinger-moto-relativo} con questi tre numeri, scrivendo
+\begin{equation}
+	\psi(r,\phi,\theta)=\psi_{E,l,m}(r,\phi,\theta)=R_{E,l}(r)Y_{l,m}(\phi,\theta).
+	\label{eq:fattorizzazione-wf-radiale-angolare}
+\end{equation}
+Nell'equazione \eqref{eq:schrodinger-moto-relativo} possiamo quindi semplificare il fattore $Y_{l,m}$ ottenendo un'equazione solo per $R$.
+Notiamo inoltre che la derivata seconda in $r$ agisce non su $R(r)$ soltanto, ma su $rR(r)$: moltiplicando i due membri a sinistra per $r$ (che commuta con i restanti termini) abbiamo dunque un'equazione differenziale per $rR(r)$, ossia
+\begin{equation}
+	-\frac{\hbar^2}{2\mu}\ddrp{}{r}\big(rR(r))+\frac{\hbar^2l(l+1)}{r^2}rR(r)+V(r)rR(r)=ErR(r).
+\end{equation}
+Appare naturale a questo punto definire $u(r)\defeq rR(r)$, ottenendo l'equazione
+\begin{equation}
+	-\frac{\hbar^2}{2\mu}u''(r)+V_\textup{eff}(r,l)u(r)=Eu(r),\hspace{1cm}\text{con }V_\textup{eff}(r,l)=\frac{\hbar^2l(l+1)}{r^2}+V(r).
+	\label{eq:schrodinger-moto-relativo-potenziale-efficace}
+\end{equation}
+Questa definizione non semplifica solo l'equazione di Schr\"odinger, ma anche la condizione di normalizzazione: supponendo di aver normalizzato la parte angolare con
+\begin{equation}
+	\int_0^{2\pi}\int_0^\pi\abs{Y_{l,m}(\phi,\theta)}^2\sin\theta\,\dd\phi\,\dd\theta=1,
+	\label{eq:normalizzazione-parte-angolare}
+\end{equation}
+la normalizzazione per la funzione d'onda diventa in questo modo
+\begin{multline}
+	1=\int_{\R^3}\abs{\psi(\vec x)}^2\,\dd^3x=\int_0^{+\infty}\int_0^{2\pi}\int_0^\pi\abs{R_{E,l}(r)Y_{l,m}(\phi,\theta)}^2r^2\sin\theta\,\dd\phi\,\dd\theta\,\dd r=\\
+	=\int_0^{+\infty}r^2\abs{R_{E,l}(r)}^2\,\dd r=\int_0^{+\infty}\abs{u_{E,l}(r)}^2\,\dd r
+	\label{eq:normalizzazione-parte-radiale}
+\end{multline}
+che tanto somiglia al caso unidimensionale.
+Non c'è alcuna ragione per cui $R$ debba essere nulla per $r=0$, ma perlomeno deve essere continua e limitata quindi necessariamente si deve avere
+\begin{equation}
+	0=\lim_{r\to 0^+}rR(r)=\lim_{r\to 0^+}u(r)
+\end{equation}
+che è un'utile condizione al contorno per la funzione $u$.
+
+\section{L'atomo di idrogeno}
+Per l'atomo di idrogeno abbiamo l'energia potenziale elettrostatica $V(r)=-\frac{e^2}{r}$, posseduta da un elettrone in orbita attorno ad un protone.
+Più in generale, possiamo considerare il moto dell'elettrone in un campo elettrostatico centrale, generato da una carica puntiforme $Ze$ nell'origine, ossia con il potenziale
+\begin{equation}
+	V(r)=-\frac{Ze^2}{r}.
+	\label{eq:potenziale-elettrostatico}
+\end{equation}
+Il sistema è dunque caratterizzato (classicamente) dalla funzione hamiltoniana
+\begin{equation}
+	\mathcal H=\frac{\vec p^2}{2\mu}-\frac{Ze^2}{r}
+	\label{eq:hamiltoniana-idrogeno}
+\end{equation}
+e il corrispondente operatore si scrive, nella rappresentazione di Schr\"odinger della posizione (in coordinate sferiche), diagonalizzando contemporaneamente $\op L^2$ e $\op L_3$ come
+\begin{equation}
+	-\frac{\hbar^2}{2\mu}\frac1{r}\ddrp{}{r}r+\frac{\hbar^2l(l+1)}{2\mu r^2}-\frac{Ze^2}{r}.
+	\label{eq:hamiltoniano-idrogeno-schroedinger}
+\end{equation}
+Abbiamo già visto che possiamo approssimare la massa ridotta con la massa del protone, o in generale della carica puntiforme al centro dell'orbita, per cui d'ora in poi scriveremo $m$ al posto di $\mu$ intendendo questa approssimazione.
+Vale quanto detto nella sezione precedente per la fattorizzazione della funzione d'onda, l'equazione di Schr\"odinger per $u(r)=rR(r)$ e le condizioni di normalizzazione.
+
+Il potenziale efficace, dato dall'equazione \eqref{eq:schrodinger-moto-relativo-potenziale-efficace}, tende a zero per $r\to+\infty$, a $+\infty$ per $r\to 0^+$ e ammette un minimo assoluto negativo.
+Se dunque $E<0$ l'hamiltoniano ammetterà uno spettro discreto, e si trovano degli stati legati; se invece $E>0$ avrà uno spettro continuo, ma non degenere, con stati non legati.
+Esaminiamo il comportamento asintotico delle soluzioni: per $r\to+\infty$ il potenziale diventa trascurabile rispetto a qualunque valore di $E$ che non sia zero, perciò approssimiamo l'equazione di Schr\"odinger come
+\begin{equation}
+	u''(r)=\frac{2m\abs{E}}{\hbar^2}u(r)=\beta^2u(r)
+	\label{eq:schroedinger-idrogeno-approx-inf}
+\end{equation}
+in cui $\beta\defeq\frac{\sqrt{2m\abs{E}}}{\hbar}$.
+La soluzione generale dell'equazione è $u(r)=c_1e^{-\beta r}+c_2e^{\beta r}$ in cui chiaramente dobbiamo porre $c_2=0$.
+Per $r\to 0^+$, invece, sono i termini $E+\frac{Ze^2}{r}$ ad essere trascurabili rispetto al termine proporzionale a $1/r^2$, quindi approssimiamo l'equazione come
+\begin{equation}
+	-\frac{\hbar^2}{2m}u''(r)+\frac{\hbar^2l(l+1)}{2mr^2}u(r)=0\qqq u''(r)-\frac{l(l+1)}{r^2}u(r)=0.
+	\label{eq:schroedinger-idrogeno-approx-0}
+\end{equation}
+Ipotizziamo in questo caso che $u(r)\sim r^s$: otteniamo $u''(r)=s(s-1)r^{s-2}$ da cui l'equazione
+\begin{equation}
+	s(s-1)r^{s-2}-\frac{l(l+1)}{r^2}r^s=0\qqq s(s-1)=l(l+1)
+\end{equation}
+da cui $s=-l$ oppure $s=l+1$.
+Escludendo $s=-l$ poich\'e deve risultare $u(0)=0$ (e $l$ non è negativo), otteniamo che asintoticamente per $r\to 0^+$ si ha $u(r)\sim r^{l+1}$, ossia $R(r)\sim r^l$: la probabilità di misurare la posizione (della particella in orbita) vicino al nucleo è tanto più piccola maggiore è il momento angolare orbitale del sistema.
+
+Sapendo che la funzione $u(r)$ decade all'infinito come $e^{-\beta r}$, proviamo a risolvere l'equazione di Schr\"odinger con una funzione $u(r)=f(r)e^{-\beta r}$.
+Troviamo, poich\'e $E=-\beta^2\frac{\hbar^2}{2m}$,
+\begin{equation}
+	\begin{gathered}
+		-\frac{\hbar^2}{2m}\big[f''(r)-2\beta f'(r)+\beta^2 f(r)\big]e^{-\beta r}+\frac{\hbar^2l(l+1)}{2mr^2}f(r)e^{-\beta r}-\frac{Ze^2}{r}f(r)e^{-\beta r}+\beta^2\frac{\hbar^2}{2m}f(r)e^{-\beta r}=0\\
+		-\frac{\hbar^2}{2m}\big[f''(r)-2\beta f'(r)\big]+\bigg[\frac{\hbar^2l(l+1)}{2mr^2}-\frac{Ze^2}{r}\bigg]f(r)=0\\
+		f''(r)-2\beta f'(r)-\frac{l(l+1)}{r^2}f(r)+\frac{2mZe^2}{\hbar^2r}f(r)=0.
+	\end{gathered}
+\end{equation}
+Sviluppiamo ora $f$ in serie di potenze di $r$: tenendo conto che per $r\to 0^+$ si ha $u(r)\sim r^{l+1}$, scriviamo $f(r)=r^{l+1}\sum_{k=0}^{+\infty}a_kr^k$, supponendo di conseguenza anche che $a_0\ne 0$ (possiamo fissare $a_0=1$).
+Inserendo lo sviluppo nell'equazione trovata otteniamo
+\begin{equation}
+	\begin{gathered}
+		\sum_{k=0}^{+\infty}a_k\bigg[(k+l+1)(k+l)r^{k+l-1}-2\beta(k+l+1)r^{k+l}-l(l+1)r^{k+l-1}+\frac{2mZe^2}{\hbar^2}r^{k+l}\bigg]=0\\
+		\sum_{k=0}^{+\infty}a_k\big[(k+l+1)(k+l)-l(l+1)\big]r^{k+l-1}+\sum_{k=0}^{+\infty}a_k\bigg[\frac{2mZe^2}{\hbar^2}-2\beta(k+l+1)\bigg]r^{k+l}=0
+	\end{gathered}
+\end{equation}
+e traslando gli indici della prima somma ($k\mapsto k+1$) troviamo
+\begin{equation}
+	\sum_{k=0}^{+\infty}\bigg\{a_{k+1}\big[(k+l+2)(k+l+1)-l(l+1)\big]-a_k\bigg[2\beta(k+l+1)-\frac{2mZe^2}{\hbar^2}\bigg]\bigg\}r^{k+l}=0
+\end{equation}
+da cui la relazione di ricorrenza
+\begin{equation}
+	a_{k+1}=\frac{2\beta(k+l+1)-\frac{2mZe^2}{\hbar^2}}{(k+l+2)(k+l+1)-l(l+1)}a_k,\hspace{1cm}\text{con }a_0=1.
+\end{equation}
+Per grandi valori di $k$ possiamo approssimarla con
+\begin{equation}
+	a_{k+1}\sim\frac{2\beta(k+l+1)}{(k+l+2)(k+l+1)}a_k\sim\frac{2\beta}{k}a_k
+\end{equation}
+e iterando fino a $k=0$ (ossia sostituendo $a_k$ per ricorrenza con $\frac{2\beta}{k-1}a_{k-1}$ e cos\`i via) otteniamo
+\begin{equation}
+	a_k\sim\frac{(2\beta)^k}{k!}
+\end{equation}
+La serie di potenze che ne risulta per $f(r)$ converge, però il limite è $e^{2\beta r}$ da cui segue $u(r)\sim e^{\beta r}$ per $r\to+\infty$, un risultato chiaramente non accettabile.
+Deve esistere quindi un certo indice $\bar{k}\in\N$ tale per cui $a_{\bar{k}}=0$, da cui $a_k=0$ $\forall k\ge\bar{k}$ in modo da troncare la serie.
+Con questa ipotesi la $f(r)$ è dunque un polinomio di grado $\bar{k}+l-1$, inoltre risulta
+\begin{equation}
+	\beta(\bar{k}+l+1)=\frac{mZe^2}{\hbar^2}\qqq\frac{\sqrt{2m\abs{E}}}{\hbar}(\bar{k}+l+1)=\frac{mZe^2}{\hbar^2}
+\end{equation}
+e definendo $n\defeq\bar{k}+l+1$ abbiamo
+\begin{equation}
+	\sqrt{2m\abs{E}}=\frac{mZe^2}{n\hbar}\qqq E=-\frac{Z^2me^4}{2n^2\hbar^2}
+	\label{eq:energia-idrogeno}
+\end{equation}
+che mostra la quantizzazione dei livelli energetici degli stati legati (ricordando che in questo caso $E<0$).
+Notiamo che i livelli non sono equidistanti, ma la separazione diminuisce più $E$ si avvicina a zero.
+Il numero $n$ è chiamato \emph{numero quantico principale} e con esso (al posto di $E$) etichettiamo le funzioni d'onda, che scriveremo come $\psi_{n,l,m}$ con $n\in\N$, $l\in\N_0$ e $m\in[-l,l]\subset\Z$.
+Notiamo inoltre che la grandezza $\frac{\hbar^2}{me^2}$ ha le dimensioni di una lunghezza: non a caso è detta \emph{raggio di Bohr} (indicato con $r_B$).
+Con esso scriviamo la funzione d'onda dello stato $\ket{n,l,m}$
+\begin{equation}
+	\psi_{n,l,m}(r,\phi,\theta)=e^{-Zr/nr_B}r^lY_{l,m}(\phi,\theta)\sum_{j=0}^{\bar{k}}a_jr^j.
+	\label{eq:wf-idrogeno}
+\end{equation}
+\input{grafici/autofunzioni-radiali-idrogeno}
+Vediamo quindi, dal fattore $\exp\big(\frac{Z}{n}\frac{r}{r_B}\big)$, che all'aumentare di $Z$ la funzione d'onda è ``più grande'' vicino al nucleo, mentre per $n$ grande tende ad ``allontanarsi''.
+
+Con l'aiuto della \eqref{eq:ricorsione-momenti-pdf-posizione-unidimensionale} possiamo calcolare alcuni valori medi negli autostati $\ket{n,l,m}$, che ci torneranno anche utili più avanti.
+Per avere un hamiltoniano della forma $\frac1{2m}\op p_r^2+V(\op r)$ è necessario prendere come potenziale il potenziale efficace\footnote{
+	Trovandoci in un autostato dell'hamiltoniano, possiamo sostituire il quadrato del momento angolare orbitale $\op{\vec L}^2$ con il suo autovalore $l(l+1)\hbar^2$.
+}
+\begin{equation}
+	V_\textup{eff}(r)=\frac{l(l+1)\hbar^2}{2mr^2}-\frac{Ze^2}{r}
+\end{equation}
+per cui il secondo membro della \eqref{eq:ricorsione-momenti-pdf-posizione-unidimensionale} è
+\begin{equation}
+	\begin{split}
+		&\frac12\avg{r^kV'}+k\avg{r^{k-1}(V-E)}=\\
+		=&\frac12\bigg(-\frac{l(l+1)\hbar^2}{m}\avg{r^{k-3}}+Ze^2\avg{r^{k-2}}\bigg)+k\bigg(\frac{l(l+1)\hbar^2}{2m}\avg{r^{k-3}}-Ze^2\avg{r^{k-2}}-E\avg{r^{k-1}}\bigg)=\\
+		=&\frac{l(l+1)\hbar^2}{2m}(k-1)\avg{r^{k-3}}+Ze^2\bigg(\frac12-k\bigg)\avg{r^{k-2}}-kE\avg{r^{k-1}},
+	\end{split}
+\end{equation}
+per cui abbiamo l'equazione di ricorsione
+\begin{equation}
+	\frac{\hbar^2}{8m}\big[k(k-1)(k-2)-4l(l+1)(k-1)\big]\avg{r^{k-3}}+Ze^2\bigg(k-\frac12\bigg)\avg{r^{k-2}}+kE\avg{r^{k-1}}=0.
+	\label{eq:ricorsione-momenti-pdf-radiale-atomo-idrogeno}
+\end{equation}
+\begin{itemize}
+	\item Per $k=1$ troviamo $\frac{Ze^2}2\avg{r^{-1}}+E=0$, ossia $\avg{r^{-1}}=-2E/Ze^2$.\footnote{
+			È importante ricordare che $\avg{1/r}\ne1/\avg{r}$, dato che $1/r$ non è una funzione lineare in $r$.
+			Solitamente però sono dello stesso ordine di grandezza.
+		}
+		Sostituendo ad $E$ il valore ricavato nella \eqref{eq:energia-idrogeno} troviamo
+		\begin{equation}
+			\avg{r^{-1}}=-\frac2{Ze^2}\bigg(-\frac{mZ^2e^4}{2n^2\hbar^2}\bigg)=\frac{mZe^2}{n^2\hbar^2}=\frac1{n^2}\frac{Z}{r_B}.
+            \label{eq:valore-medio-r^-1-idrogeno}
+		\end{equation}
+		È interessante come questo risultato dipenda da solo uno dei tre numeri quantici introdotti.
+	\item Per $k=2$ si trova l'equazione
+		\begin{equation}
+			=-\frac{\hbar^2}{2m}l(l+1)\avg{r^{-1}}+\frac32Ze^2+2E\avg{r}=-\frac{l(l+1)Ze^2}{2n^2}+\frac32Z^2-\frac{mZ^2e^4}{n^2\hbar^2}\avg{r}
+		\end{equation}
+		da cui si ottiene il valor medio della distanza dell'elettrone dal centro
+		\begin{equation}
+			\avg{r}=\frac{n^2\hbar^2}{mZ^2e^4}\bigg[\frac32Ze^2-\frac{l(l+1)Ze^2}{2n^2}\bigg]=\frac{\hbar^2}{mZe^2}\bigg(\frac32n^2-\frac{l(l+1)}2\bigg)=\frac{r_B}{2Z}\big[3n^2-l(l+1)\big]
+		\end{equation}
+	\item Per $k=3$ infine abbiamo
+		\begin{equation}
+			\begin{split}
+				0&=\frac{\hbar^2}{8m}\big[6-8l(l+1)\big]+\frac52Ze^2\avg{r}+3E\avg{r^2}=\\
+				&=\frac{\hbar^2}{4m}\big[3-4l(l+1)\big]+\frac52Ze^2\frac{r_B}{2Z}\big[3n^2-l(l+1)\big]-\frac{3mZ^2e^4}{2n^2\hbar^2}\avg{r^2}=\\
+				&=\frac{\hbar^2}{4m}\big[3-4l(l+1)\big]+\frac{5\hbar^2}{4m}\big[3n^2-l(l+1)\big]-\frac{3mZ^2e^4}{2n^2\hbar^2}\avg{r^2}
+			\end{split}
+		\end{equation}
+		da cui otteniamo
+		\begin{equation}
+			\avg{r^2}=\frac{n^2\hbar^4}{6mZ^2e^4}\big[3-4l(l+1)+15n^2-5l(l+1)\big]=\frac{n^2r_B^2}{2Z^2}\big[5n^2-3l(l+1)+1\big].
+		\end{equation}
+\end{itemize}
+Per le potenze $r^k$ con $k$ negativo non possiamo usare questo metodo, ma possiamo affidarci al teorema \ref{t:dipendenza-hamiltoniano-parametro}: scegliamo come parametro il numero quantico $l$, ricordando che $n=\bar{k}+l+1$.
+Allora
+\begin{equation}
+	\drp{\op H}{l}=\frac{(2l+1)\hbar^2}{2mr^2},
+	\hspace{1cm}
+	\drp{E}{l}=-\frac{mZ^2e^4}{2\hbar^2}\drp{}{l}\frac1{(\bar{k}+l+1)^2}=\frac{mZ^2e^4}{(\bar{k}+l+1)^3\hbar^2}=\frac{mZ^2e^4}{n^3\hbar^2}
+\end{equation}
+e con il teorema sopracitato abbiamo l'equazione
+\begin{equation}
+	\frac{mZ^2e^4}{n^3\hbar^2}=\bra{n,l,m}\frac{(2l+1)\hbar^2}{2mr^2}\ket{n,l,m}=\frac{(2l+1)\hbar^2}{2m}\avg{r^{-2}}
+\end{equation}
+da cui
+\begin{equation}
+	\avg{r^{-2}}=\frac{2m^2Z^2e^4}{n^3(2l+1)\hbar^4}=\frac{2Z^2}{n^3(2l+1)r_B^2}.
+    \label{eq:valore-medio-r^-2-idrogeno}
+\end{equation}
+Per calcolare i valori medi di $r^k$ con $k<-2$ bisogna infine controllare, prima di tutto, la funzione d'onda nell'origine, ossia che l'integrale
+\begin{equation}
+	\int_0^{+\infty}r^{2l}\frac1{r^k}r^2\,\dd r
+\end{equation}
+converga: questo accade per $k<2l+3$.
+
+Lo stato fondamentale $\ket{1,0,0}$ (se $n=1$ allora $\bar{k}=l=0$, non potendo essere negativi) è caratterizzato dalla funzione d'onda $\psi_{1,0,0}(r,\phi,\theta)=e^{Zr/r_B}$: il raggio di Bohr fornisce una ``scala'' per le dimensioni del sistema.
+Per $n=2$ abbiamo $\bar{k}+l=1$, da cui le possibili opzioni $l=0,\bar{k}=1$ oppure $l=1,\bar{k}=0$.
+Lo stato con $l=0$ ha necessariamente anche $m=0$, dunque corrisponde a $\ket{2,0,0}$.
+Se invece $l=1$, possiamo avere $m=\pm 1$: in totale per $l=1$ troviamo dunque tre stati indipendenti, caratterizzati dalle tre armoniche sferiche $Y_{1,-1}$, $Y_{1,0}$ e $Y_{1,1}$.
+Per $n=3$ troviamo nove stati, e cos\`i via: ad ogni livello energetico corrispondono più stati indipendenti, con momento angolare differente.
+Il livello $n$-esimo è quindi degenere, e ammette in totale
+\begin{equation}
+	\sum_{l=0}^{n-1}(2l+1)=2\sum_{l=0}^{n-1}l+\sum_{l=0}^{n-1}1=2\frac{n(n-1)}2+n=n^2
+\end{equation}
+stati.
+Essendo il sistema a simmetria centrale, in effetti, tutte le componenti del momento angolare commutano con l'hamiltoniano, ma non tra di loro; questo, per il teorema \ref{t:degenerazione}, è indice della degenerazione dell'hamiltoniano.
+
+\section{Una simmetria nascosta}
+Per quanto visto finora, la simmetria sferica del potenziale del problema a due corpi fa s\`i che il momento angolare orbitale $\vec L$ sia una costante del moto, portando alla degenerazione dei livelli di energia, fissati i numeri quantici $n$ e $l$, in $2l+1$ stati.
+Per l'atomo di idrogeno abbiamo visto però un'ulteriore degenerazione: all'$n$-esimo livello di energia esistono $n^2$ differenzi stati, al variare di $l$ tra $0$ e $n-1$, in quella che è chiamata \emph{degenerazione accidentale}.
+Come vedremo in questa sezione, essa è collegata ad un'altra simmetria del sistema.
+
+\paragraph{Il problema di Keplero}
+Ciò che caratterizza l'atomo di idrogeno è il potenziale $-\alpha/r$, del più generale problema di Keplero: vediamone le caratteristiche principali.
+Sappiamo che si conservano l'energia $E$ e il momento angolare orbitale $\vec L$, dunque
+\begin{equation}
+	E=H=\frac1{2m}p_r^2+\frac{L^2}{2mr^2}-\frac{\alpha}{r}=\frac{m}{2}\dot{r}^2+\frac{L^2}{2mr^2}-\frac{\alpha}{r}\defeq\frac{m}{2}\dot{r}^2+V_\textup{eff}(r)
+	\label{eq:energia-keplero}
+\end{equation}
+da cui otteniamo
+\begin{equation}
+	\dot{r}=\sqrt{\frac2{m}\big[E-V_\textup{eff}(r)\big]}
+	\label{eq:velocita-radiale-keplero}
+\end{equation}
+e da $L=mr^2\dot{\phi}$ otteniamo un'equazione differenziale per $\phi$ in funzione di $r$,
+\begin{equation}
+	\drv{\phi}{r}=\drv{\phi}{t}\drv{t}{r}=\frac{\dot{\phi}}{\dot{r}}.
+\end{equation}
+Integrando in $r$, dopo un'inversione si ottiene l'equazione dell'orbita
+\begin{equation}
+	\frac{L^2}{m\alpha^2}\frac1{r}=1+\sqrt{1+\frac{2EL^2}{m\alpha^2}}\cos\phi
+	\label{eq:orbita-keplero}
+\end{equation}
+che è l'equazione di una conica
+\begin{equation}
+	r=\frac{P}{1+\epsilon\cos\phi}
+	\label{eq:conica-parametrica}
+\end{equation}
+di parametro $P=L^2/m\alpha^2$ ed eccentricità $\epsilon=\sqrt{1+\frac{2EL^2}{m\alpha^2}}$.
+Notiamo che si ha un ellisse se l'eccentricità è minore di $1$, che accade per $E<0$ in cui abbiamo degli stati legati.
+In questa situazione, dalla \eqref{eq:conica-parametrica} vediamo inoltre che il raggio minimo (ossia la distanza minima dal fuoco da cui è misurato) è $r_\textup{min}=\frac{P}{1+\epsilon}$ mentre il raggio massimo è $r_\textup{max}=\frac{P}{1-\epsilon}$.
+Indicando con $a$ il semiasse maggiore e con $c$ la semidistanza focale, dalla relazione $\epsilon=c/a$ che definisce l'eccentricità abbiamo anche $r_\textup{min}=a-c=a(1-\epsilon)$ e $r_\textup{max}=a+c=a(1+\epsilon)$, da cui
+\begin{equation}
+	a=\frac{P}{1-\epsilon^2}=\frac{\alpha}{2\abs{E}}\hspace{1cm}\text{e}\hspace{1cm}b=a\sqrt{1-\epsilon^2}=\frac{P}{\sqrt{1-\epsilon^2}}=\frac{L}{\sqrt{2m\abs{E}}}
+	\label{eq:semiassi-keplero}
+\end{equation}
+dove $b$ è il semiasse maggiore, tale che $a^2=b^2+c^2$.
+
+\paragraph{Il vettore di Lenz}
+Una caratteristica unica del problema di Keplero è che il vettore
+\begin{equation}
+	\vec A=\alpha\frac{\vec x}{r}+\frac1{m}\vec L\times\vec p,
+	\label{eq:vettore-runge-lenz}
+\end{equation}
+con $r=\norm{\vec x}$, detto \emph{vettore di Lenz}, è una costante del moto.\footnote{Noto anche come vettore di Runge-Lenz, vettore di Laplace-Runge-Lenz o solo vettore di Laplace.}\footnote{Questa definizione è una delle tante possibili. Una formulazione equivalente si ha se $\vec A$ è moltiplicato per $m$ (che è un'altra costante del moto, quindi non cambia i risultati se non per un fattore moltiplicativo) o se ne si cambia il segno.}
+È un vettore che, dal centro di massa del sistema (il fuoco in cui è misurato l'angolo), punta verso il periapside.
+Nel caso l'orbita sia circolare non esiste un periapside in quanto tutti i punti sono equidistanti dal centro, e in tal caso $\vec A$ è nullo.
+Questo vettore ha delle proprietà interessanti: per prima cosa abbiamo
+\begin{equation}
+	\scalar{\vec x}{\vec A}=\alpha r+\frac1{m}\scalar{\vec x}{(\vec L\times\vec p)}=\alpha r+\frac1{m}\scalar{\vec L}{(\vec p\times\vec x)}=\alpha r-\frac{L^2}{m}.
+\end{equation}
+Posto $\scalar{\vec x}{\vec A}=Ar\cos\phi$, si ottiene proprio l'equazione dell'orbita \eqref{eq:conica-parametrica} nella forma
+\begin{equation}
+	\frac{L^2}{\alpha m}\frac1{r}=1-\frac{A}{\alpha}\cos\phi
+	\label{eq:orbita-keplero-vettore-lenz}
+\end{equation}
+che mostra anche come l'eccentricità dell'orbita sia data da $A/\alpha$.
+Infatti risulta
+\begin{multline}
+	A^2=\alpha^2+\frac1{m^2}\scalar{(\vec L\times\vec p)}{(\vec L\times\vec p)}+2\frac{\alpha}{rm}\scalar{\vec x}{(\vec L\times\vec p)}=\\
+	=\alpha^2+\frac{L^2p^2}{m^2}-\frac{2\alpha L^2}{rm}=\alpha^2+\frac{2L^2}{m}\bigg(\frac{p^2}{2m}-\frac{\alpha}{r}\bigg)=\alpha^2+\frac{2EL^2}{m}
+\end{multline}
+da cui
+\begin{equation}
+	\frac{A}{\alpha}=\sqrt{1+\frac{2EL^2}{m\alpha^2}}
+\end{equation}
+che è proprio l'eccentricità dell'orbita.
+La conservazione di questo vettore non corrisponde, come per il momento angolare, a una caratteristica geometrica del sistema: non c'è nell'hamiltoniana una coordinata ciclica di cui esso è il momento coniugato, e la sua conservazione deve essere calcolata esplicitamente con le parentesi di Poisson.
+D'altro canto, a questa conservazione corrisponde una simmetria del sistema maggiore a quella data dal gruppo $SO(3)$ delle rotazioni generate da $\vec L$.
+Questo fatto è stato sfruttato da Wolfgang Pauli per calcolare lo spettro dell'atomo di idrogeno senza usare l'equazione di Schr\"odinger, come abbiamo fatto in precedenza.
+
+Associamo quindi a questo vettore l'operatore $\op{\vec A}$ definito da
+\begin{equation}
+	\op{\vec A}\defeq\frac{\alpha\op{\vec x}}{\op r}-\frac1{2m}(\op{\vec L}\times\op{\vec p}-\op{\vec p}\times\op{\vec L})
+	\hspace{.5cm}\text{cioè}\hspace{.5cm}
+	\op A_i\defeq \frac{\alpha \op x_i}{\op r}+\frac1{2m}\epsilon_{ijk}(L_jp_k+p_kL_j).
+	\label{eq:operatore-vettore-lenz}
+\end{equation}
+con $\op r=\sqrt{\op x_k\op x_k}$.
+È necessario ``simmetrizzare'' la definizione \eqref{eq:vettore-runge-lenz}, poich\'e $\op{\vec L}$ e $\op{\vec p}$ non sono compatibili (in generale), e si avrebbe un'ambiguità su come ordinare i due fattori.
+In pratica dunque sostituiamo $\epsilon_{ijk}L_jp_k$ con $\frac12\epsilon_{ijk}(L_jp_k+p_kL_j)$ o equivalentemente, senza riferirsi alle coordinate, $\op{\vec L}\times\op{\vec p}$ con $\frac12(\op{\vec L}\times\op{\vec p}-\op{\vec p}\times\op{\vec L})$.
+
+Essendo $\frac{\op{\vec x}}{\op r}$, $\vec{\op L}$ e $\op{\vec p}$ degli operatori vettoriali, lo sono anche $\op{\vec L}\times\op{\vec p}$ e $\op{\vec p}\times\op{\vec L}$, di conseguenza anche $\op{\vec A}$ lo è, essendo combinazione lineare di tali operatori.
+Ciò significa che, sotto ad una rotazione, esso si trasforma secondo l'equazione
+\begin{equation}
+	[\op L_i,\op A_j]=i\hbar\epsilon_{ijk}A_k.
+	\label{eq:commutazione-A-L}
+\end{equation}
+Completiamo il quadro delle costanti del moto con i commutatori di $\op{\vec A}$ con s\'e stesso e con l'hamiltoniano: risultano
+\begin{equation}
+	[\op H,\op A_i]=0\hspace{1cm}\text{e}\hspace{1cm}[\op A_i,\op A_j]=-i\hbar\epsilon_{ijk}\op L_k\frac2{m}\op H
+\end{equation}
+la prima coerentemente con il fatto che il vettore di Lenz è una costante del moto.
+Anticipiamo inoltre il risultato $\scalar{\op{\vec A}}{\op{\vec L}}=\scalar{\op{\vec L}}{\op{\vec A}}=0$: si può vedere facilmente dal fatto che il vettore del momento angolare, per definizione, è ortogonale a $\vec x$, e analogamente $\vec L\times\vec p$ e $\vec p\times\vec L$ sono ortogonali a $\vec L$.
+Riassumendo, abbiamo le relazioni di commutazione
+\begin{equation}
+	\begin{aligned}
+		[\op H,\op L_i]&=0\\
+		[\op H,\op A_i]&=0\\
+		[\op L_i,\op L_j]&=i\hbar\epsilon_{ijk}\op L_k\\
+		[\op L_i,\op A_j]&=i\hbar\epsilon_{ijk}\op A_k\\
+		[\op A_i,\op A_j]&=-i\hbar\epsilon_{ijk}\op L_k\frac2{m}\op H.
+	\end{aligned}
+	\label{eq:commutazione-hamiltoniano-momento-angolare-lenz}
+\end{equation}
+
+Siamo interessati, a questo punto, a ``normalizzare'' il vettore di Lenz in modo da semplificare l'ultima di queste relazioni.
+Chiaramente dividerlo per la radice quadrata dell'hamiltoniano è un processo difficile da definire, quindi semplifichiamo il problema restringendoci in un autospazio $\hilbert_E$ di $\op H$, corrispondente all'autovalore $E$.
+In esso, applicare $\op H$ corrisponde semplicemente a moltiplicare per $E$, e cos\`i risolviamo la questione della radice quadrata.
+In virtù delle prime due relazioni nella \eqref{eq:commutazione-hamiltoniano-momento-angolare-lenz}, se $\ket{\psi}$ è in tale autostato allora vi appartengono anche $\op A_i\ket{\psi}$ e $\op L_i\ket{\psi}$ per $i=1,2,3$, per il lemma \ref{l:autostati-compatibili}.
+È lecito dunque restringere i tre operatori in questo autospazio.
+Definiamo dunque l'operatore, in $\hilbert_E$,
+\begin{equation}
+	\op{\vec U}=\sqrt{-\frac{m}{2E}}\op{\vec A}
+\end{equation}
+e i sei operatori
+\begin{equation}
+	\op{\vec J}_1\defeq\frac{\op{\vec L}+\op{\vec U}}2\hspace{1cm}\text{e}\hspace{1cm}\op{\vec J}_2\defeq\frac{\op{\vec L}-\op{\vec U}}2.
+	\label{eq:momento-angolare-SO4}
+\end{equation}
+Con essi abbiamo, al posto delle \eqref{eq:commutazione-hamiltoniano-momento-angolare-lenz}, le relazioni
+\begin{equation}
+	\begin{aligned}
+		[\op J_{1i},\op J_{1j}]&=
+			\frac{i\hbar}4\big([\op L_i,\op L_j]+[\op U_i,\op L_j]+[\op L_i,\op U_j]+[\op U_i,\op U_j]\big)=
+			\frac{i\hbar}4\epsilon_{ijk}(\op L_k+\op U_k+\op U_k+\op L_k)=
+			i\hbar\epsilon_{ijk}\op J_{1k}\\
+		[\op J_{2i},\op J_{2j}]&=
+			i\hbar\epsilon_{ijk}\op J_{2k}\\
+		[\op J_{1i},\op J_{2j}]&=
+			\frac{i\hbar}4\big([\op L_i,\op L_j]-[\op L_i,\op U_j]+[\op U_i,\op L_j]-[\op U_i,\op U_j]\big)=
+			\frac{i\hbar}4\epsilon_{ijk}(\op L_k-\op U_k+\op U_k-\op L_k)=
+			0.
+	\end{aligned}
+\end{equation}
+Questo mostra che i tre $\op J_{1i}$ sono la base di un'algebra di Lie $\mathscr L_1$ isomorfa a $\mathfrak{su}(2)$ (si hanno le stesse costanti di struttura a meno di costanti moltiplicative), e lo stesso vale per i tre $\op J_{2i}$ che sono la base di $\mathscr L_2\cong\mathfrak{su}(2)$.
+Poich\'e per ogni $X\in\mathscr L_1$ e $Y\in\mathscr L_2$ vale $[X,Y]=0$, le due algebre sono in somma diretta, perciò i sei operatori $\op{\vec J}_1$ e $\op{\vec J}_2$ sono la base di un'algebra isomorfa a $\mathfrak{su}(2)\oplus\mathfrak{su}(2)$.
+A sua volta $\mathfrak{su}(2)\oplus\mathfrak{su}(2)$ è isomorfa a $\mathfrak{so}(4)$, l'algebra di Lie associata al gruppo $SO(4)$, che è quindi il gruppo di simmetria del sistema.
+Abbiamo quindi trovato che $\op J_{1i}$ e $\op J_{2i}$ per $i=1,2,3$ sono sei costanti del moto che generano il gruppo delle rotazioni in quattro dimensioni.
+
+Concludiamo dunque questa parte ricavando da questi operatori lo spettro dell'atomo.
+Sfruttando le regole di commutazione, possiamo costruire anche qui degli operatori a scala che ``alzano e abbassano'' gli autovalori dei loro autostati.
+Diamo qui solamente i risultati, omettendo la dimostrazione che è analoga a quella già svolta per il momento angolare nella sezione \ref{sec:autovalori-momento-angolare}.
+Se ci troviamo in un autostato $\ket{\lambda,m_1,m_2}$ simultaneo per $\op{\vec J}_1^2$, $\op J_{13}$ e $\op J_{23}$, con
+\begin{equation}
+	\begin{aligned}
+		\op{\vec J}_1^2\ket{\lambda,m_1,m_2}&=\lambda\hbar^2\ket{\lambda,m_1,m_2},\\
+		\op J_{13}\ket{\lambda,m_1,m_2}		&=m_1\hbar\ket{\lambda,m_1,m_2},\\
+		\op J_{23}\ket{\lambda,m_1,m_2}		&=m_2\hbar\ket{\lambda,m_1,m_2}
+	\end{aligned}
+\end{equation}
+allora esiste un numero $j\in\big\{0,\frac12,1,\frac32,\dots\big\}$ tale che $m_1,m_2\in\{-j,-j+1,\dots,j\}$ e $\lambda=j(j+1)$.
+Possiamo anche indicare questo autostato direttamente con $\ket{j,m_1,m_2}$.
+La scelta di $j$ determina un insieme di $2j+1$ autostati linearmente indipendenti tutti con autovalore $j(j+1)\hbar^2$ per $\op{\vec J}_1^2$ (che è degenere).
+Dato che $\scalar{\op{\vec L}}{\op{\vec U}}=\scalar{\op{\vec U}}{\op {\vec L}}=0$ (poich\'e $\op{\vec U}$ è proporzionale ad $\op{\vec A}$) si ha inoltre
+\begin{multline}
+	\op{\vec J}_1^2=\op{\vec J}_2^2=
+	\frac14(\op{\vec L}^2+\op{\vec U}^2)=
+	\frac14\bigg(\op{\vec L}^2-\frac{m}{2E}\op{\vec A}^2\bigg)=
+	\frac14\bigg[\op{\vec L}^2-\frac{m}{2E}\bigg(\frac2{m}E(\op{\vec L}^2+\hbar^2)+\alpha^2\bigg)\bigg]=\\=
+	-\frac14\bigg(\hbar^2+\frac{m\alpha^2}{2E}\bigg)=
+	-\frac{\hbar^2}4\bigg(1+\frac{m\alpha^2}{2\hbar^2E}\bigg).
+\end{multline}
+L'energia dello stato $\ket{j,m_1,m_2}$ è dunque
+\begin{equation}
+	E=-\frac{m\alpha^2}{2\hbar^2(2j+1)^2}=-\frac{m\alpha^2}{2\hbar^2n^2}
+\end{equation}
+dove abbiamo posto $n\defeq 2j+1$.
+Notiamo che per l'atomo di idrogeno abbiamo $\alpha=e^2$ (oppure $Ze^2$ nella sua generalizzazione con una qualsiasi carica puntiforme al centro) per cui abbiamo ritrovato esattamente la \eqref{eq:energia-idrogeno}.
+Ricalcando i calcoli già fatti per il momento angolare, vediamo anche qui che per ogni $j$ si hanno proprio $(2j+1)^2=n^2$ autostati indipendenti con la stessa energia.
+

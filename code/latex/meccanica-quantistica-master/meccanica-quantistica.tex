@@ -1,0 +1,70 @@
+\documentclass[a4paper,oneside]{book}
+\usepackage{meccanica-quantistica}
+
+\hypersetup{
+	pdftitle={Meccanica Quantistica},
+	pdfauthor={Ferracin Davide},
+	pdflang={it},
+	pdfsubject={Appunti del corso di Meccanica Quantistica},
+	pdfcreator={Davide Ferracin},
+	pdfcaptionwriter={Davide Ferracin}
+	pdfcopyright={Creative Commons Attribution-ShareAlike 4.0 International},
+	pdflicenseurl={http://creativecommons.org/licenses/by-sa/4.0/},
+	pdfmetalang={it}
+}
+
+\title{
+	{\sffamily\fontsize{35}{42}\selectfont Meccanica Quantistica}
+}
+\author{
+	{\small a cura di}\\
+	Davide Ferracin
+}
+\date{}
+
+\pagestyle{headings}
+
+\addbibresource{meccanica-quantistica.bib}
+
+\begin{document}
+\frontmatter
+\maketitle
+
+% Colophon
+\null % Serve scrivere qualcosa prima di \vfill altrimenti non funziona
+\vfill % Riempie lo spazio verticale della pagina
+\hspace*{-1.5em}\includegraphics[scale=.7]{by-sa-icon.pdf}
+\begin{flushleft}
+	Quest'opera è stata rilasciata con licenza \emph{Creative Commons} Attribuzione - Condividi allo stesso modo 4.0 Internazionale. Per leggere una copia della licenza visita il sito web \url{http://creativecommons.org/licenses/by-sa/4.0/}.\\
+	2015, Davide Ferracin (\href{mailto:davide.ferracin@studenti.unimi.it}{\ttfamily davide.ferracin@studenti.unimi.it})\\[1cm]
+	Versione aggiornata al \today.
+\end{flushleft}
+
+\mainmatter
+
+\include{chapters/principi}
+\include{chapters/rappresentazioni}
+\include{chapters/oscillatore}
+\include{chapters/evoluzione-temporale}
+\include{chapters/variazioni}
+\include{chapters/sistemi-1d}
+\include{chapters/momento-angolare}
+\include{chapters/idrogeno}
+\include{chapters/perturbazioni}
+\include{chapters/spin}
+\include{chapters/multi}
+
+\backmatter
+
+% Bibliografia
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{part}{\bibname}
+\nocite{*}
+\printbibliography
+
+% Indice
+\cleardoublepage
+\pdfbookmark[-1]{Indice}{contents}
+\tableofcontents
+\end{document}

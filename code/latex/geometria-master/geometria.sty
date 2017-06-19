@@ -1,0 +1,162 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PER INCLUDERE QUESTE IMPOSTAZIONI %
+% \usepackage{mathematics}          %
+% nel preambolo del documento       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ProvidesPackage{mathematics}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pacchetti generici da caricare per i documenti
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage{microtype}
+\usepackage{mathtools}
+\usepackage{amsfonts}                                 % Richiesto per i font blackboard, i.e. \mathbb
+\usepackage{a4wide}                                   % Adatta i margini a una pagina A4 (Deprecato: è da sostituire con una variante aggiornata)
+\usepackage{amsthm}                                   % Richiesto per personalizzare gli stili dei teoremi, definizioni, etc.
+\usepackage{amssymb}                                  % Richiesto per \varnothing,\emptyset
+\usepackage{mathrsfs}                                 % Richiesto per il font \mathscr
+\usepackage{graphicx}                                 % Richiesto per includere il logo della licenza CC
+\usepackage[usenames,dvipsnames]{xcolor}              % Richiesto per definire i colori e.g. dei collegamenti di hyperref
+\usepackage{enumitem}                                 % Per creare elenchi numerati personalizzati
+\usepackage{comment}
+\usepackage{xypic}                                    % Per diagrammi commutativi
+\usepackage[bibstyle=numeric,backend=biber]{biblatex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formattazione del testo
+\usepackage{sectsty}
+% Impostazione della grandezza del font nei vari ambienti
+	\sectionfont{\large}
+	\subsectionfont{\normalsize}
+	\subsubsectionfont{\itshape}
+	\paragraphfont{\normalsize}
+
+% Stile del titolo dei capitoli
+\usepackage{titlesec}
+\titleformat{\chapter}[display]{\bfseries\Large}{Capitolo \thechapter}{12pt}{\bfseries\Huge}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Comandi vari (spaziatura, font, lettere greche etc.)
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+\newcommand{\qqq}{\quad\longrightarrow\quad} % spazio lungo + --> + spazio lungo
+\newcommand{\qeq}{\quad\text{e}\quad}        % spazio lungo + "e" + spazio lungo
+\renewcommand{\vec}[1]{\mathbf{#1}}          % (usare solo per vettori di spazi euclidei)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Simboli matematici
+\newcommand{\dd}{\textup{d}}                                   % Differenziale
+\newcommand{\abs}[1]{\left|{#1}\right|}                        % Modulo di numeri complessi / valore assoluto
+\newcommand{\norm}[1]{\left\|{#1}\right\|}                     % Norma
+\renewcommand{\emptyset}{\varnothing}                          % Insieme vuoto
+\newcommand{\then}{\Rightarrow}                                % Implicazione logica
+\renewcommand{\iff}{\Leftrightarrow}                           % "Se e solo se"
+\renewcommand{\Re}[1]{\mathfrak{R}\!\left({#1}\right)}         % Parte reale
+\renewcommand{\Im}[1]{\mathfrak{I}\!\left({#1}\right)}         % Parte immaginaria
+\newcommand{\conj}[1]{\overline{#1}}                           % Coniugato
+\newcommand{\cont}[1]{\mathscr{C}^{{#1}}}                      % Spazio delle funzioni continue (l'argomento indica la "classe" di continuità)
+\newcommand{\ab}{\big([a,b]\big)}                              % "Scorciatoia" per indicare tra parentesi leggermente più grandi ([a,b]) (i.e. quando si indica "integrabile in [a,b]" con il comando \rie)
+\newcommand{\id}{\mathbb I}                                    % Identità di uno spazio (operatore)
+\newcommand{\lin}{\mathscr L}                                  % Spazio delle applicazioni lineari
+\newcommand{\gen}[1]{\left\langle{#1}\right\rangle}            % Spazio generato (da cosa è generato, è definito nell'argomento del comando)
+\newcommand{\scalar}[2]{{#1}\cdot{#2}}                         % Prodotto scalare tra i due argomenti specificati (con il punto)
+\newcommand{\intern}[2]{\left\langle{#1},{#2}\right\rangle}    % Prodotto interno tra due vettori
+\newcommand{\hermit}[2]{\left({#1},{#2}\right)}                % Prodotto hermitiano tra due vettori
+\newcommand{\adj}[1]{{#1}^*}                                   % Coniugato trasposto (aka "aggiunto") di matrice/vettore/operatore
+\newcommand{\dvd}{|}                                           % Simbolo di "divide", come in "x divide y" (il comando \mid ha troppa spazio ai lati)
+\newcommand{\quot}{\,/\,}                                      % Simbolo per indicare lo spazio quoziente
+\newcommand{\drv}[2]{\frac{\dd {#1}}{\dd {#2}}}                % Derivata prima
+% Simbolo di uguaglianza per definizione
+\newcommand*{\defeq}{
+	\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt \hbox{\scriptsize.} \hbox{\scriptsize.}}} =
+}
+
+% OPERATORI MATEMATICI: come lim, sen, etc. che hanno dello spazio prima e dopo la parola stampata
+\DeclareMathOperator{\sgn}{sgn}   % Funzione segno
+\DeclareMathOperator{\mat}{Mat}   % Spazio delle matrici
+\DeclareMathOperator{\tr}{tr}     % Traccia
+\DeclareMathOperator{\Ker}{Ker}   % Nucleo di un'app lineare
+\DeclareMathOperator{\Imm}{Im}    % Immagine di un'app lineare (da non confondere con il comando per la parte immaginaria, \Im)
+\DeclareMathOperator{\cha}{char}  % Caratteristica di un campo (il comando \char esiste già, purtroppo)
+\DeclareMathOperator{\rk}{rk}     % Rango di una matrice/operatore
+\DeclareMathOperator{\End}{End}   % Spazio degli endomorfismi
+\DeclareMathOperator{\Aut}{Aut}   % Spazio degli automorfismi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Vettori di lettere greche (per renderle in grassetto come le lettere latine)
+\usepackage{bm,upgreek}
+\newcommand{\valpha}{\bm{\upalpha}}
+\newcommand{\vbeta}{\bm{\upbeta}}
+\newcommand{\vgamma}{\bm{\upgamma}}
+\newcommand{\vdelta}{\bm{\updelta}}
+\newcommand{\vepsilon}{\bm{\upepsilon}}
+\newcommand{\vzeta}{\bm{\upzeta}}
+\newcommand{\veta}{\bm{\upeta}}
+\newcommand{\vtheta}{\bm{\uptheta}}
+\newcommand{\viota}{\bm{\upiota}}
+\newcommand{\vkappa}{\bm{\upkappa}}
+\newcommand{\vlambda}{\bm{\uplambda}}
+\newcommand{\vmu}{\bm{\upmu}}
+\newcommand{\vnu}{\bm{\upnu}}
+\newcommand{\vxi}{\bm{\upxi}}
+\newcommand{\vpi}{\bm{\uppi}}
+\newcommand{\vrho}{\bm{\uprho}}
+\newcommand{\vsigma}{\bm{\upsigma}}
+\newcommand{\vtau}{\bm{\uptau}}
+\newcommand{\vupsilon}{\bm{\upupsilon}}
+\newcommand{\vphi}{\bm{\upvarphi}}
+\newcommand{\vchi}{\bm{\upchi}}
+\newcommand{\vpsi}{\bm{\uppsi}}
+\newcommand{\vomega}{\bm{\upomega}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Stili per i titoli dei teoremi, definizioni, etc.
+\theoremstyle{definition}
+\newtheorem{teorema}{Teorema}[section]
+\newtheorem{corollario}[teorema]{Corollario}
+\newtheorem{lemma}[teorema]{Lemma}
+\newtheorem{proprieta}[teorema]{Proprietà}
+
+\theoremstyle{plain}
+\newtheorem{definizione}[teorema]{Definizione}
+
+\theoremstyle{remark}
+\newtheorem{osservazione}[teorema]{Osservazione}
+
+% Numerazione delle equazioni: con questo comando risultano
+% numerate come (capitolo.sezione.#), dove # riparte da 1
+% all'inizio di ogni sezione
+\numberwithin{equation}{section}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Insiemi numerici
+\newcommand{\N}{\mathbb{N}} % Naturali
+\newcommand{\Z}{\mathbb{Z}} % Interi
+\newcommand{\Q}{\mathbb{Q}} % Razionali
+\newcommand{\R}{\mathbb{R}} % Reali
+\newcommand{\C}{\mathbb{C}} % Complessi
+\newcommand{\T}{\mathbb{T}} % Gruppo circolare, i.e. {z in C: |z|=1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Personalizzazione di collegamenti e segnalibri
+% Il pacchetto hyperref è da caricare per ultimo, dato che
+% sovrascrive alcuni dei comandi di LaTeX. In particolare, lo
+% fa anche il pacchetto titlesec, quindi è meglio che hyperref
+% stia dopo di esso, altrimenti comandi come \pdfbookmark non
+% funzionano correttamente.
+\usepackage{hyperxmp}
+\usepackage{hyperref}
+	\hypersetup{
+		bookmarksnumbered=true,
+		bookmarksopen=true,
+		bookmarksopenlevel=1,
+		colorlinks=true,
+		linkcolor=blue!50!black,
+		pdfstartview=Fit,
+		pdfpagemode=UseOutlines,
+		citecolor=blue!50!black
+	}
+	
